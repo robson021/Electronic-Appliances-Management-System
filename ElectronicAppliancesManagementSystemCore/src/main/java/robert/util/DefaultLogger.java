@@ -20,26 +20,31 @@ public class DefaultLogger implements AppLogger {
     }
 
     @Override
-    public void info(String msg) {
-        if (loggingLvl >= 1)
-            log.info(msg);
+    public int getLoggingLevel() {
+        return this.loggingLvl;
     }
 
     @Override
-    public void warn(String msg) {
+    public void info(Object msg) {
         if (loggingLvl >= 1)
-            log.warn(msg);
+            log.info(msg.toString());
     }
 
     @Override
-    public void debug(String msg) {
+    public void warn(Object msg) {
+        if (loggingLvl >= 1)
+            log.warn(msg.toString());
+    }
+
+    @Override
+    public void debug(Object msg) {
         if (loggingLvl == 2)
-            log.debug(msg);
+            log.info(msg.toString());
     }
 
 
     @Override
-    public void error(String msg) {
-        log.error(msg);
+    public void error(Object msg) {
+        log.error(msg.toString());
     }
 }

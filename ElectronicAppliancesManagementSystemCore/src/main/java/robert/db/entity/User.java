@@ -1,5 +1,8 @@
 package robert.db.entity;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.data.annotation.AccessType;
 import robert.exception.InvalidEmailPatternException;
 import robert.util.api.RegularExpressions;
@@ -28,6 +31,9 @@ public class User {
 
     @Column(name = "SURNAME")
     private String surname;
+
+    @Column(name = "ADMIN_PRIVILEGES")
+    private Boolean adminPrivileges = false;
 
     private boolean validateEmail(String emailStr) {
         Matcher matcher = RegularExpressions.VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
@@ -69,11 +75,50 @@ public class User {
         this.id = id;
     }
 
+    public Boolean getAdminPrivileges() {
+        return adminPrivileges;
+    }
+
+    public void setAdminPrivileges(Boolean adminPrivileges) {
+        this.adminPrivileges = adminPrivileges;
+    }
+
     public String getSurname() {
         return surname;
     }
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != getClass()) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+
+        User u = (User) obj;
+        return new EqualsBuilder()
+                .append(id, u.id)
+                .append(email, u.email)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(id)
+                .append(email)
+                .append(name)
+                .append(surname)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
     }
 }

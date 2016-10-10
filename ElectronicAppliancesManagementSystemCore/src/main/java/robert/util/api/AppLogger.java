@@ -1,11 +1,14 @@
 package robert.util.api;
 
 public interface AppLogger {
-    void info(String msg);
 
-    void debug(String msg);
+    int getLoggingLevel();
 
-    void warn(String msg);
+    void info(Object msg);
 
-    void error(String msg);
+    void debug(Object msg);
+
+    void warn(Object msg);
+
+    void error(Object msg);
 }
