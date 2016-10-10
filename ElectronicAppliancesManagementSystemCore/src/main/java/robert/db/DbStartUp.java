@@ -35,7 +35,6 @@ public class DbStartUp implements CommandLineRunner {
 
         log.debug("save test admin account");
         userDao.saveUser(user);
-        log.debug("saved");
 
         User byEmail = userDao.findUserByEmail(adminEmail);
         log.debug(byEmail);

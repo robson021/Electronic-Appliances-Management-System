@@ -30,4 +30,12 @@ public class UserDao {
     public User findUserByEmail(String email) {
         return userRepository.findOneByEmail(email);
     }
+
+    public User findUserById(long id) {
+        return userRepository.findOneById(id);
+    }
+
+    public Iterable<User> findAllUsers() {
+        return userRepository.findAll();
+    }
 }
