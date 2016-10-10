@@ -2,15 +2,19 @@ package robert.db.entity;
 
 import org.springframework.data.annotation.AccessType;
 import robert.exception.InvalidEmailPatternException;
-import robert.util.RegularExpressions;
 
 import javax.persistence.*;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Entity
 @Table(name = "USER")
 @AccessType(AccessType.Type.PROPERTY)
 public class User {
+
+    @Transient
+    private static final Pattern VALID_EMAIL_ADDRESS_REGEX = //
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     @Id
     @Column(name = "ID")
@@ -30,7 +34,7 @@ public class User {
     private String surname;
 
     private boolean validateEmail(String emailStr) {
-        Matcher matcher = RegularExpressions.VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
         return matcher.find();
     }
 
