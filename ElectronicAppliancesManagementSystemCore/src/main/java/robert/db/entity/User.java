@@ -16,9 +16,9 @@ import java.util.regex.Matcher;
 public class User {
 
     @Id
-    @Column(name = "ID")
     @GeneratedValue
-    private Long id;
+	@Column(name = "ID")
+	private Long id;
 
     @Column(name = "EMAIL", unique = true)
     private String email;

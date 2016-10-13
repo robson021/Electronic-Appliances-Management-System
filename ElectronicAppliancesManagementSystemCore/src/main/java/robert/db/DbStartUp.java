@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import robert.db.dao.UserDao;
+import robert.db.entity.Appliance;
+import robert.db.entity.Room;
 import robert.db.entity.User;
 import robert.util.api.AppLogger;
 
@@ -25,7 +27,8 @@ public class DbStartUp implements CommandLineRunner {
         if (log.getLoggingLevel() < 2)
             return;
 
-        String adminEmail = "admin@a.pl";
+		// admin acc
+		String adminEmail = "admin@a.pl";
         User user = new User();
         user.setEmail(adminEmail);
         user.setAdminPrivileges(true);
@@ -38,5 +41,17 @@ public class DbStartUp implements CommandLineRunner {
 
         User byEmail = userDao.findUserByEmail(adminEmail);
         log.debug(byEmail);
-    }
+
+
+		// room
+		Room room = new Room();
+		room.setBuilding("B4");
+		room.setNumber("122");
+
+		// appliance
+		Appliance appliance = new Appliance();
+		appliance.setName("Samsung A600 Home Theater Projector");
+		appliance.setRoom(room);
+		room.addNewAppliance(appliance);
+	}
 }
