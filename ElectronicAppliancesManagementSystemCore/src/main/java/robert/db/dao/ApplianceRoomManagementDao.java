@@ -28,20 +28,29 @@ public class ApplianceRoomManagementDao {
 	}
 
 	public void addApplianceToTheRoom(Appliance appl, String building, String roomNumber) throws NoSuchRoomException {
-		Room room = roomRepository.findOneByNumberAndBuilding(roomNumber, building);
+		Room room = roomRepository.findRoomByNumberAndBuilding(roomNumber, building);
 		if (room == null) {
-			throw new NoSuchRoomException(building, roomNumber);
+			throw new NoSuchRoomException(roomNumber, building);
 		}
 
 		appl.setRoom(room);
 		room.addNewAppliance(appl);
 
-		//applianceRepository.save(appl);
 		roomRepository.save(room);
 	}
 
 	public Iterable<Appliance> getAllAppliances() {
 		return applianceRepository.findAll();
+	}
+
+	public void addApplianceToTheRoom(Appliance appl, Room room) throws Exception {
+		if (room == null || appl == null) {
+			throw new Exception("Room or appliance is null.");
+		}
+
+		appl.setRoom(room);
+		room.addNewAppliance(appl);
+		roomRepository.save(room);
 	}
 
 }

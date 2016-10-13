@@ -6,5 +6,6 @@ import robert.db.entity.Room;
 
 @Repository
 public interface RoomRepository extends CrudRepository<Room, Long> {
-	Room findOneByNumberAndBuilding(String number, String building);
+
+	Room findRoomByNumberAndBuilding(String number, String building);
 }

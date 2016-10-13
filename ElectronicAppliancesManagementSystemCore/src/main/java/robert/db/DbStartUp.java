@@ -47,10 +47,17 @@ public class DbStartUp implements CommandLineRunner {
         log.debug(byEmail);
 
 
+		log.debug("Adding example rooms and appliances");
+
 		// room
 		Room room = new Room();
 		room.setBuilding("B4");
 		room.setNumber("122");
+
+		Room room2 = new Room();
+		room2.setBuilding("B5");
+		room2.setNumber("110");
+		applianceRoomManagementDao.addNewRoom(room2);
 
 		// appliance
 		Appliance appliance = new Appliance();
@@ -58,6 +65,13 @@ public class DbStartUp implements CommandLineRunner {
 		appliance.setRoom(room);
 		room.addNewAppliance(appliance);
 
+		Appliance appliance2 = new Appliance();
+		appliance2.setName("Appl2");
+
 		applianceRoomManagementDao.addNewRoom(room);
+		applianceRoomManagementDao.addApplianceToTheRoom(appliance2, "B5", "110");
+
+		log.debug(appliance);
+		log.debug(appliance2);
 	}
 }

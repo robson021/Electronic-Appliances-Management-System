@@ -2,6 +2,7 @@ package robert.db.entity;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -92,5 +93,10 @@ public class Room {
 				.append(building)
 				.append(number)
 				.toHashCode();
+	}
+
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
 	}
 }

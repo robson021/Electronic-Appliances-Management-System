@@ -2,6 +2,7 @@ package robert.db.entity;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import javax.persistence.*;
 
@@ -71,5 +72,10 @@ public class Appliance {
 				.append(this.room)
 				.append(this.name)
 				.toHashCode();
+	}
+
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
 	}
 }
