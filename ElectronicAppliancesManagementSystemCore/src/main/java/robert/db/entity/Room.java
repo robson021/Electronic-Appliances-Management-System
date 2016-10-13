@@ -1,5 +1,8 @@
 package robert.db.entity;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -60,5 +63,34 @@ public class Room {
 			this.appliances = new HashSet<>();
 		}
 		this.appliances.add(appliance);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || obj.getClass() != getClass()) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+
+		Room r = (Room) obj;
+		if (this.id.equals(r.id)) {
+			return true;
+		}
+
+		return new EqualsBuilder()
+				.append(this.number, r.number)
+				.append(this.building, r.building)
+				.isEquals();
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder()
+				.append(id)
+				.append(building)
+				.append(number)
+				.toHashCode();
 	}
 }

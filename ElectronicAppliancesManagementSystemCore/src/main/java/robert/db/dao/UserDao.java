@@ -2,10 +2,12 @@ package robert.db.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import robert.db.entity.User;
 import robert.db.repository.UserRepository;
 
 @Component
+@Transactional
 public class UserDao {
 
     private final UserRepository userRepository;
