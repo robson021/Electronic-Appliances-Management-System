@@ -3,7 +3,7 @@ package robert.db;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import robert.db.dao.ApplianceRoomManagementDao;
+import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.db.entity.Appliance;
 import robert.db.entity.Building;
@@ -18,13 +18,13 @@ public class DbStartUp implements CommandLineRunner {
 
     private final UserDao userDao;
 
-	private final ApplianceRoomManagementDao applianceRoomManagementDao;
+	private final ApplianceBuildingRoomManagementDao applianceBuildingRoomManagementDao;
 
     @Autowired
-	public DbStartUp(UserDao userDao, AppLogger log, ApplianceRoomManagementDao applianceRoomManagementDao) {
+	public DbStartUp(UserDao userDao, AppLogger log, ApplianceBuildingRoomManagementDao applianceBuildingRoomManagementDao) {
 		this.userDao = userDao;
         this.log = log;
-		this.applianceRoomManagementDao = applianceRoomManagementDao;
+		this.applianceBuildingRoomManagementDao = applianceBuildingRoomManagementDao;
 	}
 
     @Override
@@ -75,12 +75,12 @@ public class DbStartUp implements CommandLineRunner {
 
 		b4.addRoom(room);
 		b4.addRoom(room2);
-		applianceRoomManagementDao.saveBuilding(b4);
+		applianceBuildingRoomManagementDao.saveBuilding(b4);
 
 		Appliance appliance3 = new Appliance();
 		appliance3.setName("Lenovo Pocket Projector");
 
-		applianceRoomManagementDao.addApplianceToTheRoom(appliance3, "B4", "122");
+		applianceBuildingRoomManagementDao.addApplianceToTheRoom(appliance3, "B4", "122");
 
 	}
 }

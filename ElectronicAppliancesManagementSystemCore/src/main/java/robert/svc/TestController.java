@@ -3,7 +3,7 @@ package robert.svc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import robert.db.dao.ApplianceRoomManagementDao;
+import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.entity.Appliance;
 
 import java.util.Date;
@@ -13,10 +13,10 @@ import java.util.List;
 @RestController
 public class TestController {
 
-	private final ApplianceRoomManagementDao applRoomDao;
+	private final ApplianceBuildingRoomManagementDao applRoomDao;
 
 	@Autowired
-	public TestController(ApplianceRoomManagementDao applRoomDao) {
+	public TestController(ApplianceBuildingRoomManagementDao applRoomDao) {
 		this.applRoomDao = applRoomDao;
 	}
 
@@ -31,7 +31,7 @@ public class TestController {
 		List<String> applianes = new LinkedList<>();
 		int i = 1;
 		for (Appliance appl : allAppliances) {
-			applianes.add(i++ + ") " + appl.toString());
+			applianes.add("(" + i++ + ") " + appl.getName());
 		}
 		return applianes;
 	}

@@ -13,7 +13,7 @@ import robert.util.api.AppLogger;
 
 @Component
 @Transactional
-public class ApplianceRoomManagementDao {
+public class ApplianceBuildingRoomManagementDao {
 
 	private final AppLogger log;
 
@@ -24,9 +24,9 @@ public class ApplianceRoomManagementDao {
 	private final BuildingRepository buildingRepository;
 
 	@Autowired
-	public ApplianceRoomManagementDao(AppLogger log, RoomRepository roomRepository,
-									  ApplianceRepository applianceRepository,
-									  BuildingRepository buildingRepository) {
+	public ApplianceBuildingRoomManagementDao(AppLogger log, RoomRepository roomRepository,
+											  ApplianceRepository applianceRepository,
+											  BuildingRepository buildingRepository) {
 		this.log = log;
 		this.roomRepository = roomRepository;
 		this.applianceRepository = applianceRepository;

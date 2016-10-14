@@ -76,13 +76,8 @@ public class Room {
 		}
 
 		Room r = (Room) obj;
-		if (this.id.equals(r.id)) {
-			return true;
-		}
+		return this.id.equals(r.id) || new EqualsBuilder().append(this.number, r.number).isEquals();
 
-		return new EqualsBuilder()
-				.append(this.number, r.number)
-				.isEquals();
 	}
 
 	@Override
