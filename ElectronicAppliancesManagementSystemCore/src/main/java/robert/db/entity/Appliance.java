@@ -18,7 +18,7 @@ public class Appliance {
 	@Column(name = "NAME")
 	private String name;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ROOM_ID")
 	private Room room;
 

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import robert.db.dao.ApplianceRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.db.entity.Appliance;
+import robert.db.entity.Building;
 import robert.db.entity.Room;
 import robert.db.entity.User;
 import robert.util.api.AppLogger;
@@ -49,15 +50,17 @@ public class DbStartUp implements CommandLineRunner {
 
 		log.debug("Adding example rooms and appliances");
 
+		Building b4 = new Building();
+		b4.setName("B4");
+
 		// room
 		Room room = new Room();
-		room.setBuilding("B4");
+		room.setBuilding(b4);
 		room.setNumber("122");
 
 		Room room2 = new Room();
-		room2.setBuilding("B5");
+		room2.setBuilding(b4);
 		room2.setNumber("110");
-		applianceRoomManagementDao.addNewRoom(room2);
 
 		// appliance
 		Appliance appliance = new Appliance();
@@ -66,12 +69,18 @@ public class DbStartUp implements CommandLineRunner {
 		room.addNewAppliance(appliance);
 
 		Appliance appliance2 = new Appliance();
-		appliance2.setName("Appl2");
+		appliance2.setName("Epson EX3212 SVGA 3LCD Projector");
+		appliance2.setRoom(room2);
+		room2.addNewAppliance(appliance2);
 
-		applianceRoomManagementDao.addNewRoom(room);
-		applianceRoomManagementDao.addApplianceToTheRoom(appliance2, "B5", "110");
+		b4.addRoom(room);
+		b4.addRoom(room2);
+		applianceRoomManagementDao.saveBuilding(b4);
 
-		log.debug(appliance);
-		log.debug(appliance2);
+		Appliance appliance3 = new Appliance();
+		appliance3.setName("Lenovo Pocket Projector");
+
+		applianceRoomManagementDao.addApplianceToTheRoom(appliance3, "B4", "122");
+
 	}
 }

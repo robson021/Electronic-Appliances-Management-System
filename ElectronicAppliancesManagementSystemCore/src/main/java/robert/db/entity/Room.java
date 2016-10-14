@@ -17,14 +17,14 @@ public class Room {
 	@Column(name = "ID")
 	private Long id;
 
-	@Column(name = "BUILDING")
-	private String building;
-
 	@Column(name = "NUMBER")
 	private String number;
 
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-	@JoinColumn(name = "ROOM_ID")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "BUILDING_ID")
+	private Building building;
+
+	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private Set<Appliance> appliances = null;
 
 	public Long getId() {
@@ -33,14 +33,6 @@ public class Room {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getBuilding() {
-		return building;
-	}
-
-	public void setBuilding(String building) {
-		this.building = building;
 	}
 
 	public String getNumber() {
@@ -53,6 +45,14 @@ public class Room {
 
 	public Set<Appliance> getAppliances() {
 		return appliances;
+	}
+
+	public Building getBuilding() {
+		return building;
+	}
+
+	public void setBuilding(Building building) {
+		this.building = building;
 	}
 
 	public void setAppliances(Set<Appliance> appliances) {
@@ -82,7 +82,6 @@ public class Room {
 
 		return new EqualsBuilder()
 				.append(this.number, r.number)
-				.append(this.building, r.building)
 				.isEquals();
 	}
 
@@ -90,7 +89,6 @@ public class Room {
 	public int hashCode() {
 		return new HashCodeBuilder()
 				.append(id)
-				.append(building)
 				.append(number)
 				.toHashCode();
 	}

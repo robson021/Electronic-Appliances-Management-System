@@ -13,25 +13,26 @@ import java.util.List;
 @RestController
 public class TestController {
 
-    private final ApplianceRoomManagementDao applRoomDao;
+	private final ApplianceRoomManagementDao applRoomDao;
 
-    @Autowired
-    public TestController(ApplianceRoomManagementDao applRoomDao) {
-        this.applRoomDao = applRoomDao;
-    }
+	@Autowired
+	public TestController(ApplianceRoomManagementDao applRoomDao) {
+		this.applRoomDao = applRoomDao;
+	}
 
-    @RequestMapping("/test")
-    public String hello() {
-        return "Hello World " + new Date().toString();
-    }
+	@RequestMapping("/test")
+	public String hello() {
+		return "Hello World " + new Date().toString();
+	}
 
-    @RequestMapping("/all-appliances")
-    public List<String> getAllavilableAppliances() {
-        Iterable<Appliance> allAppliances = applRoomDao.getAllAppliances();
-        List<String> applianes = new LinkedList<>();
-        for (Appliance appl : allAppliances) {
-            applianes.add(appl.getName() + " - " + appl.getRoom().getBuilding() + ", " + appl.getRoom().getNumber());
-        }
-        return applianes;
-    }
+	@RequestMapping("/all-appliances")
+	public List<String> getAllavilableAppliances() {
+		Iterable<Appliance> allAppliances = applRoomDao.findAllAppliances();
+		List<String> applianes = new LinkedList<>();
+		int i = 1;
+		for (Appliance appl : allAppliances) {
+			applianes.add(i++ + ") " + appl.toString());
+		}
+		return applianes;
+	}
 }
