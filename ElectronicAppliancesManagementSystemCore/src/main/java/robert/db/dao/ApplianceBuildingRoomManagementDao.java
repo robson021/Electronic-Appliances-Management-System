@@ -9,7 +9,7 @@ import robert.db.entity.Room;
 import robert.db.repository.ApplianceRepository;
 import robert.db.repository.BuildingRepository;
 import robert.db.repository.RoomRepository;
-import robert.util.api.AppLogger;
+import robert.utils.api.AppLogger;
 
 @Component
 @Transactional

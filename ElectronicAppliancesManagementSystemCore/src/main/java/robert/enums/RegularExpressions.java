@@ -1,4 +1,4 @@
-package robert.util.api;
+package robert.enums;
 
 import java.util.regex.Pattern;
 

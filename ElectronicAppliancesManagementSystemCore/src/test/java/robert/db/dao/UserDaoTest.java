@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import robert.SpringTest;
 import robert.db.entity.User;
-import robert.exception.InvalidEmailPatternException;
+import robert.exceptions.InvalidEmailPatternException;
 
 public class UserDaoTest extends SpringTest {
 

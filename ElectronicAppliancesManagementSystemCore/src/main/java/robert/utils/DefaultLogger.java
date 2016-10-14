@@ -1,10 +1,10 @@
-package robert.util;
+package robert.utils;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import robert.util.api.AppLogger;
+import robert.utils.api.AppLogger;
 
 @Component
 public class DefaultLogger implements AppLogger {

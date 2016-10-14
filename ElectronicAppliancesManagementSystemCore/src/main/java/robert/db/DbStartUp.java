@@ -9,7 +9,7 @@ import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Room;
 import robert.db.entity.User;
-import robert.util.api.AppLogger;
+import robert.utils.api.AppLogger;
 
 @Component
 public class DbStartUp implements CommandLineRunner {

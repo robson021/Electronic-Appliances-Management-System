@@ -1,4 +1,4 @@
-package robert.util.api;
+package robert.utils.api;
 
 public interface AppLogger {
 

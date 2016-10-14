@@ -1,4 +1,4 @@
-package robert.exception;
+package robert.exceptions;
 
 public class NoSuchRoomException extends Exception {
 

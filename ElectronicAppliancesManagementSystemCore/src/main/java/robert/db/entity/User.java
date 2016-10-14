@@ -4,8 +4,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.data.annotation.AccessType;
-import robert.exception.InvalidEmailPatternException;
-import robert.util.api.RegularExpressions;
+import robert.enums.RegularExpressions;
+import robert.exceptions.InvalidEmailPatternException;
 
 import javax.persistence.*;
 import java.util.regex.Matcher;
