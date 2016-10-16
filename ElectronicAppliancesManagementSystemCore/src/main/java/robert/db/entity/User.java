@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.data.annotation.AccessType;
-import robert.enums.RegularExpressions;
+import robert.enums.Validation;
 import robert.exceptions.InvalidEmailPatternException;
 import robert.exceptions.TooShortPasswordException;
 
@@ -37,7 +37,7 @@ public class User {
     private Boolean adminPrivileges = false;
 
     private boolean validateEmail(String emailStr) {
-        Matcher matcher = RegularExpressions.VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+        Matcher matcher = Validation.VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
         return matcher.find();
     }
 
