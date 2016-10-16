@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import robert.utils.api.AppLogger;
 
+import java.util.Calendar;
+
 @Component
 public class DefaultLogger implements AppLogger {
 
@@ -27,24 +29,28 @@ public class DefaultLogger implements AppLogger {
     @Override
     public void info(Object msg) {
         if (loggingLvl >= 1)
-            log.info(msg.toString());
+            log.info(displayMessage(msg));
     }
 
     @Override
     public void warn(Object msg) {
         if (loggingLvl >= 1)
-            log.warn(msg.toString());
+            log.warn(displayMessage(msg));
     }
 
     @Override
     public void debug(Object msg) {
-        if (loggingLvl == 2)
-            log.info(msg.toString());
+        if (loggingLvl >= 2)
+            log.info(displayMessage(msg));
     }
 
 
     @Override
     public void error(Object msg) {
         log.error(msg.toString());
+    }
+
+    private String displayMessage(Object msg) {
+        return Calendar.getInstance().getTime().toString() + " " + msg.toString();
     }
 }

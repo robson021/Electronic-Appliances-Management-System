@@ -1,29 +1,21 @@
 package robert.web.filters;
 
-import javax.servlet.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import robert.web.user.UserInfoProvider;
+
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
-public class BasicAuthFilterImpl implements BasicAuthFilter {
+@Component
+public class BasicAuthFilterImpl extends BasicAuthFilter {
 
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
+	@Autowired
+	public BasicAuthFilterImpl(UserInfoProvider uip) {
+		super(uip);
 	}
 
 	@Override
-	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-		HttpServletResponse response = (HttpServletResponse) servletResponse;
-		doLogic(response);
-		filterChain.doFilter(servletRequest, response);
-	}
-
-	@Override
-	public void destroy() {
-
-	}
-
-	@Override
-	public void doLogic(HttpServletResponse response) {
-		//todo set login and URLs
+	void doLogic(HttpServletResponse response) {
+		// todo
 	}
 }

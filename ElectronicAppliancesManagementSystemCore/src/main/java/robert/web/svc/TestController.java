@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.entity.Appliance;
+import robert.utils.api.AppLogger;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -13,10 +14,13 @@ import java.util.List;
 @RestController
 public class TestController {
 
+	private final AppLogger log;
+
 	private final ApplianceBuildingRoomManagementDao applRoomDao;
 
 	@Autowired
-	public TestController(ApplianceBuildingRoomManagementDao applRoomDao) {
+	public TestController(AppLogger log, ApplianceBuildingRoomManagementDao applRoomDao) {
+		this.log = log;
 		this.applRoomDao = applRoomDao;
 	}
 
@@ -33,6 +37,8 @@ public class TestController {
 		for (Appliance appl : allAppliances) {
 			applianes.add("(" + i++ + ") " + appl.getName());
 		}
+
+		log.debug("Return " + applianes.toString());
 		return applianes;
 	}
 }
