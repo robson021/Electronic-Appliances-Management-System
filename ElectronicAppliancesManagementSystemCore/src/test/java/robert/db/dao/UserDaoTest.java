@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import robert.SpringTest;
 import robert.db.entity.User;
-import robert.exceptions.InvalidEmailPatternException;
 
 public class UserDaoTest extends SpringTest {
 
@@ -58,12 +57,12 @@ public class UserDaoTest extends SpringTest {
                 .hasFieldOrPropertyWithValue("email", email);
     }
 
-    private User createUser() throws InvalidEmailPatternException {
+    private User createUser() throws Exception {
         User user = new User();
         user.setEmail(email);
         user.setName("Test");
         user.setSurname("User");
-        user.setPassword("passwd");
+        user.setPassword("passwdpasswd");
 
         return user;
     }

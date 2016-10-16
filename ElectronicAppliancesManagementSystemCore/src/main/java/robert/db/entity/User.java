@@ -6,6 +6,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.data.annotation.AccessType;
 import robert.enums.RegularExpressions;
 import robert.exceptions.InvalidEmailPatternException;
+import robert.exceptions.TooShortPasswordException;
 
 import javax.persistence.*;
 import java.util.regex.Matcher;
@@ -45,6 +46,7 @@ public class User {
     }
 
     public void setEmail(String email) throws InvalidEmailPatternException {
+        email = email.trim();
         if (!validateEmail(email)) {
             throw new InvalidEmailPatternException(email);
         }
@@ -55,7 +57,12 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password) throws TooShortPasswordException {
+        password = password.trim();
+        if (password.length() < 8) {
+            // TODO regex for password
+            throw new TooShortPasswordException(password.length());
+        }
         this.password = password;
     }
 
