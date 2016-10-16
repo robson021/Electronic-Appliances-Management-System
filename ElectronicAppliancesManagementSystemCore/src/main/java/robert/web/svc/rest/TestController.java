@@ -32,13 +32,13 @@ public class TestController {
 	@RequestMapping("/all-appliances")
 	public List<String> getAllavilableAppliances() {
 		Iterable<Appliance> allAppliances = applRoomDao.findAllAppliances();
-		List<String> applianes = new LinkedList<>();
+		List<String> appliances = new LinkedList<>();
 		int i = 1;
 		for (Appliance appl : allAppliances) {
-			applianes.add("(" + i++ + ") " + appl.getName());
+			appliances.add("(" + i++ + ") " + appl.getName());
 		}
 
-		log.debug("Return " + applianes.toString());
-		return applianes;
+		log.debug("Return " + appliances.toString());
+		return appliances;
 	}
 }

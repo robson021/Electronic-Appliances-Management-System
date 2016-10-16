@@ -64,4 +64,12 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 		log.info("Registration of", email, "has been been successful");
 		return HttpStatus.OK;
 	}
+
+	@Override
+	@RequestMapping(value = LOGIN_URL)
+	public HttpStatus loginUser(@PathVariable(value = EMAIL) String email, //
+								@PathVariable(value = PASSWORD) String password) {
+		// todo
+		return HttpStatus.OK;
+	}
 }

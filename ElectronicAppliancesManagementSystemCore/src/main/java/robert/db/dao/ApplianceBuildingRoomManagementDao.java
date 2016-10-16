@@ -46,7 +46,7 @@ public class ApplianceBuildingRoomManagementDao {
 		// TODO: select with hql query
 		Building b = buildingRepository.findOneByName(building);
 		if (b == null) {
-			log.debug("Could not find building " + building);
+			log.debug("Could not find building:", building);
 			return;
 		}
 		b.getRooms()
