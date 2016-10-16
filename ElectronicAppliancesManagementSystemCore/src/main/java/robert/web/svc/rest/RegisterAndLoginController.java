@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.UserDao;
 import robert.db.entity.User;
 import robert.exceptions.InvalidEmailPatternException;
+import robert.exceptions.InvalidPasswordException;
 import robert.exceptions.TooShortPasswordException;
+import robert.exceptions.UserNotFoundException;
 import robert.utils.api.AppLogger;
+import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.api.RegisterAndLoginCtrl;
-import robert.web.user.UserInfoProvider;
 
 @RestController
 public class RegisterAndLoginController implements RegisterAndLoginCtrl {
@@ -36,7 +38,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 									  @PathVariable(value = NAME) String name, //
 									  @PathVariable(value = SURNAME) String surname) {
 
-		log.info("New registration request from: " + email);
+		log.info("New registration request from:", email);
 
 		if (userDao.findUserByEmail(email) != null) {
 			log.debug("User", email, "is already registered!");
@@ -51,13 +53,13 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 			user.setSurname(surname);
 			userDao.saveUser(user);
 		} catch (InvalidEmailPatternException e) {
-			log.warn("Invalid email pattern. Given email:", email);
+			log.debug(e);
 			return HttpStatus.FORBIDDEN;
 		} catch (TooShortPasswordException e) {
-			log.warn("Invalid password");
+			log.debug(e);
 			return HttpStatus.FORBIDDEN;
 		} catch (Exception e) {
-			log.error("Error occurred while saving the entity", user);
+			log.error(e);
 		}
 
 		userInfoProvider.setEmail(email);
@@ -69,7 +71,33 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 	@RequestMapping(value = LOGIN_URL)
 	public HttpStatus loginUser(@PathVariable(value = EMAIL) String email, //
 								@PathVariable(value = PASSWORD) String password) {
-		// todo
+
+		log.info("Login request from:", email);
+
+		User user = userDao.findUserByEmail(email);
+
+		try {
+			validateUser(user, password);
+		} catch (UserNotFoundException e) {
+			log.debug(e);
+			return HttpStatus.NOT_FOUND;
+		} catch (InvalidPasswordException e) {
+			log.debug(e);
+			return HttpStatus.UNAUTHORIZED;
+		}
+
+		userInfoProvider.setEmail(user.getEmail());
+
+		log.info("User", user.getEmail(), "has been logged in.");
 		return HttpStatus.OK;
+	}
+
+	private void validateUser(User user, String password) throws UserNotFoundException, InvalidPasswordException {
+		if (user == null) {
+			throw new UserNotFoundException();
+		}
+		if (!user.getPassword().equals(password)) {
+			throw new InvalidPasswordException(user.getEmail());
+		}
 	}
 }

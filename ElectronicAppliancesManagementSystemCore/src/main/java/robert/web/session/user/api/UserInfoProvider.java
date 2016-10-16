@@ -1,4 +1,4 @@
-package robert.web.user;
+package robert.web.session.user.api;
 
 public interface UserInfoProvider {
 

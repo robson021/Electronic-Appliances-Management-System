@@ -30,7 +30,7 @@ public class UserDao {
     }
 
     public User findUserByEmail(String email) {
-        return userRepository.findOneByEmail(email);
+        return userRepository.findOneByEmail(email.trim());
     }
 
     public User findUserById(long id) {

@@ -46,10 +46,21 @@ public class DefaultLogger implements AppLogger {
             log.info(displayMessage(msg));
     }
 
+    @Override
+    public void debug(Exception e) {
+        if (loggingLvl >= 2)
+            e.printStackTrace();
+    }
+
 
     @Override
     public void error(Object... msg) {
         log.error(msg.toString());
+    }
+
+    @Override
+    public void error(Exception e) {
+        e.printStackTrace();
     }
 
     private String displayMessage(Object... msg) {
@@ -58,6 +69,6 @@ public class DefaultLogger implements AppLogger {
             sb.append(m.toString());
             sb.append(" ");
         }
-        return "\n\t\t" + Calendar.getInstance().getTime().toString() + " " + sb.toString();
+        return Calendar.getInstance().getTime().toString() + "\n\t\t" + sb.toString();
     }
 }

@@ -2,7 +2,7 @@ package robert.web.filters;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import robert.web.user.UserInfoProvider;
+import robert.web.session.user.api.UserInfoProvider;
 
 import javax.servlet.http.HttpServletResponse;
 

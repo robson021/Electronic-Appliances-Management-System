@@ -8,7 +8,11 @@ public interface AppLogger {
 
 	void debug(Object... msg);
 
+	void debug(Exception e);
+
 	void warn(Object... msg);
 
 	void error(Object... msg);
+
+	void error(Exception e);
 }
