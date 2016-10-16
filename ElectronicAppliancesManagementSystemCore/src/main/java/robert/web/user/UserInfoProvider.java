@@ -6,4 +6,8 @@ public interface UserInfoProvider {
 
 	String getEmail();
 
+	void enableAdminPrivileges();
+
+	boolean isAdmin();
+
 }

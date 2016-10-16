@@ -36,7 +36,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 									  @PathVariable(value = NAME) String name, //
 									  @PathVariable(value = SURNAME) String surname) {
 
-		log.debug("New registration request from: " + email);
+		log.info("New registration request from: " + email);
 
 		if (userDao.findUserByEmail(email) != null) {
 			log.debug("User", email, "is already registered!");
@@ -51,17 +51,17 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 			user.setSurname(surname);
 			userDao.saveUser(user);
 		} catch (InvalidEmailPatternException e) {
-			log.debug("Invalid email pattern. Given email:", email);
+			log.warn("Invalid email pattern. Given email:", email);
 			return HttpStatus.FORBIDDEN;
 		} catch (TooShortPasswordException e) {
-			log.debug("Invalid password");
+			log.warn("Invalid password");
 			return HttpStatus.FORBIDDEN;
 		} catch (Exception e) {
-			log.debug("Error occurred while saving the entity", user);
+			log.error("Error occurred while saving the entity", user);
 		}
 
 		userInfoProvider.setEmail(email);
-		log.debug("Registration of", email, "has been been successful");
+		log.info("Registration of", email, "has been been successful");
 		return HttpStatus.OK;
 	}
 }

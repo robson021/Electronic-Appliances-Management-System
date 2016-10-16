@@ -11,6 +11,8 @@ public class UserInfoProviderImpl implements UserInfoProvider {
 
 	private String email = null;
 
+	private boolean adminPrivileges = false;
+
 	@Override
 	public void setEmail(String email) {
 		if (this.email == null) {
@@ -21,5 +23,15 @@ public class UserInfoProviderImpl implements UserInfoProvider {
 	@Override
 	public String getEmail() {
 		return this.email;
+	}
+
+	@Override
+	public void enableAdminPrivileges() {
+		this.adminPrivileges = true;
+	}
+
+	@Override
+	public boolean isAdmin() {
+		return this.adminPrivileges;
 	}
 }
