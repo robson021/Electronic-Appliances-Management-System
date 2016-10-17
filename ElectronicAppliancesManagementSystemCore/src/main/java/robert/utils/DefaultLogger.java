@@ -55,8 +55,8 @@ public class DefaultLogger implements AppLogger {
 
     @Override
     public void error(Object... msg) {
-        log.error(msg.toString());
-    }
+		log.error(displayMessage(msg));
+	}
 
     @Override
     public void error(Exception e) {

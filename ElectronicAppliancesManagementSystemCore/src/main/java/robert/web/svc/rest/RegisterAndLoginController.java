@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.UserDao;
 import robert.db.entity.User;
@@ -32,7 +33,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 	}
 
 	@Override
-	@RequestMapping(value = REGISTER_URL)
+	@RequestMapping(value = REGISTER_URL, method = RequestMethod.PUT)
 	public HttpStatus registerNewUser(@PathVariable(value = EMAIL) String email, //
 									  @PathVariable(value = PASSWORD) String password, //
 									  @PathVariable(value = NAME) String name, //
@@ -68,7 +69,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 	}
 
 	@Override
-	@RequestMapping(value = LOGIN_URL)
+	@RequestMapping(value = LOGIN_URL, method = RequestMethod.POST)
 	public HttpStatus loginUser(@PathVariable(value = EMAIL) String email, //
 								@PathVariable(value = PASSWORD) String password) {
 

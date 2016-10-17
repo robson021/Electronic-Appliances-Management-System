@@ -8,9 +8,10 @@ import org.springframework.test.annotation.DirtiesContext;
 import robert.SpringTest;
 import robert.db.entity.User;
 
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserDaoTest extends SpringTest {
 
-    private static final String email = "test@user.pl";
+    private static final String EMAIL = "test@user.pl";
 
     private User user;
 
@@ -24,15 +25,13 @@ public class UserDaoTest extends SpringTest {
     }
 
     @Test
-    @DirtiesContext
     public void deleteUser() throws Exception {
         userDao.deleteUser(user);
-        Assertions.assertThat(userDao.findUserByEmail(email))
+        Assertions.assertThat(userDao.findUserByEmail(EMAIL))
                 .isNull();
     }
 
     @Test
-    @DirtiesContext
     public void deleteUserById() throws Exception {
         userDao.deleteUser(user.getId());
         Assertions.assertThat(userDao.findUserById(user.getId()))
@@ -40,26 +39,24 @@ public class UserDaoTest extends SpringTest {
     }
 
     @Test
-    @DirtiesContext
     public void findUserByEmail() throws Exception {
-        User user = userDao.findUserByEmail(email);
+        User user = userDao.findUserByEmail(EMAIL);
         Assertions.assertThat(user)
                 .isNotNull()
-                .hasFieldOrPropertyWithValue("email", email);
+                .hasFieldOrPropertyWithValue("email", EMAIL);
     }
 
     @Test
-    @DirtiesContext
     public void findUserById() throws Exception {
         User user = userDao.findUserById(this.user.getId());
         Assertions.assertThat(user)
                 .isNotNull()
-                .hasFieldOrPropertyWithValue("email", email);
+                .hasFieldOrPropertyWithValue("email", EMAIL);
     }
 
     private User createUser() throws Exception {
         User user = new User();
-        user.setEmail(email);
+        user.setEmail(EMAIL);
         user.setName("Test");
         user.setSurname("User");
         user.setPassword("passwdpasswd");
