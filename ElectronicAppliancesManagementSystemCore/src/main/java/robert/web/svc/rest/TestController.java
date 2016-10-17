@@ -30,7 +30,7 @@ public class TestController {
 	}
 
 	@RequestMapping("/all-appliances")
-	public List<String> getAllavilableAppliances() {
+	public List<String> getAvailableAppliances() {
 		Iterable<Appliance> allAppliances = applRoomDao.findAllAppliances();
 		List<String> appliances = new LinkedList<>();
 		int i = 1;
@@ -38,7 +38,7 @@ public class TestController {
 			appliances.add("(" + i++ + ") " + appl.getName());
 		}
 
-		log.debug("Return " + appliances.toString());
+		log.debug("Return:", appliances.toString());
 		return appliances;
 	}
 }

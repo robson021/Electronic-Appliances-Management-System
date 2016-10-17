@@ -15,7 +15,7 @@ public class RegisterAndLoginControllerTest extends SpringWebMvcTest {
 
 	private static final String EMAIL = "test@ttt.pl";
 
-	private static final String PASSWORD = "passwd123";
+	private static final String PASSWORD = "passwD.123";
 
 	private static final String REGISTER_URL = "/register/" + EMAIL + "a/" + PASSWORD + "/Test/User";
 
@@ -24,6 +24,7 @@ public class RegisterAndLoginControllerTest extends SpringWebMvcTest {
 	@Autowired
 	private UserDao userDao;
 
+	@Override
 	@Before
 	public void setup() throws Exception {
 		super.initMockMvc();

@@ -14,6 +14,10 @@ public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 	@Autowired
 	private ApplianceBuildingRoomManagementDao dao;
 
+	@Override
+	public void setup() throws Exception {
+	}
+
 	@Test
 	public void saveRoom() throws Exception {
 		Room room = createRoom(5);

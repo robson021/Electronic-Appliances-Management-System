@@ -10,7 +10,6 @@ import robert.db.dao.UserDao;
 import robert.db.entity.User;
 import robert.exceptions.InvalidEmailPatternException;
 import robert.exceptions.InvalidPasswordException;
-import robert.exceptions.TooShortPasswordException;
 import robert.exceptions.UserNotFoundException;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
@@ -56,7 +55,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 		} catch (InvalidEmailPatternException e) {
 			log.debug(e);
 			return HttpStatus.FORBIDDEN;
-		} catch (TooShortPasswordException e) {
+		} catch (InvalidPasswordException e) {
 			log.debug(e);
 			return HttpStatus.FORBIDDEN;
 		} catch (Exception e) {

@@ -56,7 +56,10 @@ public class Appliance {
 		}
 
 		Appliance a = (Appliance) obj;
-		return this.id.equals(a.id) || new EqualsBuilder().append(this.room, a.room).append(this.name, a.name).isEquals();
+		return this.id.equals(a.id) || new EqualsBuilder()
+				.append(this.room, a.room)
+				.append(this.name, a.name)
+				.isEquals();
 	}
 
 	@Override

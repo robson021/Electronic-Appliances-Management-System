@@ -13,7 +13,7 @@ import java.util.Calendar;
 @Lazy
 public class DefaultLogger implements AppLogger {
 
-    private final Logger log = Logger.getLogger(DefaultLogger.class);
+    private static final Logger log = Logger.getLogger(DefaultLogger.class);
 
     private final int loggingLvl;
 

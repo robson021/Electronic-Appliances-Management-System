@@ -18,6 +18,10 @@ public class UserDaoTest extends SpringTest {
     @Autowired
     private UserDao userDao;
 
+    @Override
+    public void setup() throws Exception {
+    }
+
     @Before
     public void saveUser() throws Exception {
         user = createUser();
@@ -59,7 +63,7 @@ public class UserDaoTest extends SpringTest {
         user.setEmail(EMAIL);
         user.setName("Test");
         user.setSurname("User");
-        user.setPassword("passwdpasswd");
+        user.setPassword("passwdpasswD.123");
 
         return user;
     }
