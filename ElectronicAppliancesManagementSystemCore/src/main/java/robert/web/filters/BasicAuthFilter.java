@@ -15,11 +15,11 @@ public abstract class BasicAuthFilter implements Filter {
 	}
 
 	@Override
-	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+	public final void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		doLogic(response);
 		filterChain.doFilter(servletRequest, response);
 	}
 
-	abstract void doLogic(HttpServletResponse response);
+	public abstract void doLogic(HttpServletResponse response);
 }

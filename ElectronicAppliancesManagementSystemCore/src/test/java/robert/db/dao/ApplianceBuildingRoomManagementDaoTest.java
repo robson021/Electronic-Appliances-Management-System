@@ -4,10 +4,10 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import robert.SpringTest;
 import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Room;
+import utils.SpringTest;
 
 public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 

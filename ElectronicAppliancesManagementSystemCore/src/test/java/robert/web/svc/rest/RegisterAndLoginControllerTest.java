@@ -3,9 +3,9 @@ package robert.web.svc.rest;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import robert.SpringWebMvcTest;
 import robert.db.dao.UserDao;
 import robert.db.entity.User;
+import utils.SpringWebMvcTest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;

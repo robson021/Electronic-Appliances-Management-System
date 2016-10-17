@@ -18,7 +18,7 @@ public class BasicAuthFilterImpl extends BasicAuthFilter {
 
 
 	@Override
-	void doLogic(HttpServletResponse response) {
+	public void doLogic(HttpServletResponse response) {
 		System.out.println("Request from: " + userInfoProvider.getEmail());
 		// todo
 	}
