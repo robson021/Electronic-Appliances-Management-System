@@ -2,6 +2,7 @@ package robert.web.svc.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,8 +13,12 @@ import robert.exceptions.InvalidEmailPatternException;
 import robert.exceptions.InvalidPasswordException;
 import robert.exceptions.UserNotFoundException;
 import robert.utils.api.AppLogger;
+import robert.web.session.user.CsrfTokenService;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.api.RegisterAndLoginCtrl;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class RegisterAndLoginController implements RegisterAndLoginCtrl {
@@ -22,12 +27,15 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 
 	private final UserInfoProvider userInfoProvider;
 
+	private final CsrfTokenService tokenService;
+
 	private final UserDao userDao;
 
 	@Autowired
-	public RegisterAndLoginController(AppLogger log, UserInfoProvider userInfoProvider, UserDao userDao) {
+	public RegisterAndLoginController(AppLogger log, UserInfoProvider userInfoProvider, CsrfTokenService tokenService, UserDao userDao) {
 		this.log = log;
 		this.userInfoProvider = userInfoProvider;
+		this.tokenService = tokenService;
 		this.userDao = userDao;
 	}
 
@@ -70,7 +78,9 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 	@Override
 	@RequestMapping(value = LOGIN_URL, method = RequestMethod.POST)
 	public HttpStatus loginUser(@PathVariable(value = EMAIL) String email, //
-								@PathVariable(value = PASSWORD) String password) {
+								@PathVariable(value = PASSWORD) String password, //
+								HttpServletRequest request, //
+								HttpServletResponse response) {
 
 		log.info("Login request from:", email);
 
@@ -87,6 +97,10 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 		}
 
 		userInfoProvider.setEmail(user.getEmail());
+
+		CsrfToken csrfToken = tokenService.generateToken(request);
+		tokenService.saveToken(csrfToken, request, response);
+		userInfoProvider.setNewCsrfToken(csrfToken);
 
 		log.info("User", user.getEmail(), "has been logged in.");
 		return HttpStatus.OK;

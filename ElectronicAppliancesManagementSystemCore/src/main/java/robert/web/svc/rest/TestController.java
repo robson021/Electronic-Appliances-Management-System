@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/test")
 public class TestController {
 
 	private final AppLogger log;
@@ -24,7 +25,7 @@ public class TestController {
 		this.applRoomDao = applRoomDao;
 	}
 
-	@RequestMapping("/test")
+	@RequestMapping("/hello")
 	public String hello() {
 		return "Hello World " + new Date().toString();
 	}
@@ -35,7 +36,7 @@ public class TestController {
 		List<String> appliances = new LinkedList<>();
 		int i = 1;
 		for (Appliance appl : allAppliances) {
-			appliances.add("(" + i++ + ") " + appl.getName());
+			appliances.add("(" + i++ + ") " + appl.getName() + "; ");
 		}
 
 		log.debug("Return:", appliances.toString());
