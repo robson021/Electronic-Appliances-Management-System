@@ -1,16 +1,18 @@
 package robert.web.filters;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
+
 import robert.enums.Validation;
 import robert.web.session.user.CsrfTokenService;
 import robert.web.session.user.api.UserInfoProvider;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @Component
 public class BasicAuthFilterImpl extends BasicAuthFilter {
@@ -29,7 +31,7 @@ public class BasicAuthFilterImpl extends BasicAuthFilter {
 
 
 	@Override
-	public void doLogic(HttpServletRequest request, HttpServletResponse response) {
+	public final void doLogic(HttpServletRequest request, HttpServletResponse response) {
 		if (isValidationNotEnabledOnThisURI(request.getRequestURI())) {
 			return;
 		}
