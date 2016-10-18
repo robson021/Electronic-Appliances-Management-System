@@ -9,14 +9,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-				.authorizeRequests()
-				//.antMatchers("/", "/home", "/index", "/login", "/logout", "/register").permitAll()
-				.antMatchers("/**").permitAll();
-		//.anyRequest().authenticated();
-		// todo security
-	}
+    /*
+     * custom protection is done via filter
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/**")
+                .permitAll()
+                .anyRequest()
+                .authenticated();
+        http.csrf()
+                .disable();
+    }
 
 }
