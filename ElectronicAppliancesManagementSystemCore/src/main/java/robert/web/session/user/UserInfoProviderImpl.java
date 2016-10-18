@@ -2,6 +2,7 @@ package robert.web.session.user;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 import robert.web.session.user.api.UserInfoProvider;
@@ -13,6 +14,8 @@ public class UserInfoProviderImpl implements UserInfoProvider {
 	private String email = null;
 
 	private boolean adminPrivileges = false;
+
+	private CsrfToken csrfToken = null;
 
 	@Override
 	public void setEmail(String email) {
@@ -34,5 +37,15 @@ public class UserInfoProviderImpl implements UserInfoProvider {
 	@Override
 	public boolean isAdmin() {
 		return this.adminPrivileges;
+	}
+
+	@Override
+	public void setNewCsrfToken(CsrfToken csrfToken) {
+		this.csrfToken = csrfToken;
+	}
+
+	@Override
+	public CsrfToken getCsrfToken() {
+		return this.csrfToken;
 	}
 }
