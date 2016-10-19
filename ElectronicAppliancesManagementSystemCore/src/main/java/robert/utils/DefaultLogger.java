@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
-import robert.utils.api.AppLogger;
 
-import java.util.Calendar;
+import robert.utils.api.AppLogger;
 
 @Component
 @Lazy
@@ -69,6 +68,6 @@ public class DefaultLogger implements AppLogger {
             sb.append(m.toString());
             sb.append(" ");
         }
-        return Calendar.getInstance().getTime().toString() + "\n\t\t" + sb.toString();
+        return "\n\t\t" + sb.toString();
     }
 }
