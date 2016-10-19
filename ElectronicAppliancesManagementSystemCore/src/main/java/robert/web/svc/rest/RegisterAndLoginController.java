@@ -1,5 +1,8 @@
 package robert.web.svc.rest;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -7,18 +10,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import robert.db.dao.UserDao;
 import robert.db.entity.User;
 import robert.exceptions.InvalidEmailPatternException;
 import robert.exceptions.InvalidPasswordException;
 import robert.exceptions.UserNotFoundException;
+import robert.svc.api.CsrfTokenService;
 import robert.utils.api.AppLogger;
-import robert.web.session.user.CsrfTokenService;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.api.RegisterAndLoginCtrl;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class RegisterAndLoginController implements RegisterAndLoginCtrl {

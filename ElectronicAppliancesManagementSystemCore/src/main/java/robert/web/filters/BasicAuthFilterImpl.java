@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
 import robert.enums.Validation;
-import robert.web.session.user.CsrfTokenService;
+import robert.svc.api.CsrfTokenService;
 import robert.web.session.user.api.UserInfoProvider;
 
 @Component
