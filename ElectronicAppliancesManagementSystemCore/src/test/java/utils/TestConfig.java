@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import robert.svc.api.MailService;
+import robert.utils.api.AppLogger;
 
 import java.io.File;
 
@@ -40,6 +41,48 @@ public class TestConfig {
             @Override
             public void sendEmail(String receiverEmail, String topic, String message, File attachment) {
                 System.out.println("--- test mailer run ---");
+            }
+        };
+    }
+
+    @Bean
+    @Primary
+    @Lazy
+    public AppLogger appLogger() {
+        return new AppLogger() {
+            @Override
+            public int getLoggingLevel() {
+                return 0;
+            }
+
+            @Override
+            public void info(Object... msg) {
+
+            }
+
+            @Override
+            public void debug(Object... msg) {
+
+            }
+
+            @Override
+            public void debug(Exception e) {
+
+            }
+
+            @Override
+            public void warn(Object... msg) {
+
+            }
+
+            @Override
+            public void error(Object... msg) {
+
+            }
+
+            @Override
+            public void error(Exception e) {
+
             }
         };
     }

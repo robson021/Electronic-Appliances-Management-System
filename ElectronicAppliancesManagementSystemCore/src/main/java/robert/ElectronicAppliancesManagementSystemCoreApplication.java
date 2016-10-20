@@ -7,14 +7,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import robert.enums.Beans;
+
+import static robert.enums.Beans.DEFAULT_TASK_EXECUTOR;
 
 @SpringBootApplication
 @EntityScan(basePackages = "robert.db.entity")
 @EnableJpaRepositories
 public class ElectronicAppliancesManagementSystemCoreApplication {
 
-    @Bean(name = Beans.DEFAULT_TASK_EXECUTOR)
+    @Bean(name = DEFAULT_TASK_EXECUTOR)
     public TaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(8);

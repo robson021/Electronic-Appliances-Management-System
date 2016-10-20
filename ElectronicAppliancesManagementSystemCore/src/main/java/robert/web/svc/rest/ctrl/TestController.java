@@ -1,15 +1,20 @@
-package robert.web.svc.rest;
+package robert.web.svc.rest.ctrl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import robert.db.dao.AdminDao;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.entity.Appliance;
 import robert.utils.api.AppLogger;
+import robert.web.svc.rest.responses.asm.UserAssembler;
+import robert.web.svc.rest.responses.data.UserDR;
 
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+
+import static robert.web.svc.rest.ctrl.api.AdminPanelCtrl.GET_ALL_INACTIVE_ACCOUNTS_URL;
 
 @RestController
 @RequestMapping("/test")
@@ -19,10 +24,13 @@ public class TestController {
 
 	private final ApplianceBuildingRoomManagementDao applRoomDao;
 
+	private final AdminDao adminDao;
+
 	@Autowired
-	public TestController(AppLogger log, ApplianceBuildingRoomManagementDao applRoomDao) {
+	public TestController(AppLogger log, ApplianceBuildingRoomManagementDao applRoomDao, AdminDao adminDao) {
 		this.log = log;
 		this.applRoomDao = applRoomDao;
+		this.adminDao = adminDao;
 	}
 
 	@RequestMapping("/hello")
@@ -41,5 +49,15 @@ public class TestController {
 
 		log.debug("Return:", appliances.toString());
 		return appliances;
+	}
+
+	@RequestMapping(GET_ALL_INACTIVE_ACCOUNTS_URL)
+	public List<UserDR> getAllInactiveAccounts() {
+		log.debug("test inactive accounts");
+
+		List<UserDR> userDRs = UserAssembler.convertToUserDR(adminDao.getAllInactiveUsers());
+
+		log.debug(userDRs);
+		return userDRs;
 	}
 }

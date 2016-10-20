@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import static robert.enums.Validation.ADMIN_URI;
 
 @Component
-public class AdminAuthFilter extends BasicAuthFilter {
+public final class AdminAuthFilter extends BasicAuthFilter {
 
 	private final AppLogger log;
 
@@ -37,7 +37,7 @@ public class AdminAuthFilter extends BasicAuthFilter {
 	}
 
 	@Override
-	public void doLogic(HttpServletRequest request, HttpServletResponse response) {
+	public final void doLogic(HttpServletRequest request, HttpServletResponse response) {
 		if (!isAdminUri(request.getRequestURI())) {
 			return;
 		}

@@ -1,4 +1,4 @@
-package robert.web.svc.rest;
+package robert.web.svc.rest.ctrl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import robert.svc.api.CsrfTokenService;
 import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
-import robert.web.svc.rest.api.RegisterAndLoginCtrl;
+import robert.web.svc.rest.ctrl.api.RegisterAndLoginCtrl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

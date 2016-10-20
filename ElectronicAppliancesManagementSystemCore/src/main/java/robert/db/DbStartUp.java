@@ -36,14 +36,14 @@ public class DbStartUp implements CommandLineRunner {
 		String adminEmail = "admin@a.pl";
         User user = new User();
         user.setEmail(adminEmail);
-        user.setAdminPrivileges(true);
         user.setName("Admin");
         user.setSurname("Admin");
 		user.setPassword("Passwd.123");
 		user.setActivated(true);
+		user.setAdminPrivileges(true);
 
-        log.debug("save test admin account");
-        userDao.saveUser(user);
+		log.debug("save test admin account");
+		userDao.saveUser(user);
 
         User byEmail = userDao.findUserByEmail(adminEmail);
         log.debug(byEmail);

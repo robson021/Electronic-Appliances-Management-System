@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static robert.web.svc.rest.api.AdminPanelCtrl.ADMIN_PREFIX;
+import static robert.web.svc.rest.ctrl.api.AdminPanelCtrl.ADMIN_PREFIX;
 
 public interface Validation {
 

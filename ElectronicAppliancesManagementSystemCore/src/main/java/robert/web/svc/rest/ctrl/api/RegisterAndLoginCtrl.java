@@ -1,4 +1,4 @@
-package robert.web.svc.rest.api;
+package robert.web.svc.rest.ctrl.api;
 
 import org.springframework.http.HttpStatus;
 

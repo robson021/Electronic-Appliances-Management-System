@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
-
 import robert.utils.api.AppLogger;
 
 @Component
@@ -28,41 +27,41 @@ public class DefaultLogger implements AppLogger {
     }
 
     @Override
-    public void info(Object... msg) {
+    public void info(final Object... msg) {
         if (loggingLvl >= 1)
             log.info(displayMessage(msg));
     }
 
     @Override
-    public void warn(Object... msg) {
+    public void warn(final Object... msg) {
         if (loggingLvl >= 1)
             log.warn(displayMessage(msg));
     }
 
     @Override
-    public void debug(Object... msg) {
+    public void debug(final Object... msg) {
         if (loggingLvl >= 2)
             log.info(displayMessage(msg));
     }
 
     @Override
-    public void debug(Exception e) {
+    public void debug(final Exception e) {
         if (loggingLvl >= 2)
             e.printStackTrace();
     }
 
 
     @Override
-    public void error(Object... msg) {
-		log.error(displayMessage(msg));
+    public void error(final Object... msg) {
+        log.error(displayMessage(msg));
 	}
 
     @Override
-    public void error(Exception e) {
+    public void error(final Exception e) {
         e.printStackTrace();
     }
 
-    private String displayMessage(Object... msg) {
+    private String displayMessage(final Object... msg) {
         StringBuilder sb = new StringBuilder();
         for (Object m : msg) {
             sb.append(m.toString());
