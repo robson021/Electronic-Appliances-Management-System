@@ -3,7 +3,6 @@ package robert.web.filters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Component;
-import org.springframework.util.AntPathMatcher;
 import robert.enums.Validation;
 import robert.svc.api.CsrfTokenService;
 import robert.utils.api.AppLogger;
@@ -13,10 +12,9 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @Component
-public final class BasicAuthFilterImpl extends BasicAuthFilter {
+public final class UserAuthFilter extends BasicAuthFilter {
 
 	private final AppLogger log;
 
@@ -24,10 +22,8 @@ public final class BasicAuthFilterImpl extends BasicAuthFilter {
 
 	private final CsrfTokenService tokenService;
 
-	private final AntPathMatcher apm = new AntPathMatcher();
-
 	@Autowired
-	public BasicAuthFilterImpl(AppLogger log, UserInfoProvider userInfoProvider, CsrfTokenService tokenService) {
+	public UserAuthFilter(AppLogger log, UserInfoProvider userInfoProvider, CsrfTokenService tokenService) {
 		this.log = log;
 		this.userInfoProvider = userInfoProvider;
 		this.tokenService = tokenService;
@@ -36,12 +32,12 @@ public final class BasicAuthFilterImpl extends BasicAuthFilter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		log.debug("New", BasicAuthFilterImpl.class, "initiated");
+		log.debug("New", UserAuthFilter.class, "initiated");
 	}
 
 	@Override
 	public void destroy() {
-		log.debug("Destroying filter:", BasicAuthFilterImpl.class);
+		log.debug("Destroying filter:", UserAuthFilter.class);
 	}
 
 	@Override
@@ -68,15 +64,6 @@ public final class BasicAuthFilterImpl extends BasicAuthFilter {
 
 	private boolean isUserAndTokenValid(String email, HttpServletRequest request) {
 		return email != null && compareTokens(tokenService.loadToken(request));
-	}
-
-	private void invalidateSessionAndSendRedirect(HttpServletResponse response, HttpServletRequest request) {
-		try {
-			response.sendRedirect("/login");
-		} catch (IOException ignored) {
-		} finally {
-			request.getSession().invalidate();
-		}
 	}
 
 	private boolean compareTokens(CsrfToken givenToken) {

@@ -5,18 +5,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import robert.svc.api.MailService;
-import robert.web.filters.BasicAuthFilter;
 
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 
 @Configuration
 public class TestConfig {
 
-    @Bean
+    /*@Bean
     @Primary
     @Lazy
     public BasicAuthFilter basicAuthFilter() {
@@ -35,7 +30,7 @@ public class TestConfig {
                 System.out.println("--- test filter run ---");
             }
         };
-    }
+    }*/
 
     @Bean
     @Primary

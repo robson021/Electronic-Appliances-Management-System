@@ -6,7 +6,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import static robert.web.svc.rest.api.AdminPanelCtrl.ADMIN_PREFIX;
+
 public interface Validation {
+
+	String ADMIN_URI = ADMIN_PREFIX + "**";
 
 	Pattern VALID_EMAIL_ADDRESS_REGEX = //
 			Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
@@ -17,4 +21,5 @@ public interface Validation {
 	List<String> NO_AUTH_URIS = Collections.unmodifiableList(    // TODO: replace with Guava?
 			Lists.newArrayList("/", "/login/**", "/register/**", "/test/**")
 	);
+
 }
