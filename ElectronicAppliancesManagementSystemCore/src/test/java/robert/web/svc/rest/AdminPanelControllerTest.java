@@ -9,6 +9,7 @@ import robert.db.dao.UserDao;
 import robert.db.entity.User;
 import robert.web.svc.rest.ctrl.api.AdminPanelCtrl;
 import utils.SpringWebMvcTest;
+import utils.TestUtils;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -18,9 +19,9 @@ public class AdminPanelControllerTest extends SpringWebMvcTest {
 	@Autowired
 	private UserDao userDao;
 
-	private final String email1 = "inactive@user.pl";
+	private String email1;
 
-	private final String email2 = "inactive@user2.pl";
+	private String email2;
 
 	@Override
 	@Before
@@ -46,20 +47,12 @@ public class AdminPanelControllerTest extends SpringWebMvcTest {
 	}
 
 	private void saveExampleUsers() throws Exception {
-		User inactiveUser = new User();
-		inactiveUser.setEmail(email1);
-		inactiveUser.setName("Inactive");
-		inactiveUser.setSurname("User");
-		inactiveUser.setPassword("abC.1234qwe");
-
-		User inactiveUser2 = new User();
-		inactiveUser2.setEmail(email2);
-		inactiveUser2.setName("Inactive");
-		inactiveUser2.setSurname("User2");
-		inactiveUser2.setPassword("abC.1234qwe");
-
-		userDao.saveUser(inactiveUser);
-		userDao.saveUser(inactiveUser2);
+		User user = TestUtils.generateExampleInactiveUser();
+		User user2 = TestUtils.generateExampleInactiveUser();
+		email1 = user.getEmail();
+		email2 = user2.getEmail();
+		userDao.saveUser(user);
+		userDao.saveUser(user2);
 	}
 
 }

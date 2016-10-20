@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22d79617-caa3-4e57-bc73-5dcecdd743e8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/utils/TestUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/robert/web/svc/rest/AdminPanelControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/robert/web/svc/rest/AdminPanelControllerTest.java" />
     </list>
@@ -38,36 +39,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDR.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/data/UserDR.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/data/DataResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvocableHandlerMethod.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TestController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/TestController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -78,14 +49,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminPanelControllerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminPanelControllerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/robert/web/svc/rest/AdminPanelControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+            <state relative-caret-position="142">
+              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestUtils.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/utils/TestUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpringTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/utils/SpringTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,8 +118,8 @@
       <file leaf-file-name="RegisterAndLoginControllerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/robert/web/svc/rest/RegisterAndLoginControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="430">
+              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,8 +145,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -166,7 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/robert/web/session/user/api/UserInfoProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/session/user/UserInfoProviderImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/utils/NoAuthFilter.java" />
         <option value="$PROJECT_DIR$/src/test/java/utils/SpringTest.java" />
@@ -190,7 +192,6 @@
         <option value="$PROJECT_DIR$/src/main/java/robert/svc/TaskSchedulerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/RegisterAndLoginController.java" />
         <option value="$PROJECT_DIR$/src/test/resources/application-test.properties" />
-        <option value="$PROJECT_DIR$/src/test/java/robert/web/svc/rest/RegisterAndLoginControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/exceptions/NotAnAdminException.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/filters/UserAuthFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/filters/BasicAuthFilter.java" />
@@ -217,6 +218,8 @@
         <option value="$PROJECT_DIR$/src/main/java/robert/db/DbStartUp.java" />
         <option value="$PROJECT_DIR$/src/test/java/utils/SpringWebMvcTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/robert/web/svc/rest/AdminPanelControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/robert/web/svc/rest/RegisterAndLoginControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/utils/TestUtils.java" />
       </list>
     </option>
   </component>
@@ -2382,7 +2385,7 @@
       <workItem from="1476811950310" duration="2499000" />
       <workItem from="1476831659378" duration="930000" />
       <workItem from="1476882283258" duration="3087000" />
-      <workItem from="1476960731676" duration="17867000" />
+      <workItem from="1476960731676" duration="18991000" />
     </task>
     <task id="LOCAL-00001" summary="1st commit">
       <created>1476033528381</created>
@@ -2552,22 +2555,17 @@
       <option name="project" value="LOCAL" />
       <updated>1476978243790</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fix tests for admin controller">
+      <created>1476978639225</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1476978639225</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AdminPanelControllerTest - 2016.10.20 at 16h 28m 53s.xml">
-      <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AdminPanelControllerTest - 2016.10.20 at 16h 30m 32s.xml">
-      <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AdminPanelControllerTest - 2016.10.20 at 16h 32m 01s.xml">
-      <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AdminPanelControllerTest - 2016.10.20 at 16h 32m 38s.xml">
-      <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AdminPanelControllerTest - 2016.10.20 at 16h 55m 51s.xml">
       <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
     </history-entry>
@@ -2583,12 +2581,24 @@
     <history-entry file="AdminPanelControllerTest - 2016.10.20 at 17h 50m 03s.xml">
       <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AdminPanelControllerTest - 2016.10.20 at 18h 02m 38s.xml">
+      <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AdminPanelControllerTest - 2016.10.20 at 18h 04m 16s.xml">
+      <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AdminPanelControllerTest - 2016.10.20 at 18h 05m 06s.xml">
+      <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AdminPanelControllerTest - 2016.10.20 at 18h 07m 36s.xml">
+      <configuration name="AdminPanelControllerTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="AdminPanelControllerTest_getAllInactiveAccounts - 2016.10.20 at 17h 45m 14s.xml">
       <configuration name="AdminPanelControllerTest.getAllInactiveAccounts" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109339000" />
+    <option name="totallyTimeSpent" value="110463000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1446" height="878" extended-state="6" />
@@ -2663,7 +2673,8 @@
     <MESSAGE value="Add mailer impl" />
     <MESSAGE value="Add admin auth filter" />
     <MESSAGE value="Add admin panel Dao and controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add admin panel Dao and controller" />
+    <MESSAGE value="Fix tests for admin controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix tests for admin controller" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -2716,17 +2727,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/exceptions/InvalidEmailPatternException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="65" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
-          <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/exceptions/InvalidPasswordException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -2867,8 +2867,8 @@
         <state relative-caret-position="126">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#121#122#0" expanded="true" />
-            <element signature="e#138#139#0" expanded="true" />
+            <element signature="e#121#122#0" expanded="false" />
+            <element signature="e#138#139#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2992,14 +2992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utils/SpringTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/dao/AdminDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -3032,17 +3024,6 @@
           <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
           <folding>
             <element signature="method#appLogger#0;class#TestConfig#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#1728#1729#0" expanded="true" />
-            <element signature="e#1761#1762#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3145,20 +3126,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/robert/web/svc/rest/RegisterAndLoginControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/utils/SpringTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        <state relative-caret-position="144">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/robert/web/svc/rest/AdminPanelControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/robert/web/svc/rest/AdminPanelControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+        <state relative-caret-position="352">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/robert/web/svc/rest/RegisterAndLoginControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utils/TestUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
