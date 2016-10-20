@@ -1,9 +1,13 @@
 package robert.web.svc.rest.ctrl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.AdminDao;
+import robert.exceptions.UserNotFoundException;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.ctrl.api.AdminPanelCtrl;
@@ -40,5 +44,19 @@ public class AdminPanelController implements AdminPanelCtrl {
 	public List<UserDR> getAllActiveAccounts() {
 		log.debug(GET_ALL_ACTIVE_ACCOUNTS_URL, "request from:", userInfoProvider.getEmail());
 		return UserAssembler.convertToUserDR(adminDao.getAllActiveUsers());
+	}
+
+	@Override
+	@RequestMapping(value = ACTIVATE_ACCOUNT, method = RequestMethod.POST)
+	public HttpStatus activateUserAccount(@PathVariable(EMAIL) String email) {
+		log.debug(ACTIVATE_ACCOUNT, "request from:", userInfoProvider.getEmail());
+		try {
+			adminDao.activateUserAccount(email);
+		} catch (UserNotFoundException e) {
+			log.debug(e);
+			return HttpStatus.NOT_ACCEPTABLE;
+		}
+		log.debug("User has been activated:", email);
+		return HttpStatus.OK;
 	}
 }

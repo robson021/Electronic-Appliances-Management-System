@@ -12,6 +12,7 @@ import utils.SpringWebMvcTest;
 import utils.TestUtils;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class AdminPanelControllerTest extends SpringWebMvcTest {
@@ -39,6 +40,16 @@ public class AdminPanelControllerTest extends SpringWebMvcTest {
 	public void getAllActiveAccounts() throws Exception {
 		saveExampleActiveUsers();
 		testUrl(AdminPanelCtrl.GET_ALL_ACTIVE_ACCOUNTS_URL);
+	}
+
+	@Test
+	public void activateUsersAcc() throws Exception {
+		User user = TestUtils.generateExampleInactiveUser();
+		String email = userDao.saveUser(user).getEmail();
+
+		mockMvc.perform(post("/admin/activate-account/" + email + "/"))
+				.andExpect(status().isOk());
+
 	}
 
 	private void testUrl(final String URL) throws Exception {

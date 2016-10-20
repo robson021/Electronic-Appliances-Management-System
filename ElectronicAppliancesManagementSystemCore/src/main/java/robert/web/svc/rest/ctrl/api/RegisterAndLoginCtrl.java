@@ -5,15 +5,7 @@ import org.springframework.http.HttpStatus;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public interface RegisterAndLoginCtrl {
-
-	String EMAIL = "email";
-
-	String PASSWORD = "password";
-
-	String NAME = "name";
-
-	String SURNAME = "surname";
+public interface RegisterAndLoginCtrl extends BasicUserParams {
 
 	String REGISTER_URL = "/register/{" + EMAIL + "}/{" + PASSWORD + "}/{" + NAME + "}/{" + SURNAME + "}";
 

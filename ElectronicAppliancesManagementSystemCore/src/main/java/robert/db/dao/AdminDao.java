@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import robert.db.entity.User;
 import robert.db.repository.UserRepository;
+import robert.exceptions.UserNotFoundException;
 
 import java.util.Collections;
 import java.util.List;
@@ -29,5 +30,14 @@ public class AdminDao {
 	public List<User> getAllActiveUsers() {
 		List<User> users = this.userRepository.findByActivated(true);
 		return CollectionUtils.isEmpty(users) ? Collections.emptyList() : users;
+	}
+
+	public void activateUserAccount(String email) throws UserNotFoundException {
+		User user = userRepository.findOneByEmail(email.trim());
+		if (user == null) {
+			throw new UserNotFoundException();
+		}
+		user.setActivated(true);
+		userRepository.save(user);
 	}
 }

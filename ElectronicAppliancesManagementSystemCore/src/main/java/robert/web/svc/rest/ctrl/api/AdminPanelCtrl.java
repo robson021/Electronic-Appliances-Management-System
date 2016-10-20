@@ -1,10 +1,11 @@
 package robert.web.svc.rest.ctrl.api;
 
+import org.springframework.http.HttpStatus;
 import robert.web.svc.rest.responses.data.UserDR;
 
 import java.util.List;
 
-public interface AdminPanelCtrl {
+public interface AdminPanelCtrl extends BasicUserParams {
 
 	String ADMIN_PREFIX = "/admin/";
 
@@ -12,8 +13,12 @@ public interface AdminPanelCtrl {
 
 	String GET_ALL_ACTIVE_ACCOUNTS_URL = ADMIN_PREFIX + "all-active-accounts/";
 
+	String ACTIVATE_ACCOUNT = ADMIN_PREFIX + "activate-account/{" + EMAIL + "}/";
+
 	List<UserDR> getAllInactiveAccounts();
 
 	List<UserDR> getAllActiveAccounts();
+
+	HttpStatus activateUserAccount(String email);
 
 }
