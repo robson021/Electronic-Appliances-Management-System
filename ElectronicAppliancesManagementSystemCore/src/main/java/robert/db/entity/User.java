@@ -35,6 +35,9 @@ public class User {
 	@Column(name = "ADMIN_PRIVILEGES")
 	private Boolean adminPrivileges = false;
 
+	@Column(name = "IS_ACTIVATED")
+	private Boolean isActivated = false;
+
 	public String getEmail() {
 		return email;
 	}
@@ -70,6 +73,14 @@ public class User {
 
 	public Long getId() {
 		return id;
+	}
+
+	public Boolean getActivated() {
+		return isActivated;
+	}
+
+	public void setActivated(Boolean activated) {
+		isActivated = activated;
 	}
 
 	public void setId(Long id) {

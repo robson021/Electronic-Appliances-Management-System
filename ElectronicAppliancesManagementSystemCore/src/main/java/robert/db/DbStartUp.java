@@ -40,6 +40,7 @@ public class DbStartUp implements CommandLineRunner {
         user.setName("Admin");
         user.setSurname("Admin");
 		user.setPassword("Passwd.123");
+		user.setActivated(true);
 
         log.debug("save test admin account");
         userDao.saveUser(user);

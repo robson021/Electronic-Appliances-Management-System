@@ -1,25 +1,17 @@
 package robert.web.filters;
 
-import java.io.IOException;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public abstract class BasicAuthFilter implements Filter {
 
 	@Override
-	public final void init(FilterConfig filterConfig) throws ServletException {
-	}
+	public abstract void init(FilterConfig filterConfig) throws ServletException;
 
 	@Override
-	public final void destroy() {
-	}
+	public abstract void destroy();
 
 	@Override
 	public final void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
