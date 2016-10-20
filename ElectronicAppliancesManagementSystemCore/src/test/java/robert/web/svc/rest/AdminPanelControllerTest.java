@@ -18,6 +18,10 @@ public class AdminPanelControllerTest extends SpringWebMvcTest {
 	@Autowired
 	private UserDao userDao;
 
+	private final String email1 = "inactive@user.pl";
+
+	private final String email2 = "inactive@user2.pl";
+
 	@Override
 	@Before
 	public void setup() throws Exception {
@@ -36,18 +40,20 @@ public class AdminPanelControllerTest extends SpringWebMvcTest {
 				.isEqualToIgnoringCase(CONTENT_TYPE);
 
 		String contentAsString = result.getResponse().getContentAsString();
-		System.out.println(result);
+		Assertions.assertThat(contentAsString)
+				.containsIgnoringCase(email1)
+				.containsIgnoringCase(email2);
 	}
 
 	private void saveExampleUsers() throws Exception {
 		User inactiveUser = new User();
-		inactiveUser.setEmail("inactive@user.pl");
+		inactiveUser.setEmail(email1);
 		inactiveUser.setName("Inactive");
 		inactiveUser.setSurname("User");
 		inactiveUser.setPassword("abC.1234qwe");
 
 		User inactiveUser2 = new User();
-		inactiveUser2.setEmail("inactive@user2.pl");
+		inactiveUser2.setEmail(email2);
 		inactiveUser2.setName("Inactive");
 		inactiveUser2.setSurname("User2");
 		inactiveUser2.setPassword("abC.1234qwe");
