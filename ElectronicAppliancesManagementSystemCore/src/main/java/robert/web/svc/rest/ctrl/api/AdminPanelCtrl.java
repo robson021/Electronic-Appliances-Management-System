@@ -10,6 +10,10 @@ public interface AdminPanelCtrl {
 
 	String GET_ALL_INACTIVE_ACCOUNTS_URL = ADMIN_PREFIX + "all-inactive-accounts/";
 
+	String GET_ALL_ACTIVE_ACCOUNTS_URL = ADMIN_PREFIX + "all-active-accounts/";
+
 	List<UserDR> getAllInactiveAccounts();
+
+	List<UserDR> getAllActiveAccounts();
 
 }

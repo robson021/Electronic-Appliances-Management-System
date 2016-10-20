@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.AdminDao;
-import robert.db.entity.User;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.ctrl.api.AdminPanelCtrl;
@@ -33,8 +32,13 @@ public class AdminPanelController implements AdminPanelCtrl {
 	@RequestMapping(GET_ALL_INACTIVE_ACCOUNTS_URL)
 	public List<UserDR> getAllInactiveAccounts() {
 		log.debug(GET_ALL_INACTIVE_ACCOUNTS_URL, "request from:", userInfoProvider.getEmail());
-		List<User> users = adminDao.getAllInactiveUsers();
-		List<UserDR> userDRs = UserAssembler.convertToUserDR(users);
-		return userDRs;
+		return UserAssembler.convertToUserDR(adminDao.getAllInactiveUsers());
+	}
+
+	@Override
+	@RequestMapping(GET_ALL_ACTIVE_ACCOUNTS_URL)
+	public List<UserDR> getAllActiveAccounts() {
+		log.debug(GET_ALL_ACTIVE_ACCOUNTS_URL, "request from:", userInfoProvider.getEmail());
+		return UserAssembler.convertToUserDR(adminDao.getAllActiveUsers());
 	}
 }

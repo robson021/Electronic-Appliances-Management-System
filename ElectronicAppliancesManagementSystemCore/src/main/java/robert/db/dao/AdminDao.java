@@ -3,6 +3,7 @@ package robert.db.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import robert.db.entity.User;
 import robert.db.repository.UserRepository;
 
@@ -22,9 +23,11 @@ public class AdminDao {
 
 	public List<User> getAllInactiveUsers() {
 		List<User> users = this.userRepository.findByActivated(false);
-		if (users == null) {
-			return Collections.emptyList();
-		}
-		return users;
+		return CollectionUtils.isEmpty(users) ? Collections.emptyList() : users;
+	}
+
+	public List<User> getAllActiveUsers() {
+		List<User> users = this.userRepository.findByActivated(true);
+		return CollectionUtils.isEmpty(users) ? Collections.emptyList() : users;
 	}
 }

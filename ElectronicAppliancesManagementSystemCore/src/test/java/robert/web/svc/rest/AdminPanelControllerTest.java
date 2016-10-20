@@ -31,9 +31,18 @@ public class AdminPanelControllerTest extends SpringWebMvcTest {
 
 	@Test
 	public void getAllInactiveAccounts() throws Exception {
-		saveExampleUsers();
+		saveExampleInactiveUsers();
+		testUrl(AdminPanelCtrl.GET_ALL_INACTIVE_ACCOUNTS_URL);
+	}
 
-		MvcResult result = mockMvc.perform(get(AdminPanelCtrl.GET_ALL_INACTIVE_ACCOUNTS_URL))
+	@Test
+	public void getAllActiveAccounts() throws Exception {
+		saveExampleActiveUsers();
+		testUrl(AdminPanelCtrl.GET_ALL_ACTIVE_ACCOUNTS_URL);
+	}
+
+	private void testUrl(final String URL) throws Exception {
+		MvcResult result = mockMvc.perform(get(URL))
 				.andExpect(status().isOk())
 				.andReturn();
 
@@ -46,9 +55,19 @@ public class AdminPanelControllerTest extends SpringWebMvcTest {
 				.containsIgnoringCase(email2);
 	}
 
-	private void saveExampleUsers() throws Exception {
+
+	private void saveExampleInactiveUsers() throws Exception {
 		User user = TestUtils.generateExampleInactiveUser();
 		User user2 = TestUtils.generateExampleInactiveUser();
+		email1 = user.getEmail();
+		email2 = user2.getEmail();
+		userDao.saveUser(user);
+		userDao.saveUser(user2);
+	}
+
+	private void saveExampleActiveUsers() throws Exception {
+		User user = TestUtils.generateRandomActiveUser();
+		User user2 = TestUtils.generateRandomActiveUser();
 		email1 = user.getEmail();
 		email2 = user2.getEmail();
 		userDao.saveUser(user);
