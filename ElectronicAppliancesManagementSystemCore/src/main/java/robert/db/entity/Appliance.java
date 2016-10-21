@@ -22,6 +22,9 @@ public class Appliance {
 	@JoinColumn(name = "ROOM_ID")
 	private Room room;
 
+	@Column(name = "UNIQUE_CODE", nullable = false)
+	private String uniqueCode;
+
 	public Long getId() {
 		return id;
 	}
@@ -40,6 +43,14 @@ public class Appliance {
 
 	public String getName() {
 		return name;
+	}
+
+	public String getUniqueCode() {
+		return uniqueCode;
+	}
+
+	public void setUniqueCode(String uniqueCode) {
+		this.uniqueCode = uniqueCode;
 	}
 
 	public void setName(String name) {

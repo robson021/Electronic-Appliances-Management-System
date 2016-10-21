@@ -11,6 +11,8 @@ import robert.db.entity.Room;
 import robert.db.entity.User;
 import robert.utils.api.AppLogger;
 
+import java.util.UUID;
+
 @Component
 public class DbStartUp implements CommandLineRunner {
 
@@ -67,11 +69,13 @@ public class DbStartUp implements CommandLineRunner {
 		Appliance appliance = new Appliance();
 		appliance.setName("Samsung A600 Home Theater Projector");
 		appliance.setRoom(room);
+		appliance.setUniqueCode(UUID.randomUUID().toString());
 		room.addNewAppliance(appliance);
 
 		Appliance appliance2 = new Appliance();
 		appliance2.setName("Epson EX3212 SVGA 3LCD Projector");
 		appliance2.setRoom(room2);
+		appliance2.setUniqueCode(UUID.randomUUID().toString());
 		room2.addNewAppliance(appliance2);
 
 		b4.addRoom(room);

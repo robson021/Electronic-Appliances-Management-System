@@ -9,6 +9,8 @@ import robert.db.entity.Building;
 import robert.db.entity.Room;
 import utils.SpringTest;
 
+import java.util.UUID;
+
 public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 
 	@Autowired
@@ -35,6 +37,7 @@ public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 		Room room = createRoom(6);
 		Building building = createBuilding(6);
 		Appliance appliance = new Appliance();
+		appliance.setUniqueCode(UUID.randomUUID().toString());
 
 		building.addRoom(room);
 		room.setBuilding(building);
@@ -62,6 +65,10 @@ public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 		a2.setName("a2");
 		Appliance a3 = new Appliance();
 		a3.setName("a3");
+
+		a1.setUniqueCode(UUID.randomUUID().toString());
+		a2.setUniqueCode(UUID.randomUUID().toString());
+		a3.setUniqueCode(UUID.randomUUID().toString());
 
 		Room room = dao.saveRoom(createRoom(7));
 		dao.addApplianceToTheRoom(a1, room);
