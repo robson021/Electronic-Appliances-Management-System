@@ -25,6 +25,9 @@ public class Appliance {
 	@Column(name = "UNIQUE_CODE", nullable = false)
 	private String uniqueCode;
 
+	@OneToOne(mappedBy = "appliance", fetch = FetchType.EAGER)
+	private Reservation reservation = null;
+
 	public Long getId() {
 		return id;
 	}
@@ -35,6 +38,14 @@ public class Appliance {
 
 	public Room getRoom() {
 		return room;
+	}
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
 	}
 
 	public void setRoom(Room room) {
