@@ -18,6 +18,20 @@ public class Reservation {
 	@JoinColumn(name = "APPLIANCE_ID", nullable = false)
 	private Appliance appliance;
 
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "USER_ID", nullable = false)
+	private User user;
+
+	// todo add date from till valid
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Long getId() {
 		return id;
 	}

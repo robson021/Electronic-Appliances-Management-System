@@ -9,6 +9,7 @@ import robert.exceptions.InvalidEmailPatternException;
 import robert.exceptions.InvalidPasswordException;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "USER")
@@ -38,6 +39,9 @@ public class User {
 	@Column(name = "IS_ACTIVATED")
 	private Boolean activated = false;
 
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	private Set<Reservation> reservations = null;
+
 	public String getEmail() {
 		return email;
 	}
@@ -62,7 +66,6 @@ public class User {
 		this.password = password;
 	}
 
-
 	public String getName() {
 		return name;
 	}
@@ -85,6 +88,14 @@ public class User {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 
 	public Boolean getAdminPrivileges() {

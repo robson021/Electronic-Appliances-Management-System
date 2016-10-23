@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import robert.db.entity.User;
+import robert.db.repository.ReservationRepository;
 import robert.db.repository.UserRepository;
 
 @Component
@@ -12,10 +13,13 @@ public class UserDao {
 
     private final UserRepository userRepository;
 
+	private final ReservationRepository reservationRepository;
+
     @Autowired
-    public UserDao(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+	public UserDao(UserRepository userRepository, ReservationRepository reservationRepository) {
+		this.userRepository = userRepository;
+		this.reservationRepository = reservationRepository;
+	}
 
     public User saveUser(User user) {
         return userRepository.save(user);
@@ -40,4 +44,8 @@ public class UserDao {
     public Iterable<User> findAllUsers() {
         return userRepository.findAll();
     }
+
+	public void makeReservationForAppliance() {
+
+	}
 }
