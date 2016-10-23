@@ -11,6 +11,7 @@ import robert.db.repository.ApplianceRepository;
 import robert.db.repository.BuildingRepository;
 import robert.db.repository.ReservationRepository;
 import robert.db.repository.RoomRepository;
+import robert.exceptions.NoSuchBuildingException;
 import robert.utils.api.AppLogger;
 
 @Component
@@ -47,12 +48,12 @@ public class ApplianceBuildingRoomManagementDao {
 		return roomRepository.findOne(roomId);
 	}
 
-	public void addApplianceToTheRoom(Appliance appl, String building, String roomNumber) {
+	public void addApplianceToTheRoom(Appliance appl, String building, String roomNumber) throws NoSuchBuildingException {
 		// TODO: select with hql query
 		Building b = buildingRepository.findOneByName(building);
 		if (b == null) {
 			log.debug("Could not find building:", building);
-			return; // todo: throw exception
+			throw new NoSuchBuildingException("Could not find building: " + building);
 		}
 		b.getRooms()
 				.stream()

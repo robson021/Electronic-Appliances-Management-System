@@ -1,6 +1,6 @@
 package robert.web.svc.rest.responses.data;
 
-public class UserDR extends DataResponse {
+public class UserDR {
 
 	private String email;
 
