@@ -4,6 +4,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "RESERVATION")
@@ -22,7 +23,13 @@ public class Reservation {
 	@JoinColumn(name = "USER_ID", nullable = false)
 	private User user;
 
-	// todo add date from till valid
+	@Temporal(TemporalType.DATE)
+	@Column(name = "VALID_FROM", length = 7)
+	private Date validFrom;
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "VALID_TILL", length = 7)
+	private Date validTill;
 
 	public User getUser() {
 		return user;
@@ -46,6 +53,22 @@ public class Reservation {
 
 	public void setAppliance(Appliance appliance) {
 		this.appliance = appliance;
+	}
+
+	public Date getValidFrom() {
+		return validFrom;
+	}
+
+	public void setValidFrom(Date validFrom) {
+		this.validFrom = validFrom;
+	}
+
+	public Date getValidTill() {
+		return validTill;
+	}
+
+	public void setValidTill(Date validTill) {
+		this.validTill = validTill;
 	}
 
 	@Override

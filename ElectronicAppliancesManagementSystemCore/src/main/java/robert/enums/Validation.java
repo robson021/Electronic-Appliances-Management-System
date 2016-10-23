@@ -22,4 +22,6 @@ public interface Validation {
 			Lists.newArrayList("/", "/login/**", "/register/**", "/test/**")
 	);
 
+	int MAX_RESERVATION_TIME_IN_HOURS = 12;
+
 }

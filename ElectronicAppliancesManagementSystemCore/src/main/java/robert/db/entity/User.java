@@ -9,6 +9,7 @@ import robert.exceptions.InvalidEmailPatternException;
 import robert.exceptions.InvalidPasswordException;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -96,6 +97,13 @@ public class User {
 
 	public void setReservations(Set<Reservation> reservations) {
 		this.reservations = reservations;
+	}
+
+	public void addReservation(Reservation reservation) {
+		if (this.reservations == null) {
+			this.reservations = new HashSet<>();
+		}
+		this.reservations.add(reservation);
 	}
 
 	public Boolean getAdminPrivileges() {

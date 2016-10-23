@@ -2,7 +2,10 @@ package utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.RandomStringUtils;
+import robert.db.entity.Appliance;
 import robert.db.entity.User;
+
+import java.util.UUID;
 
 public class TestUtils {
 
@@ -31,6 +34,13 @@ public class TestUtils {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public static Appliance geenrateRandomAppliance() {
+		Appliance appliance = new Appliance();
+		appliance.setName("test_appliance_" + UUID.randomUUID().toString());
+		appliance.setUniqueCode(UUID.randomUUID().toString());
+		return appliance;
 	}
 
 }
