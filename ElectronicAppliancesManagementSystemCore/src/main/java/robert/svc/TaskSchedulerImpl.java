@@ -23,7 +23,7 @@ public class TaskSchedulerImpl implements TaskSchedulerService {
 
 	@Override
 	public void submitNewTask(Runnable runnable) {
+		log.debug("Invoking new task:", runnable);
 		taskExecutor.execute(runnable);
-		log.debug("Invoked new task:", runnable);
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.util.CollectionUtils;
 import robert.db.entity.User;
 import robert.db.repository.UserRepository;
 import robert.exceptions.UserNotFoundException;
+import robert.svc.api.MailService;
 
 import java.util.Collections;
 import java.util.List;
@@ -17,9 +18,12 @@ public class AdminDao {
 
 	private final UserRepository userRepository;
 
+	private final MailService mailService;
+
 	@Autowired
-	public AdminDao(UserRepository userRepository) {
+	public AdminDao(UserRepository userRepository, MailService mailService) {
 		this.userRepository = userRepository;
+		this.mailService = mailService;
 	}
 
 	public List<User> getAllInactiveUsers() {
@@ -39,5 +43,9 @@ public class AdminDao {
 		}
 		user.setActivated(true);
 		userRepository.save(user);
+		mailService.sendEmail(user.getEmail(),
+				"Account activation",
+				"Your account has been activated",
+				null);
 	}
 }

@@ -31,8 +31,6 @@ public class DbStartUp implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        if (log.getLoggingLevel() < 2)
-            return;
 
 		// admin acc
 		String adminEmail = "admin@a.pl";
@@ -44,8 +42,12 @@ public class DbStartUp implements CommandLineRunner {
 		user.setActivated(true);
 		user.setAdminPrivileges(true);
 
-		log.debug("save test admin account");
+		log.info("save test admin account");
 		userDao.saveUser(user);
+
+		if (log.getLoggingLevel() < 2)
+			return;
+
 
         User byEmail = userDao.findUserByEmail(adminEmail);
         log.debug(byEmail);
@@ -84,6 +86,7 @@ public class DbStartUp implements CommandLineRunner {
 
 		Appliance appliance3 = new Appliance();
 		appliance3.setName("Lenovo Pocket Projector");
+		appliance3.setUniqueCode(UUID.randomUUID().toString());
 
 		applianceBuildingRoomManagementDao.addApplianceToTheRoom(appliance3, "B4", "122");
 

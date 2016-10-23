@@ -37,7 +37,6 @@ public class MailServiceImpl implements MailService {
 
     private class MailRunnable implements Runnable {
         final String receiverEmail, topic, body;
-
         final File attachment;
 
         MailRunnable(String receiverEmail, String topic, String message, File attachment) {
