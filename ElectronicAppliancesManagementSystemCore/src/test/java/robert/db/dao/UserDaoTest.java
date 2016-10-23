@@ -91,7 +91,7 @@ public class UserDaoTest extends SpringTest {
                 .contains(reservation);
 
         Assertions.assertThat(reservation.getValidTill())
-                .isAfter(reservation.getValidFrom());
+                .isGreaterThan(reservation.getValidFrom());
     }
 
     private User createUser() throws Exception {

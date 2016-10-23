@@ -74,10 +74,10 @@ public class UserDao {
 					.plusMinutes(15)
 					.toDate();
 		}
-		reservation.setValidFrom(from);
+		reservation.setValidFrom(from.getTime());
 		reservation.setValidTill(new DateTime(from)
 				.plus(hours)
-				.toDate());
+				.toDate().getTime());
 
 		appliance.setReservation(reservation);
 

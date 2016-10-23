@@ -52,7 +52,7 @@ public class ApplianceBuildingRoomManagementDao {
 		Building b = buildingRepository.findOneByName(building);
 		if (b == null) {
 			log.debug("Could not find building:", building);
-			return;
+			return; // todo: throw exception
 		}
 		b.getRooms()
 				.stream()

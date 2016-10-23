@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22d79617-caa3-4e57-bc73-5dcecdd743e8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_4.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ElectronicAppliancesManagementSystemCore.iml" afterPath="$PROJECT_DIR$/ElectronicAppliancesManagementSystemCore.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/db/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/dao/UserDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/db/entity/Reservation.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/entity/Reservation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/db/entity/User.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/enums/Validation.java" afterPath="$PROJECT_DIR$/src/main/java/robert/enums/Validation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/robert/db/dao/UserDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/robert/db/dao/UserDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/utils/TestUtils.java" afterPath="$PROJECT_DIR$/src/test/java/utils/TestUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" />
     </list>
     <ignored path="ElectronicAppliancesManagementSystemCore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +32,7 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="1332">
               <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
               <folding />
             </state>
@@ -49,17 +42,14 @@
       <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/dao/UserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
-              <folding>
-                <element signature="e#1348#1349#0" expanded="true" />
-                <element signature="e#1405#1406#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="416">
+              <caret line="77" column="27" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application-test.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application-test.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/resources/application-test.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
@@ -82,20 +72,24 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
+            <state relative-caret-position="1026">
               <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reservation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Reservation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Reservation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="486">
+              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#840#841#0" expanded="true" />
+                <element signature="e#856#857#0" expanded="true" />
+                <element signature="e#1279#1280#0" expanded="true" />
+                <element signature="e#1312#1313#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,15 +98,11 @@
       <file leaf-file-name="ApplianceBuildingRoomManagementDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="596">
-              <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
+            <state relative-caret-position="-70">
+              <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
               <folding>
-                <element signature="e#2220#2221#0" expanded="true" />
-                <element signature="e#2265#2266#0" expanded="true" />
-                <element signature="e#2321#2322#0" expanded="true" />
-                <element signature="e#2370#2371#0" expanded="true" />
-                <element signature="e#2848#2849#0" expanded="true" />
-                <element signature="e#2893#2894#0" expanded="true" />
+                <element signature="e#2873#2874#0" expanded="true" />
+                <element signature="e#2918#2919#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,8 +133,8 @@
       <file leaf-file-name="UserDaoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/robert/db/dao/UserDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="85" column="16" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
+            <state relative-caret-position="340">
+              <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -223,11 +213,11 @@
         <option value="$PROJECT_DIR$/src/main/java/robert/db/entity/User.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/robert/enums/Validation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" />
-        <option value="$PROJECT_DIR$/src/test/java/robert/db/dao/UserDaoTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/robert/db/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/robert/db/entity/Reservation.java" />
         <option value="$PROJECT_DIR$/src/test/resources/application-test.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robert/db/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/test/java/robert/db/dao/UserDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robert/db/entity/Reservation.java" />
       </list>
     </option>
   </component>
@@ -280,7 +270,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -684,6 +673,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2437,6 +2427,7 @@
       <workItem from="1477222707186" duration="1894000" />
       <workItem from="1477236794655" duration="1018000" />
       <workItem from="1477243546528" duration="5864000" />
+      <workItem from="1477249727593" duration="613000" />
     </task>
     <task id="LOCAL-00001" summary="1st commit">
       <created>1476033528381</created>
@@ -2652,21 +2643,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 20h 35m 47s.xml">
-      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 20h 42m 41s.xml">
-      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 20h 45m 54s.xml">
-      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 20h 47m 24s.xml">
-      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 20h 51m 15s.xml">
-      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 20h 54m 22s.xml">
       <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
     </history-entry>
@@ -2682,9 +2658,24 @@
     <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 20h 58m 55s.xml">
       <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 21h 11m 58s.xml">
+      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 21h 13m 03s.xml">
+      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 21h 13m 56s.xml">
+      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 21h 15m 08s.xml">
+      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserDaoTest_addReservationToUser - 2016.10.23 at 21h 16m 18s.xml">
+      <configuration name="UserDaoTest.addReservationToUser" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127233000" />
+    <option name="totallyTimeSpent" value="127846000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1446" height="878" extended-state="6" />
@@ -2697,7 +2688,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7377261" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5839793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53229976" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2959,7 +2950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2967,7 +2957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2982,9 +2971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="method#MailRunnable#0;class#MailRunnable#0;class#MailServiceImpl#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2999,7 +2985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3007,9 +2992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3017,7 +2999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3025,7 +3006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3065,7 +3045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3073,7 +3052,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
           <caret line="52" column="48" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3089,9 +3067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3099,7 +3074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3137,7 +3111,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="1332">
           <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
           <folding />
         </state>
@@ -3153,7 +3127,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
+        <state relative-caret-position="1026">
           <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
           <folding />
         </state>
@@ -3167,21 +3141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
-          <folding>
-            <element signature="e#2220#2221#0" expanded="true" />
-            <element signature="e#2265#2266#0" expanded="true" />
-            <element signature="e#2321#2322#0" expanded="true" />
-            <element signature="e#2370#2371#0" expanded="true" />
-            <element signature="e#2848#2849#0" expanded="true" />
-            <element signature="e#2893#2894#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/repository/ReservationRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -3192,40 +3151,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/robert/db/dao/UserDaoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/resources/application-test.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="85" column="16" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
+        <state relative-caret-position="108">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Reservation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="-70">
+          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2873#2874#0" expanded="true" />
+            <element signature="e#2918#2919#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
-          <folding>
-            <element signature="e#1348#1349#0" expanded="true" />
-            <element signature="e#1405#1406#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="416">
+          <caret line="77" column="27" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/application-test.properties">
+    <entry file="file://$PROJECT_DIR$/src/test/java/robert/db/dao/UserDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="340">
+          <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Reservation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#1279#1280#0" expanded="true" />
+            <element signature="e#1312#1313#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
