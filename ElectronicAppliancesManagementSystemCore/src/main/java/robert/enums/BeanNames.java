@@ -1,5 +1,5 @@
 package robert.enums;
 
-public interface Beans {
+public interface BeanNames {
 	String DEFAULT_TASK_EXECUTOR = "dte";
 }

@@ -1,11 +1,14 @@
 package robert.web.svc.rest.ctrl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.AdminDao;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.entity.Appliance;
+import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
 import robert.web.svc.rest.responses.asm.UserAssembler;
 import robert.web.svc.rest.responses.data.UserDR;
@@ -26,11 +29,14 @@ public class TestController {
 
 	private final AdminDao adminDao;
 
+	private final MailService mailService;
+
 	@Autowired
-	public TestController(AppLogger log, ApplianceBuildingRoomManagementDao applRoomDao, AdminDao adminDao) {
+	public TestController(AppLogger log, ApplianceBuildingRoomManagementDao applRoomDao, AdminDao adminDao, MailService mailService) {
 		this.log = log;
 		this.applRoomDao = applRoomDao;
 		this.adminDao = adminDao;
+		this.mailService = mailService;
 	}
 
 	@RequestMapping("/hello")
@@ -59,5 +65,11 @@ public class TestController {
 
 		log.debug(userDRs);
 		return userDRs;
+	}
+
+	@RequestMapping("/email")
+	@ResponseStatus(HttpStatus.OK)
+	public void sendEmail() {
+		mailService.sendEmail("invoice.writer.app@gmail.com", "test", "Test email.", null);
 	}
 }

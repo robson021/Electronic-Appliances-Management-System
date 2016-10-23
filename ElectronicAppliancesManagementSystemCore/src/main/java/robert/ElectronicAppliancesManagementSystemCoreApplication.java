@@ -8,24 +8,25 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import static robert.enums.Beans.DEFAULT_TASK_EXECUTOR;
+import static robert.enums.BeanNames.DEFAULT_TASK_EXECUTOR;
 
 @SpringBootApplication
 @EntityScan(basePackages = "robert.db.entity")
 @EnableJpaRepositories
 public class ElectronicAppliancesManagementSystemCoreApplication {
 
-    @Bean(name = DEFAULT_TASK_EXECUTOR)
-    public TaskExecutor taskExecutor() {
-        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(8);
-        executor.setMaxPoolSize(25);
-        executor.setQueueCapacity(3);
+	@Bean(name = DEFAULT_TASK_EXECUTOR)
+	public TaskExecutor taskExecutor() {
+		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+		executor.setCorePoolSize(8);
+		executor.setQueueCapacity(3);
+		executor.setMaxPoolSize(25);
+		executor.setKeepAliveSeconds(30);
 
-        return executor;
-    }
+		return executor;
+	}
 
-    public static void main(String[] args) {
-        SpringApplication.run(ElectronicAppliancesManagementSystemCoreApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(ElectronicAppliancesManagementSystemCoreApplication.class, args);
+	}
 }
