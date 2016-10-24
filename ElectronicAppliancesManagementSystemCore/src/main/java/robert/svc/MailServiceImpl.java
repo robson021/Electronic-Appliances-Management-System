@@ -35,11 +35,10 @@ public class MailServiceImpl implements MailService {
     @Override
     public void sendEmail(String receiverEmail, String topic, String message, File attachment) {
         MailRunnable mailRunnable = new MailRunnable(receiverEmail, topic, message, attachment);
-        ExecutableTask task = ExecutableTask.newBuilder()
+        taskScheduler.submitNewTask(ExecutableTask.newBuilder()
                 .withTask(mailRunnable)
                 .withTaskType(TaskType.SINGLE_RUN)
-                .build();
-        taskScheduler.submitNewTask(task);
+                .build());
     }
 
     private class MailRunnable implements Runnable {

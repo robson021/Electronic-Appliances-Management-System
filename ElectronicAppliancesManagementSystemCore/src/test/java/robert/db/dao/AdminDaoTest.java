@@ -48,4 +48,16 @@ public class AdminDaoTest extends SpringTest {
 				.hasFieldOrPropertyWithValue("activated", true);
 
 	}
+
+	@Test
+	public void deactivateUserAccount() throws Exception {
+		final String email = userDao.saveUser(TestUtils.generateRandomActiveUser()).getEmail();
+		adminDao.deactivateUserAccount(email);
+		User user = userDao.findUserByEmail(email);
+
+		Assertions.assertThat(user)
+				.isNotNull()
+				.hasFieldOrPropertyWithValue("activated", false);
+
+	}
 }

@@ -59,4 +59,18 @@ public class AdminPanelController implements AdminPanelCtrl {
 		log.debug("User has been activated:", email);
 		return HttpStatus.OK;
 	}
+
+	@Override
+	@RequestMapping(value = DEACTIVATE_ACCOUNT, method = RequestMethod.POST)
+	public HttpStatus deactivateUserAccount(String email) {
+		log.debug(DEACTIVATE_ACCOUNT, "request from:", userInfoProvider.getEmail());
+		try {
+			adminDao.activateUserAccount(email);
+		} catch (UserNotFoundException e) {
+			log.debug(e);
+			return HttpStatus.NOT_ACCEPTABLE;
+		}
+		log.debug("User has been deactivated:", email);
+		return HttpStatus.OK;
+	}
 }

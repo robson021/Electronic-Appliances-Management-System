@@ -41,11 +41,30 @@ public class AdminDao {
 		if (user == null) {
 			throw new UserNotFoundException();
 		}
+		if (user.getActivated()) {
+			return;
+		}
 		user.setActivated(true);
 		userRepository.save(user);
 		mailService.sendEmail(user.getEmail(),
 				"Account activation",
 				"Your account has been activated",
+				null);
+	}
+
+	public void deactivateUserAccount(String email) throws UserNotFoundException {
+		User user = userRepository.findOneByEmail(email.trim());
+		if (user == null) {
+			throw new UserNotFoundException();
+		}
+		if (!user.getActivated()) {
+			return;
+		}
+		user.setActivated(false);
+		userRepository.save(user);
+		mailService.sendEmail(user.getEmail(),
+				"Account deactivation",
+				"Your account has been deactivated.",
 				null);
 	}
 }

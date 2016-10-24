@@ -15,10 +15,14 @@ public interface AdminPanelCtrl extends BasicUserParams {
 
 	String ACTIVATE_ACCOUNT = ADMIN_PREFIX + "activate-account/{" + EMAIL + "}/";
 
+	String DEACTIVATE_ACCOUNT = ADMIN_PREFIX + "deactivate-account/{" + EMAIL + "}/";
+
 	List<UserDR> getAllInactiveAccounts();
 
 	List<UserDR> getAllActiveAccounts();
 
 	HttpStatus activateUserAccount(String email);
+
+	HttpStatus deactivateUserAccount(String email);
 
 }

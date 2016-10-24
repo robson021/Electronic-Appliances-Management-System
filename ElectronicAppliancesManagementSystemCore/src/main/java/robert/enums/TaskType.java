@@ -2,9 +2,9 @@ package robert.enums;
 
 public enum TaskType {
 
-	SINGLE_RUN("single run"),
+	SINGLE_RUN("single_run"),
 
-	PERIODICAL_JOB("periodical job");
+	PERIODICAL_JOB("periodical_job");
 
 	private final String text;
 

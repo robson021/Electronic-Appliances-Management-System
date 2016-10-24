@@ -3,12 +3,23 @@ package utils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.task.TaskExecutor;
 import robert.jobs.api.JobRegistration;
 import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
 
+import static robert.enums.BeanNames.DEFAULT_TASK_EXECUTOR;
+
 @Configuration
 public class TestConfig {
+
+    @Bean(name = DEFAULT_TASK_EXECUTOR)
+    @Primary
+    public TaskExecutor taskExecutor() {
+        return runnable -> {
+            System.out.println("--- mock task executor ---");
+        };
+    }
 
     @Bean
     @Primary
