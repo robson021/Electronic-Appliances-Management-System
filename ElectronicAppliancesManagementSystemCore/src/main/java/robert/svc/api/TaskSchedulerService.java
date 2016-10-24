@@ -1,5 +1,7 @@
 package robert.svc.api;
 
+import robert.jobs.ExecutableTask;
+
 public interface TaskSchedulerService {
-    void submitNewTask(Runnable runnable);
+    void submitNewTask(ExecutableTask task);
 }

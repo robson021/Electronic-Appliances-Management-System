@@ -2,52 +2,29 @@ package utils;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
+import robert.jobs.api.JobRegistration;
 import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
-
-import java.io.File;
 
 @Configuration
 public class TestConfig {
 
-    /*@Bean
+    @Bean
     @Primary
-    @Lazy
-    public BasicAuthFilter basicAuthFilter() {
-        return new BasicAuthFilter() {
-            @Override
-            public void init(FilterConfig filterConfig) throws ServletException {
-            }
-
-            @Override
-            public void destroy() {
-            }
-
-            @Override
-            public void doLogic(HttpServletRequest request, HttpServletResponse response) {
-                // do nothing, no user auth in tests
-                System.out.println("--- test filter run ---");
-            }
-        };
-    }*/
+    public MailService mailService() {
+        return (receiverEmail, topic, message, attachment) -> System.out.println("--- test mailer run ---");
+    }
 
     @Bean
     @Primary
-    @Lazy
-    public MailService mailService() {
-        return new MailService() {
-            @Override
-            public void sendEmail(String receiverEmail, String topic, String message, File attachment) {
-                System.out.println("--- test mailer run ---");
-            }
+    public JobRegistration jobRegistration() {
+        return strings -> {
         };
     }
 
     @Bean
     @Primary
-    @Lazy
     public AppLogger appLogger() {
         return new AppLogger() {
             @Override

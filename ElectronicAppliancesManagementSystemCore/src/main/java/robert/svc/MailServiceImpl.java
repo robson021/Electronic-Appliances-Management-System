@@ -6,6 +6,8 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import robert.enums.TaskType;
+import robert.jobs.ExecutableTask;
 import robert.svc.api.MailService;
 import robert.svc.api.TaskSchedulerService;
 import robert.utils.api.AppLogger;
@@ -32,7 +34,12 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public void sendEmail(String receiverEmail, String topic, String message, File attachment) {
-        taskScheduler.submitNewTask(new MailRunnable(receiverEmail, topic, message, attachment));
+        MailRunnable mailRunnable = new MailRunnable(receiverEmail, topic, message, attachment);
+        ExecutableTask task = ExecutableTask.newBuilder()
+                .withTask(mailRunnable)
+                .withTaskType(TaskType.SINGLE_RUN)
+                .build();
+        taskScheduler.submitNewTask(task);
     }
 
     private class MailRunnable implements Runnable {
