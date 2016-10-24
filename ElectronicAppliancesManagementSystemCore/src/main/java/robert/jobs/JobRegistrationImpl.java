@@ -36,10 +36,10 @@ public class JobRegistrationImpl implements JobRegistration {
 	private ExecutableTask oldReservationsCleaningJob() {
 		return ExecutableTask.newBuilder()
 				.withTaskType(TaskType.PERIODICAL_JOB)
-				.withThreadSleep(1000 * 60 * 15)
+				.withThreadSleep(1000 * 60 * 60)
 				.withTask(() -> {
 					Iterable<Reservation> allReservations = reservationRepository.findAll();
-					long currentTime = new Date().getTime();
+					final long currentTime = new Date().getTime();
 					allReservations.forEach(reservation -> {
 						if (reservation.getValidTill() < currentTime) {
 							log.debug("Remove old reservation:", reservation);
