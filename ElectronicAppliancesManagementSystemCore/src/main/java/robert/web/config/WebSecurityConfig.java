@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /*
-     * custom protection is done via filter
+     * custom protection is done via filters
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
