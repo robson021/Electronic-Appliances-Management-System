@@ -1,12 +1,12 @@
 package robert.enums;
 
-import org.assertj.core.util.Lists;
+import static robert.web.svc.rest.ctrl.api.AdminPanelCtrl.ADMIN_PREFIX;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static robert.web.svc.rest.ctrl.api.AdminPanelCtrl.ADMIN_PREFIX;
+import org.assertj.core.util.Lists;
 
 public interface Validation {
 
@@ -19,7 +19,7 @@ public interface Validation {
 	String ADMIN_URI = ADMIN_PREFIX + "**";
 
 	List<String> NO_AUTH_URIS = Collections.unmodifiableList(    // TODO: replace with Guava?
-			Lists.newArrayList("/", "/login/**", "/register/**", "/test/**")
+			Lists.newArrayList("/**", "/login/**", "/register/**", "/test/**")
 	);
 
 	short MAX_RESERVATION_TIME_IN_HOURS = 12;

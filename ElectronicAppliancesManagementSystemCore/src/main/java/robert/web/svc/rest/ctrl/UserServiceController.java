@@ -4,10 +4,10 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javassist.NotFoundException;
@@ -41,7 +41,7 @@ public class UserServiceController implements UserServiceCtrl {
 
     @Override
     @RequestMapping(value = MAKE_RESERVATION_URL, method = RequestMethod.POST)
-    public HttpStatus makeReservation(@RequestParam(APPLIANCE_ID) Long applianceId, @RequestBody ReservationData reservationData) {
+    public HttpStatus makeReservation(@PathVariable(APPLIANCE_ID) Long applianceId, @RequestBody ReservationData reservationData) {
 
         Appliance app = abrmDao.findApplianceById(applianceId);
         try {

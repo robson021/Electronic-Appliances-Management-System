@@ -1,8 +1,11 @@
 package robert.db.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
 import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Reservation;
@@ -93,8 +96,8 @@ public class ApplianceBuildingRoomManagementDao {
 		return buildingRepository.save(building);
 	}
 
-	public Iterable<Reservation> findAllReservations() {
-		return reservationRepository.findAll();
+	public List<Reservation> findAllReservations() {
+		return (List<Reservation>) reservationRepository.findAll();
 	}
 
 }
