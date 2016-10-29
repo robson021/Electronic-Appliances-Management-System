@@ -35,7 +35,7 @@ public class Building {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name = name.trim().toLowerCase();
 	}
 
 	public Set<Room> getRooms() {

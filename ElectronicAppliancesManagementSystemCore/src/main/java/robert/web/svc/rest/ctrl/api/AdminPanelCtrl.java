@@ -5,7 +5,7 @@ import robert.web.svc.rest.responses.data.UserDR;
 
 import java.util.List;
 
-public interface AdminPanelCtrl extends BasicUserParams {
+public interface AdminPanelCtrl extends BasicParams {
 
 	String ADMIN_PREFIX = "/admin/";
 

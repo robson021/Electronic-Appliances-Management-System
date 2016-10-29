@@ -71,7 +71,7 @@ public class UserDaoTest extends SpringTest {
         User user = TestUtils.generateRandomActiveUser();
         user = userDao.saveUser(user);
 
-        Appliance appliance = TestUtils.geenrateRandomAppliance();
+        Appliance appliance = TestUtils.generateRandomAppliance();
         appliance = abrmDao.saveAppliance(appliance);
 
         userDao.makeReservationForAppliance(user.getEmail(), appliance.getId(), new Date(), 2);

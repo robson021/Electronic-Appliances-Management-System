@@ -97,11 +97,11 @@ public class UserDao {
 	private void validReservationTime(Appliance appliance, Reservation reservation) throws ApplianceException {
 		Optional<Reservation> any = appliance.getReservations().stream()
 				.filter(r -> (
-						(reservation.getValidFrom() <= r.getValidTill() &&
-								reservation.getValidTill() >= r.getValidTill())
+						(reservation.getValidFrom() < r.getValidTill() &&
+								reservation.getValidTill() > r.getValidTill())
 								||
-								(reservation.getValidFrom() <= r.getValidFrom()
-										&& reservation.getValidTill() >= r.getValidFrom())
+								(reservation.getValidFrom() < r.getValidFrom()
+										&& reservation.getValidTill() > r.getValidFrom())
 				))
 				.findFirst();
 		if (any.isPresent()) {

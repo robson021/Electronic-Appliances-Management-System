@@ -1,6 +1,6 @@
 package robert.web.svc.rest.ctrl.api;
 
-public interface BasicUserParams {
+public interface BasicParams {
 	String EMAIL = "email";
 
 	String PASSWORD = "password";
@@ -8,4 +8,6 @@ public interface BasicUserParams {
 	String NAME = "name";
 
 	String SURNAME = "surname";
+
+	String BUILDING_NUMBER = "bnum";
 }

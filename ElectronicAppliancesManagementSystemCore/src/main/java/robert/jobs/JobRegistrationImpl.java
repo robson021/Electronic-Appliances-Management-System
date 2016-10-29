@@ -34,9 +34,10 @@ public class JobRegistrationImpl implements JobRegistration {
 	}
 
 	private ExecutableTask oldReservationsCleaningJob() {
+		final long hourSleep = 1000 * 60 * 60;
 		return ExecutableTask.newBuilder()
 				.withTaskType(TaskType.PERIODICAL_JOB)
-				.withThreadSleep(1000 * 60 * 60)
+				.withThreadSleep(hourSleep * 5L)
 				.withTask(() -> {
 					Iterable<Reservation> allReservations = reservationRepository.findAll();
 					final long currentTime = new Date().getTime();
@@ -46,7 +47,7 @@ public class JobRegistrationImpl implements JobRegistration {
 							reservationRepository.delete(reservation);
 						}
 					});
-					log.debug("Old reservations cleaning done.");
+					log.info("Old reservations cleaning done.");
 				})
 				.build();
 	}
