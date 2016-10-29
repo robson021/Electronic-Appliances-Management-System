@@ -14,8 +14,8 @@ public class Reservation {
 	@Column(name = "ID")
 	private Long id;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "APPLIANCE_ID", nullable = false)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "APPLIANCE_ID")
 	private Appliance appliance;
 
 	@ManyToOne(fetch = FetchType.EAGER)

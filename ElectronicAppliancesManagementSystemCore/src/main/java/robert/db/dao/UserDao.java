@@ -12,12 +12,16 @@ import robert.db.repository.ReservationRepository;
 import robert.db.repository.UserRepository;
 import robert.enums.Validation;
 import robert.exceptions.ApplianceException;
+import robert.utils.api.AppLogger;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Component
 @Transactional
 public class UserDao {
+
+	private final AppLogger log;
 
 	private final UserRepository userRepository;
 
@@ -26,7 +30,8 @@ public class UserDao {
 	private final ApplianceRepository applianceRepository;
 
 	@Autowired
-	public UserDao(UserRepository userRepository, ReservationRepository reservationRepository, ApplianceRepository applianceRepository) {
+	public UserDao(AppLogger log, UserRepository userRepository, ReservationRepository reservationRepository, ApplianceRepository applianceRepository) {
+		this.log = log;
 		this.userRepository = userRepository;
 		this.reservationRepository = reservationRepository;
 		this.applianceRepository = applianceRepository;
@@ -71,17 +76,36 @@ public class UserDao {
 		Date currentDate = new Date();
 		if (from.before(currentDate)) {
 			from = new DateTime(currentDate)
-					.plusMinutes(15)
+					.plusHours(1)
 					.toDate();
 		}
 		reservation.setValidFrom(from.getTime());
 		reservation.setValidTill(new DateTime(from)
-				.plus(hours)
+				.plusHours(hours)
 				.toDate().getTime());
 
-		appliance.setReservation(reservation);
+		validReservationTime(appliance, reservation);
 
+		//appliance.addReservation(reservation); // fixme: duplicates reservation in Set
 		user.addReservation(reservation);
+		reservation.setAppliance(appliance);
+		reservation.setUser(user);
 		userRepository.save(user);
+		log.info("New reservation made for:", user.getEmail());
+	}
+
+	private void validReservationTime(Appliance appliance, Reservation reservation) throws ApplianceException {
+		Optional<Reservation> any = appliance.getReservations().stream()
+				.filter(r -> (
+						(reservation.getValidFrom() <= r.getValidTill() &&
+								reservation.getValidTill() >= r.getValidTill())
+								||
+								(reservation.getValidFrom() <= r.getValidFrom()
+										&& reservation.getValidTill() >= r.getValidFrom())
+				))
+				.findFirst();
+		if (any.isPresent()) {
+			throw new ApplianceException("Cannot make reservation between this hours.");
+		}
 	}
 }

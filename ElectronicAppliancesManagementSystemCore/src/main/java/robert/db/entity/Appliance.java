@@ -5,6 +5,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "APPLIANCE")
@@ -25,8 +27,8 @@ public class Appliance {
 	@Column(name = "UNIQUE_CODE", nullable = false)
 	private String uniqueCode;
 
-	@OneToOne(mappedBy = "appliance", fetch = FetchType.EAGER)
-	private Reservation reservation = null;
+	@OneToMany(mappedBy = "appliance", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	private Set<Reservation> reservations = null;
 
 	public Long getId() {
 		return id;
@@ -38,14 +40,6 @@ public class Appliance {
 
 	public Room getRoom() {
 		return room;
-	}
-
-	public Reservation getReservation() {
-		return reservation;
-	}
-
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
 	}
 
 	public void setRoom(Room room) {
@@ -66,6 +60,13 @@ public class Appliance {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public void addReservation(Reservation reservation) {
+		if (this.reservations == null) {
+			this.reservations = new HashSet<>(1);
+		}
+		this.reservations.add(reservation);
 	}
 
 	@Override
@@ -96,5 +97,13 @@ public class Appliance {
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this);
+	}
+
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 }

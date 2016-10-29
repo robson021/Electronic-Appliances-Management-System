@@ -19,7 +19,7 @@ public class UserInfoProviderImpl implements UserInfoProvider {
 
 	@Override
 	public void setEmail(String email) {
-		if (this.email == null) {
+		if (this.email == null) { // set only once
 			this.email = email.trim();
 		}
 	}

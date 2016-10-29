@@ -101,7 +101,7 @@ public class User {
 
 	public void addReservation(Reservation reservation) {
 		if (this.reservations == null) {
-			this.reservations = new HashSet<>();
+			this.reservations = new HashSet<>(1);
 		}
 		this.reservations.add(reservation);
 	}
