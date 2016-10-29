@@ -2,7 +2,7 @@ package robert.web.filters;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import robert.exceptions.NotAnAdminException;
+import robert.exceptions.AuthException;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 
@@ -44,7 +44,7 @@ public final class AdminAuthFilter extends BasicAuthFilter {
 
 		try {
 			checkAdminPrivileges();
-		} catch (NotAnAdminException e) {
+		} catch (AuthException e) {
 			log.debug(e);
 			invalidateSessionAndSendRedirect(response, request);
 		}
@@ -55,11 +55,9 @@ public final class AdminAuthFilter extends BasicAuthFilter {
 		return apm.match(ADMIN_URI, requestURI);
 	}
 
-	private void checkAdminPrivileges() throws NotAnAdminException {
-		if (
-				this.userInfoProvider.getEmail() == null
-						|| (!this.userInfoProvider.isAdmin())) {
-			throw new NotAnAdminException("User " + this.userInfoProvider.getEmail() + " is not an admin.");
+	private void checkAdminPrivileges() throws AuthException {
+		if (!this.userInfoProvider.isAdmin()) {
+			throw new AuthException("User " + this.userInfoProvider.getEmail() + " is not an admin.");
 		}
 	}
 }

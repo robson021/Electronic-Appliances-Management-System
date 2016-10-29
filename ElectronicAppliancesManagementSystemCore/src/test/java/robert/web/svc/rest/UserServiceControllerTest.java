@@ -1,16 +1,10 @@
 package robert.web.svc.rest;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.Date;
-
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.db.entity.Appliance;
@@ -19,9 +13,14 @@ import robert.web.svc.rest.responses.data.ReservationData;
 import utils.SpringWebMvcTest;
 import utils.TestUtils;
 
+import java.util.Date;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 public class UserServiceControllerTest extends SpringWebMvcTest {
 
-    private static final String RESERVATION_URL = "/user/reservation/%s/";
+	private static final String RESERVATION_URL = "/user-service/reservation/%s/";
 
     @Autowired
     private ApplianceBuildingRoomManagementDao abrmDao;

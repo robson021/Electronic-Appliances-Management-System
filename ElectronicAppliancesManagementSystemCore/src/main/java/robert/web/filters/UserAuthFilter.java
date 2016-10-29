@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Component;
 import robert.enums.Validation;
+import robert.exceptions.AuthException;
 import robert.svc.api.CsrfTokenService;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
@@ -45,11 +46,13 @@ public final class UserAuthFilter extends BasicAuthFilter {
 		if (isValidationNotEnabledOnThisURI(request.getRequestURI())) {
 			return;
 		}
-		if (isUserAndTokenValid(userInfoProvider.getEmail(), request)) {
+		try {
+			isUserAndTokenValid(userInfoProvider.getEmail(), request);
 			CsrfToken csrfToken = tokenService.generateToken(request);
 			tokenService.saveToken(csrfToken, request, response);
 			userInfoProvider.setNewCsrfToken(csrfToken);
-		} else {
+		} catch (AuthException e) {
+			log.debug(e);
 			invalidateSessionAndSendRedirect(response, request);
 		}
 	}
@@ -62,8 +65,10 @@ public final class UserAuthFilter extends BasicAuthFilter {
 		return false;
 	}
 
-	private boolean isUserAndTokenValid(String email, HttpServletRequest request) {
-		return email != null && compareTokens(tokenService.loadToken(request));
+	private void isUserAndTokenValid(String email, HttpServletRequest request) throws AuthException {
+		if (email == null && !compareTokens(tokenService.loadToken(request))) {
+			throw new AuthException("User " + email + " is not valid.");
+		}
 	}
 
 	private boolean compareTokens(CsrfToken givenToken) {
