@@ -10,4 +10,6 @@ public interface BasicParams {
 	String SURNAME = "surname";
 
 	String BUILDING_NUMBER = "bnum";
+
+	String ROOM_NUMBER = "rnum";
 }

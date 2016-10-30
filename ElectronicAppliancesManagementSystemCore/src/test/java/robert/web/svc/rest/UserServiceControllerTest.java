@@ -20,8 +20,8 @@ import utils.TestUtils;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static robert.web.svc.rest.ctrl.api.BasicParams.BUILDING_NUMBER;
-import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.GET_ALL_ROOMS_IN_BUILDING;
-import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.REGISTER_NEW_BUILDING;
+import static robert.web.svc.rest.ctrl.api.BasicParams.ROOM_NUMBER;
+import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.*;
 
 public class UserServiceControllerTest extends SpringWebMvcTest {
 
@@ -130,6 +130,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 
 		int numBuildings = abrmDao.findAllBuildings().size();
 
+		// 1st
 		mockMvc.perform(put(url))
 				.andExpect(status().isOk());
 
@@ -138,12 +139,33 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 		Assertions.assertThat(building)
 				.isNotNull();
 
-		// this should fail due to unique name conflict
+		// 2nd - this should fail due to unique building name conflict
 		mockMvc.perform(put(url));
 
 		final int sizeAfterTwoRegistrations = abrmDao.findAllBuildings().size();
 		Assertions.assertThat(sizeAfterTwoRegistrations)
 				.isEqualTo(++numBuildings);
+	}
+
+	@Test
+	public void addNewRoomToExistingBuilding() throws Exception {
+		final int initialRoomNum = 3;
+		final Building b = abrmDao
+				.saveBuilding(TestUtils.generateRandomBuildingWithRooms(initialRoomNum));
+
+		String roomNum = "122-test";
+		final String url = REGISTER_NEW_ROOM_IN_BUILDING
+				.replace("{" + BUILDING_NUMBER + "}", b.getName())
+				.replace("{" + ROOM_NUMBER + "}", roomNum);
+
+		mockMvc.perform(put(url))
+				.andExpect(status().isOk());
+
+		Building building = abrmDao.findBuildingByName(b.getName());
+		Assertions.assertThat(building)
+				.isNotNull();
+		Assertions.assertThat(building.getRooms().size())
+				.isEqualTo(initialRoomNum + 1);
 	}
 
 }

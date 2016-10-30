@@ -8,6 +8,7 @@ import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Room;
 import utils.SpringTest;
+import utils.TestUtils;
 
 import java.util.UUID;
 
@@ -82,11 +83,14 @@ public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 
 	@Test
 	public void saveBuilding() throws Exception {
-
+		Building building = TestUtils.generateRandomBuilding();
+		final String name = dao.saveBuilding(building).getName();
+		Assertions.assertThat(dao.findBuildingByName(name))
+				.isNotNull();
 	}
 
 	private Room createRoom(int roomNumberLength) {
-		String roomNO = RandomStringUtils.random(roomNumberLength).toLowerCase();
+		String roomNO = RandomStringUtils.random(roomNumberLength, false, true).toLowerCase();
 		Room room = new Room();
 		room.setNumber(roomNO);
 		return room;

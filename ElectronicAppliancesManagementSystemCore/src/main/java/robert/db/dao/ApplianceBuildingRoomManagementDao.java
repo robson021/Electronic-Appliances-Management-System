@@ -1,5 +1,6 @@
 package robert.db.dao;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -102,6 +103,16 @@ public class ApplianceBuildingRoomManagementDao {
 		roomRepository.save(room);
 	}
 
+	public void addNewRoomToTheBuilding(String building, String roomNum) throws NotFoundException {
+		Building b = this.findBuildingByName(building);
+		validateRoomOrBuilding(b, building);
+		Room room = new Room();
+		room.setBuilding(b);
+		room.setNumber(roomNum);
+		b.addRoom(room);
+		buildingRepository.save(b);
+	}
+
 	public Building saveBuilding(Building building) {
 		return buildingRepository.save(building);
 	}
@@ -122,6 +133,12 @@ public class ApplianceBuildingRoomManagementDao {
 
 	public List<Reservation> findAllReservations() {
 		return (List<Reservation>) reservationRepository.findAll();
+	}
+
+	private void validateRoomOrBuilding(Object o, String name) throws NotFoundException {
+		if (o == null) {
+			throw new NotFoundException("Building or room cannot be found: " + name);
+		}
 	}
 
 }

@@ -49,6 +49,8 @@ public class Building {
 	public void addRoom(Room room) {
 		if (this.rooms == null) {
 			rooms = new HashSet<>();
+		} else if (rooms.contains(room)) {
+			return;
 		}
 		this.rooms.add(room);
 	}

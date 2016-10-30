@@ -79,6 +79,19 @@ public class UserServiceController implements UserServiceCtrl {
 		return HttpStatus.OK;
 	}
 
+	@Override
+	@RequestMapping(value = REGISTER_NEW_ROOM_IN_BUILDING, method = RequestMethod.PUT)
+	public HttpStatus registerNewRoomInBuilding(@PathVariable(BUILDING_NUMBER) String building,
+												@PathVariable(ROOM_NUMBER) String roomNum) {
+		try {
+			abrmDao.addNewRoomToTheBuilding(building, roomNum);
+		} catch (NotFoundException e) {
+			log.debug(e);
+			return HttpStatus.NOT_FOUND;
+		}
+		return HttpStatus.OK;
+	}
+
 	private void cheIfApplianceIsAvailable(Appliance app) throws NotFoundException {
 		if (app == null) {
 			throw new NotFoundException("Appliance not found.");
