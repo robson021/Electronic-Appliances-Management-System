@@ -1,5 +1,6 @@
 package robert.web.svc.rest;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.assertj.core.api.Assertions;
 import org.joda.time.DateTime;
 import org.junit.Before;
@@ -16,11 +17,11 @@ import robert.web.svc.rest.responses.data.ReservationDR;
 import utils.SpringWebMvcTest;
 import utils.TestUtils;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static robert.web.svc.rest.ctrl.api.BasicParams.BUILDING_NUMBER;
 import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.GET_ALL_ROOMS_IN_BUILDING;
+import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.REGISTER_NEW_BUILDING;
 
 public class UserServiceControllerTest extends SpringWebMvcTest {
 
@@ -120,6 +121,29 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 			Assertions.assertThat(response)
 					.containsIgnoringCase(roomNumber);
 		}
+	}
+
+	@Test
+	public void registerNewBuilding() throws Exception {
+		final String name = RandomStringUtils.random(5, "qwertyuiop");
+		final String url = REGISTER_NEW_BUILDING.replace("{" + BUILDING_NUMBER + "}", name);
+
+		int numBuildings = abrmDao.findAllBuildings().size();
+
+		mockMvc.perform(put(url))
+				.andExpect(status().isOk());
+
+		Building building = abrmDao.findBuildingByName(name);
+
+		Assertions.assertThat(building)
+				.isNotNull();
+
+		// this should fail due to unique name conflict
+		mockMvc.perform(put(url));
+
+		final int sizeAfterTwoRegistrations = abrmDao.findAllBuildings().size();
+		Assertions.assertThat(sizeAfterTwoRegistrations)
+				.isEqualTo(++numBuildings);
 	}
 
 }

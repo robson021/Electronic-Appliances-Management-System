@@ -103,7 +103,20 @@ public class ApplianceBuildingRoomManagementDao {
 	}
 
 	public Building saveBuilding(Building building) {
-		building.setName(building.getName());
+		return buildingRepository.save(building);
+	}
+
+	public Building findBuildingByName(String buildingName) {
+		return buildingRepository.findOneByName(buildingName.trim().toLowerCase());
+	}
+
+	public List<Building> findAllBuildings() {
+		return (List<Building>) buildingRepository.findAll();
+	}
+
+	public Building saveBuilding(String name) {
+		Building building = new Building();
+		building.setName(name);
 		return buildingRepository.save(building);
 	}
 

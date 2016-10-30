@@ -45,9 +45,12 @@ public class UserServiceController implements UserServiceCtrl {
 		Appliance app = abrmDao.findApplianceById(applianceId);
 		try {
 			cheIfApplianceIsAvailable(app);
-			userDao.makeReservationForAppliance(userInfoProvider.getEmail(), applianceId,
+			userDao.makeReservationForAppliance(
+					userInfoProvider.getEmail(),
+					applianceId,
 					new Date(reservationDR.getFrom()),
-					(int) reservationDR.getHours());
+					(int) reservationDR.getHours()
+			);
 		} catch (NotFoundException e) {
 			log.debug(e);
 			status = HttpStatus.NOT_FOUND;
@@ -62,6 +65,18 @@ public class UserServiceController implements UserServiceCtrl {
 	@RequestMapping(value = GET_ALL_ROOMS_IN_BUILDING)
 	public List<RoomDR> getAllRoomsInBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
 		return abrmDao.findAllRoomsInBuilding(buildingNumber);
+	}
+
+	@Override
+	@RequestMapping(value = REGISTER_NEW_BUILDING, method = RequestMethod.PUT)
+	public HttpStatus registerNewBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
+		try {
+			abrmDao.saveBuilding(buildingNumber);
+		} catch (Exception e) {
+			log.debug(e);
+			return HttpStatus.CONFLICT;
+		}
+		return HttpStatus.OK;
 	}
 
 	private void cheIfApplianceIsAvailable(Appliance app) throws NotFoundException {
