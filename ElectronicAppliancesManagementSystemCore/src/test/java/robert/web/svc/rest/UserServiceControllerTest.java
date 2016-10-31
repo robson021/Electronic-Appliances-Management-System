@@ -17,6 +17,7 @@ import robert.web.svc.rest.responses.data.ReservationDR;
 import utils.SpringWebMvcTest;
 import utils.TestUtils;
 
+import java.util.List;
 import java.util.UUID;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -204,10 +205,32 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 
 		Assertions.assertThat(applianceByUniqueCode)
 				.isNotNull()
+				.hasNoNullFieldsOrPropertiesExcept("reservations")
 				.hasFieldOrPropertyWithValue("name", applName)
-				.hasFieldOrPropertyWithValue("uniqueCode", responseUuid)
-				.hasNoNullFieldsOrPropertiesExcept("reservations");
+				.hasFieldOrPropertyWithValue("uniqueCode", responseUuid);
+	}
 
+	@Test
+	public void findAllBuildingNumbers() throws Exception {
+
+		final int initBuildingCount = abrmDao.findAllBuildings().size();
+
+		Building b1 = TestUtils.generateRandomBuilding();
+		Building b2 = TestUtils.generateRandomBuildingWithRooms(3);
+		Building b3 = TestUtils.generateRandomBuildingWithRooms(5);
+		abrmDao.saveBuilding(b1);
+		abrmDao.saveBuilding(b2);
+		abrmDao.saveBuilding(b3);
+
+		List<String> allBuildingNumbers = abrmDao.findAllBuildingNumbers();
+		Assertions.assertThat(allBuildingNumbers)
+				.isNotNull()
+				.hasSize(3 + initBuildingCount)
+				.contains(
+						b1.getName(),
+						b2.getName(),
+						b3.getName()
+				);
 	}
 
 }

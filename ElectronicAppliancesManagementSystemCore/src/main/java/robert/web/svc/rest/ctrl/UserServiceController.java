@@ -68,6 +68,12 @@ public class UserServiceController implements UserServiceCtrl {
 	}
 
 	@Override
+	@RequestMapping(value = GET_ALL_BUILDING_URL)
+	public List<String> getAllAvailableBuildings() {
+		return abrmDao.findAllBuildingNumbers();
+	}
+
+	@Override
 	@RequestMapping(value = REGISTER_NEW_BUILDING_URL, method = RequestMethod.PUT)
 	public HttpStatus registerNewBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
 		try {

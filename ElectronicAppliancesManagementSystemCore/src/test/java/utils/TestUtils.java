@@ -59,7 +59,7 @@ public class TestUtils {
 		return appliance;
 	}
 
-	public static Building generateRandomBuildingWithRooms(int numOfRooms) {
+	public static Building generateRandomBuildingWithRooms(final int numOfRooms) {
 		Building building = generateRandomBuilding();
 		for (int i = 0; i < numOfRooms; i++) {
 			Room room = generateRandomRoom();

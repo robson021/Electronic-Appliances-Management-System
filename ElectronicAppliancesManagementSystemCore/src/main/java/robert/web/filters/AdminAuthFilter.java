@@ -50,10 +50,10 @@ public final class AdminAuthFilter extends BasicAuthFilter {
 
 	private void checkAdminPrivileges() throws AuthException {
 		if (!this.userInfoProvider.isAdmin()) {
-			AuthException exception = new AuthException(
-					"User "
-							+ this.userInfoProvider.getEmail()
-							+ " is not an admin.");
+			AuthException exception = new AuthException("User " +
+					this.userInfoProvider.getEmail() +
+					" is not an admin."
+			);
 			log.debug(exception);
 			throw exception;
 		}

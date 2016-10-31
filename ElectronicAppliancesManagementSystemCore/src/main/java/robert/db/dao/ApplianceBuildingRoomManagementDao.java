@@ -4,6 +4,7 @@ import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Reservation;
@@ -17,6 +18,7 @@ import robert.utils.api.AppLogger;
 import robert.web.svc.rest.responses.asm.RoomAssembler;
 import robert.web.svc.rest.responses.data.RoomDR;
 
+import javax.persistence.EntityManager;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -35,15 +37,20 @@ public class ApplianceBuildingRoomManagementDao {
 
 	private final ReservationRepository reservationRepository;
 
+	private final EntityManager em;
+
 	@Autowired
 	public ApplianceBuildingRoomManagementDao(AppLogger log, RoomRepository roomRepository,
 											  ApplianceRepository applianceRepository,
-											  BuildingRepository buildingRepository, ReservationRepository reservationRepository) {
+											  BuildingRepository buildingRepository,
+											  ReservationRepository reservationRepository,
+											  EntityManager em) {
 		this.log = log;
 		this.roomRepository = roomRepository;
 		this.applianceRepository = applianceRepository;
 		this.buildingRepository = buildingRepository;
 		this.reservationRepository = reservationRepository;
+		this.em = em;
 	}
 
 	public Room saveRoom(Room room) {
@@ -80,6 +87,16 @@ public class ApplianceBuildingRoomManagementDao {
 					appl.setRoom(room);
 					buildingRepository.save(b);
 				});
+	}
+
+	@SuppressWarnings({"unchecked", "JpaQlInspection"})
+	public List<String> findAllBuildingNumbers() {
+		List resultList = em.createQuery("select b.name from Building b")
+				.getResultList();
+		if (CollectionUtils.isEmpty(resultList)) {
+			return Collections.emptyList();
+		}
+		return resultList;
 	}
 
 	public Iterable<Appliance> findAllAppliances() {
