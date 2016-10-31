@@ -1,17 +1,17 @@
 package utils;
 
-import static robert.enums.BeanNames.DEFAULT_TASK_EXECUTOR;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.security.web.csrf.CsrfToken;
-
 import robert.jobs.api.JobRegistration;
 import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
+
+import static robert.enums.BeanNames.DEFAULT_JOB_REGISTARTION;
+import static robert.enums.BeanNames.DEFAULT_TASK_EXECUTOR;
 
 @Configuration
 public class TestConfig {
@@ -64,11 +64,10 @@ public class TestConfig {
         return (receiverEmail, topic, message, attachment) -> System.out.println("--- test mailer run ---");
     }
 
-    @Bean
+    @Bean(DEFAULT_JOB_REGISTARTION)
     @Primary
     public JobRegistration jobRegistration() {
-        return strings -> {
-        };
+        return () -> System.out.println("--- mock jobs registration ---");
     }
 
     @Bean

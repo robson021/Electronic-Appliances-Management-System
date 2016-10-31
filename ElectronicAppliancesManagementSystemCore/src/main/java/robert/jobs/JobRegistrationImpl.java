@@ -11,7 +11,9 @@ import robert.utils.api.AppLogger;
 
 import java.util.Date;
 
-@Component
+import static robert.enums.BeanNames.DEFAULT_JOB_REGISTARTION;
+
+@Component(DEFAULT_JOB_REGISTARTION)
 public class JobRegistrationImpl implements JobRegistration {
 
 	private final AppLogger log;
@@ -25,10 +27,12 @@ public class JobRegistrationImpl implements JobRegistration {
 		this.log = log;
 		this.taskScheduler = taskScheduler;
 		this.reservationRepository = reservationRepository;
+
+		this.registerAllJobs();
 	}
 
 	@Override
-	public void run(String... strings) throws Exception {
+	public void registerAllJobs() {
 		log.info("Registration of new jobs.");
 		taskScheduler.submitNewTask(oldReservationsCleaningJob());
 	}
