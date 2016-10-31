@@ -22,6 +22,10 @@ public interface Validation {
 			Lists.newArrayList("/", "/login/**", "/register/**", "/test/**")
 	);
 
+	List<String> NO_AUTH_FILES = Collections.unmodifiableList(
+			Lists.newArrayList(".html", ".js", ".css")
+	);
+
 	short MAX_RESERVATION_TIME_IN_HOURS = 12;
 
 }

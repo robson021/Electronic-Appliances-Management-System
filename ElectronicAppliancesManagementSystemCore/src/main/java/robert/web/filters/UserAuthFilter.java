@@ -42,7 +42,7 @@ public final class UserAuthFilter extends BasicAuthFilter {
 	}
 
 	@Override
-	public final void doLogic(HttpServletRequest request, HttpServletResponse response) throws AuthException {
+	public void doLogic(HttpServletRequest request, HttpServletResponse response) throws AuthException {
 		if (isValidationNotEnabledOnThisURI(request.getRequestURI())) {
 			return;
 		}
@@ -52,9 +52,14 @@ public final class UserAuthFilter extends BasicAuthFilter {
 		tokenService.saveToken(csrfToken, request, response);
 		userInfoProvider.setNewCsrfToken(csrfToken);
 
+		log.debug("User", userInfoProvider.getEmail(), "is valid.");
+
 	}
 
 	private boolean isValidationNotEnabledOnThisURI(String requestURI) {
+		if (isFileRequest(requestURI)) {
+			return true; //todo: change to match pattern
+		}
 		for (String pattern : Validation.NO_AUTH_URIS) {
 			if (apm.match(pattern, requestURI))
 				return true;
@@ -63,8 +68,15 @@ public final class UserAuthFilter extends BasicAuthFilter {
 	}
 
 	private void isUserAndTokenValid(String email, HttpServletRequest request) throws AuthException {
-		if (email == null || !compareTokens(tokenService.loadToken(request))) {
-			AuthException exception = new AuthException("User " + email + " is not valid.");
+
+		if (email == null) {
+			AuthException exception = new AuthException("User is not logged in.");
+			log.debug(exception);
+			throw exception;
+		}
+
+		if (!compareTokens(tokenService.loadToken(request))) {
+			AuthException exception = new AuthException("User " + email + " has invalid csrf token.");
 			log.debug(exception);
 			throw exception;
 		}
@@ -73,5 +85,14 @@ public final class UserAuthFilter extends BasicAuthFilter {
 	private boolean compareTokens(CsrfToken givenToken) {
 		CsrfToken currentToken = userInfoProvider.getCsrfToken();
 		return tokenService.validateTokens(currentToken, givenToken);
+	}
+
+	private boolean isFileRequest(String uri) {
+		for (String pattern : Validation.NO_AUTH_FILES) {
+			if (uri.endsWith(pattern)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

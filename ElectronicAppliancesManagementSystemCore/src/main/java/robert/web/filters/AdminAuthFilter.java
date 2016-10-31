@@ -37,7 +37,7 @@ public final class AdminAuthFilter extends BasicAuthFilter {
 	}
 
 	@Override
-	public final void doLogic(HttpServletRequest request, HttpServletResponse response) throws AuthException {
+	public void doLogic(HttpServletRequest request, HttpServletResponse response) throws AuthException {
 		if (!isAdminUri(request.getRequestURI())) {
 			return;
 		}

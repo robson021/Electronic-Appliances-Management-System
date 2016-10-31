@@ -42,8 +42,8 @@ public class DbStartUp implements CommandLineRunner {
 		user.setActivated(true);
 		user.setAdminPrivileges(true);
 
-		log.info("save test admin account");
 		userDao.saveUser(user);
+		log.info("saved test admin account:", user);
 
 		if (log.getLoggingLevel() < 2)
 			return;
