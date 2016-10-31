@@ -1,5 +1,6 @@
 package robert.jobs;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import robert.db.entity.Reservation;
@@ -8,8 +9,6 @@ import robert.enums.TaskType;
 import robert.jobs.api.JobRegistration;
 import robert.svc.api.TaskSchedulerService;
 import robert.utils.api.AppLogger;
-
-import java.util.Date;
 
 import static robert.enums.BeanNames.DEFAULT_JOB_REGISTARTION;
 
@@ -44,14 +43,16 @@ public class JobRegistrationImpl implements JobRegistration {
 				.withThreadSleep(hourSleep * 5L)
 				.withTask(() -> {
 					Iterable<Reservation> allReservations = reservationRepository.findAll();
-					final long currentTime = new Date().getTime();
+					final long threeDaysAgo = new DateTime().minusDays(3).toDate().getTime();
+					final int[] cleaned = {0};
 					allReservations.forEach(reservation -> {
-						if (reservation.getValidTill() < currentTime) {
+						if (reservation.getValidTill() <= threeDaysAgo) {
 							log.debug("Remove old reservation:", reservation);
 							reservationRepository.delete(reservation);
+							++cleaned[0];
 						}
 					});
-					log.info("Old reservations cleaning done.");
+					log.info("Old reservations cleaning done. Cleaned:", cleaned[0]);
 				})
 				.build();
 	}
