@@ -6,4 +6,5 @@ import robert.db.entity.Appliance;
 
 @Repository
 public interface ApplianceRepository extends CrudRepository<Appliance, Long> {
+	Appliance findOneByUniqueCode(String uniqueCode);
 }

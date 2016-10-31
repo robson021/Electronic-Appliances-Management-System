@@ -12,4 +12,10 @@ public interface BasicParams {
 	String BUILDING_NUMBER = "bnum";
 
 	String ROOM_NUMBER = "rnum";
+
+	String ROOM_ID = "room-id";
+
+	String APPLIANCE_ID = "appliance-id";
+
+	String APPLIANCE_NAME = "appl-name";
 }

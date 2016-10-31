@@ -24,7 +24,8 @@ public class Appliance {
 	@JoinColumn(name = "ROOM_ID")
 	private Room room;
 
-	@Column(name = "UNIQUE_CODE", nullable = false)
+	// FIXME: unique causes test errors
+	@Column(name = "UNIQUE_CODE", nullable = false/*, unique = true*/)
 	private String uniqueCode;
 
 	@OneToMany(mappedBy = "appliance", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)

@@ -4,7 +4,8 @@
     <list default="true" id="22d79617-caa3-4e57-bc73-5dcecdd743e8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/db/entity/Building.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/entity/Building.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/db/entity/Appliance.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/entity/Appliance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/db/repository/ApplianceRepository.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/repository/ApplianceRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/BasicParams.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/BasicParams.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java" />
@@ -35,31 +36,11 @@
       <file leaf-file-name="UserServiceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+            <state relative-caret-position="394">
+              <caret line="95" column="43" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvocableHandlerMethod.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="134" column="49" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Method.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/reflect/Method.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="503" column="6" selection-start-line="503" selection-start-column="6" selection-end-line="503" selection-end-column="6" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -67,8 +48,8 @@
       <file leaf-file-name="UserServiceControllerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/robert/web/svc/rest/UserServiceControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="151" column="18" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
+            <state relative-caret-position="-321">
+              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,11 +57,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplianceBuildingRoomManagementDaoTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/robert/db/dao/ApplianceBuildingRoomManagementDaoTest.java">
+      <file leaf-file-name="ExecutableTask.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/robert/jobs/ExecutableTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+            <state relative-caret-position="257">
+              <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MailServiceImplTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/robert/svc/MailServiceImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -89,33 +80,43 @@
       <file leaf-file-name="ApplianceBuildingRoomManagementDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+            <state relative-caret-position="202">
+              <caret line="116" column="35" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
               <folding>
-                <element signature="e#3676#3677#0" expanded="true" />
-                <element signature="e#3723#3724#0" expanded="true" />
-                <element signature="e#3909#3910#0" expanded="true" />
-                <element signature="e#3968#3969#0" expanded="true" />
+                <element signature="e#3024#3025#0" expanded="true" />
+                <element signature="e#3083#3084#0" expanded="true" />
+                <element signature="e#4201#4202#0" expanded="true" />
+                <element signature="e#4248#4249#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CrudRepository.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.12.3.RELEASE/spring-data-commons-1.12.3.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
+      <file leaf-file-name="MethodProxy.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.3.RELEASE/spring-core-4.3.3.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            <state relative-caret-position="222">
+              <caret line="112" column="27" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceCtrl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java">
+      <file leaf-file-name="ApplianceRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/repository/ApplianceRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="144">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplianceBuildingRoomManagementDaoTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/robert/db/dao/ApplianceBuildingRoomManagementDaoTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -124,24 +125,19 @@
       <file leaf-file-name="Room.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Room.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="80" column="46" selection-start-line="80" selection-start-column="46" selection-end-line="80" selection-end-column="46" />
+            <state relative-caret-position="360">
+              <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Building.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Building.java">
+      <file leaf-file-name="Appliance.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Appliance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-              <folding>
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#643#644#0" expanded="true" />
-                <element signature="e#726#727#0" expanded="true" />
-                <element signature="e#770#771#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/TestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/svc/threads/TaskSchedulerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/svc/threads/TaskSchedulerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/svc/api/TaskSchedulerService.java" />
@@ -199,7 +194,6 @@
         <option value="$PROJECT_DIR$/src/main/java/robert/exceptions/AuthException.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/filters/UserAuthFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/db/entity/Reservation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/robert/db/entity/Appliance.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/db/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/session/user/UserInfoProviderImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/jobs/JobRegistrationImpl.java" />
@@ -218,13 +212,15 @@
         <option value="$PROJECT_DIR$/src/main/java/robert/db/repository/BuildingRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/db/dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/enums/Validation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/BasicParams.java" />
-        <option value="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/db/entity/Building.java" />
-        <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/BasicParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robert/db/repository/ApplianceRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" />
         <option value="$PROJECT_DIR$/src/test/java/robert/web/svc/rest/UserServiceControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/robert/db/dao/ApplianceBuildingRoomManagementDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robert/db/entity/Appliance.java" />
       </list>
     </option>
   </component>
@@ -276,6 +272,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -333,10 +331,6 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -391,6 +385,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="robert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="svc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -471,6 +499,154 @@
               <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="responses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="responses" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ctrl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -499,36 +675,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="svc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robert" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jobs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -596,45 +742,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robert" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2021,80 +2131,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceControllerTest.addNewRoomToExistingBuilding">
-    <configuration default="false" name="UserServiceControllerTest.getAllRoomsInBuilding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="robert.web.svc.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ElectronicAppliancesManagementSystemCore" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="robert.web.svc.rest" />
-      <option name="MAIN_CLASS_NAME" value="robert.web.svc.rest.UserServiceControllerTest" />
-      <option name="METHOD_NAME" value="getAllRoomsInBuilding" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="All in ElectronicAppliancesManagementSystemCore (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="ElectronicAppliancesManagementSystemCore" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="UserServiceControllerTest.registerNewBuilding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="robert.web.svc.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ElectronicAppliancesManagementSystemCore" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="robert.web.svc.rest" />
-      <option name="MAIN_CLASS_NAME" value="robert.web.svc.rest.UserServiceControllerTest" />
-      <option name="METHOD_NAME" value="registerNewBuilding" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.ApplianceBuildingRoomManagementDaoTest">
     <configuration default="false" name="UserServiceControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -2135,6 +2172,84 @@
       <option name="MAIN_CLASS_NAME" value="robert.web.svc.rest.UserServiceControllerTest" />
       <option name="METHOD_NAME" value="addNewRoomToExistingBuilding" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="UserServiceControllerTest.registerNewApplianceInExistingRoom" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="robert.web.svc.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ElectronicAppliancesManagementSystemCore" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="robert.web.svc.rest" />
+      <option name="MAIN_CLASS_NAME" value="robert.web.svc.rest.UserServiceControllerTest" />
+      <option name="METHOD_NAME" value="registerNewApplianceInExistingRoom" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ApplianceBuildingRoomManagementDaoTest.getAllAppliances" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="robert.db.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ElectronicAppliancesManagementSystemCore" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="robert.db.dao" />
+      <option name="MAIN_CLASS_NAME" value="robert.db.dao.ApplianceBuildingRoomManagementDaoTest" />
+      <option name="METHOD_NAME" value="getAllAppliances" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ApplianceBuildingRoomManagementDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="robert.db.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ElectronicAppliancesManagementSystemCore" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="robert.db.dao" />
+      <option name="MAIN_CLASS_NAME" value="robert.db.dao.ApplianceBuildingRoomManagementDaoTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -2523,19 +2638,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.ElectronicAppliancesManagementSystemCoreApplication" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.getAllRoomsInBuilding" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.All in ElectronicAppliancesManagementSystemCore (1)" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.registerNewBuilding" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.addNewRoomToExistingBuilding" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.addNewRoomToExistingBuilding" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.registerNewApplianceInExistingRoom" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ApplianceBuildingRoomManagementDaoTest.getAllAppliances" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.ApplianceBuildingRoomManagementDaoTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.addNewRoomToExistingBuilding" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.registerNewBuilding" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.All in ElectronicAppliancesManagementSystemCore (1)" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.getAllRoomsInBuilding" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ApplianceBuildingRoomManagementDaoTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ApplianceBuildingRoomManagementDaoTest.getAllAppliances" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.registerNewApplianceInExistingRoom" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest.addNewRoomToExistingBuilding" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.UserServiceControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -2584,7 +2699,9 @@
       <workItem from="1477733323648" duration="22395000" />
       <workItem from="1477823205148" duration="626000" />
       <workItem from="1477831858858" duration="357000" />
-      <workItem from="1477841330073" duration="8601000" />
+      <workItem from="1477841330073" duration="8817000" />
+      <workItem from="1477910016486" duration="471000" />
+      <workItem from="1477915526748" duration="5612000" />
     </task>
     <task id="LOCAL-00001" summary="1st commit">
       <created>1476033528381</created>
@@ -2859,43 +2976,50 @@
       <option name="project" value="LOCAL" />
       <updated>1477845465610</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Add tests for new user services">
+      <created>1477850115948</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1477850115948</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserServiceControllerTest - 2016.10.30 at 18h 38m 45s.xml">
-      <configuration name="UserServiceControllerTest" configurationId="JUnit" />
+    <history-entry file="ApplianceBuildingRoomManagementDaoTest - 2016.10.31 at 15h 20m 19s.xml">
+      <configuration name="ApplianceBuildingRoomManagementDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceControllerTest - 2016.10.30 at 18h 39m 48s.xml">
-      <configuration name="UserServiceControllerTest" configurationId="JUnit" />
+    <history-entry file="ApplianceBuildingRoomManagementDaoTest - 2016.10.31 at 15h 22m 02s.xml">
+      <configuration name="ApplianceBuildingRoomManagementDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceControllerTest_addNewRoomToExistingBuilding - 2016.10.30 at 18h 45m 15s.xml">
-      <configuration name="UserServiceControllerTest.addNewRoomToExistingBuilding" configurationId="JUnit" />
+    <history-entry file="ApplianceBuildingRoomManagementDaoTest - 2016.10.31 at 15h 22m 38s.xml">
+      <configuration name="ApplianceBuildingRoomManagementDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceControllerTest_addNewRoomToExistingBuilding - 2016.10.30 at 18h 47m 07s.xml">
-      <configuration name="UserServiceControllerTest.addNewRoomToExistingBuilding" configurationId="JUnit" />
+    <history-entry file="ApplianceBuildingRoomManagementDaoTest_getAllAppliances - 2016.10.31 at 15h 13m 48s.xml">
+      <configuration name="ApplianceBuildingRoomManagementDaoTest.getAllAppliances" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceControllerTest_registerNewBuilding - 2016.10.30 at 17h 08m 15s.xml">
-      <configuration name="UserServiceControllerTest.registerNewBuilding" configurationId="JUnit" />
+    <history-entry file="ApplianceBuildingRoomManagementDaoTest_getAllAppliances - 2016.10.31 at 15h 14m 54s.xml">
+      <configuration name="ApplianceBuildingRoomManagementDaoTest.getAllAppliances" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceControllerTest_registerNewBuilding - 2016.10.30 at 17h 10m 11s.xml">
-      <configuration name="UserServiceControllerTest.registerNewBuilding" configurationId="JUnit" />
+    <history-entry file="ApplianceBuildingRoomManagementDaoTest_getAllAppliances - 2016.10.31 at 15h 16m 51s.xml">
+      <configuration name="ApplianceBuildingRoomManagementDaoTest.getAllAppliances" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceControllerTest_registerNewBuilding - 2016.10.30 at 17h 17m 42s.xml">
-      <configuration name="UserServiceControllerTest.registerNewBuilding" configurationId="JUnit" />
+    <history-entry file="ApplianceBuildingRoomManagementDaoTest_getAllAppliances - 2016.10.31 at 15h 18m 01s.xml">
+      <configuration name="ApplianceBuildingRoomManagementDaoTest.getAllAppliances" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceControllerTest_registerNewBuilding - 2016.10.30 at 17h 18m 31s.xml">
-      <configuration name="UserServiceControllerTest.registerNewBuilding" configurationId="JUnit" />
+    <history-entry file="ApplianceBuildingRoomManagementDaoTest_getAllAppliances - 2016.10.31 at 15h 18m 28s.xml">
+      <configuration name="ApplianceBuildingRoomManagementDaoTest.getAllAppliances" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceControllerTest_registerNewBuilding - 2016.10.30 at 17h 20m 24s.xml">
-      <configuration name="UserServiceControllerTest.registerNewBuilding" configurationId="JUnit" />
+    <history-entry file="UserServiceControllerTest_registerNewApplianceInExistingRoom - 2016.10.31 at 15h 07m 15s.xml">
+      <configuration name="UserServiceControllerTest.registerNewApplianceInExistingRoom" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceControllerTest_registerNewBuilding - 2016.10.30 at 17h 37m 17s.xml">
-      <configuration name="UserServiceControllerTest.registerNewBuilding" configurationId="JUnit" />
+    <history-entry file="UserServiceControllerTest_registerNewApplianceInExistingRoom - 2016.10.31 at 15h 09m 18s.xml">
+      <configuration name="UserServiceControllerTest.registerNewApplianceInExistingRoom" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182926000" />
+    <option name="totallyTimeSpent" value="189225000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2955,7 +3079,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Add password validation for User." />
     <MESSAGE value="Add test config class.&#10;Refactor tests." />
     <MESSAGE value="todo: valdiation filter&#10;todo: fix tests" />
     <MESSAGE value="fix tests and calidation" />
@@ -2980,19 +3103,14 @@
     <MESSAGE value="Fix reservation for user" />
     <MESSAGE value="add tests for appl reservation" />
     <MESSAGE value="Add some new user services" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add some new user services" />
+    <MESSAGE value="Add tests for new user services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add tests for new user services" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/RegisterAndLoginController.java</url>
-          <line>102</line>
-          <properties />
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/robert/svc/MailServiceImplTest.java</url>
           <line>21</line>
@@ -3001,12 +3119,36 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java</url>
-          <line>58</line>
+          <line>117</line>
           <properties />
-          <option name="timeStamp" value="88" />
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java</url>
+          <line>116</line>
+          <properties />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java</url>
+          <line>115</line>
+          <properties />
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/robert/db/dao/ApplianceBuildingRoomManagementDaoTest.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/robert/db/dao/ApplianceBuildingRoomManagementDaoTest.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="111" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="101" />
+      <option name="time" value="112" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -3015,36 +3157,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/filters/AdminAuthFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/exceptions/AuthException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/filters/BasicAuthFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/exceptions/UserNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.3.RELEASE/spring-core-4.3.3.RELEASE.jar!/org/springframework/util/CollectionUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -3056,24 +3168,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Appliance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="e#969#970#0" expanded="true" />
-            <element signature="e#2024#2025#0" expanded="true" />
-            <element signature="e#2050#2051#0" expanded="true" />
-            <element signature="e#2113#2114#0" expanded="true" />
-            <element signature="e#2152#2153#0" expanded="true" />
-            <marker date="1477748352210" expanded="false" signature="34:282" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3113,13 +3207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/data/ApplianceDR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/RegisterAndLoginCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -3138,10 +3225,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding>
-            <element signature="e#1169#1170#0" expanded="true" />
-            <element signature="e#1192#1193#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3166,13 +3249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/asm/ApplianceAssembler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/asm/RoomAssembler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -3184,7 +3260,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="60" column="47" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3221,15 +3296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/svc/TaskSchedulerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3237,7 +3303,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3245,15 +3310,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/jobs/ExecutableTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3261,7 +3317,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3269,12 +3324,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding>
-            <element signature="e#169#170#0" expanded="false" />
-            <element signature="e#192#193#0" expanded="false" />
-            <element signature="e#232#233#0" expanded="false" />
-            <element signature="e#250#251#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3282,7 +3331,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3290,7 +3338,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3298,7 +3345,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3306,9 +3352,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-340">
           <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding>
-            <element signature="method#validReservationTime#0;class#UserDao#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3316,7 +3359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3328,19 +3370,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/BasicParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar!/org/springframework/http/HttpStatus.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3348,21 +3381,85 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="134" column="49" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Room.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/svc/TaskSchedulerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="80" column="46" selection-start-line="80" selection-start-column="46" selection-end-line="80" selection-end-column="46" />
+        <state relative-caret-position="270">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/RegisterAndLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7974">
+          <caret line="503" column="6" selection-start-line="503" selection-start-column="6" selection-end-line="503" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#23357#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#5713#5714#0" expanded="false" />
+            <element signature="e#5740#5741#0" expanded="false" />
+            <element signature="e#5793#5794#0" expanded="false" />
+            <element signature="e#5847#5848#0" expanded="false" />
+            <element signature="e#5896#5897#0" expanded="false" />
+            <element signature="e#5930#5931#0" expanded="false" />
+            <element signature="e#6024#6025#0" expanded="false" />
+            <element signature="e#6052#6053#0" expanded="false" />
+            <element signature="e#6222#6223#0" expanded="false" />
+            <element signature="e#6249#6250#0" expanded="false" />
+            <element signature="e#6333#6334#0" expanded="false" />
+            <element signature="e#6365#6366#0" expanded="false" />
+            <element signature="e#7076#7077#0" expanded="false" />
+            <element signature="e#7109#7110#0" expanded="false" />
+            <element signature="e#8522#8523#0" expanded="false" />
+            <element signature="e#8567#8568#0" expanded="false" />
+            <element signature="e#8985#8986#0" expanded="false" />
+            <element signature="e#9040#9041#0" expanded="false" />
+            <element signature="e#9136#9137#0" expanded="false" />
+            <element signature="e#9181#9182#0" expanded="false" />
+            <element signature="e#9473#9474#0" expanded="false" />
+            <element signature="e#9528#9529#0" expanded="false" />
+            <element signature="e#10540#10541#0" expanded="false" />
+            <element signature="e#10626#10627#0" expanded="false" />
+            <element signature="e#14229#14230#0" expanded="false" />
+            <element signature="e#14314#14315#0" expanded="false" />
+            <element signature="e#18632#18633#0" expanded="false" />
+            <element signature="e#18694#18695#0" expanded="false" />
+            <element signature="e#18797#18798#0" expanded="false" />
+            <element signature="e#18837#18838#0" expanded="false" />
+            <element signature="e#18980#18981#0" expanded="false" />
+            <element signature="e#19022#19023#0" expanded="false" />
+            <element signature="e#20678#20679#0" expanded="false" />
+            <element signature="e#20715#20716#0" expanded="false" />
+            <element signature="e#22696#22697#0" expanded="false" />
+            <element signature="e#22749#22750#0" expanded="false" />
+            <element signature="e#23085#23086#0" expanded="false" />
+            <element signature="e#23155#23156#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Building.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
+        <state relative-caret-position="630">
           <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
           <folding>
             <element signature="e#624#625#0" expanded="true" />
@@ -3373,67 +3470,125 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/asm/ApplianceAssembler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/data/ApplianceDR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/BasicParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="201">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/reflect/Method.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/robert/svc/MailServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="503" column="6" selection-start-line="503" selection-start-column="6" selection-end-line="503" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="134" column="49" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
+        <state relative-caret-position="72">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state relative-caret-position="394">
+          <caret line="95" column="43" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/repository/ApplianceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/jobs/ExecutableTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/robert/web/svc/rest/UserServiceControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="151" column="18" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
+        <state relative-caret-position="-321">
+          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.3.RELEASE/spring-core-4.3.3.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="112" column="27" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+        <state relative-caret-position="202">
+          <caret line="116" column="35" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
           <folding>
-            <element signature="e#3676#3677#0" expanded="true" />
-            <element signature="e#3723#3724#0" expanded="true" />
-            <element signature="e#3909#3910#0" expanded="true" />
-            <element signature="e#3968#3969#0" expanded="true" />
+            <element signature="e#3024#3025#0" expanded="true" />
+            <element signature="e#3083#3084#0" expanded="true" />
+            <element signature="e#4201#4202#0" expanded="true" />
+            <element signature="e#4248#4249#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/robert/db/dao/ApplianceBuildingRoomManagementDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+        <state relative-caret-position="184">
+          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/Appliance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
           <folding />
         </state>
       </provider>

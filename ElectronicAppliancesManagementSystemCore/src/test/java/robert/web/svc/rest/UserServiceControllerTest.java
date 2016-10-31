@@ -17,6 +17,8 @@ import robert.web.svc.rest.responses.data.ReservationDR;
 import utils.SpringWebMvcTest;
 import utils.TestUtils;
 
+import java.util.UUID;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static robert.web.svc.rest.ctrl.api.BasicParams.BUILDING_NUMBER;
@@ -106,7 +108,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 		String buildingName = abrmDao.saveBuilding(building)
 				.getName();
 
-		final String url = GET_ALL_ROOMS_IN_BUILDING.replace("{" + BUILDING_NUMBER + "}",
+		final String url = GET_ALL_ROOMS_IN_BUILDING_URL.replace("{" + BUILDING_NUMBER + "}",
 				String.valueOf(buildingName));
 
 		final String response = mockMvc.perform(get(url))
@@ -126,7 +128,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 	@Test
 	public void registerNewBuilding() throws Exception {
 		final String name = RandomStringUtils.random(5, "qwertyuiop");
-		final String url = REGISTER_NEW_BUILDING.replace("{" + BUILDING_NUMBER + "}", name);
+		final String url = REGISTER_NEW_BUILDING_URL.replace("{" + BUILDING_NUMBER + "}", name);
 
 		int numBuildings = abrmDao.findAllBuildings().size();
 
@@ -154,7 +156,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 				.saveBuilding(TestUtils.generateRandomBuildingWithRooms(initialRoomNum));
 
 		String roomNum = "122-test";
-		final String url = REGISTER_NEW_ROOM_IN_BUILDING
+		final String url = REGISTER_NEW_ROOM_IN_BUILDING_URL
 				.replace("{" + BUILDING_NUMBER + "}", b.getName())
 				.replace("{" + ROOM_NUMBER + "}", roomNum);
 
@@ -166,6 +168,46 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 				.isNotNull();
 		Assertions.assertThat(building.getRooms().size())
 				.isEqualTo(initialRoomNum + 1);
+	}
+
+	@Test
+	public void registerNewApplianceInExistingRoom() throws Exception {
+		final int numOfRooms = 5;
+		Building building = abrmDao.saveBuilding(
+				TestUtils.generateRandomBuildingWithRooms(numOfRooms)
+		);
+
+		building = abrmDao.findBuildingByName(building.getName());
+		Assertions.assertThat(building.getRooms())
+				.isNotEmpty()
+				.hasSize(numOfRooms);
+
+		long roomId = building.getRooms().iterator().next().getId();
+		String applName = "Test appliance 12345";
+
+		final String url = REGISTER_NEW_APPLIANCE_URL
+				.replace("{room-id}", String.valueOf(roomId))
+				.replace("{appl-name}", applName);
+
+		String responseUuid = mockMvc.perform(put(url))
+				.andExpect(status().isOk())
+				.andReturn()
+				.getResponse()
+				.getContentAsString();
+
+		final int anyRandomUuidLength = UUID.randomUUID().toString().length();
+
+		Assertions.assertThat(responseUuid)
+				.hasSize(anyRandomUuidLength);
+
+		Appliance applianceByUniqueCode = abrmDao.findApplianceByUniqueCode(responseUuid);
+
+		Assertions.assertThat(applianceByUniqueCode)
+				.isNotNull()
+				.hasFieldOrPropertyWithValue("name", applName)
+				.hasFieldOrPropertyWithValue("uniqueCode", responseUuid)
+				.hasNoNullFieldsOrPropertiesExcept("reservations");
+
 	}
 
 }

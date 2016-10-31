@@ -19,6 +19,7 @@ import robert.web.svc.rest.responses.data.RoomDR;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 @Transactional
@@ -89,8 +90,22 @@ public class ApplianceBuildingRoomManagementDao {
 		return applianceRepository.findOne(id);
 	}
 
+	public Appliance findApplianceByUniqueCode(String code) {
+		return applianceRepository.findOneByUniqueCode(code);
+	}
+
 	public Appliance saveAppliance(Appliance appliance) {
 		return applianceRepository.save(appliance);
+	}
+
+	public String addApplianceToTheRoom(long roomId, String applianceName) throws Exception {
+		Appliance appliance = new Appliance();
+		appliance.setName(applianceName);
+		final String uniqueCode = UUID.randomUUID().toString();
+		appliance.setUniqueCode(uniqueCode);
+		Room room = roomRepository.findOne(roomId);
+		this.addApplianceToTheRoom(appliance, room);
+		return uniqueCode;
 	}
 
 	public void addApplianceToTheRoom(Appliance appl, Room room) throws Exception {

@@ -8,25 +8,27 @@ import java.util.List;
 
 public interface UserServiceCtrl extends BasicParams {
 
-    String APPLIANCE_ID = "applianceId";
+	String USER_SERVICE_PREFIX = "/user-service/";
 
-    String USER_SERVICE_PREFIX = "/user-service/";
+	String GET_ALL_ROOMS_IN_BUILDING_URL = USER_SERVICE_PREFIX + "{" + BUILDING_NUMBER + "}/";
 
-    String MAKE_RESERVATION_URL = USER_SERVICE_PREFIX + "reservation" + "/{" + APPLIANCE_ID + "}/";
+	String MAKE_RESERVATION_URL = USER_SERVICE_PREFIX + "reservation" + "/{" + APPLIANCE_ID + "}/";
 
-    String GET_ALL_ROOMS_IN_BUILDING = USER_SERVICE_PREFIX + "{" + BUILDING_NUMBER + "}/";
+	String REGISTER_NEW_BUILDING_URL = USER_SERVICE_PREFIX + "register-building/{" + BUILDING_NUMBER + "}/";
 
-    String REGISTER_NEW_BUILDING = USER_SERVICE_PREFIX + "register-building/{" + BUILDING_NUMBER + "}/";
+	String REGISTER_NEW_ROOM_IN_BUILDING_URL = USER_SERVICE_PREFIX + "register-room/{" +
+			BUILDING_NUMBER + "}/{" + ROOM_NUMBER + "}/";
 
-    String REGISTER_NEW_ROOM_IN_BUILDING = USER_SERVICE_PREFIX + "register-room/{" +
-            BUILDING_NUMBER + "}/{" + ROOM_NUMBER + "}/";
+	String REGISTER_NEW_APPLIANCE_URL = USER_SERVICE_PREFIX + "register-appliance/{" +
+			ROOM_ID + "}/{" + APPLIANCE_NAME + "}/";
 
-    HttpStatus makeReservation(Long applianceId, ReservationDR reservationDR);
+	List<RoomDR> getAllRoomsInBuilding(String buildingNumber);
 
-    List<RoomDR> getAllRoomsInBuilding(String buildingNumber);
+	HttpStatus makeReservation(Long applianceId, ReservationDR reservationDR);
 
-    HttpStatus registerNewBuilding(String buildingNumber);
+	HttpStatus registerNewBuilding(String buildingNumber);
 
-    HttpStatus registerNewRoomInBuilding(String building, String roomNum);
+	HttpStatus registerNewRoomInBuilding(String building, String roomNum);
 
+	String registerNewAppliance(Long roomId, String applianceName);
 }

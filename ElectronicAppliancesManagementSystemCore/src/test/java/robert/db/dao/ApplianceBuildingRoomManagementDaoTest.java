@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
 import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Room;
@@ -59,6 +60,7 @@ public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 	}
 
 	@Test
+	@DirtiesContext
 	public void getAllAppliances() throws Exception {
 		Appliance a1 = new Appliance();
 		a1.setName("a1");
@@ -68,8 +70,8 @@ public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 		a3.setName("a3");
 
 		a1.setUniqueCode(UUID.randomUUID().toString());
-		a2.setUniqueCode(UUID.randomUUID().toString());
-		a3.setUniqueCode(UUID.randomUUID().toString());
+		a2.setUniqueCode(UUID.randomUUID().toString() + "a");
+		a3.setUniqueCode(UUID.randomUUID().toString() + "bb");
 
 		Room room = dao.saveRoom(createRoom(7));
 		dao.addApplianceToTheRoom(a1, room);
@@ -90,7 +92,7 @@ public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 	}
 
 	private Room createRoom(int roomNumberLength) {
-		String roomNO = RandomStringUtils.random(roomNumberLength, false, true).toLowerCase();
+		String roomNO = RandomStringUtils.random(roomNumberLength, false, true).toLowerCase().trim();
 		Room room = new Room();
 		room.setNumber(roomNO);
 		return room;

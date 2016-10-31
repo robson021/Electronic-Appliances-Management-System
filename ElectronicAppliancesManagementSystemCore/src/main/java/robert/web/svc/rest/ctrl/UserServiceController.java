@@ -62,13 +62,13 @@ public class UserServiceController implements UserServiceCtrl {
 	}
 
 	@Override
-	@RequestMapping(value = GET_ALL_ROOMS_IN_BUILDING)
+	@RequestMapping(value = GET_ALL_ROOMS_IN_BUILDING_URL)
 	public List<RoomDR> getAllRoomsInBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
 		return abrmDao.findAllRoomsInBuilding(buildingNumber);
 	}
 
 	@Override
-	@RequestMapping(value = REGISTER_NEW_BUILDING, method = RequestMethod.PUT)
+	@RequestMapping(value = REGISTER_NEW_BUILDING_URL, method = RequestMethod.PUT)
 	public HttpStatus registerNewBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
 		try {
 			abrmDao.saveBuilding(buildingNumber);
@@ -80,16 +80,29 @@ public class UserServiceController implements UserServiceCtrl {
 	}
 
 	@Override
-	@RequestMapping(value = REGISTER_NEW_ROOM_IN_BUILDING, method = RequestMethod.PUT)
+	@RequestMapping(value = REGISTER_NEW_ROOM_IN_BUILDING_URL, method = RequestMethod.PUT)
 	public HttpStatus registerNewRoomInBuilding(@PathVariable(BUILDING_NUMBER) String building,
 												@PathVariable(ROOM_NUMBER) String roomNum) {
 		try {
 			abrmDao.addNewRoomToTheBuilding(building, roomNum);
-		} catch (NotFoundException e) {
+		} catch (Exception e) {
 			log.debug(e);
 			return HttpStatus.NOT_FOUND;
 		}
 		return HttpStatus.OK;
+	}
+
+	@Override
+	@RequestMapping(value = REGISTER_NEW_APPLIANCE_URL, method = RequestMethod.PUT)
+	public String registerNewAppliance(@PathVariable(ROOM_ID) Long roomId,
+									   @PathVariable(APPLIANCE_NAME) String applianceName) {
+		String applianceUniqueCode = null;
+		try {
+			applianceUniqueCode = abrmDao.addApplianceToTheRoom(roomId, applianceName);
+		} catch (Exception e) {
+			log.debug(e);
+		}
+		return applianceUniqueCode;
 	}
 
 	private void cheIfApplianceIsAvailable(Appliance app) throws NotFoundException {
