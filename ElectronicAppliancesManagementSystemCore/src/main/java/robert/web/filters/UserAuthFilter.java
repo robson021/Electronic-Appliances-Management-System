@@ -63,7 +63,7 @@ public final class UserAuthFilter extends BasicAuthFilter {
 	}
 
 	private void isUserAndTokenValid(String email, HttpServletRequest request) throws AuthException {
-		if (email == null && !compareTokens(tokenService.loadToken(request))) {
+		if (email == null || !compareTokens(tokenService.loadToken(request))) {
 			AuthException exception = new AuthException("User " + email + " is not valid.");
 			log.debug(exception);
 			throw exception;
