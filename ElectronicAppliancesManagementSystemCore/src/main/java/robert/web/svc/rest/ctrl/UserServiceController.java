@@ -72,6 +72,7 @@ public class UserServiceController implements UserServiceCtrl {
 	public HttpStatus registerNewBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
 		try {
 			abrmDao.saveBuilding(buildingNumber);
+			log.info("Registered new building:", buildingNumber);
 		} catch (Exception e) {
 			log.debug(e);
 			return HttpStatus.CONFLICT;
@@ -85,6 +86,7 @@ public class UserServiceController implements UserServiceCtrl {
 												@PathVariable(ROOM_NUMBER) String roomNum) {
 		try {
 			abrmDao.addNewRoomToTheBuilding(building, roomNum);
+			log.info("Added new room:", roomNum, "to the building:", building);
 		} catch (Exception e) {
 			log.debug(e);
 			return HttpStatus.NOT_FOUND;
@@ -99,6 +101,7 @@ public class UserServiceController implements UserServiceCtrl {
 		String applianceUniqueCode = null;
 		try {
 			applianceUniqueCode = abrmDao.addApplianceToTheRoom(roomId, applianceName);
+			log.info("Registered new appliance:", applianceName, "with it's code:", applianceUniqueCode);
 		} catch (Exception e) {
 			log.debug(e);
 		}
