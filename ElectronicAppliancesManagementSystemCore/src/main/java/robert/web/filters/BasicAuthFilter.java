@@ -1,6 +1,7 @@
 package robert.web.filters;
 
 import org.springframework.util.AntPathMatcher;
+import robert.exceptions.AuthException;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -21,14 +22,15 @@ public abstract class BasicAuthFilter implements Filter {
 	public final void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
-		doLogic(request, response);
 		try {
+			doLogic(request, response);
 			filterChain.doFilter(servletRequest, response);
 		} catch (Throwable ignored) {
+			this.invalidateSessionAndSendRedirect(response, request);
 		}
 	}
 
-	protected void invalidateSessionAndSendRedirect(HttpServletResponse response, HttpServletRequest request) {
+	private void invalidateSessionAndSendRedirect(HttpServletResponse response, HttpServletRequest request) {
 		try {
 			response.sendRedirect("/login");
 		} catch (IOException ignored) {
@@ -37,5 +39,5 @@ public abstract class BasicAuthFilter implements Filter {
 		}
 	}
 
-	public abstract void doLogic(HttpServletRequest request, HttpServletResponse response);
+	public abstract void doLogic(HttpServletRequest request, HttpServletResponse response) throws AuthException;
 }

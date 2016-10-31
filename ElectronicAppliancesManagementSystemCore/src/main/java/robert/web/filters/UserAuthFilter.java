@@ -42,19 +42,16 @@ public final class UserAuthFilter extends BasicAuthFilter {
 	}
 
 	@Override
-	public final void doLogic(HttpServletRequest request, HttpServletResponse response) {
+	public final void doLogic(HttpServletRequest request, HttpServletResponse response) throws AuthException {
 		if (isValidationNotEnabledOnThisURI(request.getRequestURI())) {
 			return;
 		}
-		try {
-			isUserAndTokenValid(userInfoProvider.getEmail(), request);
-			CsrfToken csrfToken = tokenService.generateToken(request);
-			tokenService.saveToken(csrfToken, request, response);
-			userInfoProvider.setNewCsrfToken(csrfToken);
-		} catch (AuthException e) {
-			log.debug(e);
-			invalidateSessionAndSendRedirect(response, request);
-		}
+
+		isUserAndTokenValid(userInfoProvider.getEmail(), request);
+		CsrfToken csrfToken = tokenService.generateToken(request);
+		tokenService.saveToken(csrfToken, request, response);
+		userInfoProvider.setNewCsrfToken(csrfToken);
+
 	}
 
 	private boolean isValidationNotEnabledOnThisURI(String requestURI) {
@@ -67,7 +64,9 @@ public final class UserAuthFilter extends BasicAuthFilter {
 
 	private void isUserAndTokenValid(String email, HttpServletRequest request) throws AuthException {
 		if (email == null && !compareTokens(tokenService.loadToken(request))) {
-			throw new AuthException("User " + email + " is not valid.");
+			AuthException exception = new AuthException("User " + email + " is not valid.");
+			log.debug(exception);
+			throw exception;
 		}
 	}
 
