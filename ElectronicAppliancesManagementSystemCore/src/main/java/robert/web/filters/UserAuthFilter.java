@@ -58,7 +58,7 @@ public final class UserAuthFilter extends BasicAuthFilter {
 
 	private boolean isValidationNotEnabledOnThisURI(String requestURI) {
 		if (isFileRequest(requestURI)) {
-			return true; //todo: change to match pattern
+			return true;
 		}
 		for (String pattern : Validation.NO_AUTH_URIS) {
 			if (apm.match(pattern, requestURI))
