@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Electronic appliance management system</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Angular Material style sheet -->
-    <link rel="stylesheet"
-          href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <!-- load fontawesome -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Electronic Appliance Management System</title>
 
     <!--bootstrap-->
     <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
@@ -20,33 +15,76 @@
             src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link data-require="bootstrap-css@*" data-semver="3.1.1" rel="stylesheet"
           href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="style.css"/>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body ng-app="ngApp" ng-cloak>
 
-<p>dadasda</p>
-<ui-view></ui-view>
+<body ng-app="ngApp">
+
+<div class="brand">
+    Electronic Appliance
+    <br>
+    Management System
+</div>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="default">Navigation</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ui-sref="default">Home</a>
+                </li>
+                <li>
+                    <a ui-sref="login-register">Login/Register</a>
+                </li>
+                <li>
+                    <a ui-sref="about">About</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!--ui router-->
+<div class="container" layout="center" layout-align="center center" style="padding: 25px;">
+    <ui-view></ui-view>
+</div>
+
+<!--todo: fix footer-->
+<!--<footer id="footer">
+    <div class="row" style="max-height: 35px;">
+        <div class="col-lg-12 text-center">
+            Robert Nowak, AGH 2016
+        </div>
+    </div>
+</footer>-->
+
 
 <!--DEPENDENCIES-->
-<!-- Angular Material requires Angular.js Libraries -->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
-
-<!-- route provider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 
-<!-- Angular Material Library -->
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
-
-
-<!-- my -->
+<!-- my dependencies-->
 <script src="js/app.js"></script>
-
 <script src="js/controllers/login.ctr.js"></script>
+<script src="js/services/http.svc.js"></script>
+
 </body>
+
 </html>

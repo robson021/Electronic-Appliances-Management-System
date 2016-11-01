@@ -1,16 +1,23 @@
 var app = angular
-    .module("ngApp", ['ngMaterial', 'ui.router', 'ngMessages'])
+    .module("ngApp", ['ui.router'])
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
-
-        // required for CORS
+        // required for CORS session
         $httpProvider.defaults.withCredentials = true;
 
         $stateProvider
             .state('default', {
                 url: '/',
-                templateUrl: '/partials/login.html',
-                controller: 'login-ctrl'
+                templateUrl: 'partials/main-view.html'
+            })
+            .state('login-register', {
+                url: '/login-register',
+                templateUrl: 'partials/login-register.html',
+                controller: 'login-register-ctrl'
+            })
+            .state('about', {
+                url: '/about',
+                templateUrl: 'partials/about.html'
             });
 
         $urlRouterProvider.otherwise("/");
@@ -20,5 +27,10 @@ var app = angular
 
 // global data
 angular.module('ngApp')
-    .run(function ($rootScope) {
+    .run(function ($rootScope, $http) {
+        $http.get('/js/ServerAddress.json')
+            .then(function (res) {
+                $rootScope.serverAddress = res.data.address;
+                console.info("back-end address: " + $rootScope.serverAddress);
+            });
     });

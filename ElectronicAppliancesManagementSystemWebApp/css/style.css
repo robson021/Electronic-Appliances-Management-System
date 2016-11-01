@@ -1,0 +1,13 @@
+.default-bg {
+    background-color: #bce8f1;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+#footer-content {
+    margin-bottom: 5em;
+}
