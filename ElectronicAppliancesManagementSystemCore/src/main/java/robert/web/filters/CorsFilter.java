@@ -1,8 +1,10 @@
 package robert.web.filters;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import robert.utils.api.AppLogger;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,13 @@ import java.io.IOException;
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
+
+	private final AppLogger log;
+
+	@Autowired
+	public CorsFilter(AppLogger log) {
+		this.log = log;
+	}
 
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -29,10 +38,12 @@ public class CorsFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
+		log.info(CorsFilter.class.toString(), "initiated.");
 	}
 
 	@Override
 	public void destroy() {
+		log.info(CorsFilter.class.toString(), "destroyed.");
 	}
 
 }
