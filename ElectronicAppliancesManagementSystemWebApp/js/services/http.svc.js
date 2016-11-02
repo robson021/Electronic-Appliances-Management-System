@@ -1,7 +1,14 @@
 app.service('httpSvc', function ($rootScope, $http, $state) {
 
-    const url = $rootScope.serverAddress;
     const self = this;
+    const url = "http://localhost:8080";
+
+    this.checkIfLoggedIn = function () {
+        if (!$rootScope.loggedIn) {
+            $state.go('login-register');
+            toastr.info('You must login first');
+        }
+    };
 
     this.loginUser = function (user) {
         let uri = '/login/' + user.email + '/' + user.password + '/';
@@ -37,6 +44,11 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
                     toastr.error('Error. Could not register the user.');
                 }
             });
+    };
+
+    this.logoutUser = function () {
+        $rootScope.loggedIn = false;
+        $http.post(url + '/logout/', null);
     };
 
     this.getAllBuildings = function () {

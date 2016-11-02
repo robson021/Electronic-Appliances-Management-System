@@ -34,6 +34,7 @@
     Management System
 </div>
 
+<!-- navbar -->
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -47,7 +48,7 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="navbar-ctrl">
             <ul class="nav navbar-nav">
                 <li>
                     <a ui-sref="default">Home</a>
@@ -56,15 +57,14 @@
                     <a ui-sref="user-panel">User Panel</a>
                 </li>
                 <li>
-                    <a ui-sref="admin-panel">Admin Panel</a>
-                </li>
-                <li>
                     <a ui-sref="login-register">Login/Register</a>
                 </li>
                 <li>
                     <a ui-sref="about">About</a>
                 </li>
-
+                <li ng-show="loggedIn" ng-click="logout()">
+                    <a>Logout</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -77,14 +77,15 @@
     <ui-view></ui-view>
 </div>
 
-<!--todo: fix footer-->
-<!--<footer id="footer">
-    <div class="row" style="max-height: 35px;">
-        <div class="col-lg-12 text-center">
-            Robert Nowak, AGH 2016
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center" style="max-height: 25px;">
+                Robert Nowak, AGH 2016
+            </div>
         </div>
     </div>
-</footer>-->
+</footer>
 
 
 <!--DEPENDENCIES-->
@@ -98,6 +99,7 @@
 <script src="js/controllers/login-register.ctr.js"></script>
 <script src="js/controllers/admin-panel.ctr.js"></script>
 <script src="js/controllers/user-panel.ctr.js"></script>
+<script src="js/controllers/navbar.ctr.js"></script>
 
 </body>
 

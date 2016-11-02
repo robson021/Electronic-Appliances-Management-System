@@ -14,14 +14,16 @@ var app = angular
                 url: '/login-register',
                 templateUrl: 'partials/login-register.html',
                 controller: 'login-register-ctrl'
-            }).state('user-panel', {
-            url: '/user-panel',
-            templateUrl: 'partials/user-panel.html',
-            controller: 'user-panel-ctrl'
-        }).state('admin-panel', {
-            url: '/admin-panel',
-            templateUrl: 'partials/admin-panel.html',
-            controller: 'admin-panel-ctrl'
+            })
+            .state('user-panel', {
+                url: '/user-panel',
+                templateUrl: 'partials/user-panel.html',
+                controller: 'user-panel-ctrl'
+            })
+            .state('admin-panel', {
+                url: '/admin-panel',
+                templateUrl: 'partials/admin-panel.html',
+                controller: 'admin-panel-ctrl'
             })
             .state('about', {
                 url: '/about',
@@ -35,11 +37,6 @@ var app = angular
 
 // global data
 angular.module('ngApp')
-    .run(function ($rootScope, $http) {
+    .run(function ($rootScope) {
         $rootScope.loggedIn = false;
-        $http.get('/js/ServerAddress.json')
-            .then(function (res) {
-                $rootScope.serverAddress = res.data.address;
-                console.info("back-end address: " + $rootScope.serverAddress);
-            });
     });
