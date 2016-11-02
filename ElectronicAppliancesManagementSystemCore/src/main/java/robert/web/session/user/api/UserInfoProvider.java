@@ -15,4 +15,6 @@ public interface UserInfoProvider {
 	void setNewCsrfToken(CsrfToken csrfToken);
 
 	CsrfToken getCsrfToken();
+
+	void invalidateData();
 }

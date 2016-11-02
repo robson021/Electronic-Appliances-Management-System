@@ -1,8 +1,5 @@
 package robert.web.svc.rest.ctrl;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -10,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import robert.db.dao.UserDao;
 import robert.db.entity.User;
 import robert.exceptions.InvalidEmailPatternException;
@@ -21,6 +17,10 @@ import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.ctrl.api.RegisterAndLoginCtrl;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @RestController
 public class RegisterAndLoginController implements RegisterAndLoginCtrl {
@@ -92,7 +92,6 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 								HttpServletResponse response) {
 
 		log.info("Login request from:", email);
-
 		User user = userDao.findUserByEmail(email);
 
 		try {
@@ -113,6 +112,14 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 
 		log.info("User", user.getEmail(), "has been logged in.");
 		return HttpStatus.OK;
+	}
+
+	@Override
+	@RequestMapping(value = LOGOUT_URL, method = RequestMethod.POST)
+	public void logoutUser(HttpSession session) {
+		log.debug("Logout request from:", userInfoProvider.getEmail());
+		userInfoProvider.invalidateData();
+		session.invalidate();
 	}
 
 	private void validateUser(User user, String password) throws UserNotFoundException, InvalidPasswordException {

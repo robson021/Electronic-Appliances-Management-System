@@ -48,4 +48,11 @@ public class UserInfoProviderImpl implements UserInfoProvider {
 	public CsrfToken getCsrfToken() {
 		return this.csrfToken;
 	}
+
+	@Override
+	public void invalidateData() {
+		this.email = null;
+		this.adminPrivileges = false;
+		this.csrfToken = null;
+	}
 }

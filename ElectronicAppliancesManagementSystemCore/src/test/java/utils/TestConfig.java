@@ -10,7 +10,7 @@ import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 
-import static robert.enums.BeanNames.DEFAULT_JOB_REGISTARTION;
+import static robert.enums.BeanNames.DEFAULT_JOB_REGISTRATION;
 import static robert.enums.BeanNames.DEFAULT_TASK_EXECUTOR;
 
 @Configuration
@@ -47,6 +47,11 @@ public class TestConfig {
             public CsrfToken getCsrfToken() {
                 return null;
             }
+
+            @Override
+            public void invalidateData() {
+
+            }
         };
     }
 
@@ -64,7 +69,7 @@ public class TestConfig {
         return (receiverEmail, topic, message, attachment) -> System.out.println("--- test mailer run ---");
     }
 
-    @Bean(DEFAULT_JOB_REGISTARTION)
+    @Bean(DEFAULT_JOB_REGISTRATION)
     @Primary
     public JobRegistration jobRegistration() {
         return () -> System.out.println("--- mock jobs registration ---");

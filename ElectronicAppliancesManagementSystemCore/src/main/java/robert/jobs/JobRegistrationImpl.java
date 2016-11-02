@@ -10,9 +10,9 @@ import robert.jobs.api.JobRegistration;
 import robert.svc.api.TaskSchedulerService;
 import robert.utils.api.AppLogger;
 
-import static robert.enums.BeanNames.DEFAULT_JOB_REGISTARTION;
+import static robert.enums.BeanNames.DEFAULT_JOB_REGISTRATION;
 
-@Component(DEFAULT_JOB_REGISTARTION)
+@Component(DEFAULT_JOB_REGISTRATION)
 public class JobRegistrationImpl implements JobRegistration {
 
 	private final AppLogger log;
