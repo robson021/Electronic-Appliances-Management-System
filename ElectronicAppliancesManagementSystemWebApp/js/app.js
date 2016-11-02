@@ -28,6 +28,7 @@ var app = angular
 // global data
 angular.module('ngApp')
     .run(function ($rootScope, $http) {
+        $rootScope.loggedIn = false;
         $http.get('/js/ServerAddress.json')
             .then(function (res) {
                 $rootScope.serverAddress = res.data.address;

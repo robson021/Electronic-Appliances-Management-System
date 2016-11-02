@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="box">
+        <!-- login form -->
+        <div class="box" ng-hide="loggedIn || showRegisterView">
             <div class="col-lg-12">
                 <hr>
                 <h2 class="intro-text text-center"><strong>Login</strong>
@@ -11,9 +12,6 @@
                 </p>
                 <form role="form">
                     <div class="row">
-                        <h2 class="text-center" ng-show="showMsg">
-                            <p ng-class="customStyle.colorClass">{{responseMsg}}</p>
-                        </h2>
                         <div class="clearfix"></div>
                         <div class="form-group col-lg-4">
                             <label>E-mail:</label>
@@ -26,12 +24,72 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-group col-lg-12">
-                            <button ng-click="login()" class="btn btn-default">Log me in</button>
+                            <button ng-click="login()" class="btn btn-default">
+                                Log me in
+                            </button>
+                            <button ng-click="registerView()" class="btn btn-default">
+                                Register new account
+                            </button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        <div class="box" ng-show="loggedIn">
+            <p class="text-center">You are already logged in.</p>
+        </div>
     </div>
+
+    <!-- register form -->
+    <div class="box" ng-show="loggedIn || showRegisterView">
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center"><strong>Register</strong>
+            </h2>
+            <hr>
+            <p class="text-center">
+                Create new account.
+            </p>
+            <form role="form">
+                <div class="row">
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-4">
+                        <label>Name:</label>
+                        <input type="text" class="form-control" ng-model="user.name">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-4">
+                        <label>Surname:</label>
+                        <input type="text" class="form-control" ng-model="user.surname">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-4">
+                        <label>E-mail:</label>
+                        <input type="email" class="form-control" ng-model="user.email">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-4">
+                        <label>Password:</label>
+                        <input type="password" class="form-control" ng-model="user.password">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-4">
+                        <label>Re-type password:</label>
+                        <input type="password" class="form-control" ng-model="user.repassword">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-12">
+                        <button ng-click="register()" class="btn btn-default">
+                            Register
+                        </button>
+                        <button ng-click="backToLogin()" class="btn btn-default">
+                            Back
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 </div>

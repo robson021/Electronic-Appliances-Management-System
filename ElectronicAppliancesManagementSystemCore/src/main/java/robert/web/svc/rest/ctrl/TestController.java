@@ -68,8 +68,8 @@ public class TestController {
 	}
 
 	@RequestMapping("/email")
-	@ResponseStatus(HttpStatus.OK)
-	public void sendEmail() {
+	public HttpStatus sendEmail() {
 		mailService.sendEmail("invoice.writer.app@gmail.com", "test", "Test email.", null);
+		return HttpStatus.OK;
 	}
 }
