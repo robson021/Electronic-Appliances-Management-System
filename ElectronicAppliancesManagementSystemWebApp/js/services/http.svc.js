@@ -49,13 +49,15 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     this.logoutUser = function () {
         $rootScope.loggedIn = false;
         $http.post(url + '/logout/', null);
+        $state.go('default');
     };
 
-    this.getAllBuildings = function () {
+    this.getAllBuildings = function (allBuildings) {
         let uri = '/user-service/get-all-buildings/';
         $http.get(url + uri, null)
             .success(function (response) {
                 console.info('get all buildings: ' + response);
+                allBuildings = response;
             });
     };
 

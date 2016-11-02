@@ -4,5 +4,11 @@
 
         httpSvc.checkIfLoggedIn();
 
+        $scope.allBuildings = null;
+
+        $scope.getBuildings = function () {
+            httpSvc.getAllBuildings($scope.allBuildings);
+        };
+
     }); // end of controller
 })();
