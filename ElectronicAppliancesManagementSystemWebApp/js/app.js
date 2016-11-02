@@ -14,6 +14,14 @@ var app = angular
                 url: '/login-register',
                 templateUrl: 'partials/login-register.html',
                 controller: 'login-register-ctrl'
+            }).state('user-panel', {
+            url: '/user-panel',
+            templateUrl: 'partials/user-panel.html',
+            controller: 'user-panel-ctrl'
+        }).state('admin-panel', {
+            url: '/admin-panel',
+            templateUrl: 'partials/admin-panel.html',
+            controller: 'admin-panel-ctrl'
             })
             .state('about', {
                 url: '/about',

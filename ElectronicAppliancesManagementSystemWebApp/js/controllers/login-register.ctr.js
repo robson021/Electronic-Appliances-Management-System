@@ -14,7 +14,6 @@
 
         $scope.login = function () {
             httpSvc.loginUser($scope.user);
-            httpSvc.getAllBuildings();
         };
 
         $scope.registerView = function () {
@@ -29,7 +28,7 @@
         };
 
         $scope.register = function () {
-
+            httpSvc.registerNewUser($scope.user);
         };
 
     }); // end of controller
