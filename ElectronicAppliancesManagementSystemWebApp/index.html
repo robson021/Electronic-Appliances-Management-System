@@ -26,7 +26,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body ng-app="ngApp">
+<body ng-app="ngApp" ng-cloak>
 
 <div class="brand">
     Electronic Appliance
@@ -61,6 +61,9 @@
                 </li>
                 <li>
                     <a ui-sref="about">About</a>
+                </li>
+                <li ng-hide="loggedIn">
+                    <a ui-sref="guest">Guest</a>
                 </li>
                 <li ng-show="loggedIn" ng-click="logout()">
                     <a>Logout</a>

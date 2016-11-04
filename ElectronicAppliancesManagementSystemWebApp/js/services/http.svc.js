@@ -36,8 +36,9 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
             .success(function (response) {
                 console.info('register new user: ' + response);
                 if (response === 'OK') {
-                    toastr.success('Successful registered your account.');
-                    self.loginUser(user);
+                    $state.go('default');
+                    toastr.success('Successfully registered your account.');
+                    //self.loginUser(user);
                 } else if (response === 'FORBIDDEN') {
                     toastr.error('Invalid e-mail or password pattern.');
                 } else {
@@ -52,13 +53,19 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         $state.go('default');
     };
 
-    this.getAllBuildings = function (allBuildings) {
+    this.getAllBuildings = function () {
         let uri = '/user-service/get-all-buildings/';
-        $http.get(url + uri, null)
-            .success(function (response) {
-                console.info('get all buildings: ' + response);
-                allBuildings = response;
-            });
+        return $http.get(url + uri, null);
+    };
+
+    this.getAllRoomsInBuilding = function (buildingNumber) {
+        let uri = '/user-service/' + buildingNumber + '/';
+        return $http.get(url + uri, null);
+    };
+
+    this.getAllAppliancesInRoom = function (roomId) {
+        let uri = '/user-service/get-all-appliances/' + roomId + '/';
+        return $http.get(url + uri, null);
     };
 
     this.clearObject = function (obj) {

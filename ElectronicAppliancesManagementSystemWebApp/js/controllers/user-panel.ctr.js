@@ -3,12 +3,71 @@
     angular.module("ngApp").controller('user-panel-ctrl', function ($scope, $rootScope, $state, httpSvc) {
 
         httpSvc.checkIfLoggedIn();
+        const self = this;
+        const possibleViews = ['buildings', 'rooms', 'appliances'];
+
+        $scope.currentView = null;
 
         $scope.allBuildings = null;
+        $scope.allRoomsInBuilding = null;
+        $scope.allAppliancesInRoom = null;
 
-        $scope.getBuildings = function () {
-            httpSvc.getAllBuildings($scope.allBuildings);
+        $scope.selectedBuilding = null;
+        $scope.selectedRoom = null;
+        $scope.selectedAppliance = null;
+
+        $scope.loadBuildings = function () {
+            httpSvc.getAllBuildings()
+                .success(function (response) {
+                    $scope.allBuildings = response;
+                    $scope.currentView = possibleViews[0];
+                    console.info('get all buildings: ' + $scope.allBuildings);
+                });
         };
+
+        $scope.loadRooms = function () {
+            if ($scope.selectedBuilding == null) {
+                toastr.info('Select building first.');
+                return;
+            }
+            httpSvc.getAllRoomsInBuilding($scope.selectedBuilding)
+                .success(function (response) {
+                    $scope.allRoomsInBuilding = response;
+                    $scope.currentView = possibleViews[1];
+                    console.info('get all rooms: ' + $scope.allRoomsInBuilding.length);
+                });
+        };
+
+        $scope.loadAppliances = function () {
+            if ($scope.selectedRoom == null) {
+                toastr.info('Select room first.');
+                return;
+            }
+            httpSvc.getAllAppliancesInRoom($scope.selectedRoom.id)
+                .success(function (response) {
+                    $scope.allAppliancesInRoom = response;
+                    $scope.currentView = possibleViews[2];
+                    console.info('get all appliances: ' + $scope.allAppliancesInRoom.length);
+                });
+        };
+
+        $scope.selectBuilding = function (b) {
+            $scope.selectedBuilding = b;
+            $scope.loadRooms();
+            console.info("Current selected building: " + $scope.selectedBuilding);
+        };
+
+        $scope.selectRoom = function (r) {
+            $scope.selectedRoom = r;
+            $scope.loadAppliances();
+            console.info("Current selected room: " + $scope.selectedRoom.number);
+        };
+
+        $scope.selectAppliance = function (a) {
+            $scope.selectedAppliance = a;
+            console.info("Current selected appliance: " + $scope.selectedAppliance.name);
+            // todo
+        }
 
     }); // end of controller
 })();
