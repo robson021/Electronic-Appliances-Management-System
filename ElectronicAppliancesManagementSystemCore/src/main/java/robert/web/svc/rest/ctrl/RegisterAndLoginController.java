@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.UserDao;
 import robert.db.entity.User;
 import robert.exceptions.InvalidEmailPatternException;
-import robert.exceptions.InvalidPasswordException;
+import robert.exceptions.UserException;
 import robert.exceptions.UserNotFoundException;
 import robert.svc.api.CsrfTokenService;
 import robert.svc.api.MailService;
@@ -51,7 +51,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 									  @PathVariable(value = NAME) String name, //
 									  @PathVariable(value = SURNAME) String surname) {
 
-		log.info("New registration request from:", email);
+		log.debug("New registration request from:", email);
 
 		if (userDao.findUserByEmail(email) != null) {
 			log.debug("User", email, "is already registered!");
@@ -68,7 +68,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 		} catch (InvalidEmailPatternException e) {
 			log.debug(e);
 			return HttpStatus.FORBIDDEN;
-		} catch (InvalidPasswordException e) {
+		} catch (UserException e) {
 			log.debug(e);
 			return HttpStatus.FORBIDDEN;
 		} catch (Exception e) {
@@ -99,7 +99,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 		} catch (UserNotFoundException e) {
 			log.debug(e);
 			return HttpStatus.NOT_FOUND;
-		} catch (InvalidPasswordException e) {
+		} catch (UserException e) {
 			log.debug(e);
 			return HttpStatus.UNAUTHORIZED;
 		}
@@ -110,24 +110,27 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 		tokenService.saveToken(csrfToken, request, response);
 		userInfoProvider.setNewCsrfToken(csrfToken);
 
-		log.info("User", user.getEmail(), "has been logged in.");
+		log.debug("User", user.getEmail(), "has been logged in.");
 		return HttpStatus.OK;
 	}
 
 	@Override
 	@RequestMapping(value = LOGOUT_URL, method = RequestMethod.POST)
 	public void logoutUser(HttpSession session) {
-		log.debug("Logout request from:", userInfoProvider.getEmail());
 		userInfoProvider.invalidateData();
 		session.invalidate();
+		log.debug("Logged out some user.");
 	}
 
-	private void validateUser(User user, String password) throws UserNotFoundException, InvalidPasswordException {
+	private void validateUser(User user, String password) throws UserNotFoundException, UserException {
 		if (user == null) {
 			throw new UserNotFoundException();
 		}
 		if (!user.getPassword().equals(password)) {
-			throw new InvalidPasswordException(user.getEmail());
+			throw new UserException(user.getEmail());
+		}
+		if (!user.getActivated()) {
+			throw new UserException(user.getEmail(), "is not activated");
 		}
 	}
 }

@@ -6,7 +6,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.data.annotation.AccessType;
 import robert.enums.Validation;
 import robert.exceptions.InvalidEmailPatternException;
-import robert.exceptions.InvalidPasswordException;
+import robert.exceptions.UserException;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -59,10 +59,10 @@ public class User {
 		return password;
 	}
 
-	public void setPassword(String password) throws InvalidPasswordException {
+	public void setPassword(String password) throws UserException {
 		password = password.trim();
 		if (!validatePassword(password)) {
-			throw new InvalidPasswordException();
+			throw new UserException();
 		}
 		this.password = password;
 	}
