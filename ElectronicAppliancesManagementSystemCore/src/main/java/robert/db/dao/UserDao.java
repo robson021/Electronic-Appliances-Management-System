@@ -8,7 +8,6 @@ import robert.db.entity.Appliance;
 import robert.db.entity.Reservation;
 import robert.db.entity.User;
 import robert.db.repository.ApplianceRepository;
-import robert.db.repository.ReservationRepository;
 import robert.db.repository.UserRepository;
 import robert.enums.Validation;
 import robert.exceptions.ApplianceException;
@@ -25,15 +24,12 @@ public class UserDao {
 
 	private final UserRepository userRepository;
 
-	private final ReservationRepository reservationRepository;
-
 	private final ApplianceRepository applianceRepository;
 
 	@Autowired
-	public UserDao(AppLogger log, UserRepository userRepository, ReservationRepository reservationRepository, ApplianceRepository applianceRepository) {
+	public UserDao(AppLogger log, UserRepository userRepository, ApplianceRepository applianceRepository) {
 		this.log = log;
 		this.userRepository = userRepository;
-		this.reservationRepository = reservationRepository;
 		this.applianceRepository = applianceRepository;
 	}
 

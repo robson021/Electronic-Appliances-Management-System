@@ -11,6 +11,7 @@ import robert.db.entity.Room;
 import utils.SpringTest;
 import utils.TestUtils;
 
+import java.util.Collection;
 import java.util.UUID;
 
 public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
@@ -89,6 +90,25 @@ public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 		final String name = dao.saveBuilding(building).getName();
 		Assertions.assertThat(dao.findBuildingByName(name))
 				.isNotNull();
+	}
+
+	@Test
+	public void getAllAppliancesInRoom() throws Exception {
+		final int numOfAppl = 5;
+		Room room = TestUtils.generateRandomRoom();
+		for (int i = 0; i < numOfAppl; i++) {
+			Appliance appl = TestUtils.generateRandomAppliance();
+			room.addNewAppliance(appl);
+			appl.setRoom(room);
+		}
+
+		final long roomId = dao.saveRoom(room)
+				.getId();
+
+		Collection<Appliance> appls = dao.getAllAppliancesInRoom(roomId);
+		Assertions.assertThat(appls)
+				.isNotNull()
+				.hasSize(numOfAppl);
 	}
 
 	private Room createRoom(int roomNumberLength) {

@@ -1,6 +1,7 @@
 package robert.web.svc.rest.ctrl.api;
 
 import org.springframework.http.HttpStatus;
+import robert.web.svc.rest.responses.data.ApplianceDR;
 import robert.web.svc.rest.responses.data.ReservationDR;
 import robert.web.svc.rest.responses.data.RoomDR;
 
@@ -14,6 +15,8 @@ public interface UserServiceCtrl extends BasicParams {
 
 	String GET_ALL_BUILDING_URL = USER_SERVICE_PREFIX + "get-all-buildings/";
 
+	String GET_ALL_APPLIANCES_IN_ROOM_URL = USER_SERVICE_PREFIX + "get-all-appliances/{" + ROOM_ID + "}/";
+
 	String MAKE_RESERVATION_URL = USER_SERVICE_PREFIX + "reservation" + "/{" + APPLIANCE_ID + "}/";
 
 	String REGISTER_NEW_BUILDING_URL = USER_SERVICE_PREFIX + "register-building/{" + BUILDING_NUMBER + "}/";
@@ -25,6 +28,8 @@ public interface UserServiceCtrl extends BasicParams {
 			ROOM_ID + "}/{" + APPLIANCE_NAME + "}/";
 
 	List<RoomDR> getAllRoomsInBuilding(String buildingNumber);
+
+	List<ApplianceDR> getAllAppliancesInRoom(Long roomId);
 
 	List<String> getAllAvailableBuildings();
 

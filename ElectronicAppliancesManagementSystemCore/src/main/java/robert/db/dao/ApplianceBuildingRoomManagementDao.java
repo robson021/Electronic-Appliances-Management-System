@@ -19,10 +19,12 @@ import robert.web.svc.rest.responses.asm.RoomAssembler;
 import robert.web.svc.rest.responses.data.RoomDR;
 
 import javax.persistence.EntityManager;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
+@SuppressWarnings("WeakerAccess")
 @Component
 @Transactional
 public class ApplianceBuildingRoomManagementDao {
@@ -133,6 +135,11 @@ public class ApplianceBuildingRoomManagementDao {
 		appl.setRoom(room);
 		room.addNewAppliance(appl);
 		roomRepository.save(room);
+	}
+
+	public Collection<Appliance> getAllAppliancesInRoom(long roomId) {
+		return roomRepository.findOne(roomId)
+				.getAppliances();
 	}
 
 	public void addNewRoomToTheBuilding(String building, String roomNum) throws NotFoundException {
