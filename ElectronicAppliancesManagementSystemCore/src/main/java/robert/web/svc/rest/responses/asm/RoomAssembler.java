@@ -13,6 +13,7 @@ public class RoomAssembler {
 		return rooms.stream()
 				.map(room -> {
 					RoomDR roomDR = new RoomDR();
+					roomDR.setId(room.getId());
 					roomDR.setNumber(room.getNumber());
 					roomDR.setAppliances(ApplianceAssembler.convertToApplianceDR(
 							room.getAppliances()

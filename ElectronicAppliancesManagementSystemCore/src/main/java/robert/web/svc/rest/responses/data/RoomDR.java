@@ -4,9 +4,19 @@ import java.util.List;
 
 public class RoomDR {
 
+	private long id;
+
 	private String number;
 
 	private int numOfAppliances = 0;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	private List<ApplianceDR> appliances;
 

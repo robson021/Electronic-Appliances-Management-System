@@ -15,16 +15,11 @@ import robert.db.repository.ReservationRepository;
 import robert.db.repository.RoomRepository;
 import robert.exceptions.NoSuchBuildingException;
 import robert.utils.api.AppLogger;
-import robert.web.svc.rest.responses.asm.RoomAssembler;
-import robert.web.svc.rest.responses.data.RoomDR;
 
 import javax.persistence.EntityManager;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "SpringJavaAutowiringInspection"})
 @Component
 @Transactional
 public class ApplianceBuildingRoomManagementDao {
@@ -64,12 +59,12 @@ public class ApplianceBuildingRoomManagementDao {
 		return roomRepository.findOne(roomId);
 	}
 
-	public List<RoomDR> findAllRoomsInBuilding(String buildingName) {
+	public Set<Room> findAllRoomsInBuilding(String buildingName) {
 		Building building = buildingRepository.findOneByName(buildingName.trim().toLowerCase());
 		if (building == null) {
-			return Collections.emptyList();
+			return Collections.emptySet();
 		}
-		return RoomAssembler.convertToRoomDR(building.getRooms());
+		return building.getRooms();
 	}
 
 	public void addApplianceToTheRoom(Appliance appl, String building, String roomNumber) throws NoSuchBuildingException {

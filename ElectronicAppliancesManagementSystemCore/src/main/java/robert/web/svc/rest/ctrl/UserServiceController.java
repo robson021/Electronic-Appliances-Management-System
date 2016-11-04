@@ -12,6 +12,7 @@ import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.ctrl.api.UserServiceCtrl;
 import robert.web.svc.rest.responses.asm.ApplianceAssembler;
+import robert.web.svc.rest.responses.asm.RoomAssembler;
 import robert.web.svc.rest.responses.data.ApplianceDR;
 import robert.web.svc.rest.responses.data.ReservationDR;
 import robert.web.svc.rest.responses.data.RoomDR;
@@ -67,7 +68,7 @@ public class UserServiceController implements UserServiceCtrl {
 	@RequestMapping(value = GET_ALL_ROOMS_IN_BUILDING_URL)
 	public List<RoomDR> getAllRoomsInBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
 		log.debug(userInfoProvider.getEmail(), "get all rooms in building:", buildingNumber);
-		return abrmDao.findAllRoomsInBuilding(buildingNumber);
+		return RoomAssembler.convertToRoomDR(abrmDao.findAllRoomsInBuilding(buildingNumber));
 	}
 
 	@Override
