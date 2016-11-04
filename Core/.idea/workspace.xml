@@ -1,31 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22d79617-caa3-4e57-bc73-5dcecdd743e8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MockAppliance/mvnw" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MockAppliance/mvnw.cmd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MockAppliance/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MockAppliance/src/main/java/robert/ApplianceMockApplication.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MockAppliance/src/main/java/robert/web/svc/rest/MainController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MockAppliance/src/main/java/robert/web/svc/rest/RunTestRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MockAppliance/src/main/resources/application.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../MockAppliance/src/test/java/robert/ApplianceMockApplicationTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.idea/modules.xml" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/enums/BeanNames.java" afterPath="$PROJECT_DIR$/src/main/java/robert/enums/BeanNames.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/enums/Validation.java" afterPath="$PROJECT_DIR$/src/main/java/robert/enums/Validation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/jobs/JobRegistrationImpl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/jobs/JobRegistrationImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/web/session/user/UserInfoProviderImpl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/session/user/UserInfoProviderImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/web/session/user/api/UserInfoProvider.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/session/user/api/UserInfoProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/RegisterAndLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/RegisterAndLoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/RegisterAndLoginCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/RegisterAndLoginCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/utils/TestConfig.java" afterPath="$PROJECT_DIR$/src/test/java/utils/TestConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/controllers/user-panel.ctr.js" afterPath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/controllers/user-panel.ctr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/services/http.svc.js" afterPath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/services/http.svc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/partials/user-panel.html" afterPath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/partials/user-panel.html" />
+    <list default="true" id="22d79617-caa3-4e57-bc73-5dcecdd743e8" name="Default" comment="add 'PUT' to CORS allowed methods">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemAndroidApp/todo.txt" afterPath="$PROJECT_DIR$/../AndroidApp/todo.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/dictionaries/robert.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/robert.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_7.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_7.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__com_fasterxml_classmate_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__com_h2database_h2_1_4_192.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_192.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__com_sun_mail_javax_mail_1_5_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_5_6.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__joda_time_joda_time_2_9_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_4.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_39.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_39.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_5.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_5.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_5.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_5.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_5.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_9.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_9.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_assertj_assertj_core_3_5_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_5_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_11_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_11_Final.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_11_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_11_Final.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_2_4_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_2_4_Final.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_jboss_jandex_2_0_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_0_Final.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_0_Final.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_json_json_20140107.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20140107.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_3_0.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_21.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_21.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_21.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_21.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_21.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_21.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_4_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_4_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_12_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_12_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_10_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_10_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_security_spring_security_config_4_1_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_4_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_security_spring_security_core_4_1_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_4_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_security_spring_security_web_4_1_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_4_1_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_aop_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_beans_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_context_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_context_support_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_core_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_expression_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_orm_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_test_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_tx_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_web_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_3_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_3_RELEASE.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.mvn/wrapper/maven-wrapper.jar" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/.mvn/wrapper/maven-wrapper.properties" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/ElectronicAppliancesManagementSystemCore.iml" afterPath="$PROJECT_DIR$/ElectronicAppliancesManagementSystemCore.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/mvnw" afterPath="$PROJECT_DIR$/mvnw" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/mvnw.cmd" afterPath="$PROJECT_DIR$/mvnw.cmd" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/ElectronicAppliancesManagementSystemCoreApplication.java" afterPath="$PROJECT_DIR$/src/main/java/robert/ElectronicAppliancesManagementSystemCoreApplication.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/DbStartUp.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/DbStartUp.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/dao/AdminDao.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/dao/AdminDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/dao/UserDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/entity/Appliance.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/entity/Appliance.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/entity/Building.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/entity/Building.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/entity/Reservation.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/entity/Reservation.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/entity/Room.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/entity/Room.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/entity/User.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/entity/User.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/repository/ApplianceRepository.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/repository/ApplianceRepository.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/repository/BuildingRepository.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/repository/BuildingRepository.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/repository/ReservationRepository.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/repository/ReservationRepository.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/repository/RoomRepository.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/repository/RoomRepository.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/db/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/robert/db/repository/UserRepository.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/enums/BeanNames.java" afterPath="$PROJECT_DIR$/src/main/java/robert/enums/BeanNames.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/enums/TaskType.java" afterPath="$PROJECT_DIR$/src/main/java/robert/enums/TaskType.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/enums/Validation.java" afterPath="$PROJECT_DIR$/src/main/java/robert/enums/Validation.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/exceptions/ApplianceException.java" afterPath="$PROJECT_DIR$/src/main/java/robert/exceptions/ApplianceException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/exceptions/AuthException.java" afterPath="$PROJECT_DIR$/src/main/java/robert/exceptions/AuthException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/exceptions/InvalidEmailPatternException.java" afterPath="$PROJECT_DIR$/src/main/java/robert/exceptions/InvalidEmailPatternException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/exceptions/NoSuchBuildingException.java" afterPath="$PROJECT_DIR$/src/main/java/robert/exceptions/NoSuchBuildingException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/exceptions/NoSuchRoomException.java" afterPath="$PROJECT_DIR$/src/main/java/robert/exceptions/NoSuchRoomException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/exceptions/UserException.java" afterPath="$PROJECT_DIR$/src/main/java/robert/exceptions/UserException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/exceptions/UserNotFoundException.java" afterPath="$PROJECT_DIR$/src/main/java/robert/exceptions/UserNotFoundException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/jobs/ExecutableTask.java" afterPath="$PROJECT_DIR$/src/main/java/robert/jobs/ExecutableTask.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/jobs/JobRegistrationImpl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/jobs/JobRegistrationImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/jobs/api/JobRegistration.java" afterPath="$PROJECT_DIR$/src/main/java/robert/jobs/api/JobRegistration.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/svc/CsrfTokenServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/svc/CsrfTokenServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/svc/MailServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/svc/MailServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/svc/TaskSchedulerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/svc/TaskSchedulerImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/svc/api/CsrfTokenService.java" afterPath="$PROJECT_DIR$/src/main/java/robert/svc/api/CsrfTokenService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/svc/api/MailService.java" afterPath="$PROJECT_DIR$/src/main/java/robert/svc/api/MailService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/svc/api/TaskSchedulerService.java" afterPath="$PROJECT_DIR$/src/main/java/robert/svc/api/TaskSchedulerService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/utils/DefaultLogger.java" afterPath="$PROJECT_DIR$/src/main/java/robert/utils/DefaultLogger.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/utils/api/AppLogger.java" afterPath="$PROJECT_DIR$/src/main/java/robert/utils/api/AppLogger.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/config/WebSecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/config/WebSecurityConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/filters/AdminAuthFilter.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/filters/AdminAuthFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/filters/BasicAuthFilter.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/filters/BasicAuthFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/filters/CorsFilter.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/filters/CorsFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/filters/UserAuthFilter.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/filters/UserAuthFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/session/user/UserInfoProviderImpl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/session/user/UserInfoProviderImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/session/user/api/UserInfoProvider.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/session/user/api/UserInfoProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/ctrl/AdminPanelController.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/AdminPanelController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/ctrl/RegisterAndLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/RegisterAndLoginController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/ctrl/TestController.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/TestController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/ctrl/api/AdminPanelCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/AdminPanelCtrl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/ctrl/api/BasicParams.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/BasicParams.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/ctrl/api/RegisterAndLoginCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/RegisterAndLoginCtrl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/responses/asm/ApplianceAssembler.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/asm/ApplianceAssembler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/responses/asm/ReservationAssembler.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/asm/ReservationAssembler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/responses/asm/RoomAssembler.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/asm/RoomAssembler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/responses/asm/UserAssembler.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/asm/UserAssembler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/responses/data/ApplianceDR.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/data/ApplianceDR.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/responses/data/BuildingDR.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/data/BuildingDR.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/responses/data/ReservationDR.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/data/ReservationDR.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/responses/data/RoomDR.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/data/RoomDR.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/java/robert/web/svc/rest/responses/data/UserDR.java" afterPath="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/responses/data/UserDR.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/resources/static/do_not_delete.txt" afterPath="$PROJECT_DIR$/src/main/resources/static/do_not_delete.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/main/resources/templates/do_not_delete.txt" afterPath="$PROJECT_DIR$/src/main/resources/templates/do_not_delete.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/robert/db/dao/AdminDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/robert/db/dao/AdminDaoTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/robert/db/dao/ApplianceBuildingRoomManagementDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/robert/db/dao/ApplianceBuildingRoomManagementDaoTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/robert/db/dao/UserDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/robert/db/dao/UserDaoTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/robert/svc/MailServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/robert/svc/MailServiceImplTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/robert/web/svc/rest/AdminPanelControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/robert/web/svc/rest/AdminPanelControllerTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/robert/web/svc/rest/RegisterAndLoginControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/robert/web/svc/rest/RegisterAndLoginControllerTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/robert/web/svc/rest/UserServiceControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/robert/web/svc/rest/UserServiceControllerTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/utils/SpringTest.java" afterPath="$PROJECT_DIR$/src/test/java/utils/SpringTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/utils/SpringWebMvcTest.java" afterPath="$PROJECT_DIR$/src/test/java/utils/SpringWebMvcTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/utils/TestConfig.java" afterPath="$PROJECT_DIR$/src/test/java/utils/TestConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/java/utils/TestUtils.java" afterPath="$PROJECT_DIR$/src/test/java/utils/TestUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemCore/src/test/resources/application-test.properties" afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/.gitignore" afterPath="$PROJECT_DIR$/../WebApp/.gitignore" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/css/bootstrap.css" afterPath="$PROJECT_DIR$/../WebApp/css/bootstrap.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/css/business-casual.css" afterPath="$PROJECT_DIR$/../WebApp/css/business-casual.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/css/style.css" afterPath="$PROJECT_DIR$/../WebApp/css/style.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/img/background.jpg" afterPath="$PROJECT_DIR$/../WebApp/img/background.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/index.html" afterPath="$PROJECT_DIR$/../WebApp/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/ServerAddress.json" afterPath="$PROJECT_DIR$/../WebApp/js/ServerAddress.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/app.js" afterPath="$PROJECT_DIR$/../WebApp/js/app.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/controllers/admin-panel.ctr.js" afterPath="$PROJECT_DIR$/../WebApp/js/controllers/admin-panel.ctr.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/controllers/login-register.ctr.js" afterPath="$PROJECT_DIR$/../WebApp/js/controllers/login-register.ctr.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/controllers/navbar.ctr.js" afterPath="$PROJECT_DIR$/../WebApp/js/controllers/navbar.ctr.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/controllers/user-panel.ctr.js" afterPath="$PROJECT_DIR$/../WebApp/js/controllers/user-panel.ctr.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/services/http.svc.js" afterPath="$PROJECT_DIR$/../WebApp/js/services/http.svc.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/js/services/sessionStorage.svc.js" afterPath="$PROJECT_DIR$/../WebApp/js/services/sessionStorage.svc.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/libs/angular-ui-router.min.js" afterPath="$PROJECT_DIR$/../WebApp/libs/angular-ui-router.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/libs/angular.min.js" afterPath="$PROJECT_DIR$/../WebApp/libs/angular.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/libs/toastr.min.css" afterPath="$PROJECT_DIR$/../WebApp/libs/toastr.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/libs/toastr.min.js" afterPath="$PROJECT_DIR$/../WebApp/libs/toastr.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/partials/about.html" afterPath="$PROJECT_DIR$/../WebApp/partials/about.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/partials/admin-panel.html" afterPath="$PROJECT_DIR$/../WebApp/partials/admin-panel.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/partials/login-register.html" afterPath="$PROJECT_DIR$/../WebApp/partials/login-register.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/partials/main-view.html" afterPath="$PROJECT_DIR$/../WebApp/partials/main-view.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ElectronicAppliancesManagementSystemWebApp/partials/user-panel.html" afterPath="$PROJECT_DIR$/../WebApp/partials/user-panel.html" />
     </list>
     <ignored path="ElectronicAppliancesManagementSystemCore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,7 +242,7 @@
       <file leaf-file-name="RegisterAndLoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/RegisterAndLoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
+            <state relative-caret-position="792">
               <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
               <folding />
             </state>
@@ -81,12 +252,9 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="1710">
               <caret line="133" column="28" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
-              <folding>
-                <element signature="e#3385#3386#0" expanded="true" />
-                <element signature="e#3455#3456#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,8 +282,8 @@
       <file leaf-file-name="UserServiceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+            <state relative-caret-position="36">
+              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -124,8 +292,8 @@
       <file leaf-file-name="UserServiceCtrl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="378">
+              <caret line="26" column="86" selection-start-line="26" selection-start-column="86" selection-end-line="26" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -211,7 +379,6 @@
         <option value="$PROJECT_DIR$/src/main/java/robert/web/filters/BasicAuthFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/filters/UserAuthFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/filters/AdminAuthFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/ElectronicAppliancesManagementSystemCoreApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/db/dao/ApplianceBuildingRoomManagementDao.java" />
@@ -230,6 +397,7 @@
         <option value="$PROJECT_DIR$/src/main/java/robert/web/session/user/UserInfoProviderImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/enums/Validation.java" />
         <option value="$PROJECT_DIR$/src/main/java/robert/enums/BeanNames.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java" />
       </list>
     </option>
   </component>
@@ -282,248 +450,42 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemId" value="Core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemId" value="Core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemId" value="Core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemId" value="Core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
+              <option name="myItemId" value="Core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robert" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robert" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robert" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ctrl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robert" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ElectronicAppliancesManagementSystemCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="robert" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="enums" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2872,6 +2834,7 @@
       <workItem from="1478115455959" duration="650000" />
       <workItem from="1478117609819" duration="68000" />
       <workItem from="1478118455637" duration="409000" />
+      <workItem from="1478284245970" duration="90000" />
     </task>
     <task id="LOCAL-00001" summary="1st commit">
       <created>1476033528381</created>
@@ -3238,7 +3201,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201917000" />
+    <option name="totallyTimeSpent" value="202007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -3565,7 +3528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3581,7 +3543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3589,7 +3550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3605,7 +3565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3613,7 +3572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="864">
           <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3659,7 +3617,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/RegisterAndLoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
+        <state relative-caret-position="792">
           <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
           <folding />
         </state>
@@ -3675,12 +3633,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/db/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="1710">
           <caret line="133" column="28" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
-          <folding>
-            <element signature="e#3385#3386#0" expanded="true" />
-            <element signature="e#3455#3456#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3702,16 +3657,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/UserServiceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+        <state relative-caret-position="36">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/robert/web/svc/rest/ctrl/api/UserServiceCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="378">
+          <caret line="26" column="86" selection-start-line="26" selection-start-column="86" selection-end-line="26" selection-end-column="86" />
           <folding />
         </state>
       </provider>
