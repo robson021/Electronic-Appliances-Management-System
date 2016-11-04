@@ -17,6 +17,8 @@ public class RoomAssembler {
 					roomDR.setAppliances(ApplianceAssembler.convertToApplianceDR(
 							room.getAppliances()
 					));
+					roomDR.setNumOfAppliances(room.getAppliances()
+							.size());
 					return roomDR;
 				}).collect(Collectors.toList());
 	}

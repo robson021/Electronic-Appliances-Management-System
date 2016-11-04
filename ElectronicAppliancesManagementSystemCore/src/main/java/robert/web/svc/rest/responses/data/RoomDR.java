@@ -6,6 +6,8 @@ public class RoomDR {
 
 	private String number;
 
+	private int numOfAppliances = 0;
+
 	private List<ApplianceDR> appliances;
 
 	public String getNumber() {
@@ -14,6 +16,14 @@ public class RoomDR {
 
 	public void setNumber(String number) {
 		this.number = number;
+	}
+
+	public int getNumOfAppliances() {
+		return numOfAppliances;
+	}
+
+	public void setNumOfAppliances(int numOfAppliances) {
+		this.numOfAppliances = numOfAppliances;
 	}
 
 	public List<ApplianceDR> getAppliances() {

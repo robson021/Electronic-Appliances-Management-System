@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import javax.persistence.*;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,6 +45,9 @@ public class Room {
 	}
 
 	public Set<Appliance> getAppliances() {
+		if (appliances == null) {
+			return Collections.emptySet();
+		}
 		return appliances;
 	}
 
