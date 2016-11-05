@@ -1,5 +1,5 @@
 var app = angular
-    .module("ngApp", ['ui.router'])
+    .module("ngApp", ['ui.router', 'ngDialog'])
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
         // required for CORS session

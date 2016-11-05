@@ -1,7 +1,11 @@
 app.service('httpSvc', function ($rootScope, $http, $state) {
 
+    // to allow CORS run: chromium-browser --disable-web-security --user-data-dir
+
     const self = this;
     const url = "http://localhost:8080";
+
+    // ----- basic user actions (login/register/logout etc...) -------
 
     this.checkIfLoggedIn = function () {
         if (!$rootScope.loggedIn) {
@@ -53,6 +57,8 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         $state.go('default');
     };
 
+    // ------- get things ----------
+
     this.getAllBuildings = function () {
         let uri = '/user-service/get-all-buildings/';
         return $http.get(url + uri, null);
@@ -66,6 +72,32 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     this.getAllAppliancesInRoom = function (roomId) {
         let uri = '/user-service/get-all-appliances/' + roomId + '/';
         return $http.get(url + uri, null);
+    };
+
+    // ---------- edit buttons -------------
+
+    this.deleteExistingBuilding = function (b) {
+        let uri = '/user-service/delete/building/' + b + '/';
+        $http.delete(url + uri, null)
+            .success(function (response) {
+                if (response === 'OK') {
+                    toastr.info('Successfully deleted the building.');
+                } else {
+                    toastr.error('Could not delete the building.')
+                }
+            });
+    };
+
+    this.renameBuilding = function (b, newName) {
+        let uri = '/user-service/rename/building/' + b + '/' + newName + '/';
+        $http.post(url + uri, null)
+            .success(function (response) {
+                if (response === 'OK') {
+                    toastr.info('Successfully renamed the building.');
+                } else {
+                    toastr.error('Could not rename the building.')
+                }
+            });
     };
 
     this.clearObject = function (obj) {

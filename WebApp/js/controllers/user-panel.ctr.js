@@ -1,6 +1,6 @@
 (function () {
     "use strict";
-    angular.module("ngApp").controller('user-panel-ctrl', function ($scope, $rootScope, $state, httpSvc) {
+    angular.module("ngApp").controller('user-panel-ctrl', function ($scope, $rootScope, $state, httpSvc, ngDialog) {
 
         httpSvc.checkIfLoggedIn();
         const self = this;
@@ -67,7 +67,15 @@
             $scope.selectedAppliance = a;
             console.info("Current selected appliance: " + $scope.selectedAppliance.name);
             // todo
-        }
+        };
+
+        $scope.editBuilding = function (b) {
+            $rootScope.dialogObject = b;
+            ngDialog.open({
+                template: 'dialogs/templates/editBuilding.html',
+                controller: 'edit-buildings-ctrl'
+            });
+        };
 
     }); // end of controller
 })();
