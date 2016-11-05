@@ -1,7 +1,7 @@
 <div class="container box">
-    <div class="panel panel-primary">
-        <div class="panel-heading">Navigate to section</div>
-        <div class="panel-body" layout="row" layout-align="space-around center">
+
+    <div class="panel center-block">
+        <div class="panel-body text-center">
             <button class="btn btn-default" ng-click="loadBuildings()">
                 Buildings
             </button>
@@ -14,90 +14,122 @@
         </div>
     </div>
 
+    <!-- buildings/rooms/appliances -->
+    <div>
+        <!-- buildings view -->
+        <div ng-show="currentView=='buildings'">
 
-    <!-- buildings view -->
-    <div ng-show="currentView=='buildings'">
-        <table class="table table-hover">
-            <caption>Available buildings:</caption>
-            <br>
-            <thead>
-            <tr>
-                <th>Building number</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="b in allBuildings">
-                <td>{{ b }}</td>
-                <td>
-                    <button class="btn btn-success" ng-click="selectBuilding(b)">
-                        Select
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+            <hr>
+            <h2 class="intro-text text-center"><strong>Available buildings</strong>
+            </h2>
+            <hr>
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Building number</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="b in allBuildings">
+                    <td>{{ b }}</td>
+                    <td>
+                        <button class="btn btn-success mwbtn" ng-click="selectBuilding(b)">
+                            Select
+                        </button>
+                        <button class="btn btn-info mwbtn" ng-click="">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <button class="btn cbtn btn-primary" ng-click="">
+                    Add new building
+                </button>
+            </div>
+
+        </div>
+
+        <!-- rooms view -->
+        <div ng-show="currentView=='rooms' && allRoomsInBuilding != null">
+
+            <hr>
+            <h2 class="intro-text text-center"><strong>All rooms in {{selectedBuilding}}</strong>
+            </h2>
+            <hr>
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Room number</th>
+                    <th>Appliances in the room</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="r in allRoomsInBuilding">
+                    <td>{{ r.number }}</td>
+                    <td>{{ r.numOfAppliances }}</td>
+                    <td>
+                        <button class="btn btn-success mwbtn" ng-click="selectRoom(r)">
+                            Select
+                        </button>
+                        <button class="btn btn-info mwbtn" ng-click="">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <button class="btn cbtn btn-primary" ng-click="">
+                    Add new room
+                </button>
+            </div>
+
+        </div>
+
+        <!-- appliances view -->
+        <div ng-show="currentView=='appliances' && allAppliancesInRoom != null">
+            <hr>
+            <h2 class="intro-text text-center"><strong>All appliances in {{selectedBuilding}} -
+                {{selectedRoom.number}}</strong>
+            </h2>
+            <hr>
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Appliance name</th>
+                    <th>Number of reservations</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="a in allAppliancesInRoom">
+                    <td>{{ a.name }}</td>
+                    <td>{{ a.reservations.length }}</td>
+                    <td>
+                        <button class="btn btn-success mwbtn" ng-click="selectAppliance(a)">
+                            Reserve
+                        </button>
+                        <button class="btn btn-info mwbtn" ng-click="">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <button class="btn cbtn btn-primary" ng-click="">
+                    Add new appliance
+                </button>
+            </div>
+
+        </div>
+
     </div>
-
-    <!-- rooms view -->
-    <div ng-show="currentView=='rooms' && allRoomsInBuilding != null">
-
-        <hr>
-        <h2 class="intro-text text-center"><strong>All rooms in {{selectedBuilding}}</strong>
-        </h2>
-        <hr>
-
-        <table class="table table-hover">
-            <br>
-            <thead>
-            <tr>
-                <th>Room number</th>
-                <th>Appliances in the room</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="r in allRoomsInBuilding">
-                <td>{{ r.number }}</td>
-                <td>{{ r.numOfAppliances }}</td>
-                <td>
-                    <button class="btn btn-success" ng-click="selectRoom(r)">
-                        Select
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- appliances view -->
-    <div ng-show="currentView=='appliances' && allAppliancesInRoom != null">
-        <hr>
-        <h2 class="intro-text text-center"><strong>All appliances in {{selectedBuilding}} -
-            {{selectedRoom.number}}</strong>
-        </h2>
-        <hr>
-
-        <table class="table table-hover">
-            <caption>Available appliances:</caption>
-            <br>
-            <thead>
-            <tr>
-                <th>Appliance name</th>
-                <th>Number of reservations</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="a in allAppliancesInRoom">
-                <td>{{ a.name }}</td>
-                <td>{{ a.reservations.length }}</td>
-                <td>
-                    <button class="btn btn-success" ng-click="selectAppliance(a)">
-                        Select
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-    </div>
-
 </div>
