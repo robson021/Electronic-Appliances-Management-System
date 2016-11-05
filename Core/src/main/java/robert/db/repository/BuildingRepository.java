@@ -7,4 +7,6 @@ import robert.db.entity.Building;
 @Repository
 public interface BuildingRepository extends CrudRepository<Building, Long> {
 	Building findOneByName(String name);
+
+	void deleteOneByName(String name);
 }

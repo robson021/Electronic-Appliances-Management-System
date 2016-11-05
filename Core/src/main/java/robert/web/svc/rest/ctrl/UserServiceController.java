@@ -127,6 +127,59 @@ public class UserServiceController implements UserServiceCtrl {
 		return applianceUniqueCode;
 	}
 
+	@Override
+	@RequestMapping(value = DELETE_BUILDING_URL, method = RequestMethod.DELETE)
+	public HttpStatus deleteBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
+		log.debug("Delete building", buildingNumber, "by", userInfoProvider.getEmail());
+		try {
+			userDao.deleteBuilding(buildingNumber);
+			return HttpStatus.OK;
+		} catch (Exception e) {
+			log.debug(e);
+			return HttpStatus.BAD_REQUEST;
+		}
+	}
+
+	@Override
+	@RequestMapping(value = RENAME_BUILDING_URL, method = RequestMethod.POST)
+	public HttpStatus renameBuilding(String buildingNumber, String newValue) {
+		log.debug(userInfoProvider.getEmail(), "wants to rename building", buildingNumber, "to", newValue);
+		try {
+			userDao.renameBuilding(buildingNumber, newValue);
+			return HttpStatus.OK;
+		} catch (Exception e) {
+			log.debug(e);
+			return HttpStatus.BAD_REQUEST;
+		}
+	}
+
+	@Override
+	@RequestMapping(value = DELETE_ROOM_URL, method = RequestMethod.DELETE)
+	public HttpStatus deleteRoom(@PathVariable(ROOM_ID) Long roomId) {
+		log.debug("Delete room", roomId, "by", userInfoProvider.getEmail());
+		try {
+			userDao.deleteRoom(roomId);
+			return HttpStatus.OK;
+		} catch (Exception e) {
+			log.debug(e);
+			return HttpStatus.BAD_REQUEST;
+		}
+	}
+
+	@Override
+	@RequestMapping(value = RENAME_ROOM_URL, method = RequestMethod.POST)
+	public HttpStatus renameRoom(@PathVariable(ROOM_ID) Long roomId,
+								 @PathVariable(NEW_VALUE) String newValue) {
+		log.debug(userInfoProvider.getEmail(), "wants to rename room", roomId, "to", newValue);
+		try {
+			userDao.renameRoom(roomId, newValue);
+			return HttpStatus.OK;
+		} catch (Exception e) {
+			log.debug(e);
+			return HttpStatus.BAD_REQUEST;
+		}
+	}
+
 	private void cheIfApplianceIsAvailable(Appliance app) throws NotFoundException {
 		if (app == null) {
 			throw new NotFoundException("Appliance not found.");

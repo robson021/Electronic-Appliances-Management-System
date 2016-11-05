@@ -27,6 +27,14 @@ public interface UserServiceCtrl extends BasicParams {
 	String REGISTER_NEW_APPLIANCE_URL = USER_SERVICE_PREFIX + "register-appliance/{" +
 			ROOM_ID + "}/{" + APPLIANCE_NAME + "}/";
 
+	String DELETE_BUILDING_URL = USER_SERVICE_PREFIX + "delete/building/{" + BUILDING_NUMBER + "}/";
+
+	String RENAME_BUILDING_URL = USER_SERVICE_PREFIX + "rename/building/{" + BUILDING_NUMBER + "}/{" + NEW_VALUE + "}/";
+
+	String DELETE_ROOM_URL = USER_SERVICE_PREFIX + "delete/room/{" + ROOM_ID + "}/";
+
+	String RENAME_ROOM_URL = USER_SERVICE_PREFIX + "rename/room/{" + ROOM_ID + "}/{" + NEW_VALUE + "}/";
+
 	List<RoomDR> getAllRoomsInBuilding(String buildingNumber);
 
 	List<ApplianceDR> getAllAppliancesInRoom(Long roomId);
@@ -40,4 +48,13 @@ public interface UserServiceCtrl extends BasicParams {
 	HttpStatus registerNewRoomInBuilding(String building, String roomNum);
 
 	String registerNewAppliance(Long roomId, String applianceName);
+
+	HttpStatus deleteBuilding(String buildingNumber);
+
+	HttpStatus renameBuilding(String buildingNumber, String newValue);
+
+	HttpStatus deleteRoom(Long roomId);
+
+	HttpStatus renameRoom(Long roomId, String newValue);
+
 }

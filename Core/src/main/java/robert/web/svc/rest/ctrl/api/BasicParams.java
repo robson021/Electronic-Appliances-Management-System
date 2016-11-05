@@ -18,4 +18,6 @@ public interface BasicParams {
 	String APPLIANCE_ID = "appliance-id";
 
 	String APPLIANCE_NAME = "appl-name";
+
+	String NEW_VALUE = "nval";
 }

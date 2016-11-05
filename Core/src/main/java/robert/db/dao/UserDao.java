@@ -4,10 +4,10 @@ import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import robert.db.entity.Appliance;
-import robert.db.entity.Reservation;
-import robert.db.entity.User;
+import robert.db.entity.*;
 import robert.db.repository.ApplianceRepository;
+import robert.db.repository.BuildingRepository;
+import robert.db.repository.RoomRepository;
 import robert.db.repository.UserRepository;
 import robert.enums.Validation;
 import robert.exceptions.ApplianceException;
@@ -26,11 +26,17 @@ public class UserDao {
 
 	private final ApplianceRepository applianceRepository;
 
+	private final BuildingRepository buildingRepository;
+
+	private final RoomRepository roomRepository;
+
 	@Autowired
-	public UserDao(AppLogger log, UserRepository userRepository, ApplianceRepository applianceRepository) {
+	public UserDao(AppLogger log, UserRepository userRepository, ApplianceRepository applianceRepository, BuildingRepository buildingRepository, RoomRepository roomRepository) {
 		this.log = log;
 		this.userRepository = userRepository;
 		this.applianceRepository = applianceRepository;
+		this.buildingRepository = buildingRepository;
+		this.roomRepository = roomRepository;
 	}
 
 	public User saveUser(User user) {
@@ -88,6 +94,27 @@ public class UserDao {
 		reservation.setUser(user);
 		userRepository.save(user);
 		log.info("New reservation made for:", user.getEmail());
+	}
+
+	public void deleteBuilding(String buildingNumber) {
+		this.buildingRepository.deleteOneByName(buildingNumber.trim().toLowerCase());
+	}
+
+	public void renameBuilding(String buildingNumber, String newValue) {
+		Building building = this.buildingRepository.findOneByName(
+				buildingNumber.trim().toLowerCase());
+		building.setName(newValue);
+		buildingRepository.save(building);
+	}
+
+	public void deleteRoom(long roomId) {
+		roomRepository.delete(roomId);
+	}
+
+	public void renameRoom(long roomId, String newNumber) {
+		Room room = roomRepository.findOne(roomId);
+		room.setNumber(newNumber);
+		roomRepository.save(room);
 	}
 
 	private void validReservationTime(Appliance appliance, Reservation reservation) throws ApplianceException {
