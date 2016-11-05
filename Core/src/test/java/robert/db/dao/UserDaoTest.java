@@ -154,6 +154,28 @@ public class UserDaoTest extends SpringTest {
 				.hasFieldOrPropertyWithValue("number", newVal);
 	}
 
+	@Test
+	public void deleteAppliance() throws Exception {
+		final long id = abrmDao.saveAppliance(TestUtils.generateRandomAppliance())
+				.getId();
+		userDao.deleteAppliance(id);
+
+		Assertions.assertThat(abrmDao.findApplianceById(id))
+				.isNull();
+	}
+
+	@Test
+	public void renameAppliance() throws Exception {
+		final long id = abrmDao.saveAppliance(TestUtils.generateRandomAppliance())
+				.getId();
+
+		final String newName = "Hdhadeqiwuehq31";
+		userDao.renameAppliance(id, newName);
+
+		Assertions.assertThat(abrmDao.findApplianceById(id))
+				.hasFieldOrPropertyWithValue("name", newName);
+	}
+
 	private User createUser() throws Exception {
 		User user = new User();
 		user.setEmail(EMAIL);

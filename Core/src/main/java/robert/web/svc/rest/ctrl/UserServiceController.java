@@ -180,6 +180,33 @@ public class UserServiceController implements UserServiceCtrl {
 		}
 	}
 
+	@Override
+	@RequestMapping(value = DELETE_APPLIANCE_URL, method = RequestMethod.DELETE)
+	public HttpStatus deleteAppliance(@PathVariable(APPLIANCE_ID) Long applianceId) {
+		log.debug("Delete appliance", applianceId, "by", userInfoProvider.getEmail());
+		try {
+			userDao.deleteAppliance(applianceId);
+			return HttpStatus.OK;
+		} catch (Exception e) {
+			log.debug(e);
+			return HttpStatus.BAD_REQUEST;
+		}
+	}
+
+	@Override
+	@RequestMapping(value = RENAME_APPLIANCE_URL, method = RequestMethod.POST)
+	public HttpStatus renameAppliance(@PathVariable(APPLIANCE_ID) Long applianceId,
+									  @PathVariable(NEW_VALUE) String newName) {
+		log.debug(userInfoProvider.getEmail(), "wants to rename appliance", applianceId, "to", newName);
+		try {
+			userDao.renameAppliance(applianceId, newName);
+			return HttpStatus.OK;
+		} catch (Exception e) {
+			log.debug(e);
+			return HttpStatus.BAD_REQUEST;
+		}
+	}
+
 	private void cheIfApplianceIsAvailable(Appliance app) throws NotFoundException {
 		if (app == null) {
 			throw new NotFoundException("Appliance not found.");

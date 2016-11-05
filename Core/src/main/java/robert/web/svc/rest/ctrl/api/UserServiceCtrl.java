@@ -35,6 +35,10 @@ public interface UserServiceCtrl extends BasicParams {
 
 	String RENAME_ROOM_URL = USER_SERVICE_PREFIX + "rename/room/{" + ROOM_ID + "}/{" + NEW_VALUE + "}/";
 
+	String DELETE_APPLIANCE_URL = USER_SERVICE_PREFIX + "delete/appliance/{" + APPLIANCE_ID + "}/";
+
+	String RENAME_APPLIANCE_URL = USER_SERVICE_PREFIX + "rename/appliance/{" + APPLIANCE_ID + "}/{" + NEW_VALUE + "}/";
+
 	List<RoomDR> getAllRoomsInBuilding(String buildingNumber);
 
 	List<ApplianceDR> getAllAppliancesInRoom(Long roomId);
@@ -56,5 +60,9 @@ public interface UserServiceCtrl extends BasicParams {
 	HttpStatus deleteRoom(Long roomId);
 
 	HttpStatus renameRoom(Long roomId, String newValue);
+
+	HttpStatus deleteAppliance(Long applianceId);
+
+	HttpStatus renameAppliance(Long applianceId, String newName);
 
 }

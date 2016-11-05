@@ -60,7 +60,7 @@ public class Appliance {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name = name.trim();
 	}
 
 	public void addReservation(Reservation reservation) {

@@ -117,6 +117,16 @@ public class UserDao {
 		roomRepository.save(room);
 	}
 
+	public void deleteAppliance(long applianceId) {
+		applianceRepository.delete(applianceId);
+	}
+
+	public void renameAppliance(long applianceId, String newName) {
+		Appliance appliance = applianceRepository.findOne(applianceId);
+		appliance.setName(newName);
+		applianceRepository.save(appliance);
+	}
+
 	private void validReservationTime(Appliance appliance, Reservation reservation) throws ApplianceException {
 		Optional<Reservation> any = appliance.getReservations().stream()
 				.filter(r -> (
