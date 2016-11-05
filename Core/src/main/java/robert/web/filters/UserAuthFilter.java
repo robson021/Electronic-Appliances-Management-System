@@ -57,14 +57,11 @@ public final class UserAuthFilter extends BasicAuthFilter {
 	}
 
 	private boolean isValidationNotEnabledOnThisURI(String requestURI) {
-		if (isFileRequest(requestURI)) {
-			return true;
-		}
 		for (String pattern : Validation.NO_AUTH_URIS) {
 			if (apm.match(pattern, requestURI))
 				return true;
 		}
-		return false;
+		return isFileRequest(requestURI);
 	}
 
 	private void isUserAndTokenValid(String email, HttpServletRequest request) throws AuthException {

@@ -142,7 +142,8 @@ public class UserServiceController implements UserServiceCtrl {
 
 	@Override
 	@RequestMapping(value = RENAME_BUILDING_URL, method = RequestMethod.POST)
-	public HttpStatus renameBuilding(String buildingNumber, String newValue) {
+	public HttpStatus renameBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber,
+									 @PathVariable(NEW_VALUE) String newValue) {
 		log.debug(userInfoProvider.getEmail(), "wants to rename building", buildingNumber, "to", newValue);
 		try {
 			userDao.renameBuilding(buildingNumber, newValue);

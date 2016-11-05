@@ -26,7 +26,7 @@ public abstract class BasicAuthFilter implements Filter {
 			doLogic(request, response);
 			filterChain.doFilter(servletRequest, response);
 		} catch (Throwable ignored) {
-			this.invalidateSessionAndSendRedirect(response, request);
+			this.invalidateSessionAndSendRedirect(response, request); // comment out for chrome non x-orgin requests
 		}
 	}
 
