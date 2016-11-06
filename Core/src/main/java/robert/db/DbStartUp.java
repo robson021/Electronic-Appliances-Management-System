@@ -18,43 +18,43 @@ public class DbStartUp implements CommandLineRunner {
 
 	private final AppLogger log;
 
-    private final UserDao userDao;
+	private final UserDao userDao;
 
 	private final ApplianceBuildingRoomManagementDao applianceBuildingRoomManagementDao;
 
-    @Autowired
+	@Autowired
 	public DbStartUp(UserDao userDao, AppLogger log, ApplianceBuildingRoomManagementDao applianceBuildingRoomManagementDao) {
 		this.userDao = userDao;
-        this.log = log;
+		this.log = log;
 		this.applianceBuildingRoomManagementDao = applianceBuildingRoomManagementDao;
 	}
 
-    @Override
-    public void run(String... strings) throws Exception {
+	@Override
+	public void run(String... strings) throws Exception {
 
-		// admin acc
-		String adminEmail = "admin@a.pl";
-        User user = new User();
-        user.setEmail(adminEmail);
-        user.setName("Admin");
-        user.setSurname("Admin");
-		user.setPassword("Passwd.123");
-		user.setActivated(true);
-		user.setAdminPrivileges(true);
+		final String adminEmail = "admin@a.pl";
 
-		userDao.saveUser(user);
-		log.info("saved test admin account:", user);
+		try {
+			// admin acc
+			User user = new User();
+			user.setEmail(adminEmail);
+			user.setName("Admin");
+			user.setSurname("Admin");
+			user.setPassword("Passwd.123");
+			user.setActivated(true);
+			user.setAdminPrivileges(true);
+
+			userDao.saveUser(user);
+		} catch (Throwable ignored) {
+			return;
+		} finally {
+			log.info("Admin account:", userDao.findUserByEmail(adminEmail));
+		}
 
 		if (log.getLoggingLevel() < 2)
 			return;
 
-
-        User byEmail = userDao.findUserByEmail(adminEmail);
-        log.debug(byEmail);
-
-
 		log.debug("Adding example rooms and appliances");
-
 		Building b4 = new Building();
 		b4.setName("B4");
 
@@ -89,6 +89,7 @@ public class DbStartUp implements CommandLineRunner {
 		appliance3.setUniqueCode(UUID.randomUUID().toString());
 
 		applianceBuildingRoomManagementDao.addApplianceToTheRoom(appliance3, "B4", "122");
+
 
 	}
 }
