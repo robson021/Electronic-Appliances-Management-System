@@ -32,7 +32,7 @@ public abstract class BasicAuthFilter implements Filter {
 
 	private void invalidateSessionAndSendRedirect(HttpServletResponse response, HttpServletRequest request) {
 		try {
-			response.sendRedirect("/login");
+			response.sendRedirect("/");
 		} catch (IOException ignored) {
 		} finally {
 			request.getSession().invalidate();
