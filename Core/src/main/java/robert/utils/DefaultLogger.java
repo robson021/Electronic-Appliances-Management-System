@@ -63,10 +63,11 @@ public class DefaultLogger implements AppLogger {
 
     private String displayMessage(final Object... msg) {
         StringBuilder sb = new StringBuilder();
+        sb.append("\n\t\t" );
         for (Object m : msg) {
             sb.append(m.toString());
             sb.append(" ");
         }
-        return "\n\t\t" + sb.toString();
+        return sb.toString();
     }
 }
