@@ -9,7 +9,6 @@
         $scope.deleteBuilding = function () {
             httpSvc.deleteExistingBuilding($rootScope.dialogObject);
             ngDialog.closeAll(null);
-
         };
 
         $scope.renameBuilding = function () {

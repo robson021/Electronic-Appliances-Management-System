@@ -77,5 +77,21 @@
             });
         };
 
+        $scope.editRoom = function (r) {
+            $rootScope.dialogObject = r;
+            ngDialog.open({
+                template: 'dialogs/templates/editRoom.html',
+                controller: 'edit-room-ctrl'
+            });
+        };
+
+        $scope.editAppliance = function (a) {
+            $rootScope.dialogObject = a;
+            ngDialog.open({
+                template: 'dialogs/templates/editAppliance.html',
+                controller: 'edit-appliance-ctrl'
+            });
+        };
+
     }); // end of controller
 })();

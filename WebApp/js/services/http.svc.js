@@ -80,11 +80,9 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         let uri = '/user-service/delete/building/' + b + '/';
         $http.delete(url + uri, null)
             .success(function (response) {
-                if (response === 'OK') {
-                    toastr.info('Successfully deleted the building.');
-                } else {
-                    toastr.error('Could not delete the building.')
-                }
+                self.displayMessage(response,
+                    'Successfully deleted the building.',
+                    'Could not delete the building.');
             });
     };
 
@@ -92,12 +90,58 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         let uri = '/user-service/rename/building/' + b + '/' + newName + '/';
         $http.post(url + uri, null)
             .success(function (response) {
-                if (response === 'OK') {
-                    toastr.info('Successfully renamed the building.');
-                } else {
-                    toastr.error('Could not rename the building.')
-                }
+                self.displayMessage(response,
+                    'Successfully renamed the building.',
+                    'Could not rename the building.');
             });
+    };
+
+    this.deleteExistingRoom = function (id) {
+        let uri = '/user-service/delete/room/' + id + '/';
+        $http.delete(url + uri, null)
+            .success(function (response) {
+                self.displayMessage(response,
+                    'Successfully deleted the room.',
+                    'Could not delete the room.');
+            });
+    };
+
+    this.renameRoom = function (id, newName) {
+        let uri = '/user-service/rename/room/' + id + '/' + newName + '/';
+        $http.post(url + uri, null)
+            .success(function (response) {
+                self.displayMessage(response,
+                    'Successfully renamed the room.',
+                    'Could not rename the room.');
+            });
+    };
+
+    this.deleteExistingAppliance = function (id) {
+        let uri = '/user-service/delete/appliance/' + id + '/';
+        $http.delete(url + uri, null)
+            .success(function (response) {
+                self.displayMessage(response,
+                    'Successfully renamed the appliance.',
+                    'Could not rename the appliance.');
+            });
+    };
+
+    this.renameAppliance = function (id, newName) {
+        let uri = '/user-service/rename/appliance/' + id + '/' + newName + '/';
+        $http.post(url + uri, null)
+            .success(function (response) {
+                self.displayMessage(response,
+                    'Successfully deleted the appliance.',
+                    'Could not delete the appliance.');
+            });
+    };
+
+    this.displayMessage = function (response, okMsg, errorMsg) {
+        if (response === 'OK') {
+            toastr.info(okMsg);
+        } else {
+            toastr.error(errorMsg);
+        }
     };
 
     this.clearObject = function (obj) {

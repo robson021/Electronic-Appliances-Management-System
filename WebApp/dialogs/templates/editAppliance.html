@@ -1,0 +1,10 @@
+<div class="container">
+    <p class="intro-text">You are about to edit appliance
+        <br>
+        {{dialogObject.name}}</p>
+    <div class="row">
+        <input type="text" ng-model="inputField">
+        <button class="btn btn-info" ng-click="renameAppliance()">Rename</button>
+        <button class="btn btn-danger" ng-click="deleteAppliance()">Delete</button>
+    </div>
+</div>
