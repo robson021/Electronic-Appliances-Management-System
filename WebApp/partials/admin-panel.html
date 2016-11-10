@@ -1,7 +1,7 @@
 <div class="container box">
 
     <div class="text-center" style="padding-bottom: 30px;">
-        In admin panel you can see pending registered accounts.
+        In the admin panel you can see pending registration requests.
         <br>
         You can also ban or delete activated users.
     </div>
@@ -17,9 +17,43 @@
         </div>
     </div>
 
-    <div ng-show="currentView=='activatedAcc'">
-    </div>
-    <div ng-show="currentView=='deactivatedAcc'">
+    <div>
+        <hr ng-show="users!=null">
+        <h2 class="intro-text text-center">
+            <strong ng-show="currentView=='activatedAcc'">Accounts that are already activated</strong>
+            <strong ng-show="currentView=='deactivatedAcc'">Pending requests</strong>
+        </h2>
+        <hr>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>e-mail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="u in users">
+                <td>{{ u.name }}</td>
+                <td>{{ u.surname }}</td>
+                <td>{{ u.email }}</td>
+                <td>
+                    <button class="btn btn-warning mwbtn" ng-click="deactivateUser(u)"
+                            ng-show="currentView=='activatedAcc'">
+                        Deactivate
+                    </button>
+                    <button class="btn btn-warning mwbtn" ng-click="activateUser(u)"
+                            ng-show="currentView=='deactivatedAcc'">
+                        Activate
+                    </button>
+                    <button class="btn btn-danger mwbtn" ng-click="deleteUser(u)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 </div>

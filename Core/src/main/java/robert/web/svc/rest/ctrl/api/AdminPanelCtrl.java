@@ -9,6 +9,8 @@ public interface AdminPanelCtrl extends BasicParams {
 
 	String ADMIN_PREFIX = "/admin/";
 
+	String CHECK_IF_ADMIN = ADMIN_PREFIX + "am-i-admin/";
+
 	String GET_ALL_INACTIVE_ACCOUNTS_URL = ADMIN_PREFIX + "all-inactive-accounts/";
 
 	String GET_ALL_ACTIVE_ACCOUNTS_URL = ADMIN_PREFIX + "all-active-accounts/";
@@ -17,7 +19,7 @@ public interface AdminPanelCtrl extends BasicParams {
 
 	String DEACTIVATE_ACCOUNT = ADMIN_PREFIX + "deactivate-account/{" + EMAIL + "}/";
 
-	String CHECK_IF_ADMIN = ADMIN_PREFIX + "am-i-admin/";
+	String DELETE_USER = ADMIN_PREFIX + "delete-user/{" + EMAIL + "}/";
 
 	HttpStatus checkIfAdmin();
 
@@ -29,4 +31,5 @@ public interface AdminPanelCtrl extends BasicParams {
 
 	HttpStatus deactivateUserAccount(String email);
 
+	HttpStatus deleteUser(String email);
 }

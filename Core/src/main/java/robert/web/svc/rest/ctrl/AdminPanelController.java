@@ -58,7 +58,7 @@ public class AdminPanelController implements AdminPanelCtrl {
 	@Override
 	@RequestMapping(value = ACTIVATE_ACCOUNT, method = RequestMethod.POST)
 	public HttpStatus activateUserAccount(@PathVariable(EMAIL) String email) {
-		log.debug(ACTIVATE_ACCOUNT, "request from:", userInfoProvider.getEmail());
+		log.debug("Activate user", email, "request from:", userInfoProvider.getEmail());
 		try {
 			adminDao.activateUserAccount(email);
 		} catch (UserNotFoundException e) {
@@ -71,15 +71,23 @@ public class AdminPanelController implements AdminPanelCtrl {
 
 	@Override
 	@RequestMapping(value = DEACTIVATE_ACCOUNT, method = RequestMethod.POST)
-	public HttpStatus deactivateUserAccount(String email) {
-		log.debug(DEACTIVATE_ACCOUNT, "request from:", userInfoProvider.getEmail());
+	public HttpStatus deactivateUserAccount(@PathVariable(EMAIL) String email) {
+		log.debug("Deactivate user", email, "- request from:", userInfoProvider.getEmail());
 		try {
-			adminDao.activateUserAccount(email);
+			adminDao.deactivateUserAccount(email);
 		} catch (UserNotFoundException e) {
 			log.debug(e);
 			return HttpStatus.NOT_ACCEPTABLE;
 		}
 		log.debug("User has been deactivated:", email);
+		return HttpStatus.OK;
+	}
+
+	@Override
+	@RequestMapping(value = DELETE_USER, method = RequestMethod.DELETE)
+	public HttpStatus deleteUser(@PathVariable(EMAIL) String email) {
+		log.debug("Delete user:", email, "- request from:", userInfoProvider.getEmail());
+		adminDao.deleteUser(email);
 		return HttpStatus.OK;
 	}
 }

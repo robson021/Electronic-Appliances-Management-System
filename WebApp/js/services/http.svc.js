@@ -50,7 +50,6 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         let uri = '/register/' + user.email + '/' + user.password + '/' + user.name + '/' + user.surname + '/';
         $http.put(url + uri, null)
             .success(function (response) {
-                console.info('register new user: ' + response);
                 if (response === 'OK') {
                     $state.go('default');
                     toastr.success('Successfully registered your account.');
@@ -60,6 +59,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
                 } else {
                     toastr.error('Error. Could not register the user.');
                 }
+                console.info('register new user: ' + response);
             });
     };
 
@@ -148,14 +148,6 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
             });
     };
 
-    this.displayMessage = function (response, okMsg, errorMsg) {
-        if (response === 'OK') {
-            toastr.info(okMsg);
-        } else {
-            toastr.error(errorMsg);
-        }
-    };
-
     // ---------- admin stuff --------------
 
     this.checkIfLoggedAsAdmin = function () {
@@ -168,13 +160,54 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     };
 
     this.getAllActivatedAccounts = function () {
-        let uri = '';
+        let uri = '/admin/all-active-accounts/';
         return $http.get(url + uri, null);
     };
 
     this.getAllInactiveAccounts = function () {
-        let uri = '';
+        let uri = '/admin/all-inactive-accounts/';
         return $http.get(url + uri, null);
+    };
+
+    this.deactivateUser = function (email) {
+        let uri = '/admin/deactivate-account/' + email + '/';
+        $http.post(url + uri, null)
+            .success(function (response) {
+                self.displayMessage(response,
+                    'User ' + email + ' has been deactivated.',
+                    'Error. Could not deactivate account.');
+            });
+    };
+
+    this.activateUser = function (email) {
+        let uri = '/admin/activate-account/' + email + '/';
+        $http.post(url + uri, null)
+            .success(function (response) {
+                self.displayMessage(response,
+                    'User ' + email + ' has been activated.',
+                    'Error. Could not activate account.');
+            });
+    };
+
+    this.deleteUser = function (email) {
+        let uri = '/admin/delete-user/' + email + '/';
+        $http.delete(url + uri, null)
+            .success(function (response) {
+                self.displayMessage(response,
+                    'User ' + email + ' has been deleted.',
+                    'Error. Could not delete account of ' + email + '.');
+            });
+    };
+
+    // ------ other --------
+
+    this.displayMessage = function (response, okMsg, errorMsg) {
+        if (response === 'OK') {
+            toastr.info(okMsg);
+        } else {
+            toastr.error(errorMsg);
+        }
+        console.info(response);
     };
 
     this.clearObject = function (obj) {

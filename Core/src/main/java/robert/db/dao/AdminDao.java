@@ -48,7 +48,7 @@ public class AdminDao {
 		userRepository.save(user);
 		mailService.sendEmail(user.getEmail(),
 				"Account activation",
-				"Your account has been activated",
+				"Your account has been activated.",
 				null);
 	}
 
@@ -66,5 +66,13 @@ public class AdminDao {
 				"Account deactivation",
 				"Your account has been deactivated.",
 				null);
+	}
+
+	public void deleteUser(String email) {
+		User user = userRepository.findOneByEmail(email);
+		try {
+			userRepository.delete(user);
+		} catch (Throwable ignored) {
+		}
 	}
 }
