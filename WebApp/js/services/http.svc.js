@@ -156,6 +156,27 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         }
     };
 
+    // ---------- admin stuff --------------
+
+    this.checkIfLoggedAsAdmin = function () {
+        if (!$rootScope.isAdmin) {
+            $state.go('default');
+            toastr.error('You do not have admin privileges.')
+        } else {
+            self.checkIfLoggedIn();
+        }
+    };
+
+    this.getAllActivatedAccounts = function () {
+        let uri = '';
+        return $http.get(url + uri, null);
+    };
+
+    this.getAllInactiveAccounts = function () {
+        let uri = '';
+        return $http.get(url + uri, null);
+    };
+
     this.clearObject = function (obj) {
         for (let member in obj) {
             delete obj[member];

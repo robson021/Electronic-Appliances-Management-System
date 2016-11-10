@@ -1,3 +1,25 @@
 <div class="container box">
-    admin panel
+
+    <div class="text-center" style="padding-bottom: 30px;">
+        In admin panel you can see pending registered accounts.
+        <br>
+        You can also ban or delete activated users.
+    </div>
+
+    <div class="panel center-block">
+        <div class="panel-body text-center">
+            <button class="btn btn-default" ng-click="loadActivatedUsers()">
+                Activated accounts
+            </button>
+            <button class="btn btn-default" ng-click="loadInactivatedUsers()">
+                Inactive accounts
+            </button>
+        </div>
+    </div>
+
+    <div ng-show="currentView=='activatedAcc'">
+    </div>
+    <div ng-show="currentView=='deactivatedAcc'">
+    </div>
+
 </div>
