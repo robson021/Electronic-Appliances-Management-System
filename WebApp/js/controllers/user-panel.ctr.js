@@ -3,6 +3,7 @@
     angular.module("ngApp").controller('user-panel-ctrl', function ($scope, $rootScope, $state, httpSvc, ngDialog) {
 
         httpSvc.checkIfLoggedIn();
+        httpSvc.checkIfAdmin();
         const self = this;
         const possibleViews = ['buildings', 'rooms', 'appliances'];
 

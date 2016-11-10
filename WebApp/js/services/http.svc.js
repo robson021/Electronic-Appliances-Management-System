@@ -14,6 +14,15 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         }
     };
 
+    this.checkIfAdmin = function () {
+        $http.get(url + '/admin/am-i-admin/')
+            .success(function (response) {
+                if (response === 'OK') {
+                    $rootScope.isAdmin = true;
+                }
+            });
+    };
+
     this.loginUser = function (user) {
         let uri = '/login/' + user.email + '/' + user.password + '/';
         $http.post(url + uri, null)
@@ -25,7 +34,10 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
                     toastr.success('You have been logged in.');
                     self.clearObject(user);
                 } else {
-                    toastr.error('Error. Invalid login or password.')
+                    toastr.error(
+                        'Error. Invalid login or password.' +
+                        'Or your account may not be activated yet.'
+                    );
                 }
             });
     };

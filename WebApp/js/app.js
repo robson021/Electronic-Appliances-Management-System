@@ -44,4 +44,5 @@ var app = angular
 angular.module('ngApp')
     .run(function ($rootScope) {
         $rootScope.loggedIn = false;
+        $rootScope.isAdmin = false;
     });

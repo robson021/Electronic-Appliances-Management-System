@@ -105,6 +105,9 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 		}
 
 		userInfoProvider.setEmail(user.getEmail());
+		if (user.getAdminPrivileges()) {
+			userInfoProvider.enableAdminPrivileges();
+		}
 
 		CsrfToken csrfToken = tokenService.generateToken(request);
 		tokenService.saveToken(csrfToken, request, response);

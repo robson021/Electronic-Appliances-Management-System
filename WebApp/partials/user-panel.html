@@ -1,5 +1,11 @@
 <div class="container box">
 
+    <div style="float: right">
+        <button class="btn btn-danger" ng-show="isAdmin" ui-sref="admin-panel">
+            Admin Panel
+        </button>
+    </div>
+
     <div class="panel center-block">
         <div class="panel-body text-center">
             <button class="btn btn-default" ng-click="loadBuildings()">

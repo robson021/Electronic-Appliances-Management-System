@@ -1,3 +1,27 @@
 <div class="container box">
-    guest panel
+    <hr>
+    <h2 class="intro-text text-center"><strong>Use as guest</strong>
+    </h2>
+    <hr>
+
+    <div class="text-center">
+        <p>If you have access to the appliance, enter the token code here.</p>
+    </div>
+
+    <form role="form">
+        <div class="row">
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-4">
+                <label>Token:</label>
+                <input type="password" class="form-control" ng-model="token" required>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-12">
+                <button ng-click="submitToken()" class="btn btn-success">
+                    Submit token
+                </button>
+            </div>
+        </div>
+    </form>
+
 </div>

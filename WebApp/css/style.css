@@ -28,3 +28,9 @@
     vertical-align: middle;
     float: none;
 }
+
+.center-object {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}

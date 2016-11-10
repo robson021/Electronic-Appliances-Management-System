@@ -33,6 +33,15 @@ public class AdminPanelController implements AdminPanelCtrl {
 	}
 
 	@Override
+	@RequestMapping(CHECK_IF_ADMIN)
+	public HttpStatus checkIfAdmin() {
+		if (userInfoProvider.isAdmin()) {
+			return HttpStatus.OK;
+		}
+		return HttpStatus.UNAUTHORIZED;
+	}
+
+	@Override
 	@RequestMapping(GET_ALL_INACTIVE_ACCOUNTS_URL)
 	public List<UserDR> getAllInactiveAccounts() {
 		log.debug(GET_ALL_INACTIVE_ACCOUNTS_URL, "request from:", userInfoProvider.getEmail());

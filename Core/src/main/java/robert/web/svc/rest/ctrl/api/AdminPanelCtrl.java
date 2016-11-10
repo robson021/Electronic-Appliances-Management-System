@@ -17,6 +17,10 @@ public interface AdminPanelCtrl extends BasicParams {
 
 	String DEACTIVATE_ACCOUNT = ADMIN_PREFIX + "deactivate-account/{" + EMAIL + "}/";
 
+	String CHECK_IF_ADMIN = ADMIN_PREFIX + "am-i-admin/";
+
+	HttpStatus checkIfAdmin();
+
 	List<UserDR> getAllInactiveAccounts();
 
 	List<UserDR> getAllActiveAccounts();
