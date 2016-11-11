@@ -24,7 +24,7 @@ public class ApplianceConnector {
 		if (accessCode == null) {
 			accessCode = Validation.MOCK_APPLIANCE_UNIQUE_CODE;
 		}
-		final String url = applianceAddress + "/" + time + "/" + accessCode + "/";
+		final String url = applianceAddress + "/access/" + time + "/" + accessCode + "/";
 		return restTemplate.getForObject(url, String.class);
 	}
 
