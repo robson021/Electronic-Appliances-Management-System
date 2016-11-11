@@ -19,7 +19,7 @@ public interface Validation {
 	String ADMIN_URI = ADMIN_PREFIX + "**";
 
 	List<String> NO_AUTH_URIS = Collections.unmodifiableList(    // TODO: replace with Guava?
-			Lists.newArrayList("/", "/login/**", "/register/**", "/logout/**", "/test/**")
+			Lists.newArrayList("/**", "/login/**", "/register/**", "/logout/**", "/guest/**", "/test/**")
 	);
 
 	List<String> NO_AUTH_FILES = Collections.unmodifiableList(
@@ -27,5 +27,7 @@ public interface Validation {
 	);
 
 	short MAX_RESERVATION_TIME_IN_HOURS = 12;
+
+	String MOCK_APPLIANCE_UNIQUE_CODE = "unique-code";
 
 }

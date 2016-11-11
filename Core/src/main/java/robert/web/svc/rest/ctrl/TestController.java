@@ -3,13 +3,14 @@ package robert.web.svc.rest.ctrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.AdminDao;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
+import robert.db.dao.UserDao;
 import robert.db.entity.Appliance;
 import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
+import robert.web.svc.rest.ApplianceConnector;
 import robert.web.svc.rest.responses.asm.UserAssembler;
 import robert.web.svc.rest.responses.data.UserDR;
 
@@ -31,12 +32,18 @@ public class TestController {
 
 	private final MailService mailService;
 
+	private final UserDao userDao;
+
+	private final ApplianceConnector applianceConnector;
+
 	@Autowired
-	public TestController(AppLogger log, ApplianceBuildingRoomManagementDao applRoomDao, AdminDao adminDao, MailService mailService) {
+	public TestController(AppLogger log, ApplianceBuildingRoomManagementDao applRoomDao, AdminDao adminDao, MailService mailService, UserDao userDao, ApplianceConnector applianceConnector) {
 		this.log = log;
 		this.applRoomDao = applRoomDao;
 		this.adminDao = adminDao;
 		this.mailService = mailService;
+		this.userDao = userDao;
+		this.applianceConnector = applianceConnector;
 	}
 
 	@RequestMapping("/hello")
@@ -71,5 +78,10 @@ public class TestController {
 	public HttpStatus sendEmail() {
 		mailService.sendEmail("invoice.writer.app@gmail.com", "test", "Test email.", null);
 		return HttpStatus.OK;
+	}
+
+	@RequestMapping("/mock-appliance")
+	public String getAccessToMockAppliance() {
+		return applianceConnector.connectToTheAppliance("http://localhost:8081", 2, null);
 	}
 }

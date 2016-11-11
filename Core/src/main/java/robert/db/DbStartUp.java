@@ -9,9 +9,8 @@ import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Room;
 import robert.db.entity.User;
+import robert.enums.Validation;
 import robert.utils.api.AppLogger;
-
-import java.util.UUID;
 
 @Component
 public class DbStartUp implements CommandLineRunner {
@@ -68,16 +67,17 @@ public class DbStartUp implements CommandLineRunner {
 		room2.setNumber("110");
 
 		// appliance
+
 		Appliance appliance = new Appliance();
 		appliance.setName("Samsung A600 Home Theater Projector");
 		appliance.setRoom(room);
-		appliance.setUniqueCode(UUID.randomUUID().toString());
+		appliance.setUniqueCode(Validation.MOCK_APPLIANCE_UNIQUE_CODE);
 		room.addNewAppliance(appliance);
 
 		Appliance appliance2 = new Appliance();
 		appliance2.setName("Epson EX3212 SVGA 3LCD Projector");
 		appliance2.setRoom(room2);
-		appliance2.setUniqueCode(UUID.randomUUID().toString());
+		appliance2.setUniqueCode(Validation.MOCK_APPLIANCE_UNIQUE_CODE);
 		room2.addNewAppliance(appliance2);
 
 		b4.addRoom(room);
@@ -86,7 +86,7 @@ public class DbStartUp implements CommandLineRunner {
 
 		Appliance appliance3 = new Appliance();
 		appliance3.setName("Lenovo Pocket Projector");
-		appliance3.setUniqueCode(UUID.randomUUID().toString());
+		appliance3.setUniqueCode(Validation.MOCK_APPLIANCE_UNIQUE_CODE);
 
 		applianceBuildingRoomManagementDao.addApplianceToTheRoom(appliance3, "B4", "122");
 

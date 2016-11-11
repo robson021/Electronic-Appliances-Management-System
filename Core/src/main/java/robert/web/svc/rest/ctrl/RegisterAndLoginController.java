@@ -133,7 +133,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 			throw new UserException(user.getEmail());
 		}
 		if (!user.getActivated()) {
-			throw new UserException(user.getEmail(), "is not activated");
+			throw new UserException(user.getEmail(), "is not activated.");
 		}
 	}
 }

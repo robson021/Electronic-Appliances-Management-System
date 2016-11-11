@@ -1,25 +1,19 @@
 package robert.db.dao;
 
-import java.util.Date;
-import java.util.Optional;
-
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
-import robert.db.entity.Appliance;
-import robert.db.entity.Building;
-import robert.db.entity.Reservation;
-import robert.db.entity.Room;
-import robert.db.entity.User;
-import robert.db.repository.ApplianceRepository;
-import robert.db.repository.BuildingRepository;
-import robert.db.repository.RoomRepository;
-import robert.db.repository.UserRepository;
+import robert.db.entity.*;
+import robert.db.repository.*;
 import robert.enums.Validation;
 import robert.exceptions.ApplianceException;
 import robert.utils.api.AppLogger;
+
+import java.util.Collections;
+import java.util.Date;
+import java.util.Optional;
+import java.util.Set;
 
 @Component
 @Transactional
@@ -35,14 +29,17 @@ public class UserDao {
 
     private final RoomRepository roomRepository;
 
+    private final ReservationRepository reservationRepository;
+
     @Autowired
     public UserDao(AppLogger log, UserRepository userRepository, ApplianceRepository applianceRepository, BuildingRepository buildingRepository,
-            RoomRepository roomRepository) {
+                   RoomRepository roomRepository, ReservationRepository reservationRepository) {
         this.log = log;
         this.userRepository = userRepository;
         this.applianceRepository = applianceRepository;
         this.buildingRepository = buildingRepository;
         this.roomRepository = roomRepository;
+        this.reservationRepository = reservationRepository;
     }
 
     public User saveUser(User user) {
@@ -101,6 +98,14 @@ public class UserDao {
         log.info("New reservation made for:", user.getEmail());
     }
 
+    public Set<Reservation> getAllUsersReservations(String email) {
+        User user = userRepository.findOneByEmail(email);
+        if (user == null || user.getReservations().isEmpty()) {
+            return Collections.emptySet();
+        }
+        return user.getReservations();
+    }
+
     public void deleteBuilding(String buildingNumber) {
         this.buildingRepository.deleteOneByName(buildingNumber.trim()
                 .toLowerCase());
@@ -150,6 +155,25 @@ public class UserDao {
         Appliance appliance = applianceRepository.findOne(applianceId);
         appliance.setName(newName);
         applianceRepository.save(appliance);
+    }
+
+    public void validateIfUserCanGrantAccessToTheAppliance(long reservationId, String email) throws Exception {
+        Reservation reservation = reservationRepository.findOne(reservationId);
+        if (!reservation.getUser().getEmail().equals(email)) {
+            throw new Exception("The reservation is not from user " + email);
+        }
+
+        long currentTime = new Date().getTime();
+
+        if (reservation.getValidTill() < currentTime) {
+            throw new Exception("Reservation time has expired");
+        }
+
+        if (reservation.getValidFrom() < currentTime) {
+            throw new Exception("Too early. Reservation can be granted in "
+                    + (reservation.getValidFrom() - currentTime) + " hours");
+        }
+
     }
 
     private void validReservationTime(Appliance appliance, Reservation reservation) throws ApplianceException {

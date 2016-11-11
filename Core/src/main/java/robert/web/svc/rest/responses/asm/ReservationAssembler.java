@@ -13,11 +13,11 @@ public class ReservationAssembler {
 		return reservations.stream()
 				.map(reservation -> {
 					ReservationDR reservationDR = new ReservationDR();
+					reservationDR.setId(reservation.getId());
 					reservationDR.setFrom(reservation.getValidFrom());
 					reservationDR.setHours(
 							reservation.getValidTill() - reservation.getValidFrom()
 					);
-
 					return reservationDR;
 				}).collect(Collectors.toList());
 	}

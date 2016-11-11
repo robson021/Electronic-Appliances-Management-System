@@ -12,6 +12,7 @@ import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.ctrl.api.UserServiceCtrl;
 import robert.web.svc.rest.responses.asm.ApplianceAssembler;
+import robert.web.svc.rest.responses.asm.ReservationAssembler;
 import robert.web.svc.rest.responses.asm.RoomAssembler;
 import robert.web.svc.rest.responses.data.ApplianceDR;
 import robert.web.svc.rest.responses.data.ReservationDR;
@@ -62,6 +63,15 @@ public class UserServiceController implements UserServiceCtrl {
 			status = HttpStatus.SERVICE_UNAVAILABLE;
 		}
 		return status;
+	}
+
+	@Override
+	@RequestMapping(value = GET_MY_RESERVATIONS_URL)
+	public List<ReservationDR> getMyAllReservations() {
+		log.debug("Get all reservations for user:", userInfoProvider.getEmail());
+		return ReservationAssembler.convertToReservationDR(
+				userDao.getAllUsersReservations(userInfoProvider.getEmail())
+		);
 	}
 
 	@Override

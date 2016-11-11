@@ -93,6 +93,10 @@ public class UserDaoTest extends SpringTest {
 
 		Assertions.assertThat(reservation.getValidTill())
 				.isGreaterThan(reservation.getValidFrom());
+
+		Assertions.assertThat(userDao.getAllUsersReservations(user.getEmail()))
+				.isNotEmpty()
+				.hasSize(1);
 	}
 
 	@Test
