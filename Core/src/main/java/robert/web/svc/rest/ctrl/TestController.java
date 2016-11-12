@@ -8,9 +8,9 @@ import robert.db.dao.AdminDao;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.db.entity.Appliance;
+import robert.svc.ApplianceConnectorImpl;
 import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
-import robert.web.svc.rest.ApplianceConnector;
 import robert.web.svc.rest.responses.asm.UserAssembler;
 import robert.web.svc.rest.responses.data.UserDR;
 
@@ -34,10 +34,10 @@ public class TestController {
 
 	private final UserDao userDao;
 
-	private final ApplianceConnector applianceConnector;
+	private final ApplianceConnectorImpl applianceConnector;
 
 	@Autowired
-	public TestController(AppLogger log, ApplianceBuildingRoomManagementDao applRoomDao, AdminDao adminDao, MailService mailService, UserDao userDao, ApplianceConnector applianceConnector) {
+	public TestController(AppLogger log, ApplianceBuildingRoomManagementDao applRoomDao, AdminDao adminDao, MailService mailService, UserDao userDao, ApplianceConnectorImpl applianceConnector) {
 		this.log = log;
 		this.applRoomDao = applRoomDao;
 		this.adminDao = adminDao;
@@ -82,6 +82,6 @@ public class TestController {
 
 	@RequestMapping("/mock-appliance")
 	public String getAccessToMockAppliance() {
-		return applianceConnector.connectToTheAppliance("http://51.254.115.19:8081", 2, null);
+		return applianceConnector.connectToTheAppliance("http://localhost:8081", 2, null);
 	}
 }
