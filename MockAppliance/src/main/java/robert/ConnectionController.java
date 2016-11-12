@@ -2,6 +2,7 @@ package robert;
 
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,27 +21,36 @@ public class ConnectionController {
 
 	private DateTime timeOfUseExpiration = null;
 
+	private final boolean validation;
+
+	public ConnectionController(@Value("${robert.validation.isenabled}") String isValidationEnabled) {
+		this.validation = Boolean.parseBoolean(isValidationEnabled);
+		log.info("Validation set to: " + this.validation);
+	}
+
 	@RequestMapping(value = ACCESS_URL)
 	public HttpStatus grantAccess(@PathVariable(TIME) Integer hoursFromNow,
 								  @PathVariable(UNIQUE_CODE) String code) {
 
-		if (hoursFromNow <= 0) {
-			return HttpStatus.BAD_REQUEST;
+		if (validation) {
+			if (hoursFromNow <= 0) {
+				return HttpStatus.BAD_REQUEST;
+			}
+
+			if (!Validation.MY_UNIQUE_CODE.equals(code)) {
+				return HttpStatus.UNAUTHORIZED;
+			}
+
+			final DateTime currentTime = new DateTime();
+
+			if (timeOfUseExpiration != null && !(currentTime.isAfter(timeOfUseExpiration))) {
+				log.error("Cannot grant access. The appliance is already in use.");
+				return HttpStatus.CONFLICT;
+			}
+
+			timeOfUseExpiration = currentTime
+					.plusHours(hoursFromNow);
 		}
-
-		if (!Validation.MY_UNIQUE_CODE.equals(code)) {
-			return HttpStatus.UNAUTHORIZED;
-		}
-
-		final DateTime currentTime = new DateTime();
-
-		if (timeOfUseExpiration != null && !(currentTime.isAfter(timeOfUseExpiration))) {
-			log.error("Cannot grant access. The appliance is already in use.");
-			return HttpStatus.CONFLICT;
-		}
-
-		timeOfUseExpiration = currentTime
-				.plusHours(hoursFromNow);
 
 		log.info("Access grant to the appliance. Valid form now for " + hoursFromNow + " hours");
 

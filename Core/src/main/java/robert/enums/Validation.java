@@ -19,7 +19,7 @@ public interface Validation {
 	String ADMIN_URI = ADMIN_PREFIX + "**";
 
 	List<String> NO_AUTH_URIS = Collections.unmodifiableList(    // TODO: replace with Guava?
-			Lists.newArrayList("/**", "/login/**", "/register/**", "/logout/**", "/guest/**", "/test/**")
+			Lists.newArrayList("/", "/login/**", "/register/**", "/logout/**", "/guest/**", "/test/**")
 	);
 
 	List<String> NO_AUTH_FILES = Collections.unmodifiableList(
