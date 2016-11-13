@@ -18,12 +18,9 @@ public class AdminDao {
 
 	private final UserRepository userRepository;
 
-	private final MailService mailService;
-
 	@Autowired
-	public AdminDao(UserRepository userRepository, MailService mailService) {
+	public AdminDao(UserRepository userRepository) {
 		this.userRepository = userRepository;
-		this.mailService = mailService;
 	}
 
 	public List<User> getAllInactiveUsers() {
@@ -46,10 +43,6 @@ public class AdminDao {
 		}
 		user.setActivated(true);
 		userRepository.save(user);
-		mailService.sendEmail(user.getEmail(),
-				"Account activation",
-				"Your account has been activated.",
-				null);
 	}
 
 	public void deactivateUserAccount(String email) throws UserNotFoundException {
@@ -62,10 +55,6 @@ public class AdminDao {
 		}
 		user.setActivated(false);
 		userRepository.save(user);
-		mailService.sendEmail(user.getEmail(),
-				"Account deactivation",
-				"Your account has been deactivated.",
-				null);
 	}
 
 	public void deleteUser(String email) {

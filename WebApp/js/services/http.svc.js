@@ -65,8 +65,9 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
 
     this.logoutUser = function () {
         $rootScope.loggedIn = false;
-        $http.post(url + '/logout/', null);
+        $rootScope.isAdmin = false;
         $state.go('default');
+        $http.post(url + '/logout/', null);
     };
 
     // ------- get things ----------
@@ -145,6 +146,16 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
                 self.displayMessage(response,
                     'Successfully deleted the appliance.',
                     'Could not delete the appliance.');
+            });
+    };
+
+    // ------ add new xyz --------
+    this.addNewApplianceToTheRoom = function (roomId, applianceName) {
+        let uri = '/user-service/register-appliance/' + roomId + '/' + applianceName + '/';
+        $http.put(url + uri, null)
+            .success(function (response) {
+                console.info(response);
+                // todo: change back-end response type to JSON
             });
     };
 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.AdminDao;
 import robert.exceptions.UserNotFoundException;
+import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.ctrl.api.AdminPanelCtrl;
@@ -25,11 +26,14 @@ public class AdminPanelController implements AdminPanelCtrl {
 
 	private final AdminDao adminDao;
 
+	private final MailService mailService;
+
 	@Autowired
-	public AdminPanelController(AppLogger log, UserInfoProvider userInfoProvider, AdminDao adminDao) {
+	public AdminPanelController(AppLogger log, UserInfoProvider userInfoProvider, AdminDao adminDao, MailService mailService) {
 		this.log = log;
 		this.userInfoProvider = userInfoProvider;
 		this.adminDao = adminDao;
+		this.mailService = mailService;
 	}
 
 	@Override
@@ -61,6 +65,10 @@ public class AdminPanelController implements AdminPanelCtrl {
 		log.debug("Activate user", email, "request from:", userInfoProvider.getEmail());
 		try {
 			adminDao.activateUserAccount(email);
+			mailService.sendEmail(email,
+					"Account activation",
+					"Your account has been activated.",
+					null);
 		} catch (UserNotFoundException e) {
 			log.debug(e);
 			return HttpStatus.NOT_ACCEPTABLE;
@@ -75,6 +83,10 @@ public class AdminPanelController implements AdminPanelCtrl {
 		log.debug("Deactivate user", email, "- request from:", userInfoProvider.getEmail());
 		try {
 			adminDao.deactivateUserAccount(email);
+			mailService.sendEmail(email,
+					"Account deactivation",
+					"Your account has been deactivated.",
+					null);
 		} catch (UserNotFoundException e) {
 			log.debug(e);
 			return HttpStatus.NOT_ACCEPTABLE;

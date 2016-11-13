@@ -4,6 +4,7 @@
 
         httpSvc.checkIfLoggedIn();
         httpSvc.checkIfAdmin();
+
         const self = this;
         const possibleViews = ['buildings', 'rooms', 'appliances'];
 
@@ -91,6 +92,14 @@
             ngDialog.open({
                 template: 'dialogs/templates/editAppliance.html',
                 controller: 'edit-appliance-ctrl'
+            });
+        };
+
+        $scope.addNewAppliance = function () {
+            $rootScope.dialogObject = $scope.selectedRoom;
+            ngDialog.open({
+                template: 'dialogs/templates/newAppliance.html',
+                controller: 'add-appliance-ctrl'
             });
         };
 
