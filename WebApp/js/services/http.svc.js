@@ -150,6 +150,27 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     };
 
     // ------ add new xyz --------
+
+    this.addNewBuilding = function (buildingNumber) {
+        let uri = '/user-service/register-building/' + buildingNumber + '/';
+        $http.put(url + uri, null)
+            .success(function (response) {
+                self.displayMessage(response,
+                    'New building has been added.',
+                    'Could not add the new building.');
+            });
+    };
+
+    this.addNewRoomToTheBuilding = function (building, roomName) {
+        let uri = '/user-service/register-room/' + building + '/' + roomName + '/';
+        $http.put(url + uri, null)
+            .success(function (response) {
+                self.displayMessage(response,
+                    'New room has been added.',
+                    'Could not add the new room.');
+            });
+    };
+
     this.addNewApplianceToTheRoom = function (roomId, applianceName) {
         let uri = '/user-service/register-appliance/' + roomId + '/' + applianceName + '/';
         $http.put(url + uri, null)

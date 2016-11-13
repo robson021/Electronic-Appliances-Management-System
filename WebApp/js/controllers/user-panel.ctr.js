@@ -95,6 +95,21 @@
             });
         };
 
+        $scope.addNewBuilding = function () {
+            ngDialog.open({
+                template: 'dialogs/templates/newBuilding.html',
+                controller: 'add-building-ctrl'
+            });
+        };
+
+        $scope.addNewRoom = function () {
+            $rootScope.dialogObject = $scope.selectedBuilding;
+            ngDialog.open({
+                template: 'dialogs/templates/newRoom.html',
+                controller: 'add-room-ctrl'
+            });
+        };
+
         $scope.addNewAppliance = function () {
             $rootScope.dialogObject = $scope.selectedRoom;
             ngDialog.open({
