@@ -81,7 +81,7 @@ public class TestController {
 	}
 
 	@RequestMapping("/mock-appliance")
-	public String getAccessToMockAppliance() {
-		return applianceConnector.connectToTheAppliance("http://51.254.115.19:8081", 2, null);
+	public String getAccessToMockAppliance() throws Exception {
+		return applianceConnector.connectToTheAppliance("http://51.254.115.19:8081", 2, null, 0, null);
 	}
 }

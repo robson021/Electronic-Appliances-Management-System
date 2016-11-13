@@ -169,6 +169,10 @@ public class ApplianceBuildingRoomManagementDao {
 		return (List<Reservation>) reservationRepository.findAll();
 	}
 
+	public Reservation findReservation(long id) {
+		return reservationRepository.findOne(id);
+	}
+
 	private void validateRoomOrBuilding(Object o, String name) throws NotFoundException {
 		if (o == null) {
 			throw new NotFoundException("Building or room cannot be found: " + name);

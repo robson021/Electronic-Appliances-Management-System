@@ -157,25 +157,6 @@ public class UserDao {
         applianceRepository.save(appliance);
     }
 
-    public void validateIfUserCanGrantAccessToTheAppliance(long reservationId, String email) throws Exception {
-        Reservation reservation = reservationRepository.findOne(reservationId);
-        if (!reservation.getUser().getEmail().equals(email)) {
-            throw new Exception("The reservation is not from user " + email);
-        }
-
-        long currentTime = new Date().getTime();
-
-        if (reservation.getValidTill() < currentTime) {
-            throw new Exception("Reservation time has expired");
-        }
-
-        if (reservation.getValidFrom() < currentTime) {
-            throw new Exception("Too early. Reservation can be granted in "
-                    + (reservation.getValidFrom() - currentTime) + " hours");
-        }
-
-    }
-
     private void validReservationTime(Appliance appliance, Reservation reservation) throws ApplianceException {
         Optional<Reservation> any = appliance.getReservations()
                 .stream()
