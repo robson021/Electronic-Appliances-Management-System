@@ -68,7 +68,8 @@
         $scope.selectAppliance = function (a) {
             $scope.selectedAppliance = a;
             console.info("Current selected appliance: " + $scope.selectedAppliance.name);
-            // todo
+            $rootScope.selectedAppliance = $scope.selectedAppliance;
+            $state.go('reservation');
         };
 
         $scope.editBuilding = function (b) {

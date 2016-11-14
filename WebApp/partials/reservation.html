@@ -1,0 +1,33 @@
+<div class="container box">
+
+    <hr>
+    <h2 class="intro-text text-center">
+        <strong>
+            Reservations for <br> <br>
+            {{appliance.name}}
+        </strong>
+    </h2>
+    <hr>
+
+    <div class="text-center" ng-show="allReservations.length<=0">
+        Currently there are no reservations for this appliance.
+    </div>
+
+    <table class="table table-hover" ng-show="allReservations.length>0">
+        <thead>
+        <tr>
+            <th>From</th>
+            <th>Minutes</th>
+            <th>By</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="r in allReservations">
+            <td>{{ r.from }}</td>
+            <td>{{ r.minutes }}</td>
+            <td>{{ r.by }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -30,6 +30,11 @@ var app = angular
                 templateUrl: 'partials/guest-panel.html',
                 controller: 'guest-panel-ctrl'
             })
+            .state('reservation', {
+                url: '/reservation',
+                templateUrl: 'partials/reservation.html',
+                controller: 'reservation-ctrl'
+            })
             .state('about', {
                 url: '/about',
                 templateUrl: 'partials/about.html'
