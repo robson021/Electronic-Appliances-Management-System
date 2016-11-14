@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.db.entity.Appliance;
@@ -59,7 +60,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 		DateTime currentTime = new DateTime();
 		ReservationDR reservation = new ReservationDR();
 		reservation.setFrom(currentTime.toDate().getTime());
-		reservation.setHours(3);
+		reservation.setMinutes(3);
 		String json = TestUtils.asJsonString(reservation);
 
 		mockMvc.perform(post(url).content(json)
@@ -77,7 +78,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 		// 2 - failed reservation
 		reservation = new ReservationDR();
 		reservation.setFrom(currentTime.minusHours(3).toDate().getTime());
-		reservation.setHours(5);
+		reservation.setMinutes(5);
 		json = TestUtils.asJsonString(reservation);
 
 		mockMvc.perform(post(url).content(json)
@@ -90,7 +91,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 		// 3 - ok reservation
 		reservation = new ReservationDR();
 		reservation.setFrom(currentTime.plusHours(10).toDate().getTime());
-		reservation.setHours(7);
+		reservation.setMinutes(7);
 		json = TestUtils.asJsonString(reservation);
 
 		mockMvc.perform(post(url).content(json)
@@ -100,6 +101,12 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 		appl = abrmDao.findApplianceById(appId);
 		Assertions.assertThat(appl.getReservations())
 				.hasSize(++numOfReservations);
+
+		// get all reservations
+		MvcResult result = mockMvc.perform(get(GET_MY_RESERVATIONS_URL))
+				.andExpect(status().isOk())
+				.andReturn();
+		System.out.println(result);
 	}
 
 	@Test

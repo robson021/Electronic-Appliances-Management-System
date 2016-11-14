@@ -26,7 +26,7 @@ public interface Validation {
 			Lists.newArrayList(".html", ".js", ".css")
 	);
 
-	short MAX_RESERVATION_TIME_IN_HOURS = 12;
+	short MAX_RESERVATION_TIME_IN_MINUTES = 12 * 60;
 
 	String MOCK_APPLIANCE_UNIQUE_CODE = "unique-code";
 

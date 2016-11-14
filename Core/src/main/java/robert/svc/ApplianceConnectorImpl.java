@@ -40,7 +40,7 @@ public class ApplianceConnectorImpl implements ApplianceConnector {
 	private void validateIfUserCanGrantAccessToTheAppliance(long reservationId, String email) throws Exception {
 		Reservation reservation = abrmDao.findReservation(reservationId);
 		if (!reservation.getUser().getEmail().equals(email)) {
-			throw new Exception("The reservation is not from user " + email);
+			throw new Exception("The reservation is not for user " + email);
 		}
 
 		long currentTime = new Date().getTime();

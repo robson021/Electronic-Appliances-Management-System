@@ -10,15 +10,25 @@ import java.util.stream.Collectors;
 public class ReservationAssembler {
 
 	public static List<ReservationDR> convertToReservationDR(Collection<Reservation> reservations) {
-		return reservations.stream()
+		List<ReservationDR> list = reservations.stream()
 				.map(reservation -> {
 					ReservationDR reservationDR = new ReservationDR();
 					reservationDR.setId(reservation.getId());
 					reservationDR.setFrom(reservation.getValidFrom());
-					reservationDR.setHours(
-							reservation.getValidTill() - reservation.getValidFrom()
+					reservationDR.setMinutes(
+							convertToMinutes(reservation.getValidTill() - reservation.getValidFrom())
 					);
 					return reservationDR;
 				}).collect(Collectors.toList());
+		sortReservations(list);
+		return list;
+	}
+
+	private static long convertToMinutes(long diff) {
+		return (diff / 1000 / 60);
+	}
+
+	private static void sortReservations(List<ReservationDR> list) {
+		list.sort((o1, o2) -> o1.getFrom() < o2.getFrom() ? -1 : 1);
 	}
 }

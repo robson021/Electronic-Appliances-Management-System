@@ -6,7 +6,7 @@ public class ReservationDR {
 
     private long from;
 
-    private long hours;
+    private long minutes;
 
     public long getId() {
         return id;
@@ -24,11 +24,11 @@ public class ReservationDR {
         this.from = from;
     }
 
-    public long getHours() {
-        return hours;
+    public long getMinutes() {
+        return minutes;
     }
 
-    public void setHours(long hours) {
-        this.hours = hours;
+    public void setMinutes(long minutes) {
+        this.minutes = minutes;
     }
 }
