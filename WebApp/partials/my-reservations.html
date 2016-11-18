@@ -1,0 +1,29 @@
+<div class="container box">
+    <div>
+        <hr>
+        <h2 class="intro-text text-center"><strong>Your current reservations</strong>
+        </h2>
+        <hr>
+
+        <table class="table table-hover" ng-show="myReservations.length>0">
+            <thead>
+            <tr>
+                <th>Building number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="b in allBuildings">
+                <td>{{ b }}</td>
+                <td>
+                    <button class="btn btn-success mwbtn" ng-click="selectBuilding(b)">
+                        Select
+                    </button>
+                    <button class="btn btn-info mwbtn" ng-click="editBuilding(b)">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

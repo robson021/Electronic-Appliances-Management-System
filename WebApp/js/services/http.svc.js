@@ -87,6 +87,16 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         return $http.get(url + uri, null);
     };
 
+    this.getMyReservations = function () {
+        let uri = '/user-service/my-reservations/';
+        return $http.get(url + uri, null);
+    };
+
+    this.getAllReservations = function () {
+        let uri = '/user-service/all-reservations/';
+        return $http.get(url + uri, null);
+    };
+
     // ---------- edit buttons -------------
 
     this.deleteExistingBuilding = function (b) {

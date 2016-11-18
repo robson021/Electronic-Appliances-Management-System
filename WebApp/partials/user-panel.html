@@ -1,7 +1,7 @@
 <div class="container box">
 
-    <div style="float: right" ng-show="isAdmin">
-        <button class="btn btn-danger" ui-sref="admin-panel">
+    <div style="float: right">
+        <button class="btn btn-danger" ui-sref="admin-panel" ng-show="isAdmin">
             Admin Panel
         </button>
     </div>
@@ -16,6 +16,9 @@
             </button>
             <button class="btn btn-default" ng-click="loadAppliances()" ng-disabled="(allAppliancesInRoom == null)">
                 Appliances
+            </button>
+            <button class="btn btn-success" ui-sref="my-reservations">
+                My reservations
             </button>
         </div>
     </div>
