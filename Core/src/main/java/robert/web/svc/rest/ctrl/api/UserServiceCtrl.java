@@ -49,7 +49,9 @@ public interface UserServiceCtrl extends BasicParams {
 
 	HttpStatus makeReservation(Long applianceId, ReservationDR reservationDR);
 
-	List<ReservationDR> getMyAllReservations();
+	List<ReservationDR> getMyReservations();
+
+	List<ReservationDR> getAllReservations();
 
 	HttpStatus registerNewBuilding(String buildingNumber);
 

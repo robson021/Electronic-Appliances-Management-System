@@ -60,10 +60,18 @@ public class UserServiceController implements UserServiceCtrl {
 
 	@Override
 	@RequestMapping(value = GET_MY_RESERVATIONS_URL)
-	public List<ReservationDR> getMyAllReservations() {
-		log.debug("Get all reservations for user:", userInfoProvider.getEmail());
+	public List<ReservationDR> getMyReservations() {
+		log.debug("Get user's reservations for user:", userInfoProvider.getEmail());
 		return ReservationAssembler.convertToReservationDR(
-				userDao.getAllUsersReservations(userInfoProvider.getEmail())
+				userDao.getUsersReservations(userInfoProvider.getEmail())
+		);
+	}
+
+	@Override
+	public List<ReservationDR> getAllReservations() {
+		log.debug("Get all reservations - ", userInfoProvider.getEmail());
+		return ReservationAssembler.convertToReservationDR(
+				userDao.getAllReservations()
 		);
 	}
 

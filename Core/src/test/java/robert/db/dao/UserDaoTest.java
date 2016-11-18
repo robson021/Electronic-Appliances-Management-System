@@ -12,6 +12,7 @@ import robert.db.entity.User;
 import utils.SpringTest;
 import utils.TestUtils;
 
+import java.util.Collection;
 import java.util.Date;
 
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
@@ -94,9 +95,13 @@ public class UserDaoTest extends SpringTest {
 		Assertions.assertThat(reservation.getValidTill())
 				.isGreaterThan(reservation.getValidFrom());
 
-		Assertions.assertThat(userDao.getAllUsersReservations(user.getEmail()))
+		Assertions.assertThat(userDao.getUsersReservations(user.getEmail()))
 				.isNotEmpty()
 				.hasSize(1);
+
+		Collection<Reservation> allReservations = userDao.getAllReservations();
+		Assertions.assertThat(allReservations)
+				.isNotEmpty();
 	}
 
 	@Test

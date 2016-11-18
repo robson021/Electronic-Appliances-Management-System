@@ -10,10 +10,7 @@ import robert.enums.Validation;
 import robert.exceptions.ApplianceException;
 import robert.utils.api.AppLogger;
 
-import java.util.Collections;
-import java.util.Date;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Component
 @Transactional
@@ -99,12 +96,16 @@ public class UserDao {
 		log.info("New reservation made for:", user.getEmail());
 	}
 
-	public Set<Reservation> getAllUsersReservations(String email) {
+	public Set<Reservation> getUsersReservations(String email) {
 		User user = userRepository.findOneByEmail(email);
 		if (user == null || user.getReservations().isEmpty()) {
 			return Collections.emptySet();
 		}
 		return user.getReservations();
+	}
+
+	public Collection<Reservation> getAllReservations() {
+		return (Collection<Reservation>) reservationRepository.findAll();
 	}
 
 	public void deleteBuilding(String buildingNumber) {
