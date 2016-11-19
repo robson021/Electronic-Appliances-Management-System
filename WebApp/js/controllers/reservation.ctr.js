@@ -12,5 +12,25 @@
         $scope.appliance = $rootScope.selectedAppliance;
         $scope.allReservations = $scope.appliance.reservations;
 
+        $scope.makeReservation = function () {
+            /*if (!$scope.validateDate()) {
+             toastr.error("Invalid time.");
+             return;
+             }*/
+            let date = $scope.timeOfReservation;
+            date.setHours($scope.hour);
+            date.setMinutes($scope.minutes);
+            let time = {
+                "from": date.getTime(),
+                "minutes": $scope.forHowLong
+            };
+
+            httpSvc.newReservation(time, $scope.appliance.id);
+        };
+
+        $scope.validateDate = function () {
+            return !($scope.hour > 23 || $scope.hour < 0 || $scope.minutes < 0 || minutes > 59);
+        };
+
     }); // end of controller
 })();

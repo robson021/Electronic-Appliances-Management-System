@@ -1,7 +1,7 @@
 <div class="container box">
     <div>
         <hr>
-        <h2 class="intro-text text-center"><strong>Your current reservations</strong>
+        <h2 class="intro-text text-center"><strong>Your reservations</strong>
         </h2>
         <hr>
 
@@ -20,15 +20,10 @@
             </thead>
             <tbody>
             <tr ng-repeat="r in myReservations">
-                <td>r.appliance</td>
-                <td>
-                    <button class="btn btn-success mwbtn" ng-click="selectBuilding(b)">
-                        Select
-                    </button>
-                    <button class="btn btn-info mwbtn" ng-click="editBuilding(b)">
-                        Edit
-                    </button>
-                </td>
+                <td>{{r.where}}</td>
+                <td>{{r.appliance}}</td>
+                <td>{{r.from}}</td>
+                <td>{{r.minutes}} min</td>
             </tr>
             </tbody>
         </table>

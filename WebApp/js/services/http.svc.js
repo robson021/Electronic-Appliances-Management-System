@@ -242,6 +242,19 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
             });
     };
 
+    // ------- reservations --------
+
+    this.newReservation = function (time, applianceId) {
+        let uri = '/user-service/reservation/' + applianceId + '/';
+        let ajax = $http.post(url + uri, time);
+        ajax.success(function (response) {
+            console.info(response);
+            if (response === 'OK') {
+                $state.go('user-panel');
+            }
+        });
+    };
+
     // ------ other --------
 
     this.displayMessage = function (response, okMsg, errorMsg) {
