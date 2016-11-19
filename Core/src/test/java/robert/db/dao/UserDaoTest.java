@@ -99,7 +99,7 @@ public class UserDaoTest extends SpringTest {
 				.isNotEmpty()
 				.hasSize(1);
 
-		Collection<Reservation> allReservations = userDao.getAllReservations();
+		Collection<Reservation> allReservations = userDao.getAllReservationsForAppliance(appliance.getId());
 		Assertions.assertThat(allReservations)
 				.isNotEmpty();
 	}

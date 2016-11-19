@@ -21,6 +21,8 @@ public interface UserServiceCtrl extends BasicParams {
 
 	String GET_MY_RESERVATIONS_URL = USER_SERVICE_PREFIX + "my-reservations/";
 
+	String GET_ALL_RESERVATIONS_FOR_APPLIANCE_URL = USER_SERVICE_PREFIX + "all-reservations/{" + APPLIANCE_ID + "}/";
+
 	String REGISTER_NEW_BUILDING_URL = USER_SERVICE_PREFIX + "register-building/{" + BUILDING_NUMBER + "}/";
 
 	String REGISTER_NEW_ROOM_IN_BUILDING_URL = USER_SERVICE_PREFIX + "register-room/{" +
@@ -51,7 +53,7 @@ public interface UserServiceCtrl extends BasicParams {
 
 	List<ReservationDR> getMyReservations();
 
-	List<ReservationDR> getAllReservations();
+	List<ReservationDR> getAllReservations(Long applianceId);
 
 	HttpStatus registerNewBuilding(String buildingNumber);
 

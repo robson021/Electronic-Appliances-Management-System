@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class ReservationAssembler {
 
 	public static List<ReservationDR> convertToReservationDR(Collection<Reservation> reservations) {
-		List<ReservationDR> list = reservations.stream()
+		List<ReservationDR> listOfReservations = reservations.stream()
 				.map(reservation -> {
 					ReservationDR reservationDR = new ReservationDR();
 					reservationDR.setId(reservation.getId());
@@ -18,14 +18,27 @@ public class ReservationAssembler {
 					reservationDR.setMinutes(
 							convertToMinutes(reservation.getValidTill() - reservation.getValidFrom())
 					);
+					reservationDR.setWhere(getWhereIsTheReservation(reservation));
+					reservationDR.setAppliance(reservation.getAppliance().getName());
 					return reservationDR;
 				}).collect(Collectors.toList());
-		sortReservations(list);
-		return list;
+		sortReservations(listOfReservations);
+		return listOfReservations;
 	}
 
 	private static long convertToMinutes(long diff) {
 		return (diff / 1000 / 60);
+	}
+
+	private static String getWhereIsTheReservation(Reservation reservation) {
+		try {
+			String where = reservation.getAppliance().getRoom().getBuilding().getName();
+			where += " - ";
+			where += reservation.getAppliance().getRoom().getNumber();
+			return where;
+		} catch (Throwable ignored) {
+			return "???";
+		}
 	}
 
 	private static void sortReservations(List<ReservationDR> list) {

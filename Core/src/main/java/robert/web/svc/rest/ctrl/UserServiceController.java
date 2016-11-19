@@ -68,10 +68,11 @@ public class UserServiceController implements UserServiceCtrl {
 	}
 
 	@Override
-	public List<ReservationDR> getAllReservations() {
+	@RequestMapping(value = GET_ALL_RESERVATIONS_FOR_APPLIANCE_URL)
+	public List<ReservationDR> getAllReservations(@PathVariable(APPLIANCE_ID) Long applianceId) {
 		log.debug("Get all reservations - ", userInfoProvider.getEmail());
 		return ReservationAssembler.convertToReservationDR(
-				userDao.getAllReservations()
+				userDao.getAllReservationsForAppliance(applianceId)
 		);
 	}
 

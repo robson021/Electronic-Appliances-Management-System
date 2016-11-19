@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MvcResult;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.db.entity.Appliance;
@@ -102,11 +101,8 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 		Assertions.assertThat(appl.getReservations())
 				.hasSize(++numOfReservations);
 
-		// get all reservations
-		MvcResult result = mockMvc.perform(get(GET_MY_RESERVATIONS_URL))
-				.andExpect(status().isOk())
-				.andReturn();
-		System.out.println(result);
+		mockMvc.perform(get(GET_MY_RESERVATIONS_URL))
+				.andExpect(status().isOk());
 	}
 
 	@Test

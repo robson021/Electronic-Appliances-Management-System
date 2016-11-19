@@ -4,13 +4,17 @@ import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import robert.db.entity.*;
 import robert.db.repository.*;
 import robert.enums.Validation;
 import robert.exceptions.ApplianceException;
 import robert.utils.api.AppLogger;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Optional;
+import java.util.Set;
 
 @Component
 @Transactional
@@ -104,8 +108,12 @@ public class UserDao {
 		return user.getReservations();
 	}
 
-	public Collection<Reservation> getAllReservations() {
-		return (Collection<Reservation>) reservationRepository.findAll();
+	public Set<Reservation> getAllReservationsForAppliance(long applianceId) {
+		Appliance appliance = applianceRepository.findOne(applianceId);
+		if (appliance == null || CollectionUtils.isEmpty(appliance.getReservations())) {
+			return Collections.emptySet();
+		}
+		return appliance.getReservations();
 	}
 
 	public void deleteBuilding(String buildingNumber) {
