@@ -19,6 +19,8 @@
                 reservation.id = r.id;
                 reservation.from = new Date(r.from);
                 reservation.minutes = r.minutes;
+                reservation.where = r.where;
+                reservation.appliance = r.appliance;
                 res.push(reservation);
             });
             return res;

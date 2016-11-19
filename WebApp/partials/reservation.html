@@ -13,21 +13,39 @@
         Currently there are no reservations for this appliance.
     </div>
 
+    <div class="text-center row">
+        <form role="form">
+            <p>Make new reservation</p>
+            Start: <input type="date" ng-model="timeOfReservation">
+            <input type="number" min="0" max="23" ng-model="hour" class="fixed-width">h : <input type="number"
+                                                                                                 min="0" max="59"
+                                                                                                 ng-model="minutes"
+                                                                                                 class="fixed-width">min
+            <br>
+            For <input type="number" min="15" ng-model="forHowLong" class="fixed-width"> minutes
+            <button class="btn btn-success">Confirm</button>
+        </form>
+    </div>
+
     <table class="table table-hover" ng-show="allReservations.length>0">
         <thead>
         <tr>
             <th>From</th>
             <th>Minutes</th>
-            <th>By</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="r in allReservations">
             <td>{{ r.from }}</td>
             <td>{{ r.minutes }}</td>
-            <td>{{ r.by }}</td>
         </tr>
         </tbody>
     </table>
 
 </div>
+
+<style>
+    .fixed-width {
+        max-width: 45px;
+    }
+</style>

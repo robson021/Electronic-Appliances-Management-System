@@ -4,6 +4,11 @@
 
         httpSvc.checkIfLoggedIn();
 
+        $scope.timeOfReservation = new Date();
+        $scope.hour = $scope.timeOfReservation.getHours();
+        $scope.minutes = $scope.timeOfReservation.getMinutes();
+        $scope.forHowLong = 60;
+
         $scope.appliance = $rootScope.selectedAppliance;
         $scope.allReservations = $scope.appliance.reservations;
 

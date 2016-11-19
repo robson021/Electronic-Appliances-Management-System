@@ -5,15 +5,22 @@
         </h2>
         <hr>
 
+        <div class="text-center text-warning" ng-show="myReservations==null || myReservations.length<=0">
+            You do not have any reservations.
+        </div>
+
         <table class="table table-hover" ng-show="myReservations.length>0">
             <thead>
             <tr>
-                <th>Building number</th>
+                <th>Where</th>
+                <th>Appliance</th>
+                <th>Start</th>
+                <th>Time</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="b in allBuildings">
-                <td>{{ b }}</td>
+            <tr ng-repeat="r in myReservations">
+                <td>r.appliance</td>
                 <td>
                     <button class="btn btn-success mwbtn" ng-click="selectBuilding(b)">
                         Select
