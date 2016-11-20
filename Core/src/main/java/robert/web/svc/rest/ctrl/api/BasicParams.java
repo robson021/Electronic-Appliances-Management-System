@@ -19,5 +19,7 @@ public interface BasicParams {
 
 	String APPLIANCE_NAME = "appl-name";
 
+	String RESERVATION_ID = "resid";
+
 	String NEW_VALUE = "nval";
 }

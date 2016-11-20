@@ -1,9 +1,16 @@
 package robert.db.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-
-import javax.persistence.*;
 
 @Entity
 @Table(name = "RESERVATION")
@@ -29,6 +36,9 @@ public class Reservation {
 	@Column(name = "VALID_TILL")
 	private Long validTill;
 
+	@Column(name = "ACCESS_TOKEN", nullable = false)
+	private String accessToken;
+
 	public User getUser() {
 		return user;
 	}
@@ -43,6 +53,14 @@ public class Reservation {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getAccessToken() {
+		return accessToken;
+	}
+
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
 	}
 
 	public Appliance getAppliance() {

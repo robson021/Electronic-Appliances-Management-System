@@ -1,20 +1,32 @@
 package robert.db.dao;
 
+import java.util.Collections;
+import java.util.Date;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
+
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import robert.db.entity.*;
-import robert.db.repository.*;
+
+import javassist.NotFoundException;
+import robert.db.entity.Appliance;
+import robert.db.entity.Building;
+import robert.db.entity.Reservation;
+import robert.db.entity.Room;
+import robert.db.entity.User;
+import robert.db.repository.ApplianceRepository;
+import robert.db.repository.BuildingRepository;
+import robert.db.repository.ReservationRepository;
+import robert.db.repository.RoomRepository;
+import robert.db.repository.UserRepository;
 import robert.enums.Validation;
 import robert.exceptions.ApplianceException;
+import robert.exceptions.AuthException;
 import robert.utils.api.AppLogger;
-
-import java.util.Collections;
-import java.util.Date;
-import java.util.Optional;
-import java.util.Set;
 
 @Component
 @Transactional
@@ -96,7 +108,9 @@ public class UserDao {
 		user.addReservation(reservation);
 		reservation.setAppliance(appliance);
 		reservation.setUser(user);
-		userRepository.save(user);
+        reservation.setAccessToken(UUID.randomUUID()
+                .toString());
+        userRepository.save(user);
 		log.info("New reservation made for:", user.getEmail());
 	}
 
@@ -107,6 +121,19 @@ public class UserDao {
 		}
 		return user.getReservations();
 	}
+
+    public String getTokenForMyReservation(long reservationId, String email) throws NotFoundException, AuthException {
+        Reservation reservation = reservationRepository.findOne(reservationId);
+        if ( reservation == null ) {
+            throw new NotFoundException("Reservation with id '" + reservationId + "' not found.");
+        }
+        if ( !reservation.getUser()
+                .getEmail()
+                .equals(email) ) {
+            throw new AuthException(email + " does not have permission to the reservation.");
+        }
+        return reservation.getAccessToken();
+    }
 
 	public Set<Reservation> getAllReservationsForAppliance(long applianceId) {
 		Appliance appliance = applianceRepository.findOne(applianceId);
