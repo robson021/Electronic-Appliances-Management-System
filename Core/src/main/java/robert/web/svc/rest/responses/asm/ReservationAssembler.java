@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 public class ReservationAssembler {
 
+	private static final String ERROR_APPLIANCE_LOCATION = "???";
+
 	public static List<ReservationDR> convertToReservationDR(Collection<Reservation> reservations) {
 		List<ReservationDR> listOfReservations = reservations.stream()
 				.map(reservation -> {
@@ -37,7 +39,7 @@ public class ReservationAssembler {
 			where += reservation.getAppliance().getRoom().getNumber();
 			return where;
 		} catch (Throwable ignored) {
-			return "???";
+			return ERROR_APPLIANCE_LOCATION;
 		}
 	}
 

@@ -8,16 +8,19 @@
 
         httpSvc.getMyReservations()
             .success(function (response) {
-               $scope.myReservations = $scope.convertReservations(response);
+                $scope.myReservations = $scope.convertReservations(response);
             });
 
-        $scope.convertReservations = function(reservations) {
-            if (reservations.length <= 0) {return;}
+        $scope.convertReservations = function (reservations) {
+            if (reservations.length <= 0) {
+                return;
+            }
             let res = [];
             reservations.forEach(function (r) {
                 let reservation = {};
                 reservation.id = r.id;
-                reservation.from = new Date(r.from);
+                let date = new Date(r.from);
+                reservation.from = date.toDateString() + " - " + date.toLocaleTimeString();
                 reservation.minutes = r.minutes;
                 reservation.where = r.where;
                 reservation.appliance = r.appliance;
