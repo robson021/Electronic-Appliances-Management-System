@@ -1,16 +1,30 @@
 package robert.db.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Table(name = "APPLIANCE")
 public class Appliance {
+
+    @Transient
+    private static final String DEFAULT_APPLIANCE_ADDRESS = "http://51.254.115.19:8081";
 
 	@Id
 	@GeneratedValue
@@ -28,8 +42,22 @@ public class Appliance {
 	@Column(name = "UNIQUE_CODE", nullable = false/*, unique = true*/)
 	private String uniqueCode;
 
-	@OneToMany(mappedBy = "appliance", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-	private Set<Reservation> reservations = null;
+    @Column(name = "ADDRESS")
+    private String address = null;
+
+    public String getAddress() {
+        if ( address == null ) {
+            return DEFAULT_APPLIANCE_ADDRESS;
+        }
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @OneToMany(mappedBy = "appliance", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Reservation> reservations = null;
 
 	public Long getId() {
 		return id;

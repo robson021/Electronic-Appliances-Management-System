@@ -221,4 +221,11 @@ public class UserServiceController implements UserServiceCtrl {
             return HttpStatus.BAD_REQUEST;
         }
     }
+
+    @Override
+    @RequestMapping(value = SET_ADDRESS_OF_APPLIANCE, method = RequestMethod.POST)
+    public HttpStatus setNewAddressOfAppliance(@PathVariable(APPLIANCE_ID) Long applianceId, @PathVariable(NEW_VALUE) String newName) {
+        // todo
+        return HttpStatus.OK;
+    }
 }

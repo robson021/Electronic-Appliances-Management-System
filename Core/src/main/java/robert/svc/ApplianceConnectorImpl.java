@@ -1,17 +1,18 @@
 package robert.svc;
 
+import static robert.enums.BeanNames.DEFAULT_REST_TEMPLATE;
+
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.entity.Reservation;
 import robert.enums.Validation;
 import robert.svc.api.ApplianceConnector;
-
-import java.util.Date;
-
-import static robert.enums.BeanNames.DEFAULT_REST_TEMPLATE;
 
 @Service
 public class ApplianceConnectorImpl implements ApplianceConnector {
@@ -31,13 +32,13 @@ public class ApplianceConnectorImpl implements ApplianceConnector {
 		if (accessCode == null) {
 			accessCode = Validation.MOCK_APPLIANCE_UNIQUE_CODE;
 		} else {
-			this.validateIfUserCanGrantAccessToTheAppliance(reservationId, userEmail);
+			this.validateIfUserCanGetAccessToTheAppliance(reservationId, userEmail);
 		}
 		final String url = applianceAddress + "/access/" + time + "/" + accessCode + "/";
 		return restTemplate.getForObject(url, String.class);
 	}
 
-	private void validateIfUserCanGrantAccessToTheAppliance(long reservationId, String email) throws Exception {
+	private void validateIfUserCanGetAccessToTheAppliance(long reservationId, String email) throws Exception {
 		Reservation reservation = abrmDao.findReservation(reservationId);
 		if (!reservation.getUser().getEmail().equals(email)) {
 			throw new Exception("The reservation is not for user " + email);
@@ -50,8 +51,7 @@ public class ApplianceConnectorImpl implements ApplianceConnector {
 		}
 
 		if (reservation.getValidFrom() < currentTime) {
-			throw new Exception("Too early. Reservation can be granted in "
-					+ (reservation.getValidFrom() - currentTime) + " hours");
+			throw new Exception("Too early. Reservation can be granted in " + (reservation.getValidFrom() - currentTime) + " ms");
 		}
 
 	}
