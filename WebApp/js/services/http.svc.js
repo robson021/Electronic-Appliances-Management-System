@@ -3,7 +3,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     // to allow CORS run: chromium-browser --disable-web-security --user-data-dir
 
     const self = this;
-    const url = "http://192.168.1.4:8080";
+    const url = "http://192.168.1.102:8080";
     //const url = "http://localhost:8080";
 
     // ----- basic user actions (login/register/logout etc...) -------
@@ -95,6 +95,11 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
 
     this.getAllReservations = function () {
         let uri = '/user-service/all-reservations/';
+        return $http.get(url + uri, null);
+    };
+
+    this.getTokenOfReservation = function (reservationId) {
+        let uri = '/user-service/reservation/token/' + reservationId + '/';
         return $http.get(url + uri, null);
     };
 

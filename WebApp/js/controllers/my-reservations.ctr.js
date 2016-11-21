@@ -6,6 +6,8 @@
 
         $scope.myReservations = null;
 
+        $scope.tokenForReservation = null;
+
         httpSvc.getMyReservations()
             .success(function (response) {
                 $scope.myReservations = $scope.convertReservations(response);
@@ -27,7 +29,18 @@
                 res.push(reservation);
             });
             return res;
-        }
+        };
+
+        $scope.getToken = function (reservation) {
+            httpSvc.getTokenOfReservation(reservation.id)
+                .success(function (response) {
+                    $scope.tokenForReservation = response.text;
+                    console.info(response.text);
+                });
+        };
+
+        $scope.cancelReservation = function (reservation) {
+        };
 
     }); // end of controller
 })();

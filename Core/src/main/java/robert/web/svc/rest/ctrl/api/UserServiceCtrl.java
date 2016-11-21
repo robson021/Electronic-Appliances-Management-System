@@ -2,11 +2,13 @@ package robert.web.svc.rest.ctrl.api;
 
 import java.util.List;
 
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 
 import robert.web.svc.rest.responses.data.ApplianceDR;
 import robert.web.svc.rest.responses.data.ReservationDR;
 import robert.web.svc.rest.responses.data.RoomDR;
+import robert.web.svc.rest.responses.data.SimpleDR;
 
 public interface UserServiceCtrl extends BasicParams {
 
@@ -60,7 +62,7 @@ public interface UserServiceCtrl extends BasicParams {
 
 	List<ReservationDR> getAllReservations(Long applianceId);
 
-	String getReservationToken(Long reservationId);
+	SimpleDR getReservationToken(Long reservationId);
 
 	HttpStatus registerNewBuilding(String buildingNumber);
 

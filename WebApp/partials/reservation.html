@@ -30,13 +30,13 @@
     <table class="table table-hover" ng-show="allReservations.length>0">
         <thead>
         <tr>
-            <th>From</th>
+            <th>When</th>
             <th>Minutes</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="r in allReservations">
-            <td>{{ r.from }}</td>
+            <td>{{ r.from | date:'medium'}}</td>
             <td>{{ r.minutes }}</td>
         </tr>
         </tbody>

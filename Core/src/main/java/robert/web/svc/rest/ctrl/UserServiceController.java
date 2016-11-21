@@ -4,7 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,7 @@ import robert.web.svc.rest.responses.asm.RoomAssembler;
 import robert.web.svc.rest.responses.data.ApplianceDR;
 import robert.web.svc.rest.responses.data.ReservationDR;
 import robert.web.svc.rest.responses.data.RoomDR;
+import robert.web.svc.rest.responses.data.SimpleDR;
 
 @RestController
 public class UserServiceController implements UserServiceCtrl {
@@ -73,15 +76,15 @@ public class UserServiceController implements UserServiceCtrl {
 
     @Override
     @RequestMapping(value = GET_TOKEN_FOR_RESERVATION)
-    public String getReservationToken(@PathVariable(RESERVATION_ID) Long reservationId) {
+    public SimpleDR getReservationToken(@PathVariable(RESERVATION_ID) Long reservationId) {
         log.debug("Get token for reservation -", userInfoProvider.getEmail());
         try {
             String token = userDao.getTokenForMyReservation(reservationId, userInfoProvider.getEmail());
             log.debug("Token:", token);
-            return token;
+            return new SimpleDR(token);
         } catch (Exception e) {
             log.debug(e);
-            return "NOT FOUND";
+            return new SimpleDR("NOT FOUND");
         }
     }
 

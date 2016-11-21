@@ -9,6 +9,11 @@
             You do not have any reservations.
         </div>
 
+        <div class="text-center text-primary" ng-show="tokenForReservation!=null">
+            Your token is:<br>
+            {{tokenForReservation}}
+        </div>
+
         <table class="table table-hover" ng-show="myReservations.length>0">
             <thead>
             <tr>
@@ -24,6 +29,10 @@
                 <td>{{r.appliance}}</td>
                 <td>{{r.from}}</td>
                 <td>{{r.minutes}} min</td>
+                <td>
+                    <button class="btn btn-success mwbtn" ng-click="getToken(r)">See token</button>
+                    <button class="btn btn-warning mwbtn" ng-click="cancelReservation(r)">Cancel</button>
+                </td>
             </tr>
             </tbody>
         </table>
