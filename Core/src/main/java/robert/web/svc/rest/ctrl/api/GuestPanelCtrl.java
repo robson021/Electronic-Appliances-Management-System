@@ -6,7 +6,7 @@ public interface GuestPanelCtrl {
 
     String GUEST_PREFIX = "/guest/";
 
-    String CONNECT_TO_APPLIANCE_AS_GUEST_URL = GUEST_PREFIX + "/connect-to-appliance/";
+    String CONNECT_TO_APPLIANCE_AS_GUEST_URL = GUEST_PREFIX + "connect-to-appliance/";
 
     SimpleDR connectMeToTheApplianceAsGuest(SimpleDR requestBody);
 

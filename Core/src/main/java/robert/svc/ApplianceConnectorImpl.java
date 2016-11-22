@@ -14,16 +14,20 @@ import robert.db.entity.Appliance;
 import robert.db.entity.Reservation;
 import robert.enums.Validation;
 import robert.svc.api.ApplianceConnector;
+import robert.utils.api.AppLogger;
 
 @Service
 public class ApplianceConnectorImpl implements ApplianceConnector {
+
+    private final AppLogger log;
 
     private final RestTemplate restTemplate;
 
     private final ApplianceBuildingRoomManagementDao abrmDao;
 
     @Autowired
-    public ApplianceConnectorImpl(@Qualifier(DEFAULT_REST_TEMPLATE) RestTemplate restTemplate, ApplianceBuildingRoomManagementDao abrmDao) {
+    public ApplianceConnectorImpl(AppLogger log, @Qualifier(DEFAULT_REST_TEMPLATE) RestTemplate restTemplate, ApplianceBuildingRoomManagementDao abrmDao) {
+        this.log = log;
         this.restTemplate = restTemplate;
         this.abrmDao = abrmDao;
     }
@@ -48,7 +52,9 @@ public class ApplianceConnectorImpl implements ApplianceConnector {
 
     private String connect(String applianceAddress, int time, String accessCode) {
         String url = applianceAddress + "/access/" + time + "/" + accessCode + "/";
-        return restTemplate.getForObject(url, String.class);
+        String response = restTemplate.getForObject(url, String.class);
+        log.debug(url, "-->", response);
+        return response;
     }
 
     private void validateIfUserCanGetAccessToTheAppliance(long reservationId, String email) throws Exception {
@@ -69,7 +75,7 @@ public class ApplianceConnectorImpl implements ApplianceConnector {
             throw new Exception("Reservation time has expired");
         }
 
-        if ( reservation.getValidFrom() < currentTime ) {
+        if ( reservation.getValidFrom() > currentTime ) {
             throw new Exception("Too early. Reservation can be accessed in " + (reservation.getValidFrom() - currentTime) + " ms");
         }
     }

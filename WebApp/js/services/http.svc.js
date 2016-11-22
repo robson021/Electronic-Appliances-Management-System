@@ -260,6 +260,18 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         });
     };
 
+    this.submitTokenAsGuest = function (token) {
+        let uri = '/guest/connect-to-appliance/';
+        let requestBody = {
+            "text" : token
+        };
+        $http.post(url + uri, requestBody)
+            .success(function (response) {
+                toastr.info(response.text);
+                console.info(response.text)
+            });
+    };
+
     // ------ other --------
 
     this.displayMessage = function (response, okMsg, errorMsg) {
