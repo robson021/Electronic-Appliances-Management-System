@@ -1,11 +1,11 @@
 package robert.web.svc.rest.responses.asm;
 
-import robert.db.entity.Reservation;
-import robert.web.svc.rest.responses.data.ReservationDR;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import robert.db.entity.Reservation;
+import robert.web.svc.rest.responses.data.ReservationDR;
 
 public class ReservationAssembler {
 
@@ -28,7 +28,7 @@ public class ReservationAssembler {
 		return listOfReservations;
 	}
 
-	private static long convertToMinutes(long diff) {
+	public static long convertToMinutes(long diff) {
 		return (diff / 1000 / 60);
 	}
 

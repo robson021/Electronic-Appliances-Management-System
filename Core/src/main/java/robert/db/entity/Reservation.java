@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
+import robert.web.svc.rest.responses.asm.ReservationAssembler;
+
 @Entity
 @Table(name = "RESERVATION")
 public class Reservation {
@@ -86,6 +88,10 @@ public class Reservation {
 	public void setValidTill(Long validTill) {
 		this.validTill = validTill;
 	}
+
+    public int getDurationOfAccess() {
+        return (int) ReservationAssembler.convertToMinutes(validTill - validFrom);
+    }
 
 	@Override
 	public boolean equals(Object o) {
