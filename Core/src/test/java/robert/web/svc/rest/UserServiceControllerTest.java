@@ -18,7 +18,6 @@ import utils.SpringWebMvcTest;
 import utils.TestUtils;
 
 import java.util.List;
-import java.util.UUID;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -193,24 +192,9 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 				.replace("{room-id}", String.valueOf(roomId))
 				.replace("{appl-name}", applName);
 
-		String responseUuid = mockMvc.perform(put(url))
+		mockMvc.perform(put(url))
 				.andExpect(status().isOk())
-				.andReturn()
-				.getResponse()
-				.getContentAsString();
-
-		final int anyRandomUuidLength = UUID.randomUUID().toString().length();
-
-		Assertions.assertThat(responseUuid)
-				.hasSize(anyRandomUuidLength);
-
-		Appliance applianceByUniqueCode = abrmDao.findApplianceByUniqueCode(responseUuid);
-
-		Assertions.assertThat(applianceByUniqueCode)
-				.isNotNull()
-				.hasNoNullFieldsOrPropertiesExcept("reservations")
-				.hasFieldOrPropertyWithValue("name", applName)
-				.hasFieldOrPropertyWithValue("uniqueCode", responseUuid);
+				.andReturn();
 	}
 
 	@Test

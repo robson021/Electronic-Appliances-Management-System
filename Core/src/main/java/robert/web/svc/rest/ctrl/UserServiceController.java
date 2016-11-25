@@ -152,15 +152,15 @@ public class UserServiceController implements UserServiceCtrl {
 
 	@Override
 	@RequestMapping(value = REGISTER_NEW_APPLIANCE_URL, method = RequestMethod.PUT)
-	public String registerNewAppliance(@PathVariable(ROOM_ID) Long roomId, @PathVariable(APPLIANCE_NAME) String applianceName) {
-		String applianceUniqueCode = null;
+	public SimpleDR registerNewAppliance(@PathVariable(ROOM_ID) Long roomId, @PathVariable(APPLIANCE_NAME) String applianceName) {
 		try {
-			applianceUniqueCode = abrmDao.addApplianceToTheRoom(roomId, applianceName);
-			log.info("Registered new appliance:", applianceName, "with it's code:", applianceUniqueCode);
+			String applianceUniqueCode = abrmDao.addApplianceToTheRoom(roomId, applianceName);
+			log.info("Registered new appliance -", applianceName, "with it's code:", applianceUniqueCode);
+			return new SimpleDR(applianceUniqueCode);
 		} catch (Exception e) {
 			log.debug(e);
+			return new SimpleDR("ERROR");
 		}
-		return applianceUniqueCode;
 	}
 
 	@Override

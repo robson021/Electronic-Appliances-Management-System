@@ -72,7 +72,7 @@ public interface UserServiceCtrl extends BasicParams {
 
 	HttpStatus registerNewRoomInBuilding(String building, String roomNum);
 
-	String registerNewAppliance(Long roomId, String applianceName);
+	SimpleDR registerNewAppliance(Long roomId, String applianceName);
 
 	HttpStatus deleteBuilding(String buildingNumber);
 
