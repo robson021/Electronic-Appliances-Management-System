@@ -10,6 +10,7 @@
 
         $scope.currentView = null;
 
+        // TODO session storage
         $scope.allBuildings = null;
         $scope.allRoomsInBuilding = null;
         $scope.allAppliancesInRoom = null;

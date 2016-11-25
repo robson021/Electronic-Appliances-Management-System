@@ -3,8 +3,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     // to allow CORS run: chromium-browser --disable-web-security --user-data-dir
 
     const self = this;
-    const url = "http://192.168.1.102:8080";
-    //const url = "http://localhost:8080";
+    const url = "http://192.168.1.2:8080";
 
     // ----- basic user actions (login/register/logout etc...) -------
 
@@ -31,7 +30,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
                 console.info('login user:' + response);
                 if (response === 'OK') {
                     $rootScope.loggedIn = true;
-                    $state.go('default');
+                    $state.go('user-panel');
                     toastr.success('You have been logged in.');
                     self.clearObject(user);
                 } else {
@@ -54,7 +53,6 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
                 if (response === 'OK') {
                     $state.go('default');
                     toastr.success('Successfully registered your account.');
-                    //self.loginUser(user);
                 } else if (response === 'FORBIDDEN') {
                     toastr.error('Invalid e-mail or password pattern.');
                 } else {
@@ -150,8 +148,8 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         $http.delete(url + uri, null)
             .success(function (response) {
                 self.displayMessage(response,
-                    'Successfully renamed the appliance.',
-                    'Could not rename the appliance.');
+                    'Successfully deleted the appliance.',
+                    'Could not deleted the appliance.');
             });
     };
 
@@ -191,8 +189,8 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         let uri = '/user-service/register-appliance/' + roomId + '/' + applianceName + '/';
         $http.put(url + uri, null)
             .success(function (response) {
-                console.info(response);
-                // todo: change back-end response type to JSON
+                console.info(response.text);
+                toastr.info("Appliance unique code: " + response.text);
             });
     };
 
@@ -258,6 +256,18 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
                 $state.go('user-panel');
             }
         });
+    };
+
+    this.cancelReservation = function (reservationId) {
+        let uri = '/user-service/cancel-reservation/' + reservationId + '/';
+        $http.delete(url + uri, null)
+            .success(function (response) {
+                $state.reload();
+                self.displayMessage(response,
+                    "The reservation has been cancelled.",
+                    "Cannot cancel the reservation."
+                );
+            });
     };
 
     this.submitTokenAsGuest = function (token) {

@@ -40,6 +40,7 @@
         };
 
         $scope.cancelReservation = function (reservation) {
+            httpSvc.cancelReservation(reservation.id);
         };
 
     }); // end of controller
