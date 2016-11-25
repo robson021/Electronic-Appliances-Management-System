@@ -102,8 +102,7 @@ public class UserDao {
 
 	public Set<Reservation> getUsersReservations(String email) {
 		User user = userRepository.findOneByEmail(email);
-		if (user == null || user.getReservations()
-				.isEmpty()) {
+		if (user == null || user.getReservations().isEmpty()) {
 			return Collections.emptySet();
 		}
 		return user.getReservations();

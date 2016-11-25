@@ -112,6 +112,18 @@ public class UserDaoTest extends SpringTest {
 	}
 
 	@Test
+	public void changeApplianceAddress() throws Throwable {
+		Appliance appliance = abrmDao.saveAppliance(TestUtils.generateRandomAppliance());
+
+		final String newAddress = "TEST_ADDRESS.com:8080";
+		userDao.setNewAddressForTheAppliance(appliance.getId(), newAddress);
+
+		Assertions.assertThat(abrmDao.findApplianceById(appliance.getId()))
+				.isNotNull()
+				.hasFieldOrPropertyWithValue("address", newAddress);
+	}
+
+	@Test
 	public void deleteBuilding() throws Exception {
 		final int numOfRooms = 5;
 		final String buildingName = abrmDao.saveBuilding(TestUtils.generateRandomBuildingWithRooms(numOfRooms))
