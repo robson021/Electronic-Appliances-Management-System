@@ -14,6 +14,7 @@ import utils.TestUtils;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserDaoTest extends SpringTest {
@@ -69,16 +70,17 @@ public class UserDaoTest extends SpringTest {
 	}
 
 	@Test
-	public void addReservationToUser() throws Exception {
+	public void addAndCancelReservation() throws Exception {
 		User user = TestUtils.generateRandomActiveUser();
 		user = userDao.saveUser(user);
 
 		Appliance appliance = TestUtils.generateRandomAppliance();
 		appliance = abrmDao.saveAppliance(appliance);
 
-		userDao.makeReservationForAppliance(user.getEmail(), appliance.getId(), new Date(), 2);
+		final String email = user.getEmail();
+		userDao.makeReservationForAppliance(email, appliance.getId(), new Date(), 2);
 
-		user = userDao.findUserByEmail(user.getEmail());
+		user = userDao.findUserByEmail(email);
 		Assertions.assertThat(user)
 				.isNotNull();
 
@@ -95,13 +97,18 @@ public class UserDaoTest extends SpringTest {
 		Assertions.assertThat(reservation.getValidTill())
 				.isGreaterThan(reservation.getValidFrom());
 
-		Assertions.assertThat(userDao.getUsersReservations(user.getEmail()))
+		Set<Reservation> usersReservations = userDao.getUsersReservations(email);
+		Assertions.assertThat(usersReservations)
 				.isNotEmpty()
 				.hasSize(1);
 
 		Collection<Reservation> allReservations = userDao.getAllReservationsForAppliance(appliance.getId());
 		Assertions.assertThat(allReservations)
 				.isNotEmpty();
+
+		userDao.cancelReservation(email, usersReservations.iterator().next().getId());
+		Assertions.assertThat(userDao.getUsersReservations(email))
+				.isEmpty();
 	}
 
 	@Test

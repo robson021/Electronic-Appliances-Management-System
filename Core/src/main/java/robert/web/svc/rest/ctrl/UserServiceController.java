@@ -1,18 +1,8 @@
 package robert.web.svc.rest.ctrl;
 
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.exceptions.ApplianceException;
@@ -26,6 +16,9 @@ import robert.web.svc.rest.responses.data.ApplianceDR;
 import robert.web.svc.rest.responses.data.ReservationDR;
 import robert.web.svc.rest.responses.data.RoomDR;
 import robert.web.svc.rest.responses.data.SimpleDR;
+
+import java.util.Date;
+import java.util.List;
 
 @RestController
 public class UserServiceController implements UserServiceCtrl {
@@ -72,6 +65,28 @@ public class UserServiceController implements UserServiceCtrl {
     public List<ReservationDR> getAllReservations(@PathVariable(APPLIANCE_ID) Long applianceId) {
         log.debug("Get all reservations - ", userInfoProvider.getEmail());
         return ReservationAssembler.convertToReservationDR(userDao.getAllReservationsForAppliance(applianceId));
+    }
+
+    @Override
+    @RequestMapping(value = CANCEL_MY_RESERVATIONS_URL, method = RequestMethod.DELETE)
+    public HttpStatus cancelMyReservation(@PathVariable(RESERVATION_ID) Long reservationId) {
+        log.debug("User", userInfoProvider.getEmail(), "wants to delete reservation", reservationId);
+        try {
+            userDao.cancelReservation(userInfoProvider.getEmail(), reservationId);
+            return HttpStatus.OK;
+        } catch (Exception e) {
+            log.debug(e);
+            return HttpStatus.CONFLICT;
+        }
+    }
+
+    @Override
+    @RequestMapping(value = SET_NEW_ADDRESS_0F_APPLIANCE_URL, method = RequestMethod.POST)
+    public HttpStatus setApplianceAddress(@PathVariable(APPLIANCE_ID) Long applianceId,
+                                          @PathVariable(NEW_VALUE) String newAddress) {
+        log.debug(userInfoProvider.getEmail(), "wants to set new address for the appliance '", applianceId, "' -", newAddress);
+        userDao.setNewAddressForTheAppliance(applianceId, newAddress);
+        return HttpStatus.OK;
     }
 
     @Override
@@ -225,10 +240,4 @@ public class UserServiceController implements UserServiceCtrl {
         }
     }
 
-    @Override
-    @RequestMapping(value = SET_ADDRESS_OF_APPLIANCE, method = RequestMethod.POST)
-    public HttpStatus setNewAddressOfAppliance(@PathVariable(APPLIANCE_ID) Long applianceId, @PathVariable(NEW_VALUE) String newName) {
-        // todo
-        return HttpStatus.OK;
-    }
 }

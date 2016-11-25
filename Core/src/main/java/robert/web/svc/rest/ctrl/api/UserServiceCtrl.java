@@ -1,14 +1,12 @@
 package robert.web.svc.rest.ctrl.api;
 
-import java.util.List;
-
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
-
 import robert.web.svc.rest.responses.data.ApplianceDR;
 import robert.web.svc.rest.responses.data.ReservationDR;
 import robert.web.svc.rest.responses.data.RoomDR;
 import robert.web.svc.rest.responses.data.SimpleDR;
+
+import java.util.List;
 
 public interface UserServiceCtrl extends BasicParams {
 
@@ -23,6 +21,8 @@ public interface UserServiceCtrl extends BasicParams {
 	String MAKE_RESERVATION_URL = USER_SERVICE_PREFIX + "reservation" + "/{" + APPLIANCE_ID + "}/";
 
 	String GET_MY_RESERVATIONS_URL = USER_SERVICE_PREFIX + "my-reservations/";
+
+	String CANCEL_MY_RESERVATIONS_URL = USER_SERVICE_PREFIX + "cancel-reservation/{" + RESERVATION_ID + "}/";
 
 	String GET_ALL_RESERVATIONS_FOR_APPLIANCE_URL = USER_SERVICE_PREFIX + "all-reservations/{" + APPLIANCE_ID + "}/";
 
@@ -48,7 +48,7 @@ public interface UserServiceCtrl extends BasicParams {
 
 	String RENAME_APPLIANCE_URL = USER_SERVICE_PREFIX + "rename/appliance/{" + APPLIANCE_ID + "}/{" + NEW_VALUE + "}/";
 
-    String SET_ADDRESS_OF_APPLIANCE = USER_SERVICE_PREFIX + "appliance/{" + APPLIANCE_ID + "}/set-address/{" + NEW_VALUE + "}/";
+	String SET_NEW_ADDRESS_0F_APPLIANCE_URL = USER_SERVICE_PREFIX + "new-address/appliance/{" + APPLIANCE_ID + "}/{" + NEW_VALUE + "}/";
 
 	List<RoomDR> getAllRoomsInBuilding(String buildingNumber);
 
@@ -61,6 +61,10 @@ public interface UserServiceCtrl extends BasicParams {
 	List<ReservationDR> getMyReservations();
 
 	List<ReservationDR> getAllReservations(Long applianceId);
+
+	HttpStatus cancelMyReservation(Long reservationId);
+
+	HttpStatus setApplianceAddress(Long applianceId, String newAddress);
 
 	SimpleDR getReservationToken(Long reservationId);
 
@@ -81,7 +85,5 @@ public interface UserServiceCtrl extends BasicParams {
 	HttpStatus deleteAppliance(Long applianceId);
 
 	HttpStatus renameAppliance(Long applianceId, String newName);
-
-    HttpStatus setNewAddressOfAppliance(Long applianceId, String newName);
 
 }
