@@ -3,7 +3,8 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     // to allow CORS run: chromium-browser --disable-web-security --user-data-dir
 
     const self = this;
-    const url = "http://192.168.1.2:8080";
+    const url = "http://localhost:8080";
+    //const url = "http://192.168.1.2:8080";
 
     // ----- basic user actions (login/register/logout etc...) -------
 

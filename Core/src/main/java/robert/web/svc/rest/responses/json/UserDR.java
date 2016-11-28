@@ -1,4 +1,4 @@
-package robert.web.svc.rest.responses.data;
+package robert.web.svc.rest.responses.json;
 
 public class UserDR {
 

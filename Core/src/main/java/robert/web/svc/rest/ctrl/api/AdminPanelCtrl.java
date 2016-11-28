@@ -1,9 +1,10 @@
 package robert.web.svc.rest.ctrl.api;
 
-import org.springframework.http.HttpStatus;
-import robert.web.svc.rest.responses.data.UserDR;
-
 import java.util.List;
+
+import org.springframework.http.HttpStatus;
+
+import robert.web.svc.rest.responses.json.UserDR;
 
 public interface AdminPanelCtrl extends BasicParams {
 

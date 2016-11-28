@@ -27,7 +27,7 @@ import robert.enums.Validation;
 import robert.exceptions.ApplianceException;
 import robert.exceptions.AuthException;
 import robert.utils.api.AppLogger;
-import robert.web.svc.rest.responses.data.ReservationInfo;
+import robert.web.svc.rest.responses.ReservationInfo;
 
 @Component
 @Transactional

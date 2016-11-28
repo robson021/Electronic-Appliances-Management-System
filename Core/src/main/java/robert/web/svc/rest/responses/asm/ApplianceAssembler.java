@@ -1,11 +1,11 @@
 package robert.web.svc.rest.responses.asm;
 
-import robert.db.entity.Appliance;
-import robert.web.svc.rest.responses.data.ApplianceDR;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import robert.db.entity.Appliance;
+import robert.web.svc.rest.responses.json.ApplianceDR;
 
 public class ApplianceAssembler {
 

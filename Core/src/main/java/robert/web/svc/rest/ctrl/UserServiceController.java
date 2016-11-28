@@ -18,14 +18,14 @@ import robert.svc.api.ApplianceConnector;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.ctrl.api.UserServiceCtrl;
+import robert.web.svc.rest.responses.ReservationInfo;
 import robert.web.svc.rest.responses.asm.ApplianceAssembler;
 import robert.web.svc.rest.responses.asm.ReservationAssembler;
 import robert.web.svc.rest.responses.asm.RoomAssembler;
-import robert.web.svc.rest.responses.data.ApplianceDR;
-import robert.web.svc.rest.responses.data.ReservationDR;
-import robert.web.svc.rest.responses.data.ReservationInfo;
-import robert.web.svc.rest.responses.data.RoomDR;
-import robert.web.svc.rest.responses.data.SimpleDR;
+import robert.web.svc.rest.responses.json.ApplianceDR;
+import robert.web.svc.rest.responses.json.ReservationDR;
+import robert.web.svc.rest.responses.json.RoomDR;
+import robert.web.svc.rest.responses.json.SimpleDR;
 
 @RestController
 public class UserServiceController implements UserServiceCtrl {

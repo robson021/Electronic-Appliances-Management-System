@@ -1,11 +1,11 @@
 package robert.web.svc.rest.responses.asm;
 
-import robert.db.entity.Room;
-import robert.web.svc.rest.responses.data.RoomDR;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import robert.db.entity.Room;
+import robert.web.svc.rest.responses.json.RoomDR;
 
 public class RoomAssembler {
 

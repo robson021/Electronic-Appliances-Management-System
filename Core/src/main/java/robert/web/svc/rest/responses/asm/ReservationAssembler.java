@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import robert.db.entity.Reservation;
-import robert.web.svc.rest.responses.data.ReservationDR;
+import robert.web.svc.rest.responses.json.ReservationDR;
 
 public class ReservationAssembler {
 

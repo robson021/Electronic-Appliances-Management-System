@@ -1,6 +1,6 @@
 package robert.web.svc.rest.ctrl.api;
 
-import robert.web.svc.rest.responses.data.SimpleDR;
+import robert.web.svc.rest.responses.json.SimpleDR;
 
 public interface GuestPanelCtrl {
 

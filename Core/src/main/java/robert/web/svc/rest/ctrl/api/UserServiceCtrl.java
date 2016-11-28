@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import robert.web.svc.rest.responses.data.ApplianceDR;
-import robert.web.svc.rest.responses.data.ReservationDR;
-import robert.web.svc.rest.responses.data.RoomDR;
-import robert.web.svc.rest.responses.data.SimpleDR;
+import robert.web.svc.rest.responses.json.ApplianceDR;
+import robert.web.svc.rest.responses.json.ReservationDR;
+import robert.web.svc.rest.responses.json.RoomDR;
+import robert.web.svc.rest.responses.json.SimpleDR;
 
 public interface UserServiceCtrl extends BasicParams {
 
