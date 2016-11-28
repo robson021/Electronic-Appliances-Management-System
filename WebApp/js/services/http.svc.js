@@ -255,6 +255,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
             console.info(response);
             if (response === 'OK') {
                 $state.go('user-panel');
+                toastr.success('Reservation done.')
             }
         });
     };
