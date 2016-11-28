@@ -39,6 +39,10 @@
                 });
         };
 
+        $scope.connectToTheAppliance = function (reservation) {
+            httpSvc.connectToApplianceAsLoggedUser(reservation.id);
+        };
+
         $scope.cancelReservation = function (reservation) {
             httpSvc.cancelReservation(reservation.id);
         };

@@ -274,12 +274,19 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     this.submitTokenAsGuest = function (token) {
         let uri = '/guest/connect-to-appliance/';
         let requestBody = {
-            "text" : token
+            "text": token
         };
         $http.post(url + uri, requestBody)
             .success(function (response) {
-                toastr.info(response.text);
-                console.info(response.text)
+                self.simpleMsg(response.text);
+            });
+    };
+
+    this.connectToApplianceAsLoggedUser = function (reservationId) {
+        let uri = '/user-service/connect-to-appliance/' + reservationId + '/';
+        $http.post(url + uri, null)
+            .success(function (response) {
+                self.simpleMsg(response.text);
             });
     };
 
@@ -292,6 +299,11 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
             toastr.error(errorMsg);
         }
         console.info(response);
+    };
+
+    this.simpleMsg = function (text) {
+        toastr.info(text);
+        console.info(text);
     };
 
     this.clearObject = function (obj) {

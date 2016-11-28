@@ -253,18 +253,22 @@ public class UserServiceController implements UserServiceCtrl {
 
     @Override
     @RequestMapping(value = CONNECT_USER_TO_APPLIANCE_URL, method = RequestMethod.POST)
-    public ResponseEntity<String> connectToTheAppliance(@PathVariable(RESERVATION_ID) Long reservationId) {
+    public SimpleDR connectToTheAppliance(@PathVariable(RESERVATION_ID) Long reservationId) {
         String email = userInfoProvider.getEmail();
         log.info(email, "is trying to connect to the appliance");
         try {
             ReservationInfo ri = userDao.getReservationInfo(reservationId, email);
-            String response = applianceConnector.connectToTheAppliance(ri.getApplianceAddress(), ri.getTime(), ri.getAccessCode(), ri.getReservationId(),
+            String response = applianceConnector.connectToTheAppliance( //
+                    ri.getApplianceAddress(), //
+                    ri.getTime(), //
+                    ri.getAccessCode(), //
+                    ri.getReservationId(), //
                     email);
             log.info("Connected with response:", response);
-            return new ResponseEntity<>(response, HttpStatus.OK);
+            return new SimpleDR(response);
         } catch (Exception e) {
             log.debug(e);
-            return new ResponseEntity<>("Could not connect", HttpStatus.CONFLICT);
+            return new SimpleDR("Could not connect");
         }
     }
 

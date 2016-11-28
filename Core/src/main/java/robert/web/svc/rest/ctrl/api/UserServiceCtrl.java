@@ -90,6 +90,6 @@ public interface UserServiceCtrl extends BasicParams {
 
 	HttpStatus renameAppliance(Long applianceId, String newName);
 
-    ResponseEntity<String> connectToTheAppliance(Long reservationId);
+    SimpleDR connectToTheAppliance(Long reservationId);
 
 }
