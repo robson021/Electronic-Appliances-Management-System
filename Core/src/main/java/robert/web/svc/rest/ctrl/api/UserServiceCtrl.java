@@ -1,12 +1,14 @@
 package robert.web.svc.rest.ctrl.api;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import robert.web.svc.rest.responses.data.ApplianceDR;
 import robert.web.svc.rest.responses.data.ReservationDR;
 import robert.web.svc.rest.responses.data.RoomDR;
 import robert.web.svc.rest.responses.data.SimpleDR;
-
-import java.util.List;
 
 public interface UserServiceCtrl extends BasicParams {
 
@@ -50,6 +52,8 @@ public interface UserServiceCtrl extends BasicParams {
 
 	String SET_NEW_ADDRESS_0F_APPLIANCE_URL = USER_SERVICE_PREFIX + "new-address/appliance/{" + APPLIANCE_ID + "}/{" + NEW_VALUE + "}/";
 
+    String CONNECT_USER_TO_APPLIANCE_URL = USER_SERVICE_PREFIX + "connect-to-appliance/{" + RESERVATION_ID + "}/";
+
 	List<RoomDR> getAllRoomsInBuilding(String buildingNumber);
 
 	List<ApplianceDR> getAllAppliancesInRoom(Long roomId);
@@ -85,5 +89,7 @@ public interface UserServiceCtrl extends BasicParams {
 	HttpStatus deleteAppliance(Long applianceId);
 
 	HttpStatus renameAppliance(Long applianceId, String newName);
+
+    ResponseEntity<String> connectToTheAppliance(Long reservationId);
 
 }
