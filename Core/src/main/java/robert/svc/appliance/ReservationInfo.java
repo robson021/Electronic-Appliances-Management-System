@@ -1,4 +1,4 @@
-package robert.web.svc.rest.responses;
+package robert.svc.appliance;
 
 public class ReservationInfo {
 

@@ -1,14 +1,12 @@
 package robert.web.svc.rest.ctrl.api;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import robert.web.svc.rest.responses.json.ApplianceDTO;
+import robert.web.svc.rest.responses.json.ReservationDTO;
+import robert.web.svc.rest.responses.json.RoomDTO;
+import robert.web.svc.rest.responses.json.SimpleDTO;
 
-import robert.web.svc.rest.responses.json.ApplianceDR;
-import robert.web.svc.rest.responses.json.ReservationDR;
-import robert.web.svc.rest.responses.json.RoomDR;
-import robert.web.svc.rest.responses.json.SimpleDR;
+import java.util.List;
 
 public interface UserServiceCtrl extends BasicParams {
 
@@ -54,29 +52,29 @@ public interface UserServiceCtrl extends BasicParams {
 
     String CONNECT_USER_TO_APPLIANCE_URL = USER_SERVICE_PREFIX + "connect-to-appliance/{" + RESERVATION_ID + "}/";
 
-	List<RoomDR> getAllRoomsInBuilding(String buildingNumber);
+	List<RoomDTO> getAllRoomsInBuilding(String buildingNumber);
 
-	List<ApplianceDR> getAllAppliancesInRoom(Long roomId);
+	List<ApplianceDTO> getAllAppliancesInRoom(Long roomId);
 
 	List<String> getAllAvailableBuildings();
 
-	HttpStatus makeReservation(Long applianceId, ReservationDR reservationDR);
+	HttpStatus makeReservation(Long applianceId, ReservationDTO reservationDTO);
 
-	List<ReservationDR> getMyReservations();
+	List<ReservationDTO> getMyReservations();
 
-	List<ReservationDR> getAllReservations(Long applianceId);
+	List<ReservationDTO> getAllReservations(Long applianceId);
 
 	HttpStatus cancelMyReservation(Long reservationId);
 
 	HttpStatus setApplianceAddress(Long applianceId, String newAddress);
 
-	SimpleDR getReservationToken(Long reservationId);
+	SimpleDTO getReservationToken(Long reservationId);
 
 	HttpStatus registerNewBuilding(String buildingNumber);
 
 	HttpStatus registerNewRoomInBuilding(String building, String roomNum);
 
-	SimpleDR registerNewAppliance(Long roomId, String applianceName);
+	SimpleDTO registerNewAppliance(Long roomId, String applianceName);
 
 	HttpStatus deleteBuilding(String buildingNumber);
 
@@ -90,6 +88,6 @@ public interface UserServiceCtrl extends BasicParams {
 
 	HttpStatus renameAppliance(Long applianceId, String newName);
 
-    SimpleDR connectToTheAppliance(Long reservationId);
+	SimpleDTO connectToTheAppliance(Long reservationId);
 
 }

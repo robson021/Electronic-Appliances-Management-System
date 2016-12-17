@@ -1,14 +1,14 @@
 package robert.web.svc.rest.responses.json;
 
-public class SimpleDR {
+public class SimpleDTO {
 
     private String text;
 
-    public SimpleDR() {
-    }
+	public SimpleDTO() {
+	}
 
-    public SimpleDR(String text) {
-        this.text = text;
+	public SimpleDTO(String text) {
+		this.text = text;
     }
 
     public String getText() {

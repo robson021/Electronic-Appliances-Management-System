@@ -2,13 +2,13 @@ package robert.web.svc.rest.responses.json;
 
 import java.util.List;
 
-public class ApplianceDR {
+public class ApplianceDTO {
 
 	private long id;
 
 	private String name;
 
-	private List<ReservationDR> reservations;
+	private List<ReservationDTO> reservations;
 
 	public long getId() {
 		return id;
@@ -26,11 +26,11 @@ public class ApplianceDR {
 		this.name = name;
 	}
 
-	public List<ReservationDR> getReservations() {
+	public List<ReservationDTO> getReservations() {
 		return reservations;
 	}
 
-	public void setReservations(List<ReservationDR> reservations) {
+	public void setReservations(List<ReservationDTO> reservations) {
 		this.reservations = reservations;
 	}
 }

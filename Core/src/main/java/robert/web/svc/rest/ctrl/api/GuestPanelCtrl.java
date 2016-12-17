@@ -1,6 +1,6 @@
 package robert.web.svc.rest.ctrl.api;
 
-import robert.web.svc.rest.responses.json.SimpleDR;
+import robert.web.svc.rest.responses.json.SimpleDTO;
 
 public interface GuestPanelCtrl {
 
@@ -8,6 +8,6 @@ public interface GuestPanelCtrl {
 
     String CONNECT_TO_APPLIANCE_AS_GUEST_URL = GUEST_PREFIX + "connect-to-appliance/";
 
-    SimpleDR connectMeToTheApplianceAsGuest(SimpleDR requestBody);
+	SimpleDTO connectMeToTheApplianceAsGuest(SimpleDTO requestBody);
 
 }

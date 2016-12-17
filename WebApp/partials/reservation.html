@@ -32,12 +32,14 @@
         <tr>
             <th>When</th>
             <th>Minutes</th>
+            <th>By</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="r in allReservations">
             <td>{{ r.from | date:'medium'}}</td>
             <td>{{ r.minutes }}</td>
+            <td>{{ r.owner }}</td>
         </tr>
         </tbody>
     </table>

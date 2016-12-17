@@ -1,31 +1,25 @@
 package robert.web.svc.rest.ctrl;
 
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.svc.api.ApplianceConnector;
+import robert.svc.appliance.ReservationInfo;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.ctrl.api.UserServiceCtrl;
-import robert.web.svc.rest.responses.ReservationInfo;
 import robert.web.svc.rest.responses.asm.ApplianceAssembler;
 import robert.web.svc.rest.responses.asm.ReservationAssembler;
 import robert.web.svc.rest.responses.asm.RoomAssembler;
-import robert.web.svc.rest.responses.json.ApplianceDR;
-import robert.web.svc.rest.responses.json.ReservationDR;
-import robert.web.svc.rest.responses.json.RoomDR;
-import robert.web.svc.rest.responses.json.SimpleDR;
+import robert.web.svc.rest.responses.json.ApplianceDTO;
+import robert.web.svc.rest.responses.json.ReservationDTO;
+import robert.web.svc.rest.responses.json.RoomDTO;
+import robert.web.svc.rest.responses.json.SimpleDTO;
+
+import java.util.Date;
+import java.util.List;
 
 @RestController
 public class UserServiceController implements UserServiceCtrl {
@@ -52,11 +46,11 @@ public class UserServiceController implements UserServiceCtrl {
 
     @Override
     @RequestMapping(value = MAKE_RESERVATION_URL, method = RequestMethod.POST)
-    public HttpStatus makeReservation(@PathVariable(APPLIANCE_ID) Long applianceId, @RequestBody ReservationDR reservationDR) {
+    public HttpStatus makeReservation(@PathVariable(APPLIANCE_ID) Long applianceId, @RequestBody ReservationDTO reservationDTO) {
 
         HttpStatus status = HttpStatus.OK;
         try {
-            userDao.makeReservationForAppliance(userInfoProvider.getEmail(), applianceId, new Date(reservationDR.getFrom()), (int) reservationDR.getMinutes());
+            userDao.makeReservationForAppliance(userInfoProvider.getEmail(), applianceId, new Date(reservationDTO.getFrom()), (int) reservationDTO.getMinutes());
             log.info("New reservation done by", userInfoProvider.getEmail());
         } catch (Exception e) {
             log.debug(e);
@@ -67,14 +61,14 @@ public class UserServiceController implements UserServiceCtrl {
 
     @Override
     @RequestMapping(value = GET_MY_RESERVATIONS_URL)
-    public List<ReservationDR> getMyReservations() {
+    public List<ReservationDTO> getMyReservations() {
         log.debug("Get user's reservations for user:", userInfoProvider.getEmail());
         return ReservationAssembler.convertToReservationDR(userDao.getUsersReservations(userInfoProvider.getEmail()));
     }
 
     @Override
     @RequestMapping(value = GET_ALL_RESERVATIONS_FOR_APPLIANCE_URL)
-    public List<ReservationDR> getAllReservations(@PathVariable(APPLIANCE_ID) Long applianceId) {
+    public List<ReservationDTO> getAllReservations(@PathVariable(APPLIANCE_ID) Long applianceId) {
         log.debug("Get all reservations - ", userInfoProvider.getEmail());
         return ReservationAssembler.convertToReservationDR(userDao.getAllReservationsForAppliance(applianceId));
     }
@@ -102,28 +96,28 @@ public class UserServiceController implements UserServiceCtrl {
 
     @Override
     @RequestMapping(value = GET_TOKEN_FOR_RESERVATION)
-    public SimpleDR getReservationToken(@PathVariable(RESERVATION_ID) Long reservationId) {
+    public SimpleDTO getReservationToken(@PathVariable(RESERVATION_ID) Long reservationId) {
         log.debug("Get token for reservation -", userInfoProvider.getEmail());
         try {
             String token = userDao.getTokenForMyReservation(reservationId, userInfoProvider.getEmail());
             log.debug("Token:", token);
-            return new SimpleDR(token);
+            return new SimpleDTO(token);
         } catch (Exception e) {
             log.debug(e);
-            return new SimpleDR("NOT FOUND");
+            return new SimpleDTO("NOT FOUND");
         }
     }
 
     @Override
     @RequestMapping(value = GET_ALL_ROOMS_IN_BUILDING_URL)
-    public List<RoomDR> getAllRoomsInBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
+    public List<RoomDTO> getAllRoomsInBuilding(@PathVariable(BUILDING_NUMBER) String buildingNumber) {
         log.debug(userInfoProvider.getEmail(), "get all rooms in building:", buildingNumber);
         return RoomAssembler.convertToRoomDR(abrmDao.findAllRoomsInBuilding(buildingNumber));
     }
 
     @Override
     @RequestMapping(value = GET_ALL_APPLIANCES_IN_ROOM_URL)
-    public List<ApplianceDR> getAllAppliancesInRoom(@PathVariable(ROOM_ID) Long roomId) {
+    public List<ApplianceDTO> getAllAppliancesInRoom(@PathVariable(ROOM_ID) Long roomId) {
         log.debug(userInfoProvider.getEmail(), "get all appliances in room:", roomId);
         return ApplianceAssembler.convertToApplianceDR(abrmDao.getAllAppliancesInRoom(roomId));
     }
@@ -162,14 +156,14 @@ public class UserServiceController implements UserServiceCtrl {
 
     @Override
     @RequestMapping(value = REGISTER_NEW_APPLIANCE_URL, method = RequestMethod.PUT)
-    public SimpleDR registerNewAppliance(@PathVariable(ROOM_ID) Long roomId, @PathVariable(APPLIANCE_NAME) String applianceName) {
+    public SimpleDTO registerNewAppliance(@PathVariable(ROOM_ID) Long roomId, @PathVariable(APPLIANCE_NAME) String applianceName) {
         try {
             String applianceUniqueCode = abrmDao.addApplianceToTheRoom(roomId, applianceName);
             log.info("Registered new appliance -", applianceName, "with it's code:", applianceUniqueCode);
-            return new SimpleDR(applianceUniqueCode);
+            return new SimpleDTO(applianceUniqueCode);
         } catch (Exception e) {
             log.debug(e);
-            return new SimpleDR("ERROR");
+            return new SimpleDTO("ERROR");
         }
     }
 
@@ -253,7 +247,7 @@ public class UserServiceController implements UserServiceCtrl {
 
     @Override
     @RequestMapping(value = CONNECT_USER_TO_APPLIANCE_URL, method = RequestMethod.POST)
-    public SimpleDR connectToTheAppliance(@PathVariable(RESERVATION_ID) Long reservationId) {
+    public SimpleDTO connectToTheAppliance(@PathVariable(RESERVATION_ID) Long reservationId) {
         String email = userInfoProvider.getEmail();
         log.info(email, "is trying to connect to the appliance");
         try {
@@ -265,10 +259,10 @@ public class UserServiceController implements UserServiceCtrl {
                     ri.getReservationId(), //
                     email);
             log.info("Connected with response:", response);
-            return new SimpleDR(response);
+            return new SimpleDTO(response);
         } catch (Exception e) {
             log.debug(e);
-            return new SimpleDR("Could not connect");
+            return new SimpleDTO("Could not connect");
         }
     }
 

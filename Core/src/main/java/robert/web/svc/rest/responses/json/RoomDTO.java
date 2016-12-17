@@ -2,7 +2,7 @@ package robert.web.svc.rest.responses.json;
 
 import java.util.List;
 
-public class RoomDR {
+public class RoomDTO {
 
 	private long id;
 
@@ -18,7 +18,7 @@ public class RoomDR {
 		this.id = id;
 	}
 
-	private List<ApplianceDR> appliances;
+	private List<ApplianceDTO> appliances;
 
 	public String getNumber() {
 		return number;
@@ -36,11 +36,11 @@ public class RoomDR {
 		this.numOfAppliances = numOfAppliances;
 	}
 
-	public List<ApplianceDR> getAppliances() {
+	public List<ApplianceDTO> getAppliances() {
 		return appliances;
 	}
 
-	public void setAppliances(List<ApplianceDR> appliances) {
+	public void setAppliances(List<ApplianceDTO> appliances) {
 		this.appliances = appliances;
 	}
 }

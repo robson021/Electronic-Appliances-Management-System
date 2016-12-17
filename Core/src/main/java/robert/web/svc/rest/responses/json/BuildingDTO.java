@@ -2,11 +2,11 @@ package robert.web.svc.rest.responses.json;
 
 import java.util.List;
 
-public class BuildingDR {
+public class BuildingDTO {
 
 	private String name;
 
-	private List<RoomDR> rooms;
+	private List<RoomDTO> rooms;
 
 	public String getName() {
 		return name;
@@ -16,11 +16,11 @@ public class BuildingDR {
 		this.name = name;
 	}
 
-	public List<RoomDR> getRooms() {
+	public List<RoomDTO> getRooms() {
 		return rooms;
 	}
 
-	public void setRooms(List<RoomDR> rooms) {
+	public void setRooms(List<RoomDTO> rooms) {
 		this.rooms = rooms;
 	}
 }

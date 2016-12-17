@@ -1,6 +1,6 @@
 package robert.web.svc.rest.responses.json;
 
-public class UserDR {
+public class UserDTO {
 
 	private String email;
 

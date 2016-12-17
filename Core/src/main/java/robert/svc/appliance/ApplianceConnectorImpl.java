@@ -1,20 +1,19 @@
-package robert.svc;
-
-import static robert.enums.BeanNames.DEFAULT_REST_TEMPLATE;
-
-import java.util.Date;
+package robert.svc.appliance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.entity.Appliance;
 import robert.db.entity.Reservation;
 import robert.enums.Validation;
 import robert.svc.api.ApplianceConnector;
 import robert.utils.api.AppLogger;
+
+import java.util.Date;
+
+import static robert.enums.BeanNames.DEFAULT_REST_TEMPLATE;
 
 @Service
 public class ApplianceConnectorImpl implements ApplianceConnector {
@@ -74,10 +73,17 @@ public class ApplianceConnectorImpl implements ApplianceConnector {
         if ( reservation.getValidTill() < currentTime ) {
             throw new Exception("Reservation time has expired");
         }
-
         if ( reservation.getValidFrom() > currentTime ) {
-            throw new Exception("Too early. Reservation can be accessed in " + (reservation.getValidFrom() - currentTime) + " ms");
+            throw new Exception("Too early. Reservation can be accessed in " + getRemainingTimeToReservationStart(reservation.getValidFrom() - currentTime));
         }
+    }
+
+    private String getRemainingTimeToReservationStart(long timeThatLeftInMilliseconds) {
+        double timeInMinutes = timeThatLeftInMilliseconds / 1000 / 60;
+        if (timeInMinutes >= 60) {
+            return timeInMinutes / 60 + " hours.";
+        }
+        return timeInMinutes + " minutes.";
     }
 
 }

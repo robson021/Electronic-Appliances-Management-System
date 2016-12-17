@@ -1,10 +1,12 @@
 package robert.web.svc.rest.responses.json;
 
-public class ReservationDR {
+public class ReservationDTO {
 
     private long id;
 
     private String appliance;
+
+    private String owner;
 
     private String where;
 
@@ -22,6 +24,14 @@ public class ReservationDR {
 
     public String getAppliance() {
         return appliance;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public void setAppliance(String appliance) {

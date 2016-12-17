@@ -1,19 +1,5 @@
 package robert.web.svc.rest;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static robert.web.svc.rest.ctrl.api.BasicParams.BUILDING_NUMBER;
-import static robert.web.svc.rest.ctrl.api.BasicParams.ROOM_NUMBER;
-import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.GET_ALL_ROOMS_IN_BUILDING_URL;
-import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.GET_MY_RESERVATIONS_URL;
-import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.REGISTER_NEW_APPLIANCE_URL;
-import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.REGISTER_NEW_BUILDING_URL;
-import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.REGISTER_NEW_ROOM_IN_BUILDING_URL;
-
-import java.util.List;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.assertj.core.api.Assertions;
 import org.joda.time.DateTime;
@@ -21,16 +7,23 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Reservation;
 import robert.db.entity.Room;
-import robert.web.svc.rest.responses.json.ReservationDR;
+import robert.web.svc.rest.responses.json.ReservationDTO;
 import utils.SpringWebMvcTest;
 import utils.TestUtils;
+
+import java.util.List;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static robert.web.svc.rest.ctrl.api.BasicParams.BUILDING_NUMBER;
+import static robert.web.svc.rest.ctrl.api.BasicParams.ROOM_NUMBER;
+import static robert.web.svc.rest.ctrl.api.UserServiceCtrl.*;
 
 public class UserServiceControllerTest extends SpringWebMvcTest {
 
@@ -63,7 +56,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 		String url = String.format(RESERVATION_URL, appId);
 
 		DateTime currentTime = new DateTime();
-		ReservationDR reservation = new ReservationDR();
+		ReservationDTO reservation = new ReservationDTO();
 		reservation.setFrom(currentTime.toDate().getTime());
 		reservation.setMinutes(3);
 		String json = TestUtils.asJsonString(reservation);
@@ -81,7 +74,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 				.hasSize(1);
 
 		// 2 - failed reservation
-		reservation = new ReservationDR();
+		reservation = new ReservationDTO();
 		reservation.setFrom(currentTime.minusHours(3).toDate().getTime());
 		reservation.setMinutes(5);
 		json = TestUtils.asJsonString(reservation);
@@ -94,7 +87,7 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 				.hasSize(numOfReservations);
 
 		// 3 - ok reservation
-		reservation = new ReservationDR();
+		reservation = new ReservationDTO();
 		reservation.setFrom(currentTime.plusHours(10).toDate().getTime());
 		reservation.setMinutes(7);
 		json = TestUtils.asJsonString(reservation);

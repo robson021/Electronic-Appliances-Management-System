@@ -1,33 +1,20 @@
 package robert.db.dao;
 
-import java.util.Collections;
-import java.util.Date;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
-
+import javassist.NotFoundException;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-
-import javassist.NotFoundException;
-import robert.db.entity.Appliance;
-import robert.db.entity.Building;
-import robert.db.entity.Reservation;
-import robert.db.entity.Room;
-import robert.db.entity.User;
-import robert.db.repository.ApplianceRepository;
-import robert.db.repository.BuildingRepository;
-import robert.db.repository.ReservationRepository;
-import robert.db.repository.RoomRepository;
-import robert.db.repository.UserRepository;
+import robert.db.entity.*;
+import robert.db.repository.*;
 import robert.enums.Validation;
 import robert.exceptions.ApplianceException;
 import robert.exceptions.AuthException;
+import robert.svc.appliance.ReservationInfo;
 import robert.utils.api.AppLogger;
-import robert.web.svc.rest.responses.ReservationInfo;
+
+import java.util.*;
 
 @Component
 @Transactional
