@@ -28,6 +28,8 @@ public interface Validation {
 
 	short MAX_RESERVATION_TIME_IN_MINUTES = 12 * 60;
 
+	short TIME_OF_KEEPING_OLD_RESERVATION_IN_DAYS = 14;
+
 	String MOCK_APPLIANCE_UNIQUE_CODE = "unique-code";
 
 }
