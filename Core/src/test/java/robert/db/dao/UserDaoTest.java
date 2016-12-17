@@ -1,6 +1,7 @@
 package robert.db.dao;
 
 import org.assertj.core.api.Assertions;
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Reservation;
 import robert.db.entity.User;
+import robert.db.repository.ReservationRepository;
+import robert.enums.Validation;
 import utils.SpringTest;
 import utils.TestUtils;
 
@@ -28,6 +31,9 @@ public class UserDaoTest extends SpringTest {
 
 	@Autowired
 	private ApplianceBuildingRoomManagementDao abrmDao;
+
+	@Autowired
+	private ReservationRepository reservationRepository;
 
 	@Override
 	public void setup() throws Exception {
@@ -202,6 +208,30 @@ public class UserDaoTest extends SpringTest {
 
 		Assertions.assertThat(abrmDao.findApplianceById(id))
 				.hasFieldOrPropertyWithValue("name", newName);
+	}
+
+	@Test
+	public void cleanReservations() throws Exception {
+		User user = TestUtils.generateRandomActiveUser();
+		user = userDao.saveUser(user);
+
+		Appliance appliance = TestUtils.generateRandomAppliance();
+		appliance = abrmDao.saveAppliance(appliance);
+
+		final String email = user.getEmail();
+		userDao.makeReservationForAppliance(email, appliance.getId(), new Date(), 2);
+
+		Reservation reservation = abrmDao.findAllReservations().iterator().next();
+		long newTime = new DateTime()
+				.minusDays(Validation.TIME_OF_KEEPING_OLD_RESERVATION_IN_DAYS + 1)
+				.toDate()
+				.getTime();
+		reservation.setValidTill(newTime);
+		reservationRepository.save(reservation);
+
+		int cleaned = abrmDao.cleanOldReservations();
+		Assertions.assertThat(cleaned)
+				.isGreaterThan(0);
 	}
 
 	private User createUser() throws Exception {

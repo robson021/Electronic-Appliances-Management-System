@@ -29,8 +29,6 @@ import java.util.*;
 @Transactional
 public class ApplianceBuildingRoomManagementDao {
 
-	private final AppLogger log;
-
 	private final RoomRepository roomRepository;
 
 	private final ApplianceRepository applianceRepository;
@@ -44,7 +42,6 @@ public class ApplianceBuildingRoomManagementDao {
 	@Autowired
 	public ApplianceBuildingRoomManagementDao(AppLogger log, RoomRepository roomRepository, ApplianceRepository applianceRepository,
 											  BuildingRepository buildingRepository, ReservationRepository reservationRepository, EntityManager em) {
-		this.log = log;
 		this.roomRepository = roomRepository;
 		this.applianceRepository = applianceRepository;
 		this.buildingRepository = buildingRepository;
@@ -78,7 +75,6 @@ public class ApplianceBuildingRoomManagementDao {
 				.toLowerCase();
 		Building b = buildingRepository.findOneByName(building);
 		if (b == null) {
-			log.debug("Could not find building:", building);
 			throw new NoSuchBuildingException("Could not find building: " + building);
 		}
 		b.getRooms()
@@ -97,10 +93,7 @@ public class ApplianceBuildingRoomManagementDao {
 	public List<String> findAllBuildingNumbers() {
 		List resultList = em.createQuery("select b.name from Building b")
 				.getResultList();
-		if (CollectionUtils.isEmpty(resultList)) {
-			return Collections.emptyList();
-		}
-		return resultList;
+		return CollectionUtils.isEmpty(resultList) ? Collections.emptyList() : resultList;
 	}
 
 	public Iterable<Appliance> findAllAppliances() {
