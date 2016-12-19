@@ -1,12 +1,13 @@
 package robert.web.svc.rest.ctrl.api;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
+
 import robert.web.svc.rest.responses.json.ApplianceDTO;
+import robert.web.svc.rest.responses.json.BasicDTO;
 import robert.web.svc.rest.responses.json.ReservationDTO;
 import robert.web.svc.rest.responses.json.RoomDTO;
-import robert.web.svc.rest.responses.json.SimpleDTO;
-
-import java.util.List;
 
 public interface UserServiceCtrl extends BasicParams {
 
@@ -68,13 +69,13 @@ public interface UserServiceCtrl extends BasicParams {
 
 	HttpStatus setApplianceAddress(Long applianceId, String newAddress);
 
-	SimpleDTO getReservationToken(Long reservationId);
+    BasicDTO getReservationToken(Long reservationId);
 
 	HttpStatus registerNewBuilding(String buildingNumber);
 
 	HttpStatus registerNewRoomInBuilding(String building, String roomNum);
 
-	SimpleDTO registerNewAppliance(Long roomId, String applianceName);
+    BasicDTO registerNewAppliance(Long roomId, String applianceName);
 
 	HttpStatus deleteBuilding(String buildingNumber);
 
@@ -88,6 +89,6 @@ public interface UserServiceCtrl extends BasicParams {
 
 	HttpStatus renameAppliance(Long applianceId, String newName);
 
-	SimpleDTO connectToTheAppliance(Long reservationId);
+    BasicDTO connectToTheAppliance(Long reservationId);
 
 }

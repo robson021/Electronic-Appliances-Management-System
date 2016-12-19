@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import robert.svc.api.ApplianceConnector;
 import robert.utils.api.AppLogger;
 import robert.web.svc.rest.ctrl.api.GuestPanelCtrl;
-import robert.web.svc.rest.responses.json.SimpleDTO;
+import robert.web.svc.rest.responses.json.BasicDTO;
 
 @RestController
 public class GuestPanelController implements GuestPanelCtrl {
@@ -25,13 +26,14 @@ public class GuestPanelController implements GuestPanelCtrl {
 
     @Override
     @RequestMapping(value = CONNECT_TO_APPLIANCE_AS_GUEST_URL, method = RequestMethod.POST)
-    public SimpleDTO connectMeToTheApplianceAsGuest(@RequestBody SimpleDTO requestBody) {
+    public BasicDTO connectMeToTheApplianceAsGuest(@RequestBody BasicDTO requestBody) {
         try {
             String response = applianceConnector.connectAsGuest(requestBody.getText());
-            return new SimpleDTO(response);
+            log.info("Guest connected to appliance with response:", response);
+            return new BasicDTO(response);
         } catch (Exception e) {
             log.debug(e);
-            return new SimpleDTO("Failed to connect. " + e.getMessage());
+            return new BasicDTO("Failed to connect. " + e.getMessage());
         }
     }
 }

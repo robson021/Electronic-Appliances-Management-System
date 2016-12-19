@@ -1,11 +1,14 @@
 package robert.web.svc.rest.ctrl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import robert.db.dao.AdminDao;
 import robert.exceptions.UserNotFoundException;
 import robert.svc.api.MailService;
@@ -14,8 +17,6 @@ import robert.web.session.user.api.UserInfoProvider;
 import robert.web.svc.rest.ctrl.api.AdminPanelCtrl;
 import robert.web.svc.rest.responses.asm.UserAssembler;
 import robert.web.svc.rest.responses.json.UserDTO;
-
-import java.util.List;
 
 @RestController
 public class AdminPanelController implements AdminPanelCtrl {
@@ -49,14 +50,14 @@ public class AdminPanelController implements AdminPanelCtrl {
 	@RequestMapping(GET_ALL_INACTIVE_ACCOUNTS_URL)
 	public List<UserDTO> getAllInactiveAccounts() {
 		log.debug(GET_ALL_INACTIVE_ACCOUNTS_URL, "request from:", userInfoProvider.getEmail());
-		return UserAssembler.convertToUserDR(adminDao.getAllInactiveUsers());
+		return UserAssembler.convertToUserDTO(adminDao.getAllInactiveUsers());
 	}
 
 	@Override
 	@RequestMapping(GET_ALL_ACTIVE_ACCOUNTS_URL)
 	public List<UserDTO> getAllActiveAccounts() {
 		log.debug(GET_ALL_ACTIVE_ACCOUNTS_URL, "request from:", userInfoProvider.getEmail());
-		return UserAssembler.convertToUserDR(adminDao.getAllActiveUsers());
+		return UserAssembler.convertToUserDTO(adminDao.getAllActiveUsers());
 	}
 
 	@Override

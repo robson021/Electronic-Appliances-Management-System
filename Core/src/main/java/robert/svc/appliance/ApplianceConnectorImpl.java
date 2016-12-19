@@ -1,19 +1,20 @@
 package robert.svc.appliance;
 
+import static robert.enums.BeanNames.DEFAULT_REST_TEMPLATE;
+
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.entity.Appliance;
 import robert.db.entity.Reservation;
 import robert.enums.Validation;
 import robert.svc.api.ApplianceConnector;
 import robert.utils.api.AppLogger;
-
-import java.util.Date;
-
-import static robert.enums.BeanNames.DEFAULT_REST_TEMPLATE;
 
 @Service
 public class ApplianceConnectorImpl implements ApplianceConnector {

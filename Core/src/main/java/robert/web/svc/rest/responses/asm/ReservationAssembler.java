@@ -1,12 +1,12 @@
 package robert.web.svc.rest.responses.asm;
 
-import robert.db.entity.Reservation;
-import robert.web.svc.rest.responses.json.ReservationDTO;
-
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import robert.db.entity.Reservation;
+import robert.web.svc.rest.responses.json.ReservationDTO;
 
 public class ReservationAssembler {
 
@@ -15,7 +15,7 @@ public class ReservationAssembler {
 	private static final Comparator<ReservationDTO> comparatorOfReservationTime = (o1, o2) ->
 			o1.getFrom() < o2.getFrom() ? -1 : 1;
 
-	public static List<ReservationDTO> convertToReservationDR(Collection<Reservation> reservations) {
+	public static List<ReservationDTO> convertToReservationDTO(Collection<Reservation> reservations) {
 		List<ReservationDTO> listOfReservations = reservations.stream()
 				.map(reservation -> {
 					ReservationDTO reservationDTO = new ReservationDTO();
