@@ -27,12 +27,14 @@ public class HttpConnector {
         if (queue == null) {
             queue = Volley.newRequestQueue(ctx);
             requestsQueuesMap.put(ctx, queue);
+            System.out.println("New queue created for: " + ctx.getPackageName());
         }
         queue.add(request);
     }
 
     public static void setDefaultServerUrl() {
-        serverUrl = "http://localhost:8080";
+        //serverUrl = "http://localhost:8080";
+        serverUrl = "http://192.168.1.102:8080";
     }
 
     public static String getServerUrl() {

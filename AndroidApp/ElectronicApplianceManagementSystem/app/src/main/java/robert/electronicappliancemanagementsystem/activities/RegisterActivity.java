@@ -9,9 +9,6 @@ import android.widget.EditText;
 
 import com.android.volley.Response;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,12 +62,7 @@ public class RegisterActivity extends Activity {
     private class RegisterResponseListener implements Response.Listener<String> {
         @Override
         public void onResponse(String response) {
-            try {
-                String msg = new JSONObject(response).toString();
-                BasicUtils.showToast(msg, ctx);
-            } catch (JSONException e) {
-                BasicUtils.showToast("Error", ctx);
-            }
+            BasicUtils.showToast(response, ctx);
         }
     }
 
