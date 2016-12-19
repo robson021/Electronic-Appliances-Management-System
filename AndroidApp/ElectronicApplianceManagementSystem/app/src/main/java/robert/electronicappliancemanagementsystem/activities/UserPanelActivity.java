@@ -1,7 +1,9 @@
-package robert.electronicappliancemanagementsystem;
+package robert.electronicappliancemanagementsystem.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import robert.electronicappliancemanagementsystem.R;
 
 public class UserPanelActivity extends Activity {
 
