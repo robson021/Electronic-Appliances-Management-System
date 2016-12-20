@@ -13,8 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import robert.electronicappliancemanagementsystem.R;
-import robert.electronicappliancemanagementsystem.rest.HttpConnector;
-import robert.electronicappliancemanagementsystem.rest.RegisterRequest;
+import robert.electronicappliancemanagementsystem.http.HttpConnector;
+import robert.electronicappliancemanagementsystem.http.requests.RegisterRequest;
 import robert.electronicappliancemanagementsystem.utils.BasicUtils;
 
 public class RegisterActivity extends Activity {
@@ -43,6 +43,14 @@ public class RegisterActivity extends Activity {
         repassword = (EditText) findViewById(R.id.rePasswordField);
 
         registerButton.setOnClickListener(new registerButtonAction());
+
+        Button backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private class registerButtonAction implements View.OnClickListener {

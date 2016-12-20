@@ -1,4 +1,4 @@
-package robert.electronicappliancemanagementsystem.rest;
+package robert.electronicappliancemanagementsystem.http;
 
 import android.content.Context;
 
@@ -6,6 +6,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import java.net.CookieHandler;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +23,9 @@ public class HttpConnector {
 
     private HttpConnector() {
         setDefaultServerUrl();
+
+        CookieManager manager = new CookieManager(null, CookiePolicy.ACCEPT_ALL);
+        CookieHandler.setDefault(manager);
     }
 
     public synchronized void sendRequest(Context ctx, Request request) {

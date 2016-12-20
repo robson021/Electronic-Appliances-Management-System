@@ -1,9 +1,11 @@
-package robert.electronicappliancemanagementsystem.rest;
+package robert.electronicappliancemanagementsystem.http.requests;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
 import java.util.Map;
+
+import robert.electronicappliancemanagementsystem.http.HttpConnector;
 
 public class RegisterRequest extends StringRequest {
 
