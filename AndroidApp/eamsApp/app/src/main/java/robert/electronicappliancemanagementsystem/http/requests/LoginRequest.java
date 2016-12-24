@@ -10,6 +10,7 @@ import java.util.Map;
 import robert.electronicappliancemanagementsystem.http.HttpConnector;
 
 public class LoginRequest extends StringRequest {
+
     private static final String uri = "/login/%s/%s/";
 
     public static final String EMAIL_PARAM = "email";
