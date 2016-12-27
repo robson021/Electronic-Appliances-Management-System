@@ -111,13 +111,13 @@ public class UserServiceControllerTest extends SpringWebMvcTest {
 		String buildingName = abrmDao.saveBuilding(building)
 				.getName();
 
-		final String url = GET_ALL_ROOMS_IN_BUILDING_URL.replace("{" + BUILDING_NUMBER + "}",
-				String.valueOf(buildingName));
+		final String url = GET_ALL_ROOMS_IN_BUILDING_URL.replace("{" + BUILDING_NUMBER + "}", buildingName);
 
 		final String response = mockMvc.perform(get(url))
 				.andReturn()
 				.getResponse()
 				.getContentAsString();
+
 		Assertions.assertThat(response)
 				.isNotNull();
 

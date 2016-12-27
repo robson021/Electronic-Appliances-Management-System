@@ -33,25 +33,29 @@ public final class ExecutableTask implements Runnable {
 		try {
 			Thread.sleep(INITIAL_SLEEP);
 		} catch (InterruptedException ignored) {
+		} finally {
+			executeTask();
 		}
-		executeTask();
 	}
 
-	@SuppressWarnings("InfiniteLoopStatement")
 	private void executeTask() {
 		try {
 			if (this.taskType.equals(TaskType.SINGLE_RUN)) {
 				this.task.run();
 			} else {
-				while (true) {
-					task.run();
-					try {
-						Thread.sleep(this.threadSleep);
-					} catch (InterruptedException ignored) {
-					}
-				}
+				runPeriodicalJob(this.task);
 			}
 		} catch (Throwable ignored) {
+		}
+	}
+
+	private void runPeriodicalJob(Runnable task) {
+		while (true) {
+			task.run();
+			try {
+				Thread.sleep(this.threadSleep);
+			} catch (InterruptedException ignored) {
+			}
 		}
 	}
 
