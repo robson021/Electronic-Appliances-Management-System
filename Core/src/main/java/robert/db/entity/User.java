@@ -106,7 +106,7 @@ public class User {
 		this.reservations.add(reservation);
 	}
 
-	public Boolean getAdminPrivileges() {
+	public boolean isAdminPrivileged() {
 		return adminPrivileges;
 	}
 

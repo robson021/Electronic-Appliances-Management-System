@@ -105,7 +105,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 		}
 
 		userInfoProvider.setEmail(user.getEmail());
-		if (user.getAdminPrivileges()) {
+		if (user.isAdminPrivileged()) {
 			userInfoProvider.enableAdminPrivileges();
 		}
 
@@ -120,9 +120,10 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 	@Override
 	@RequestMapping(value = LOGOUT_URL, method = RequestMethod.POST)
 	public void logoutUser(HttpSession session) {
+		String email = userInfoProvider.getEmail();
 		userInfoProvider.invalidateData();
 		session.invalidate();
-		log.debug("Logged out some user.");
+		log.debug("Logged out user:", email);
 	}
 
 	private void validateUser(User user, String password) throws UserNotFoundException, UserException {
@@ -130,7 +131,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
 			throw new UserNotFoundException();
 		}
 		if (!user.getPassword().equals(password)) {
-			throw new UserException(user.getEmail());
+			throw new UserException("Passwords for user " + user.getEmail() + " do not match.");
 		}
 		if (!user.getActivated()) {
 			throw new UserException(user.getEmail(), "is not activated.");

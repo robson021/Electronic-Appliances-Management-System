@@ -1,7 +1,7 @@
 package robert.web.svc.rest.ctrl.api;
 
 import org.springframework.http.HttpStatus;
-import robert.web.svc.rest.responses.json.UserDTO;
+import robert.web.svc.rest.responses.dto.UserDTO;
 
 import java.util.List;
 

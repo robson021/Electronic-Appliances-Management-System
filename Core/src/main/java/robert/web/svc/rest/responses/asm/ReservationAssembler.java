@@ -1,12 +1,12 @@
 package robert.web.svc.rest.responses.asm;
 
+import robert.db.entity.Reservation;
+import robert.web.svc.rest.responses.dto.ReservationDTO;
+
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import robert.db.entity.Reservation;
-import robert.web.svc.rest.responses.json.ReservationDTO;
 
 public class ReservationAssembler {
 

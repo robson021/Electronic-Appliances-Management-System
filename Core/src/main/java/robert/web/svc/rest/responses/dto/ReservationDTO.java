@@ -1,4 +1,4 @@
-package robert.web.svc.rest.responses.json;
+package robert.web.svc.rest.responses.dto;
 
 public class ReservationDTO {
 

@@ -1,6 +1,6 @@
 package robert.web.svc.rest.ctrl.api;
 
-import robert.web.svc.rest.responses.json.BasicDTO;
+import robert.web.svc.rest.responses.dto.BasicDTO;
 
 public interface GuestPanelCtrl {
 

@@ -1,16 +1,8 @@
 package robert.web.svc.rest.ctrl;
 
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.svc.api.ApplianceConnector;
@@ -21,10 +13,13 @@ import robert.web.svc.rest.ctrl.api.UserServiceCtrl;
 import robert.web.svc.rest.responses.asm.ApplianceAssembler;
 import robert.web.svc.rest.responses.asm.ReservationAssembler;
 import robert.web.svc.rest.responses.asm.RoomAssembler;
-import robert.web.svc.rest.responses.json.ApplianceDTO;
-import robert.web.svc.rest.responses.json.BasicDTO;
-import robert.web.svc.rest.responses.json.ReservationDTO;
-import robert.web.svc.rest.responses.json.RoomDTO;
+import robert.web.svc.rest.responses.dto.ApplianceDTO;
+import robert.web.svc.rest.responses.dto.BasicDTO;
+import robert.web.svc.rest.responses.dto.ReservationDTO;
+import robert.web.svc.rest.responses.dto.RoomDTO;
+
+import java.util.Date;
+import java.util.List;
 
 @RestController
 public class UserServiceController implements UserServiceCtrl {

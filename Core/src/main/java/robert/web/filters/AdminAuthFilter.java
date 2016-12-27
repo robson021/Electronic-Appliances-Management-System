@@ -38,10 +38,9 @@ public final class AdminAuthFilter extends BasicAuthFilter {
 
 	@Override
 	public void doLogic(HttpServletRequest request, HttpServletResponse response) throws AuthException {
-		if (!isAdminUri(request.getRequestURI())) {
-			return;
+		if (isAdminUri(request.getRequestURI())) {
+			checkAdminPrivileges();
 		}
-		checkAdminPrivileges();
 	}
 
 	private boolean isAdminUri(String requestURI) {
@@ -50,11 +49,9 @@ public final class AdminAuthFilter extends BasicAuthFilter {
 
 	private void checkAdminPrivileges() throws AuthException {
 		if (!this.userInfoProvider.isAdmin()) {
-			AuthException exception = new AuthException("User " +
-					this.userInfoProvider.getEmail() +
-					" is not an admin."
-			);
-			log.debug(exception);
+			AuthException exception = new AuthException(
+					"User " + this.userInfoProvider.getEmail() + " is not an admin.");
+			//log.debug(exception);
 			throw exception;
 		}
 	}

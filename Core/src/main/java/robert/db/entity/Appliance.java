@@ -1,23 +1,12 @@
 package robert.db.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "APPLIANCE")
@@ -38,9 +27,8 @@ public class Appliance {
 	@JoinColumn(name = "ROOM_ID")
 	private Room room;
 
-	// FIXME: unique causes test errors
-	@Column(name = "UNIQUE_CODE", nullable = false/*, unique = true*/)
-	private String uniqueCode;
+	@Column(name = "UNIQUE_CODE", nullable = false)
+	private String uniqueCode; // UUID
 
     @Column(name = "ADDRESS")
     private String address = null;

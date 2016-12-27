@@ -1,13 +1,12 @@
 package robert.web.svc.rest.ctrl.api;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
+import robert.web.svc.rest.responses.dto.ApplianceDTO;
+import robert.web.svc.rest.responses.dto.BasicDTO;
+import robert.web.svc.rest.responses.dto.ReservationDTO;
+import robert.web.svc.rest.responses.dto.RoomDTO;
 
-import robert.web.svc.rest.responses.json.ApplianceDTO;
-import robert.web.svc.rest.responses.json.BasicDTO;
-import robert.web.svc.rest.responses.json.ReservationDTO;
-import robert.web.svc.rest.responses.json.RoomDTO;
+import java.util.List;
 
 public interface UserServiceCtrl extends BasicParams {
 

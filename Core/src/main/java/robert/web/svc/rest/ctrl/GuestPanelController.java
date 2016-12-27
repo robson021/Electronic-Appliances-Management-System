@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import robert.svc.api.ApplianceConnector;
 import robert.utils.api.AppLogger;
 import robert.web.svc.rest.ctrl.api.GuestPanelCtrl;
-import robert.web.svc.rest.responses.json.BasicDTO;
+import robert.web.svc.rest.responses.dto.BasicDTO;
 
 @RestController
 public class GuestPanelController implements GuestPanelCtrl {

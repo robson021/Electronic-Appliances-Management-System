@@ -13,7 +13,7 @@ import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Reservation;
 import robert.db.entity.Room;
-import robert.web.svc.rest.responses.json.ReservationDTO;
+import robert.web.svc.rest.responses.dto.ReservationDTO;
 import utils.SpringWebMvcTest;
 import utils.TestUtils;
 
