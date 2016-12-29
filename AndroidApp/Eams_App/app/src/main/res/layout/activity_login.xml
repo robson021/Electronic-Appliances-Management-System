@@ -28,7 +28,8 @@
         android:id="@+id/emailField"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:hint="E-mail" />
+        android:hint="E-mail"
+        android:text="admin@a.pl" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,7 +40,8 @@
         android:layout_alignStart="@+id/emailField"
         android:layout_marginTop="36dp"
         android:id="@+id/passwdField"
-        android:hint="Password" />
+        android:hint="Password"
+        android:text="Passwd.123" />
 
     <Space
         android:layout_width="wrap_content"

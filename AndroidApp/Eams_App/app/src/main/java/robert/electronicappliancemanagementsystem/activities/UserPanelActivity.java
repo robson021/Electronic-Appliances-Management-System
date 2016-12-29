@@ -6,10 +6,18 @@ import android.view.View;
 import android.widget.Button;
 
 import com.android.volley.Response;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 import robert.electronicappliancemanagementsystem.R;
 import robert.electronicappliancemanagementsystem.http.HttpConnector;
+import robert.electronicappliancemanagementsystem.http.dto.ReservationDTO;
 import robert.electronicappliancemanagementsystem.http.requests.MyReservationsRequest;
+
 
 public class UserPanelActivity extends Activity {
 
@@ -33,6 +41,10 @@ public class UserPanelActivity extends Activity {
         @Override
         public void onResponse(Object response) {
             System.out.println(response);
+            Type listType = new TypeToken<ArrayList<ReservationDTO>>() {
+            }.getType();
+            List<ReservationDTO> listOfDTO = new Gson().fromJson((String) response, listType);
+            System.out.println(listOfDTO.toString());
         }
     }
 }
