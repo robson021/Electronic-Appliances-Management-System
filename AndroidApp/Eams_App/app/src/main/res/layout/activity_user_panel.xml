@@ -10,15 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="robert.electronicappliancemanagementsystem.activities.UserPanelActivity">
 
-    <Button
-        android:text="My reservations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:id="@+id/myReservationsButton"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,4 +19,13 @@
         android:id="@+id/tableOfReservations">
 
     </TableLayout>
+
+    <Button
+        android:text="Refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/myReservationsButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

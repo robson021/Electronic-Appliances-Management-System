@@ -1,7 +1,6 @@
 package robert.electronicappliancemanagementsystem.activities;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -38,13 +37,13 @@ public class UserPanelActivity extends Activity {
         myReservationsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HttpConnector.getInstance()
-                        .sendRequest(getApplicationContext(), new MyReservationsRequest(new MyReservationsResponseListener()));
+                getReservations();
             }
         });
+        getReservations();
     }
 
-    private class MyReservationsResponseListener implements Response.Listener {
+    private class ReservationsResponseListener implements Response.Listener {
         @Override
         public void onResponse(Object response) {
             System.out.println(response);
@@ -56,13 +55,18 @@ public class UserPanelActivity extends Activity {
         }
     }
 
+    private void getReservations() {
+        HttpConnector.getInstance()
+                .sendRequest(getApplicationContext(), new MyReservationsRequest(new ReservationsResponseListener()));
+    }
+
     private void loadReservations() {
         if (reservations == null || reservations.isEmpty()) {
             System.out.println("No reservations");
             return;
         }
-
         TableLayout table = (TableLayout) findViewById(R.id.tableOfReservations);
+        clearTableRows(table);
 
         for (ReservationDTO reservation : reservations) {
             TableRow row = new TableRow(getApplicationContext());
@@ -79,6 +83,13 @@ public class UserPanelActivity extends Activity {
             row.addView(minutes);
 
             table.addView(row);
+        }
+    }
+
+    private void clearTableRows(TableLayout table) {
+        int childCount = table.getChildCount();
+        if (childCount > 0) {
+            table.removeViews(0, childCount);
         }
     }
 

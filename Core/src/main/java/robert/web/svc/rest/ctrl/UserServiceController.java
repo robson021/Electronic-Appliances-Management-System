@@ -47,7 +47,6 @@ public class UserServiceController implements UserServiceCtrl {
     @Override
     @RequestMapping(value = MAKE_RESERVATION_URL, method = RequestMethod.POST)
     public HttpStatus makeReservation(@PathVariable(APPLIANCE_ID) Long applianceId, @RequestBody ReservationDTO reservationDTO) {
-
         HttpStatus status = HttpStatus.OK;
         try {
             userDao.makeReservationForAppliance(userInfoProvider.getEmail(), applianceId, new Date(reservationDTO.getFrom()), (int) reservationDTO.getMinutes());

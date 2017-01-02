@@ -1,5 +1,8 @@
 package robert.db;
 
+import java.util.Date;
+
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,6 +13,7 @@ import robert.db.entity.Building;
 import robert.db.entity.Room;
 import robert.db.entity.User;
 import robert.enums.Validation;
+import robert.exceptions.ApplianceException;
 import robert.utils.api.AppLogger;
 
 @Component
@@ -67,7 +71,6 @@ public class DbStartUp implements CommandLineRunner {
 		room2.setNumber("110");
 
 		// appliance
-
 		Appliance appliance = new Appliance();
 		appliance.setName("Samsung A600 Home Theater Projector");
 		appliance.setRoom(room);
@@ -90,6 +93,13 @@ public class DbStartUp implements CommandLineRunner {
 
 		applianceBuildingRoomManagementDao.addApplianceToTheRoom(appliance3, "B4", "122");
 
-
+		addReservationsForUser(adminEmail);
 	}
+
+    private void addReservationsForUser(String email) throws ApplianceException {
+        Iterable<Appliance> allAppliances = applianceBuildingRoomManagementDao.findAllAppliances();
+        for (Appliance appliance : allAppliances) {
+            userDao.makeReservationForAppliance(email, appliance.getId(), new Date(), RandomUtils.nextInt(15, 90));
+        }
+    }
 }

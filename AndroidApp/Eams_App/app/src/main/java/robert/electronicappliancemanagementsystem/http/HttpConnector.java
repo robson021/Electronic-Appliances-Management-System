@@ -39,7 +39,7 @@ public class HttpConnector {
 
     public static void setDefaultServerUrl() {
         //serverUrl = "http://localhost:8080";
-        serverUrl = "http://192.168.1.102:8080";
+        serverUrl = "http://192.168.0.94:8080";
     }
 
     public static String getServerUrl() {
