@@ -1,16 +1,21 @@
 package robert.electronicappliancemanagementsystem.activities;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import robert.electronicappliancemanagementsystem.R;
@@ -20,6 +25,8 @@ import robert.electronicappliancemanagementsystem.http.requests.MyReservationsRe
 
 
 public class UserPanelActivity extends Activity {
+
+    private List<ReservationDTO> reservations = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +48,45 @@ public class UserPanelActivity extends Activity {
         @Override
         public void onResponse(Object response) {
             System.out.println(response);
-            Type listType = new TypeToken<ArrayList<ReservationDTO>>() {
+            Type listType = new TypeToken<LinkedList<ReservationDTO>>() {
             }.getType();
-            List<ReservationDTO> listOfDTO = new Gson().fromJson((String) response, listType);
-            System.out.println(listOfDTO.toString());
+            reservations = new Gson()
+                    .fromJson((String) response, listType);
+            loadReservations();
         }
+    }
+
+    private void loadReservations() {
+        if (reservations == null || reservations.isEmpty()) {
+            System.out.println("No reservations");
+            return;
+        }
+
+        TableLayout table = (TableLayout) findViewById(R.id.tableOfReservations);
+
+        for (ReservationDTO reservation : reservations) {
+            TableRow row = new TableRow(getApplicationContext());
+            row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+            TextView where = getNewColumn(reservation.getWhere());
+            TextView appliance = getNewColumn(reservation.getAppliance());
+            TextView availableFrom = getNewColumn(String.valueOf(reservation.getFrom()));
+            TextView minutes = getNewColumn(String.valueOf(reservation.getMinutes()));
+
+            row.addView(where);
+            row.addView(appliance);
+            row.addView(availableFrom);
+            row.addView(minutes);
+
+            table.addView(row);
+        }
+    }
+
+    private TextView getNewColumn(String text) {
+        TextView view = new TextView(getApplicationContext());
+        view.setText(text);
+        view.setTextColor(Color.BLACK);
+        view.setTextSize(16f);
+        return view;
     }
 }

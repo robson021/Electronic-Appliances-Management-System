@@ -14,8 +14,18 @@
         android:text="My reservations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="121dp"
+        android:layout_marginTop="21dp"
         android:id="@+id/myReservationsButton"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/myReservationsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:id="@+id/tableOfReservations">
+
+    </TableLayout>
 </RelativeLayout>
