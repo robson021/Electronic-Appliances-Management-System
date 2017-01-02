@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -25,6 +24,8 @@ import robert.electronicappliancemanagementsystem.http.requests.MyReservationsRe
 
 public class UserPanelActivity extends Activity {
 
+    private final MyReservationsRequest getUserReservationsRequest = new MyReservationsRequest(new ReservationsResponseListener());
+
     private List<ReservationDTO> reservations = null;
 
     @Override
@@ -32,14 +33,13 @@ public class UserPanelActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_panel);
 
-        Button myReservationsButton = (Button) findViewById(R.id.myReservationsButton);
-
-        myReservationsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getReservations();
-            }
-        });
+        findViewById(R.id.myReservationsButton)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getReservations();
+                    }
+                });
         getReservations();
     }
 
@@ -57,7 +57,7 @@ public class UserPanelActivity extends Activity {
 
     private void getReservations() {
         HttpConnector.getInstance()
-                .sendRequest(getApplicationContext(), new MyReservationsRequest(new ReservationsResponseListener()));
+                .sendRequest(getApplicationContext(), getUserReservationsRequest);
     }
 
     private void loadReservations() {
