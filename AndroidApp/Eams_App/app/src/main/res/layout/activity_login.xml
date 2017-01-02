@@ -51,6 +51,15 @@
         android:layout_marginTop="15dp" />
 
     <Button
+        android:text="Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:id="@+id/loginButton"
+        android:layout_below="@+id/passwdField"
+        android:layout_alignStart="@+id/passwdField" />
+
+    <Button
         android:text="Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,14 +67,5 @@
         android:layout_alignBaseline="@+id/loginButton"
         android:layout_alignBottom="@+id/loginButton"
         android:layout_alignEnd="@+id/passwdField" />
-
-    <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:id="@+id/loginButton"
-        android:layout_below="@+id/passwdField"
-        android:layout_alignStart="@+id/passwdField" />
 
 </RelativeLayout>

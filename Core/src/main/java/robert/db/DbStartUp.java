@@ -98,8 +98,9 @@ public class DbStartUp implements CommandLineRunner {
 
     private void addReservationsForUser(String email) throws ApplianceException {
         Iterable<Appliance> allAppliances = applianceBuildingRoomManagementDao.findAllAppliances();
+        Date currentTime = new Date();
         for (Appliance appliance : allAppliances) {
-            userDao.makeReservationForAppliance(email, appliance.getId(), new Date(), RandomUtils.nextInt(15, 90));
+            userDao.makeReservationForAppliance(email, appliance.getId(), currentTime, RandomUtils.nextInt(20, 180));
         }
     }
 }

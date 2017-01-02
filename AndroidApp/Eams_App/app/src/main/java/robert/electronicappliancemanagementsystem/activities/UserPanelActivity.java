@@ -2,8 +2,10 @@ package robert.electronicappliancemanagementsystem.activities;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -13,6 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -67,23 +70,39 @@ public class UserPanelActivity extends Activity {
         }
         TableLayout table = (TableLayout) findViewById(R.id.tableOfReservations);
         clearTableRows(table);
-
+        table.setColumnShrinkable(2, true);
         for (ReservationDTO reservation : reservations) {
-            TableRow row = new TableRow(getApplicationContext());
-            row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-
+            TableRow row = getNewRow();
             TextView where = getNewColumn(reservation.getWhere());
             TextView appliance = getNewColumn(reservation.getAppliance());
-            TextView availableFrom = getNewColumn(String.valueOf(reservation.getFrom()));
-            TextView minutes = getNewColumn(String.valueOf(reservation.getMinutes()));
+            TextView availableFrom = getNewColumn(new Date(reservation.getFrom()).toGMTString());
+            TextView minutes = getNewColumn(String.valueOf(reservation.getMinutes()) + " minutes");
 
             row.addView(where);
+            row.addView(getSeparator());
+
             row.addView(appliance);
+            row.addView(getSeparator());
+
             row.addView(availableFrom);
+            row.addView(getSeparator());
+
             row.addView(minutes);
+            row.addView(getSeparator());
+
+            Button button = new Button(getApplicationContext());
+            button.setText("Connect");
+            button.setOnClickListener(new ConnectButtonAction(reservation.getId()));
+            row.addView(button);
 
             table.addView(row);
         }
+    }
+
+    private TableRow getNewRow() {
+        TableRow row = new TableRow(getApplicationContext());
+        row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        return row;
     }
 
     private void clearTableRows(TableLayout table) {
@@ -91,6 +110,32 @@ public class UserPanelActivity extends Activity {
         if (childCount > 0) {
             table.removeViews(0, childCount);
         }
+        generateColumnNames(table);
+        generateEmptyRow(table);
+    }
+
+    private void generateColumnNames(TableLayout table) {
+        TableRow row = getNewRow();
+        TextView where = getNewColumn("Where");
+        TextView appliance = getNewColumn("Appliance");
+        TextView availableFrom = getNewColumn("Available from");
+        TextView time = getNewColumn("Time");
+        row.addView(where);
+        row.addView(getSeparator());
+        row.addView(appliance);
+        row.addView(getSeparator());
+        row.addView(availableFrom);
+        row.addView(getSeparator());
+        row.addView(time);
+        table.addView(row);
+    }
+
+    private void generateEmptyRow(TableLayout table) {
+        TableRow row = getNewRow();
+        for (int i = 0; i < 4; i++) {
+            row.addView(getNewColumn(" "));
+        }
+        table.addView(row);
     }
 
     private TextView getNewColumn(String text) {
@@ -98,6 +143,24 @@ public class UserPanelActivity extends Activity {
         view.setText(text);
         view.setTextColor(Color.BLACK);
         view.setTextSize(16f);
+        view.setTypeface(Typeface.SANS_SERIF);
         return view;
+    }
+
+    private TextView getSeparator() {
+        return getNewColumn(" | ");
+    }
+
+    private class ConnectButtonAction implements View.OnClickListener {
+        private final long id;
+
+        ConnectButtonAction(long id) {
+            this.id = id;
+        }
+
+        @Override
+        public void onClick(View v) {
+            System.out.println("click click");
+        }
     }
 }
