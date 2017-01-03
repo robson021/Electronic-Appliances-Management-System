@@ -111,15 +111,15 @@ public class UserPanelActivity extends Activity {
             table.removeViews(0, childCount);
         }
         generateColumnNames(table);
-        generateEmptyRow(table);
+        //generateEmptyRow(table);
     }
 
     private void generateColumnNames(TableLayout table) {
         TableRow row = getNewRow();
-        TextView where = getNewColumn("Where");
-        TextView appliance = getNewColumn("Appliance");
-        TextView availableFrom = getNewColumn("Available from");
-        TextView time = getNewColumn("Time");
+        TextView where = getNewHeaderColumn("Where");
+        TextView appliance = getNewHeaderColumn("Appliance");
+        TextView availableFrom = getNewHeaderColumn("Available from");
+        TextView time = getNewHeaderColumn("Time");
         row.addView(where);
         row.addView(getSeparator());
         row.addView(appliance);
@@ -128,6 +128,12 @@ public class UserPanelActivity extends Activity {
         row.addView(getSeparator());
         row.addView(time);
         table.addView(row);
+    }
+
+    private TextView getNewHeaderColumn(String text) {
+        TextView column = getNewColumn(text);
+        column.setTextColor(Color.MAGENTA);
+        return column;
     }
 
     private void generateEmptyRow(TableLayout table) {
@@ -160,7 +166,7 @@ public class UserPanelActivity extends Activity {
 
         @Override
         public void onClick(View v) {
-            System.out.println("click click");
+            System.out.println("click click " + id);
         }
     }
 }
