@@ -21,8 +21,12 @@ import java.util.List;
 
 import robert.electronicappliancemanagementsystem.R;
 import robert.electronicappliancemanagementsystem.http.HttpConnector;
+import robert.electronicappliancemanagementsystem.http.HttpStatuses;
 import robert.electronicappliancemanagementsystem.http.dto.ReservationDTO;
+import robert.electronicappliancemanagementsystem.http.dto.SimpleMessageDTO;
+import robert.electronicappliancemanagementsystem.http.requests.ConnectToTheApplianceRequest;
 import robert.electronicappliancemanagementsystem.http.requests.MyReservationsRequest;
+import robert.electronicappliancemanagementsystem.utils.BasicUtils;
 
 
 public class UserPanelActivity extends Activity {
@@ -92,7 +96,7 @@ public class UserPanelActivity extends Activity {
 
             Button button = new Button(getApplicationContext());
             button.setText("Connect");
-            button.setOnClickListener(new ConnectButtonAction(reservation.getId()));
+            button.setOnClickListener(new ConnectButtonAction(reservation.getId(), reservation.getAppliance()));
             row.addView(button);
 
             table.addView(row);
@@ -148,7 +152,7 @@ public class UserPanelActivity extends Activity {
         TextView view = new TextView(getApplicationContext());
         view.setText(text);
         view.setTextColor(Color.BLACK);
-        view.setTextSize(16f);
+        view.setTextSize(11f);
         view.setTypeface(Typeface.SANS_SERIF);
         return view;
     }
@@ -159,14 +163,38 @@ public class UserPanelActivity extends Activity {
 
     private class ConnectButtonAction implements View.OnClickListener {
         private final long id;
+        private final String name;
 
-        ConnectButtonAction(long id) {
+        ConnectButtonAction(long id, String name) {
             this.id = id;
+            this.name = name;
         }
 
         @Override
         public void onClick(View v) {
-            System.out.println("click click " + id);
+            ConnectToTheApplianceRequest listener = new ConnectToTheApplianceRequest(new ApplianceConnectionListener(name), id);
+            HttpConnector.getInstance()
+                    .sendRequest(getApplicationContext(), listener);
+        }
+    }
+
+    private class ApplianceConnectionListener implements Response.Listener {
+        private final String name;
+
+        public ApplianceConnectionListener(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public void onResponse(Object response) {
+            System.out.println(response);
+            String text = new Gson().fromJson((String) response, SimpleMessageDTO.class)
+                    .getText();
+            if (text.equals(HttpStatuses.OK)) {
+                BasicUtils.showToast("Connected to the appliance:\n" + name, getApplicationContext());
+            } else {
+                BasicUtils.showToast("Could not connected to the appliance", getApplicationContext());
+            }
         }
     }
 }

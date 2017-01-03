@@ -26,8 +26,6 @@ public class RegisterRequest extends StringRequest {
                 paramsMap.get(PASSWORD_PARAM),
                 paramsMap.get(NAME_PARAM),
                 paramsMap.get(SURNAME_PARAM));
-        String address = HttpConnector.getServerUrl() + formattedUri;
-        System.out.println(address);
-        return address;
+        return HttpConnector.getServerUrl() + formattedUri;
     }
 }

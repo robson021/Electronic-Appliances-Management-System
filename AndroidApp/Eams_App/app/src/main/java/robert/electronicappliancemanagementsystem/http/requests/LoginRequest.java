@@ -23,7 +23,6 @@ public class LoginRequest extends StringRequest {
     private static String setUrl(Map<String, String> paramsMap) {
         String email = paramsMap.get(EMAIL_PARAM);
         String password = paramsMap.get(PASSWORD_PARAM);
-
         return HttpConnector.getServerUrl() + String.format(uri, email, password);
     }
 }
