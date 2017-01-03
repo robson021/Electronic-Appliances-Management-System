@@ -3,10 +3,10 @@
     angular.module("ngApp").controller('login-register-ctrl', function ($scope, $rootScope, $state, httpSvc) {
 
         $scope.user = {
-            email: '',
+            email: 'admin@a.pl',
             name: '',
             surname: '',
-            password: '',
+            password: 'Passwd.123',
             repassword: ''
         };
 

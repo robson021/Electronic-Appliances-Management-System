@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-import robert.web.svc.rest.responses.asm.ReservationAssembler;
+import robert.utils.TimeConverter;
 
 @Entity
 @Table(name = "RESERVATION")
@@ -31,7 +31,6 @@ public class Reservation {
 	@JoinColumn(name = "USER_ID", nullable = false)
 	private User user;
 
-	// TODO: make them save as java.util.Date
 	@Column(name = "VALID_FROM")
 	private Long validFrom;
 
@@ -90,8 +89,8 @@ public class Reservation {
 	}
 
     public int getDurationOfAccess() {
-        return (int) ReservationAssembler.convertToMinutes(validTill - validFrom);
-    }
+		return (int) TimeConverter.convertMillisToMinutes(validTill - validFrom);
+	}
 
 	@Override
 	public boolean equals(Object o) {

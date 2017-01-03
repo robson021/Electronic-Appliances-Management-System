@@ -68,9 +68,7 @@ public class ApplianceConnectorImpl implements ApplianceConnector {
     }
 
     private void validateTime(Reservation reservation) throws Exception {
-
         long currentTime = new Date().getTime();
-
         if ( reservation.getValidTill() < currentTime ) {
             throw new Exception("Reservation time has expired");
         }
