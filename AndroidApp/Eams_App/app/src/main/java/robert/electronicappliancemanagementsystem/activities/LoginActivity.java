@@ -9,12 +9,14 @@ import android.widget.EditText;
 
 import com.android.volley.Response;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import robert.electronicappliancemanagementsystem.R;
 import robert.electronicappliancemanagementsystem.http.HttpConnector;
-import robert.electronicappliancemanagementsystem.http.HttpStatuses;
 import robert.electronicappliancemanagementsystem.http.requests.LoginRequest;
 import robert.electronicappliancemanagementsystem.utils.BasicUtils;
 
@@ -62,11 +64,17 @@ public class LoginActivity extends Activity {
         }
     }
 
-    private class LoginResponse implements Response.Listener<String> {
+    private class LoginResponse implements Response.Listener<JSONObject> {
         @Override
-        public void onResponse(String response) {
-            System.out.println(response);
-            if (HttpStatuses.OK.equals(response)) {
+        public void onResponse(JSONObject response) {
+            String text;
+            try {
+                text = response.getString("text");
+            } catch (JSONException e) {
+                return;
+            }
+            System.out.println(text);
+            if ("OK".equals(text)) {
                 Intent intent = new Intent(LoginActivity.this, UserPanelActivity.class);
                 LoginActivity.this.startActivity(intent);
             } else {

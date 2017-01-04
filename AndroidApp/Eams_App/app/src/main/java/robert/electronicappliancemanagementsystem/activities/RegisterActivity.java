@@ -9,6 +9,8 @@ import android.widget.EditText;
 
 import com.android.volley.Response;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -67,10 +69,10 @@ public class RegisterActivity extends Activity {
         }
     }
 
-    private class RegisterResponseListener implements Response.Listener<String> {
+    private class RegisterResponseListener implements Response.Listener<JSONObject> {
         @Override
-        public void onResponse(String response) {
-            BasicUtils.showToast(response, ctx);
+        public void onResponse(JSONObject response) {
+            BasicUtils.showToast(response.toString(), getApplicationContext());
         }
     }
 

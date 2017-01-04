@@ -193,7 +193,7 @@ public class UserPanelActivity extends Activity {
             if (text.equals(HttpStatuses.OK)) {
                 BasicUtils.showToast("Connected to the appliance:\n" + name, getApplicationContext());
             } else {
-                BasicUtils.showToast("Could not connected to the appliance", getApplicationContext());
+                BasicUtils.showToast(text, getApplicationContext());
             }
         }
     }
