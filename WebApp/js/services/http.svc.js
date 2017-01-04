@@ -25,8 +25,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     };
 
     this.loginUser = function (user) {
-        let uri = '/login/' + user.email + '/' + user.password + '/';
-        $http.post(url + uri, null)
+        $http.post(url + "/login/", user)
             .success(function (response) {
                 console.info('login user:' + response);
                 if (response === 'OK') {
@@ -48,8 +47,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
             toastr.info('Passwords do not match!');
             return;
         }
-        let uri = '/register/' + user.email + '/' + user.password + '/' + user.name + '/' + user.surname + '/';
-        $http.put(url + uri, null)
+        $http.put(url + '/register/', user)
             .success(function (response) {
                 if (response === 'OK') {
                     $state.go('default');
