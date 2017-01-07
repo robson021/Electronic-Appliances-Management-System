@@ -1,4 +1,4 @@
-package robert.web.filters;
+package robert.web.security.filters;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import static robert.enums.Validation.ADMIN_URI;
 
 @Component
-public final class AdminAuthFilter extends BasicAuthFilter {
+public class AdminAuthFilter extends BasicAuthFilter {
 
 	private final AppLogger log;
 

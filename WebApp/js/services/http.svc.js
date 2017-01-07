@@ -27,8 +27,8 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
     this.loginUser = function (user) {
         $http.post(url + "/login/", user)
             .success(function (response) {
-                console.info('login user:' + response);
-                if (response === 'OK') {
+                console.info('login user:' + response.text);
+                if (response.text === 'OK') {
                     $rootScope.loggedIn = true;
                     $state.go('user-panel');
                     toastr.success('You have been logged in.');
@@ -49,15 +49,16 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
         }
         $http.put(url + '/register/', user)
             .success(function (response) {
-                if (response === 'OK') {
+                let msg = response.text;
+                if (msg === 'OK') {
                     $state.go('default');
                     toastr.success('Successfully registered your account.');
-                } else if (response === 'FORBIDDEN') {
+                } else if (msg === 'FORBIDDEN') {
                     toastr.error('Invalid e-mail or password pattern.');
                 } else {
                     toastr.error('Error. Could not register the user.');
                 }
-                console.info('register new user: ' + response);
+                console.info('register new user: ' + msg);
             });
     };
 

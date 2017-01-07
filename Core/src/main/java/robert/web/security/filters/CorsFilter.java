@@ -1,4 +1,4 @@
-package robert.web.filters;
+package robert.web.security.filters;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;

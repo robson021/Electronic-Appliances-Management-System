@@ -1,4 +1,4 @@
-package robert.web.filters;
+package robert.web.security.filters;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-public final class UserAuthFilter extends BasicAuthFilter {
+public class UserAuthFilter extends BasicAuthFilter {
 
 	private final AppLogger log;
 

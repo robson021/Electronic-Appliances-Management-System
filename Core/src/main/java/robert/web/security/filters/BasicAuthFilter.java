@@ -1,4 +1,4 @@
-package robert.web.filters;
+package robert.web.security.filters;
 
 import org.springframework.util.AntPathMatcher;
 import robert.exceptions.AuthException;
@@ -26,7 +26,7 @@ public abstract class BasicAuthFilter implements Filter {
 			doLogic(request, response);
 			filterChain.doFilter(servletRequest, response);
 		} catch (Throwable ignored) {
-			//this.invalidateSessionAndSendRedirect(response, request); // comment out for chrome non x-orgin requests
+			//this.invalidateSessionAndSendRedirect(response, request);
 		}
 	}
 

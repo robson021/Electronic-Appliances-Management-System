@@ -16,7 +16,6 @@ import robert.db.repository.ReservationRepository;
 import robert.db.repository.RoomRepository;
 import robert.enums.Validation;
 import robert.exceptions.NoSuchBuildingException;
-import robert.utils.api.AppLogger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -40,7 +39,7 @@ public class ApplianceBuildingRoomManagementDao {
 	private final EntityManager em;
 
 	@Autowired
-	public ApplianceBuildingRoomManagementDao(AppLogger log, RoomRepository roomRepository, ApplianceRepository applianceRepository,
+	public ApplianceBuildingRoomManagementDao(RoomRepository roomRepository, ApplianceRepository applianceRepository,
 											  BuildingRepository buildingRepository, ReservationRepository reservationRepository, EntityManager em) {
 		this.roomRepository = roomRepository;
 		this.applianceRepository = applianceRepository;

@@ -7,7 +7,6 @@ import org.springframework.util.CollectionUtils;
 import robert.db.entity.User;
 import robert.db.repository.UserRepository;
 import robert.exceptions.UserNotFoundException;
-import robert.svc.api.MailService;
 
 import java.util.Collections;
 import java.util.List;
@@ -58,9 +57,8 @@ public class AdminDao {
 	}
 
 	public void deleteUser(String email) {
-		User user = userRepository.findOneByEmail(email);
 		try {
-			userRepository.delete(user);
+			userRepository.delete(userRepository.findOneByEmail(email));
 		} catch (Throwable ignored) {
 		}
 	}
