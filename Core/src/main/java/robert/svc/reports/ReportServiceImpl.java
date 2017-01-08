@@ -55,7 +55,7 @@ public class ReportServiceImpl implements ReportService {
             String applianceName = reservations.get(0)
                     .getAppliance();
             File file = new File(fileName);
-            mailService.sendEmail(receiverEmail, MESSAGE_TOPIC, "Raports for " + applianceName, file);
+            mailService.sendEmail(receiverEmail, MESSAGE_TOPIC, "Reports for " + applianceName, file);
         } catch (Exception e) {
         }
     }

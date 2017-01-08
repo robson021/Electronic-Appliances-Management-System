@@ -50,7 +50,7 @@ public class ReportPdfGeneratorTest extends SpringTest {
         reservation2.setAppliance("test appl2");
         reservation2.setFrom(time / 2);
         reservation2.setMinutes(90);
-        reservation2.setOwner(owner);
+        reservation2.setOwner(owner + " 2");
 
         return Arrays.asList(reservation1, reservation2);
     }

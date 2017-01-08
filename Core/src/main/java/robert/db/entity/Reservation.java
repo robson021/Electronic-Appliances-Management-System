@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-import robert.enums.Validation;
 import robert.utils.TimeConverter;
 
 @Entity
@@ -39,7 +38,7 @@ public class Reservation {
 	private Long validTill;
 
 	@Column(name = "ACCESS_TOKEN", nullable = false)
-	private String accessToken = Validation.MOCK_APPLIANCE_UNIQUE_CODE;
+	private String accessToken;
 
 	public User getUser() {
 		return user;
