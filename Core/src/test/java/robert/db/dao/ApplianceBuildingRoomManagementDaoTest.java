@@ -1,6 +1,7 @@
 package robert.db.dao;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -11,6 +12,7 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import robert.db.entity.Appliance;
 import robert.db.entity.Building;
+import robert.db.entity.Reservation;
 import robert.db.entity.Room;
 import robert.db.repository.UserRepository;
 import utils.SpringTest;
@@ -118,6 +120,12 @@ public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 				.isNotNull()
 				.hasSize(numOfAppl);
 	}
+
+    //@Test
+    public void testtt() {
+        // TODO
+        List<Reservation> reservationsFromThePast = dao.getReservationsFromThePast(1, 23);
+    }
 
 	private Room createRoom(int roomNumberLength) {
 		String roomNO = RandomStringUtils.random(roomNumberLength, false, true).toLowerCase().trim();
