@@ -1,11 +1,23 @@
 package robert.db.dao;
 
-import javassist.NotFoundException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
+
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+
+import javassist.NotFoundException;
 import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Reservation;
@@ -16,12 +28,6 @@ import robert.db.repository.ReservationRepository;
 import robert.db.repository.RoomRepository;
 import robert.enums.Validation;
 import robert.exceptions.NoSuchBuildingException;
-
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import java.util.*;
 
 @SuppressWarnings({"WeakerAccess", "SpringJavaAutowiringInspection"})
 @Component
@@ -201,6 +207,25 @@ public class ApplianceBuildingRoomManagementDao {
 		reservationRepository.delete(resultList);
 		return reservationsToDelete;
 	}
+
+    @SuppressWarnings("JpaQueryApiInspection")
+    public List<Reservation> getReservationsFromThePast(long applianceId, int daysAgo) {
+        long timeAgo = new DateTime() //
+                .minusDays(daysAgo)
+                .toDate()
+                .getTime();
+
+        String applianceName = em.createNamedQuery( //
+                "select name from Appliance a where a.id = :applId", String.class)
+                .setParameter(0, applianceId)
+                .getSingleResult();
+
+        List<Reservation> results = em.createNamedQuery( //
+                "select r from Reservation where r.validFrom > :time", Reservation.class)
+                .setParameter(0, timeAgo)
+                .getResultList();
+        return results;
+    }
 
 	private void validateRoomOrBuilding(Object o, String name) throws NotFoundException {
 		if (o == null) {

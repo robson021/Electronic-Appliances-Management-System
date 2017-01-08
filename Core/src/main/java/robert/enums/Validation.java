@@ -1,11 +1,11 @@
 package robert.enums;
 
+import static robert.web.svc.rest.ctrl.api.AdminPanelCtrl.ADMIN_PREFIX;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import static robert.web.svc.rest.ctrl.api.AdminPanelCtrl.ADMIN_PREFIX;
 
 public interface Validation {
 
@@ -27,7 +27,7 @@ public interface Validation {
 
 	short MAX_RESERVATION_TIME_IN_MINUTES = 12 * 60;
 
-	short TIME_OF_KEEPING_OLD_RESERVATION_IN_DAYS = 14;
+    short TIME_OF_KEEPING_OLD_RESERVATION_IN_DAYS = 30;
 
 	String MOCK_APPLIANCE_UNIQUE_CODE = "unique-code";
 

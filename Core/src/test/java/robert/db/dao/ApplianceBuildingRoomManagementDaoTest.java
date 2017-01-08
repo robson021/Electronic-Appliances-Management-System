@@ -1,23 +1,31 @@
 package robert.db.dao;
 
+import java.util.Collection;
+import java.util.UUID;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
+
 import robert.db.entity.Appliance;
 import robert.db.entity.Building;
 import robert.db.entity.Room;
+import robert.db.repository.UserRepository;
 import utils.SpringTest;
 import utils.TestUtils;
-
-import java.util.Collection;
-import java.util.UUID;
 
 public class ApplianceBuildingRoomManagementDaoTest extends SpringTest {
 
 	@Autowired
 	private ApplianceBuildingRoomManagementDao dao;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserDao userDao;
 
 	@Override
 	public void setup() throws Exception {

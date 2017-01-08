@@ -1,19 +1,21 @@
 package robert.svc;
 
+import java.io.File;
+
+import javax.mail.internet.MimeMessage;
+
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
 import robert.enums.TaskType;
 import robert.jobs.ExecutableTask;
 import robert.svc.api.MailService;
 import robert.svc.api.TaskSchedulerService;
 import robert.utils.api.AppLogger;
-
-import javax.mail.internet.MimeMessage;
-import java.io.File;
 
 @SuppressWarnings("SpringJavaAutowiringInspection")
 @Service
@@ -71,6 +73,9 @@ public class MailServiceImpl implements MailService {
                 log.error(e);
             } finally {
                 log.debug("Mailer thread finished:", receiverEmail);
+                if ( attachment != null ) {
+                    attachment.delete();
+                }
             }
         }
 
