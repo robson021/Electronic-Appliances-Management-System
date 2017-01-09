@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
+
 import robert.web.session.user.api.UserInfoProvider;
 
 @Component
@@ -13,20 +14,28 @@ public class UserInfoProviderImpl implements UserInfoProvider {
 
 	private String email = null;
 
+	private long id = -1;
+
 	private boolean adminPrivileges = false;
 
 	private CsrfToken csrfToken = null;
 
 	@Override
-	public void setEmail(String email) {
-		if (this.email == null) { // set only once
+	public void setIds(long id, String email) {
+		if ( this.email == null && this.id < 0 ) { // set only once
 			this.email = email.trim();
+			this.id = id;
 		}
 	}
 
 	@Override
 	public String getEmail() {
 		return this.email;
+	}
+
+	@Override
+	public long getId() {
+		return id;
 	}
 
 	@Override

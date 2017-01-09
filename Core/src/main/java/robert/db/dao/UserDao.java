@@ -118,9 +118,9 @@ public class UserDao {
 		return user.getReservations();
 	}
 
-	public String getTokenForMyReservation(long reservationId, String email) throws NotFoundException, AuthException {
+	public String getTokenForMyReservation(long reservationId, long userId) throws NotFoundException, AuthException {
 		Reservation reservation = reservationRepository.findOne(reservationId);
-		validateUsersReservation(reservation, email);
+		validateUsersReservation(reservation, userId);
 		return reservation.getAccessToken();
 	}
 
@@ -209,9 +209,9 @@ public class UserDao {
 		applianceRepository.save(appliance);
 	}
 
-	public ReservationInfo getReservationInfo(long reservationId, String email) throws Exception {
+	public ReservationInfo getReservationInfo(long reservationId, long userId) throws Exception {
 		Reservation reservation = reservationRepository.findOne(reservationId);
-		validateUsersReservation(reservation, email);
+		validateUsersReservation(reservation, userId);
 
 		ReservationInfo ri = new ReservationInfo();
 		ri.setAccessCode(reservation.getAccessToken());
@@ -234,14 +234,14 @@ public class UserDao {
 		}
 	}
 
-	private void validateUsersReservation(Reservation reservation, String email) throws AuthException, NotFoundException {
+	private void validateUsersReservation(Reservation reservation, long userId) throws AuthException, NotFoundException {
 		if (reservation == null) {
 			throw new NotFoundException("Reservation with id not found.");
 		}
 		if (!reservation.getUser()
-				.getEmail()
-				.equals(email)) {
-			throw new AuthException(email + " does not have permission to the reservation.");
+				.getId()
+				.equals(userId) ) {
+			throw new AuthException("User with id: '" + userId + "' does not have permission to the reservation.");
 		}
 	}
 }

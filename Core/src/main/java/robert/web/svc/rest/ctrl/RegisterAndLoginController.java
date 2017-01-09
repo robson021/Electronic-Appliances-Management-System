@@ -68,9 +68,6 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
             log.debug(e);
             return new BasicDTO("Invalid password.");
         }
-
-        userInfoProvider.setEmail(email);
-
         mailService.sendEmail(email, "Account Registration", "Your account has been registered.", null);
 
         log.info("Registration of", email, "has been been successful.");
@@ -95,7 +92,7 @@ public class RegisterAndLoginController implements RegisterAndLoginCtrl {
             return new BasicDTO("Invalid password.");
         }
 
-        userInfoProvider.setEmail(user.getEmail());
+        userInfoProvider.setIds(user.getId(), user.getEmail());
         if ( user.isAdminPrivileged() ) {
             userInfoProvider.enableAdminPrivileges();
         }

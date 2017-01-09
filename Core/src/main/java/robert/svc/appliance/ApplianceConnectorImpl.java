@@ -33,11 +33,11 @@ public class ApplianceConnectorImpl implements ApplianceConnector {
     }
 
     @Override
-    public String connectToTheAppliance(String applianceAddress, int time, String accessCode, long reservationId, String userEmail) throws Exception {
+    public String connectToTheAppliance(String applianceAddress, int time, String accessCode, long reservationId, long userId) throws Exception {
         if ( accessCode == null ) {
             accessCode = Validation.MOCK_APPLIANCE_UNIQUE_CODE;
         } else {
-            this.validateIfUserCanGetAccessToTheAppliance(reservationId, userEmail);
+            this.validateIfUserCanGetAccessToTheAppliance(reservationId, userId);
         }
         return connect(applianceAddress, time, accessCode);
     }
@@ -57,12 +57,12 @@ public class ApplianceConnectorImpl implements ApplianceConnector {
         return response;
     }
 
-    private void validateIfUserCanGetAccessToTheAppliance(long reservationId, String email) throws Exception {
+    private void validateIfUserCanGetAccessToTheAppliance(long reservationId, long userId) throws Exception {
         Reservation reservation = abrmDao.findReservation(reservationId);
         if ( !reservation.getUser()
-                .getEmail()
-                .equals(email) ) {
-            throw new Exception("The reservation is not for user " + email);
+                .getId()
+                .equals(userId) ) {
+            throw new Exception("The reservation is not for user with id: " + userId);
         }
         validateTime(reservation);
     }

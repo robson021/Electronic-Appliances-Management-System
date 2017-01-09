@@ -1,8 +1,16 @@
 package robert.web.svc.rest.ctrl;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.svc.api.ApplianceConnector;
@@ -17,9 +25,6 @@ import robert.web.svc.rest.responses.dto.ApplianceDTO;
 import robert.web.svc.rest.responses.dto.BasicDTO;
 import robert.web.svc.rest.responses.dto.ReservationDTO;
 import robert.web.svc.rest.responses.dto.RoomDTO;
-
-import java.util.Date;
-import java.util.List;
 
 @RestController
 public class UserServiceController implements UserServiceCtrl {
@@ -98,7 +103,7 @@ public class UserServiceController implements UserServiceCtrl {
     public BasicDTO getReservationToken(@PathVariable(RESERVATION_ID) Long reservationId) {
         log.debug("Get token for reservation -", userInfoProvider.getEmail());
         try {
-            String token = userDao.getTokenForMyReservation(reservationId, userInfoProvider.getEmail());
+            String token = userDao.getTokenForMyReservation(reservationId, userInfoProvider.getId());
             log.debug("Token:", token);
             return new BasicDTO(token);
         } catch (Exception e) {
@@ -250,13 +255,13 @@ public class UserServiceController implements UserServiceCtrl {
         String email = userInfoProvider.getEmail();
         log.info(email, "is trying to connect to the appliance");
         try {
-            ReservationInfo ri = userDao.getReservationInfo(reservationId, email);
+            ReservationInfo ri = userDao.getReservationInfo(reservationId, userInfoProvider.getId());
             String response = applianceConnector.connectToTheAppliance( //
                     ri.getApplianceAddress(), //
                     ri.getTime(), //
                     ri.getAccessCode(), //
                     ri.getReservationId(), //
-                    email);
+                    userInfoProvider.getId());
             log.info("Connected with response:", response);
             return new BasicDTO(response);
         } catch (Exception e) {

@@ -1,17 +1,18 @@
 package utils;
 
+import static robert.enums.BeanNames.DEFAULT_JOB_REGISTRATION;
+import static robert.enums.BeanNames.DEFAULT_TASK_EXECUTOR;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.security.web.csrf.CsrfToken;
+
 import robert.jobs.api.JobRegistration;
 import robert.svc.api.MailService;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
-
-import static robert.enums.BeanNames.DEFAULT_JOB_REGISTRATION;
-import static robert.enums.BeanNames.DEFAULT_TASK_EXECUTOR;
 
 @Configuration
 public class TestConfig {
@@ -21,12 +22,17 @@ public class TestConfig {
     public UserInfoProvider userInfoProvider() {
         return new UserInfoProvider() {
             @Override
-            public void setEmail(String email) {
+            public void setIds(long id, String email) {
             }
 
             @Override
             public String getEmail() {
                 return TestUtils.ADMIN_USER_EMAIL;
+            }
+
+            @Override
+            public long getId() {
+                return 0;
             }
 
             @Override

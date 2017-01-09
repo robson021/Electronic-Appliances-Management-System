@@ -1,9 +1,16 @@
 package robert.web.svc.rest.ctrl;
 
+import static robert.web.svc.rest.ctrl.api.AdminPanelCtrl.GET_ALL_INACTIVE_ACCOUNTS_URL;
+
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import robert.db.dao.AdminDao;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
@@ -13,12 +20,6 @@ import robert.svc.appliance.ApplianceConnectorImpl;
 import robert.utils.api.AppLogger;
 import robert.web.svc.rest.responses.asm.UserAssembler;
 import robert.web.svc.rest.responses.dto.UserDTO;
-
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-
-import static robert.web.svc.rest.ctrl.api.AdminPanelCtrl.GET_ALL_INACTIVE_ACCOUNTS_URL;
 
 @RestController
 @RequestMapping("/test")
@@ -82,6 +83,6 @@ public class TestController {
 
 	@RequestMapping("/mock-appliance")
 	public String getAccessToMockAppliance() throws Exception {
-		return applianceConnector.connectToTheAppliance("http://51.254.115.19:8081", 2, null, 0, null);
+		return applianceConnector.connectToTheAppliance("http://51.254.115.19:8081", 2, null, 0, 1);
 	}
 }

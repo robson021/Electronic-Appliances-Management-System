@@ -4,9 +4,11 @@ import org.springframework.security.web.csrf.CsrfToken;
 
 public interface UserInfoProvider {
 
-	void setEmail(String email);
+	void setIds(long id, String email);
 
 	String getEmail();
+
+	long getId();
 
 	void enableAdminPrivileges();
 
