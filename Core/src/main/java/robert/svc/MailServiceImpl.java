@@ -45,6 +45,7 @@ public class MailServiceImpl implements MailService {
 
     private class MailRunnable implements Runnable {
         final String receiverEmail, topic, body;
+
         final File attachment;
 
         MailRunnable(String receiverEmail, String topic, String message, File attachment) {
@@ -64,7 +65,7 @@ public class MailServiceImpl implements MailService {
                 helper.setSubject(topic);
                 helper.setTo(receiverEmail);
                 helper.setText(body);
-                if (attachment != null) {
+                if ( attachment != null ) {
                     FileSystemResource f = new FileSystemResource(attachment);
                     helper.addAttachment(f.getFilename(), f);
                 }
@@ -72,10 +73,11 @@ public class MailServiceImpl implements MailService {
             } catch (Exception e) {
                 log.error(e);
             } finally {
-                log.debug("Mailer thread finished:", receiverEmail);
                 if ( attachment != null ) {
                     attachment.delete();
+                    log.debug("Deleted attachment");
                 }
+                log.debug("Mailer thread finished:", receiverEmail);
             }
         }
 

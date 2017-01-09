@@ -25,7 +25,7 @@ import robert.web.svc.rest.responses.dto.ReservationDTO;
 @Service
 public class ReportPdfGeneratorImpl implements ReportPdfGenerator {
 
-    private static final short NUM_OF_COLUMNS = 3;
+    private static final short NUM_OF_COLUMNS = 4;
 
     private static final AtomicInteger idCounter = new AtomicInteger(0);
 
@@ -76,6 +76,7 @@ public class ReportPdfGeneratorImpl implements ReportPdfGenerator {
                 .setHorizontalAlignment(Element.ALIGN_CENTER);
 
         List<PdfPCell> headers = new ArrayList<>(NUM_OF_COLUMNS);
+        headers.add(getHeaderCell("Appliance"));
         headers.add(getHeaderCell("Who"));
         headers.add(getHeaderCell("When"));
         headers.add(getHeaderCell("Time"));
@@ -92,6 +93,7 @@ public class ReportPdfGeneratorImpl implements ReportPdfGenerator {
 
     private void generateTableContent(PdfPTable table, List<ReservationDTO> reservations) {
         for (ReservationDTO reservation : reservations) {
+            table.addCell(new PdfPCell(new Paragraph(reservation.getAppliance())));
             table.addCell(new PdfPCell(new Paragraph(reservation.getOwner())));
             String when = new Date(reservation.getFrom()).toString();
             table.addCell(new PdfPCell(new Paragraph(when)));

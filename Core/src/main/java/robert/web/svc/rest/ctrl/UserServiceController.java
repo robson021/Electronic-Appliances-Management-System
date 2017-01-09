@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import robert.db.dao.ApplianceBuildingRoomManagementDao;
 import robert.db.dao.UserDao;
 import robert.svc.api.ApplianceConnector;
+import robert.svc.api.ReportService;
 import robert.svc.appliance.ReservationInfo;
 import robert.utils.api.AppLogger;
 import robert.web.session.user.api.UserInfoProvider;
@@ -39,14 +40,17 @@ public class UserServiceController implements UserServiceCtrl {
 
     private final ApplianceConnector applianceConnector;
 
+    private ReportService reportService;
+
     @Autowired
     public UserServiceController(AppLogger log, ApplianceBuildingRoomManagementDao abrmDao, UserDao userDao, UserInfoProvider userInfoProvider,
-            ApplianceConnector applianceConnector) {
+            ApplianceConnector applianceConnector, ReportService reportService) {
         this.log = log;
         this.abrmDao = abrmDao;
         this.userDao = userDao;
         this.userInfoProvider = userInfoProvider;
         this.applianceConnector = applianceConnector;
+        this.reportService = reportService;
     }
 
     @Override
@@ -54,7 +58,8 @@ public class UserServiceController implements UserServiceCtrl {
     public HttpStatus makeReservation(@PathVariable(APPLIANCE_ID) Long applianceId, @RequestBody ReservationDTO reservationDTO) {
         HttpStatus status = HttpStatus.OK;
         try {
-            userDao.makeReservationForAppliance(userInfoProvider.getEmail(), applianceId, new Date(reservationDTO.getFrom()), (int) reservationDTO.getMinutes());
+            userDao.makeReservationForAppliance(userInfoProvider.getEmail(), applianceId, new Date(reservationDTO.getFrom()),
+                    (int) reservationDTO.getMinutes());
             log.info("New reservation done by", userInfoProvider.getEmail());
         } catch (Exception e) {
             log.debug(e);
@@ -268,6 +273,12 @@ public class UserServiceController implements UserServiceCtrl {
             log.debug(e);
             return new BasicDTO(e.getMessage());
         }
+    }
+
+    @Override
+    @RequestMapping(value = GET_REPORT_FOR_RESERVATIONS)
+    public void getReportForReservationsInBuilding(Integer daysAgo) {
+        reportService.sendUserReportAboutReservationsInThePast(daysAgo, userInfoProvider.getEmail());
     }
 
 }

@@ -1,12 +1,13 @@
 package robert.web.svc.rest.ctrl.api;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
+
 import robert.web.svc.rest.responses.dto.ApplianceDTO;
 import robert.web.svc.rest.responses.dto.BasicDTO;
 import robert.web.svc.rest.responses.dto.ReservationDTO;
 import robert.web.svc.rest.responses.dto.RoomDTO;
-
-import java.util.List;
 
 public interface UserServiceCtrl extends BasicParams {
 
@@ -52,6 +53,8 @@ public interface UserServiceCtrl extends BasicParams {
 
     String CONNECT_USER_TO_APPLIANCE_URL = USER_SERVICE_PREFIX + "connect-to-appliance/{" + RESERVATION_ID + "}/";
 
+    String GET_REPORT_FOR_RESERVATIONS = USER_SERVICE_PREFIX + "report-for/{" + BUILDING_NUMBER + "}/";
+
 	List<RoomDTO> getAllRoomsInBuilding(String buildingNumber);
 
 	List<ApplianceDTO> getAllAppliancesInRoom(Long roomId);
@@ -89,5 +92,7 @@ public interface UserServiceCtrl extends BasicParams {
 	HttpStatus renameAppliance(Long applianceId, String newName);
 
     BasicDTO connectToTheAppliance(Long reservationId);
+
+    void getReportForReservationsInBuilding(Integer daysAgo);
 
 }

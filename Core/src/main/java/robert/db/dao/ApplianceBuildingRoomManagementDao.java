@@ -208,18 +208,14 @@ public class ApplianceBuildingRoomManagementDao {
     }
 
     @SuppressWarnings("JpaQueryApiInspection")
-    public List<Reservation> getReservationsFromThePast(long applianceId, int daysAgo) {
+    public List<Reservation> getReservationsFromThePast(int daysAgo) {
         long timeAgo = new DateTime() //
                 .minusDays(daysAgo)
                 .toDate()
                 .getTime();
 
-        // FIXME
-        return em.createNamedQuery( //
-                "select r from Reservation" + " where r.validTill > :time" + " inner join r.appliance as appl" + " on appl.id = :id", //
-                Reservation.class)
-                .setParameter(0, timeAgo)
-                .setParameter(1, applianceId)
+        return em.createQuery("from Reservation as r where r.validTill > :timeAgo", Reservation.class)
+                .setParameter("timeAgo", timeAgo)
                 .getResultList();
     }
 

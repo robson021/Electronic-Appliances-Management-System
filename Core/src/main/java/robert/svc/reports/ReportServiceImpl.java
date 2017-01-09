@@ -38,10 +38,10 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public void sendUserReportAboutReservationsInThePast(long applianceId, int daysAgo, String receiverEmail) {
-        List<Reservation> results = abrmDao.getReservationsFromThePast(applianceId, daysAgo);
+    public void sendUserReportAboutReservationsInThePast(int daysAgo, String receiverEmail) {
+        List<Reservation> results = abrmDao.getReservationsFromThePast(daysAgo);
         if ( results.isEmpty() ) {
-            log.debug("Found no reservations for appliance with id:", applianceId);
+            log.debug("Found no reservations for", daysAgo, "days ago");
             sendEmptyMessage(receiverEmail);
         } else {
             log.debug("Found ", results.size(), "reservations");
@@ -52,10 +52,8 @@ public class ReportServiceImpl implements ReportService {
     private void sendRaport(List<ReservationDTO> reservations, String receiverEmail) {
         try {
             String fileName = reportPdfGenerator.generatePdfWithReport(reservations);
-            String applianceName = reservations.get(0)
-                    .getAppliance();
             File file = new File(fileName);
-            mailService.sendEmail(receiverEmail, MESSAGE_TOPIC, "Reports for " + applianceName, file);
+            mailService.sendEmail(receiverEmail, MESSAGE_TOPIC, "Reservation reports.", file);
         } catch (Exception e) {
         }
     }
