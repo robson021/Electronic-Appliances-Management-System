@@ -1,15 +1,15 @@
 (function () {
-    "use strict";
-    angular.module("ngApp").controller('add-appliance-ctrl', function ($scope, $rootScope, ngDialog, httpSvc) {
+  "use strict";
+  angular.module("ngApp").controller('add-appliance-ctrl', function ($scope, $rootScope, ngDialog, httpSvc) {
 
-        httpSvc.checkIfLoggedIn();
+    httpSvc.checkIfLoggedIn();
 
-        $scope.inputField = '';
+    $scope.inputField = '';
 
-        $scope.addNewAppliance = function () {
-            httpSvc.addNewApplianceToTheRoom($rootScope.dialogObject.id, $scope.inputField);
-            ngDialog.closeAll(null);
-        };
+    $scope.addNewAppliance = function () {
+      httpSvc.addNewApplianceToTheRoom($rootScope.dialogObject.id, $scope.inputField);
+      ngDialog.closeAll(null);
+    };
 
-    }); // end of controller
+  }); // end of controller
 })();

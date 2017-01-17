@@ -1,20 +1,20 @@
 (function () {
-    "use strict";
-    angular.module("ngApp").controller('edit-buildings-ctrl', function ($scope, $rootScope, ngDialog, httpSvc) {
+  "use strict";
+  angular.module("ngApp").controller('edit-buildings-ctrl', function ($scope, $rootScope, ngDialog, httpSvc) {
 
-        httpSvc.checkIfLoggedIn();
+    httpSvc.checkIfLoggedIn();
 
-        $scope.inputField = '';
+    $scope.inputField = '';
 
-        $scope.deleteBuilding = function () {
-            httpSvc.deleteExistingBuilding($rootScope.dialogObject);
-            ngDialog.closeAll(null);
-        };
+    $scope.deleteBuilding = function () {
+      httpSvc.deleteExistingBuilding($rootScope.dialogObject);
+      ngDialog.closeAll(null);
+    };
 
-        $scope.renameBuilding = function () {
-            httpSvc.renameBuilding($rootScope.dialogObject, $scope.inputField);
-            ngDialog.closeAll(null);
-        };
+    $scope.renameBuilding = function () {
+      httpSvc.renameBuilding($rootScope.dialogObject, $scope.inputField);
+      ngDialog.closeAll(null);
+    };
 
-    }); // end of controller
+  }); // end of controller
 })();

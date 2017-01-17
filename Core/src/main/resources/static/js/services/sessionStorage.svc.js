@@ -1,3 +1,3 @@
 app.service('storageService', function () {
-    // todo
+  // todo
 });

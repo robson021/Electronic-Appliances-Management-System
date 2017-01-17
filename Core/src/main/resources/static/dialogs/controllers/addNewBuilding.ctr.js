@@ -1,15 +1,15 @@
 (function () {
-    "use strict";
-    angular.module("ngApp").controller('add-building-ctrl', function ($scope, ngDialog, httpSvc) {
+  "use strict";
+  angular.module("ngApp").controller('add-building-ctrl', function ($scope, ngDialog, httpSvc) {
 
-        httpSvc.checkIfLoggedIn();
+    httpSvc.checkIfLoggedIn();
 
-        $scope.inputField = '';
+    $scope.inputField = '';
 
-        $scope.addBuilding = function () {
-            httpSvc.addNewBuilding($scope.inputField);
-            ngDialog.closeAll(null);
-        };
+    $scope.addBuilding = function () {
+      httpSvc.addNewBuilding($scope.inputField);
+      ngDialog.closeAll(null);
+    };
 
-    }); // end of controller
+  }); // end of controller
 })();

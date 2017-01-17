@@ -1,15 +1,15 @@
 (function () {
-    "use strict";
-    angular.module("ngApp").controller('add-room-ctrl', function ($scope, $rootScope, ngDialog, httpSvc) {
+  "use strict";
+  angular.module("ngApp").controller('add-room-ctrl', function ($scope, $rootScope, ngDialog, httpSvc) {
 
-        httpSvc.checkIfLoggedIn();
+    httpSvc.checkIfLoggedIn();
 
-        $scope.inputField = '';
+    $scope.inputField = '';
 
-        $scope.addNewRoom = function () {
-            httpSvc.addNewRoomToTheBuilding($rootScope.dialogObject, $scope.inputField);
-            ngDialog.closeAll(null);
-        };
+    $scope.addNewRoom = function () {
+      httpSvc.addNewRoomToTheBuilding($rootScope.dialogObject, $scope.inputField);
+      ngDialog.closeAll(null);
+    };
 
-    }); // end of controller
+  }); // end of controller
 })();
