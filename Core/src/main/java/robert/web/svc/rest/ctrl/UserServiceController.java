@@ -277,7 +277,8 @@ public class UserServiceController implements UserServiceCtrl {
 
     @Override
     @RequestMapping(value = GET_REPORT_FOR_RESERVATIONS)
-    public void getReportForReservationsInBuilding(Integer daysAgo) {
+    public void getReportForReservationsInBuilding(@PathVariable(VAL) Integer daysAgo) {
+        log.debug("Get reports for reservations from past days:", daysAgo);
         reportService.sendUserReportAboutReservationsInThePast(daysAgo, userInfoProvider.getEmail());
     }
 

@@ -53,7 +53,7 @@ public interface UserServiceCtrl extends BasicParams {
 
     String CONNECT_USER_TO_APPLIANCE_URL = USER_SERVICE_PREFIX + "connect-to-appliance/{" + RESERVATION_ID + "}/";
 
-    String GET_REPORT_FOR_RESERVATIONS = USER_SERVICE_PREFIX + "report-for/{" + BUILDING_NUMBER + "}/";
+	String GET_REPORT_FOR_RESERVATIONS = USER_SERVICE_PREFIX + "report-for/{" + VAL + "}/";
 
 	List<RoomDTO> getAllRoomsInBuilding(String buildingNumber);
 
