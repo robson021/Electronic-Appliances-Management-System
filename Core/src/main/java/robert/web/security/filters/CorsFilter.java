@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Component
-@Order(Ordered.HIGHEST_PRECEDENCE)
-public class CorsFilter implements Filter {
-
-	private final AppLogger log;
+//@Component
+//@Order(Ordered.HIGHEST_PRECEDENCE)
+public class CorsFilter /*implements Filter*/ {
+/*
+    private final AppLogger log;
 
 	@Autowired
 	public CorsFilter(AppLogger log) {
@@ -44,6 +44,6 @@ public class CorsFilter implements Filter {
 	@Override
 	public void destroy() {
 		log.info(CorsFilter.class.toString(), "destroyed.");
-	}
+	}*/
 
 }

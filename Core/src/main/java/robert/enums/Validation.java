@@ -21,8 +21,7 @@ public interface Validation {
 			Arrays.asList("/", "/login/**", "/register/**", "/logout/**", "/guest/**", "/test/**")
 	);
 
-	List<String> NO_AUTH_FILES = Collections.unmodifiableList(
-			Arrays.asList(".html", ".js", ".css")
+	List<String> NO_AUTH_FILES = Collections.unmodifiableList(Arrays.asList(".html", ".js", ".css", ".jpg", ".png", ".jpeg")
 	);
 
 	short MAX_RESERVATION_TIME_IN_MINUTES = 12 * 60;

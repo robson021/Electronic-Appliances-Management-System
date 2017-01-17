@@ -43,8 +43,9 @@ public class UserAuthFilter extends BasicAuthFilter {
 
 	@Override
 	public void doLogic(HttpServletRequest request, HttpServletResponse response) throws AuthException {
-		if (isValidationNotEnabledOnThisURI(request.getRequestURI())) {
-			return;
+        String requestURI = request.getRequestURI();
+        if ( isValidationNotEnabledOnThisURI(requestURI) ) {
+            return;
 		}
 
 		isUserAndTokenValid(userInfoProvider.getEmail(), request);
