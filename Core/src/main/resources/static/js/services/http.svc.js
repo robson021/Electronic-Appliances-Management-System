@@ -3,8 +3,9 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   // to allow CORS run: chromium-browser --disable-web-security --user-data-dir
 
   const self = this;
-  const url = "http://localhost:8080";
-  //const url = "http://192.168.1.2:8080";
+  const url = "";
+  //const url = "http://localhost:8080/";
+  //const url = "http://192.168.1.2:8080/";
 
   // ----- basic user actions (login/register/logout etc...) -------
 
@@ -16,7 +17,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.checkIfAdmin = function () {
-    $http.get(url + '/admin/am-i-admin/')
+    $http.get(url + 'admin/am-i-admin/')
       .success(function (response) {
         if (response === 'OK') {
           $rootScope.isAdmin = true;
@@ -25,7 +26,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.loginUser = function (user) {
-    $http.post(url + "/login/", user)
+    $http.post(url + "login/", user)
       .success(function (response) {
         console.info('login user:' + response.text);
         if (response.text === 'OK') {
@@ -47,7 +48,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
       toastr.info('Passwords do not match!');
       return;
     }
-    $http.put(url + '/register/', user)
+    $http.put(url + 'register/', user)
       .success(function (response) {
         let msg = response.text;
         if (msg === 'OK') {
@@ -72,37 +73,37 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   // ------- get things ----------
 
   this.getAllBuildings = function () {
-    let uri = '/user-service/get-all-buildings/';
+    let uri = 'user-service/get-all-buildings/';
     return $http.get(url + uri, null);
   };
 
   this.getAllRoomsInBuilding = function (buildingNumber) {
-    let uri = '/user-service/' + buildingNumber + '/';
+    let uri = 'user-service/' + buildingNumber + '/';
     return $http.get(url + uri, null);
   };
 
   this.getAllAppliancesInRoom = function (roomId) {
-    let uri = '/user-service/get-all-appliances/' + roomId + '/';
+    let uri = 'user-service/get-all-appliances/' + roomId + '/';
     return $http.get(url + uri, null);
   };
 
   this.getMyReservations = function () {
-    let uri = '/user-service/my-reservations/';
+    let uri = 'user-service/my-reservations/';
     return $http.get(url + uri, null);
   };
 
   this.getAllReservations = function () {
-    let uri = '/user-service/all-reservations/';
+    let uri = 'user-service/all-reservations/';
     return $http.get(url + uri, null);
   };
 
   this.getTokenOfReservation = function (reservationId) {
-    let uri = '/user-service/reservation/token/' + reservationId + '/';
+    let uri = 'user-service/reservation/token/' + reservationId + '/';
     return $http.get(url + uri, null);
   };
 
   this.getReportForReservations = function (days) {
-    let uri = "/user-service/report-for/" + days + "/";
+    let uri = "user-service/report-for/" + days + "/";
     $http.get(url + uri, null);
     self.displayMessage("OK", 'Report has been sent.', null)
   };
@@ -110,7 +111,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   // ---------- edit buttons -------------
 
   this.deleteExistingBuilding = function (b) {
-    let uri = '/user-service/delete/building/' + b + '/';
+    let uri = 'user-service/delete/building/' + b + '/';
     $http.delete(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -120,7 +121,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.renameBuilding = function (b, newName) {
-    let uri = '/user-service/rename/building/' + b + '/' + newName + '/';
+    let uri = 'user-service/rename/building/' + b + '/' + newName + '/';
     $http.post(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -130,7 +131,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.deleteExistingRoom = function (id) {
-    let uri = '/user-service/delete/room/' + id + '/';
+    let uri = 'user-service/delete/room/' + id + '/';
     $http.delete(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -140,7 +141,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.renameRoom = function (id, newName) {
-    let uri = '/user-service/rename/room/' + id + '/' + newName + '/';
+    let uri = 'user-service/rename/room/' + id + '/' + newName + '/';
     $http.post(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -150,7 +151,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.deleteExistingAppliance = function (id) {
-    let uri = '/user-service/delete/appliance/' + id + '/';
+    let uri = 'user-service/delete/appliance/' + id + '/';
     $http.delete(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -160,7 +161,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.renameAppliance = function (id, newName) {
-    let uri = '/user-service/rename/appliance/' + id + '/' + newName + '/';
+    let uri = 'user-service/rename/appliance/' + id + '/' + newName + '/';
     $http.post(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -172,7 +173,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   // ------ add new xyz --------
 
   this.addNewBuilding = function (buildingNumber) {
-    let uri = '/user-service/register-building/' + buildingNumber + '/';
+    let uri = 'user-service/register-building/' + buildingNumber + '/';
     $http.put(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -182,7 +183,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.addNewRoomToTheBuilding = function (building, roomName) {
-    let uri = '/user-service/register-room/' + building + '/' + roomName + '/';
+    let uri = 'user-service/register-room/' + building + '/' + roomName + '/';
     $http.put(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -192,7 +193,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.addNewApplianceToTheRoom = function (roomId, applianceName) {
-    let uri = '/user-service/register-appliance/' + roomId + '/' + applianceName + '/';
+    let uri = 'user-service/register-appliance/' + roomId + '/' + applianceName + '/';
     $http.put(url + uri, null)
       .success(function (response) {
         console.info(response.text);
@@ -212,17 +213,17 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.getAllActivatedAccounts = function () {
-    let uri = '/admin/all-active-accounts/';
+    let uri = 'admin/all-active-accounts/';
     return $http.get(url + uri, null);
   };
 
   this.getAllInactiveAccounts = function () {
-    let uri = '/admin/all-inactive-accounts/';
+    let uri = 'admin/all-inactive-accounts/';
     return $http.get(url + uri, null);
   };
 
   this.deactivateUser = function (email) {
-    let uri = '/admin/deactivate-account/' + email + '/';
+    let uri = 'admin/deactivate-account/' + email + '/';
     $http.post(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -232,7 +233,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.activateUser = function (email) {
-    let uri = '/admin/activate-account/' + email + '/';
+    let uri = 'admin/activate-account/' + email + '/';
     $http.post(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -242,7 +243,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.deleteUser = function (email) {
-    let uri = '/admin/delete-user/' + email + '/';
+    let uri = 'admin/delete-user/' + email + '/';
     $http.delete(url + uri, null)
       .success(function (response) {
         self.displayMessage(response,
@@ -254,7 +255,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   // ------- reservations --------
 
   this.newReservation = function (time, applianceId) {
-    let uri = '/user-service/reservation/' + applianceId + '/';
+    let uri = 'user-service/reservation/' + applianceId + '/';
     let ajax = $http.post(url + uri, time);
     ajax.success(function (response) {
       console.info(response);
@@ -266,7 +267,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.cancelReservation = function (reservationId) {
-    let uri = '/user-service/cancel-reservation/' + reservationId + '/';
+    let uri = 'user-service/cancel-reservation/' + reservationId + '/';
     $http.delete(url + uri, null)
       .success(function (response) {
         $state.reload();
@@ -278,7 +279,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.submitTokenAsGuest = function (token) {
-    let uri = '/guest/connect-to-appliance/';
+    let uri = 'guest/connect-to-appliance/';
     let requestBody = {
       "text": token
     };
@@ -289,7 +290,7 @@ app.service('httpSvc', function ($rootScope, $http, $state) {
   };
 
   this.connectToApplianceAsLoggedUser = function (reservationId) {
-    let uri = '/user-service/connect-to-appliance/' + reservationId + '/';
+    let uri = 'user-service/connect-to-appliance/' + reservationId + '/';
     $http.post(url + uri, null)
       .success(function (response) {
         self.simpleMsg(response.text);
